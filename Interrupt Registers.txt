@@ -1,0 +1,27 @@
+//register configurations for primary user interface interrupts:
+//
+//interrupt (high priority) on emergency stop - PORTB0
+//interrupt (low priority) on OR input - PORTB1
+//interrupt on ON/OFF - PORTB4
+//disable interrupt on PORTB2
+
+INTCON.RBIE = 1		//enable PORTB change interrupt
+INTCON2.RBPU = 1	//PORTB pullups are enabled
+
+INTCON.INT0IE = 1	//enable PORTB0 interrupt (high priority interrupt)
+INTCON.INT0IF = 1	//clear PORTB0 interrupt flag
+INTCON2.INTEDG0 = 1	//PORTB0 interrupt on rising edge
+
+INTCON3.INT1IE = 1	//enable PORTB1 interrupt
+INTCON3.INT1IP = 0	//set PORTB1 interrupt to low priority
+INTCON3.INT1IF = 1	//clear PORTB1 interrupt flag
+INTCON2.INTEDG1 = 1	//PORTB1 interrupt on rising edge
+
+INTCON3.INT2IE = 0 	//disable PORTB2 interrupt
+INTCON3.INT2IF = 0	//clear PORTB2 interrupt flag
+
+INTCON.RBIF = 1		//enable interrupt in PORTB 4:7 (must be disabled during debugging)
+
+
+
+
