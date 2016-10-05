@@ -2,9 +2,9 @@ Main Loop
 
 Major Function Libraries:
 
-Communication (Wei)__
-Movement (Riley and Tousif)__
-Navigation (Riley and Tousif)__
-User (Will)__
-Serial (Will)__
+Communication (Wei)  
+Movement (Riley and Tousif)  
+Navigation (Riley and Tousif)  
+User (Will)  
+Serial (Will)  
 
