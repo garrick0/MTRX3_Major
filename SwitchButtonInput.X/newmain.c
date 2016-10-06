@@ -1,6 +1,6 @@
 /* 
  * File:   newmain.c
- * Author: Monadil
+ * Author: Monadil + Kewei
  *
  * Created on 6 October 2016, 3:59 PM
  */
