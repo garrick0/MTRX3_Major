@@ -2,6 +2,7 @@
  * File:   newmain.c
  * Author: Monadil + Kewei
  *
+ * TODO: Finish off designing hardware
  * Created on 6 October 2016, 3:59 PM
  */
 
