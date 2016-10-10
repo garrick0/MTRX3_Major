@@ -8,33 +8,22 @@
 #include "ConfigRegs.h"
 #include "delays.h"
 #include "usart.h"
-#include "RFmodule.h"
+//#include "RFmodule.h"
 #include "ASCII.h"
 #define BIT0 0x01
 
 void initUSART(void);
 void read_ISR(void);
-void write_ISR(void);
 
-#pragma interrupt chk_isr1 // used for high only
+
+#pragma interrupt chk_isr // used for high only
 void chk_isr (void){
     read_ISR();
 }
 #pragma code highPrior = 0x0008 // high priority
 void highPrior (void){
     _asm
-    goto    chk_isr1 
-    _endasm
-}
-#pragma code
-#pragma interrupt chk_isr2 // used for low only
-void chk_isr (void){
-    write_ISR();
-}
-#pragma code lowPrior = 0x0018 // low priority
-void highPrior (void){
-    _asm
-    goto    chk_isr2 
+    goto    chk_isr 
     _endasm
 }
 #pragma code
@@ -42,45 +31,55 @@ char ATCommandStart[] = "+++"; //Initialize AT Command Mode.
 char ATCommandRSSI[] = "ATDB\r"; // read signal strength
 char ATCommandEnd[] = "ATCN\r"; // end command
 char RSSI[20], stat[20], buf[100];
-char *rcPtr, *txPtr;
+char *rcPtr, *txPtr, *rtPtr;
 int stage = 1;
-const int idle = 0, startSend = 1, startSending = 2, statReq = 3, statGet = 4, rssiReq = 5, rssiGet = 6, done =  7;
+const int idle = 0, startSend = 1, rssiReq = 3, done =  5;
+int i,j,k;
 
 main(void)
  {
-    rcPtr = &buf[0];
+    rcPtr = buf;
     PORTBbits.RB0 = 0;
     // configure USART
     initUSART();
     while (1){
-        if(PORTBbits.RB0 == 1){
+        if(PORTBbits.RB0 == 1){ // flag check
             PORTBbits.RB0 = 0;
             stage++;
         }
-        switch(stage){
-            case startSend:
-                txPtr = ATCommandStart;
-                PIE1bits.TXIE = 1;
-                putcUSART(*txPtr);
-                stage++;
-                break;
-            case statReq:
-                // get from buffer the status
-                stage++;
-                break;
-            case rssiReq:
-                txPtr = ATCommandRSSI;
-                PIE1bits.TXIE = 1;
-                putcUSART(*txPtr);
-                stage++;
-                break;
-            case done:
-                // get from buffer the RSSI
-                txPtr = ATCommandEnd;
-                PIE1bits.TXIE = 1;
-                putcUSART(*txPtr);
-                stage = 0;
-                break;
+        if(stage == startSend){
+            txPtr = ATCommandStart;
+            while (*txPtr)
+            {
+                while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
+                putcUSART(*txPtr); // write command 
+                txPtr++;  
+            }
+            stage++; // done send
+        }else if(stage == rssiReq){
+            txPtr = ATCommandRSSI;
+            while (*txPtr)
+            {
+                while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
+                putcUSART(*txPtr); // write command 
+                txPtr++;  
+            }
+            stage++; // done send
+            PORTBbits.RB1=1;
+        }else if(stage == done){
+            // check if received
+            PIE1bits.RCIE = 0;
+            i = 0;
+            while(*rtPtr){ // save in circular buffer
+                RSSI[i] = *rtPtr;
+                i++;
+                rtPtr++;
+                if(*rtPtr == 0x00){
+                    rtPtr = &buf[0];
+                }
+            }
+            PORTBbits.RB2=1;
+            stage = idle; // return to idle
         }
     }
  }
@@ -105,7 +104,7 @@ void initUSART(void)
             USART_RX_INT_ON  &
             USART_ASYNCH_MODE &
             USART_EIGHT_BIT   &
-            USART_CONT_RX     &
+           USART_CONT_RX &
             USART_BRGH_HIGH, 25 );
 
    INTCONbits.GIEH=1;      /* Enable interrupt globally*/
@@ -117,25 +116,12 @@ void read_ISR(void){
 
     PIR1bits.RCIF=0; // clear flag   
     rcPtr++;
-    if(*rcPtr == 0x00){
-        rcPtr = &buf[0];
-    }
+//    if(*rcPtr == 0x00){
+//        rcPtr = &buf[0];
+//    }
     *rcPtr = ReadUSART();
     if(*rcPtr == CR){
         PORTBbits.RB0 = 1;
     }
     return 0;
 }
-void write_ISR(void){
-
-    PIR1bits.TXIF=0; // clear flag
-    txPtr++;
-    if(*txPtr == 0x00){
-        PORTBbits.RB0 = 1;
-        PIE1bits.TXIE = 0;
-    }
-    putcUSART(*txPtr);
-    return 0;
-}
-
- 
