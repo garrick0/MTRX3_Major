@@ -1,0 +1,30 @@
+
+void LowPriorityISR(void){
+
+	if(ORInput){				//check if user input triggered interrupt
+		CheckUserInput();
+	}
+}
+
+
+void HighPriorityISR(void){
+
+	if(On_Off_Switch){				//check if user input triggered interrupt
+		ON_OFF();
+	}
+		
+	if(EmergencyStop){	
+		EmergencyStop();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+					

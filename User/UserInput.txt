@@ -1,0 +1,66 @@
+#define  dpadUP		PORTAbits.RA0
+#define  dpadDOWN	PORTAbits.RA1
+#define  dpadLEFT	PORTAbits.RA2
+#define  dpadRIGHT	PORTAbits.RA3
+#define  Abutton	PORTAbits.RA4
+#define  Bbutton	PORTAbits.RA5
+
+#define  EmergencyStop	PORTBbits.RB0
+#define  ORInput	PORTBbits.RB1
+#define  HalfScan	PORTBbits.RB2
+#define  FullScan	PORTBbits.RB3 
+#define  On_Off_Switch	PORTBbits.RB4
+
+
+char	UserInputBuffer[10];			//stores user inputs
+int 	idx=0;					//indicators for UserInputBuffer idx=current buffer location
+
+
+
+void CheckUserInput(void){
+	if(dpadUP){
+		WriteUserInputBuffer('U');
+	}
+	if(dpadDOWN){
+		WriteUserInputBuffer('D');
+	}
+	if(dpadLEFT){
+		WriteUserInputBuffer('L');
+	}
+	if(dpadRIGHT){
+		WriteUserInputBuffer('R');
+	}
+	if(Abutton){
+		WriteUserInputBuffer('A');
+	}
+	if(Bbutton){
+		WriteUserInputBuffer('B');
+	}
+}
+
+void WriteUserInputBuffer(const rom char *letter, int idx,char *UserInputBuffer){
+	
+	UserInputBuffer[idx++]=*letter;
+	idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
+}
+
+
+//have to decide the type of output and if the whole buffer is read at once
+	
+void ReadUserInputBuffer(char *UserInputBuffer,int idx){
+	int counter=sizeof(UserInputBuffer);
+	while(counter--){
+		letter=UserInputBuffer[idx];		//read buffer
+		UserInputBuffer[idx++]='\0';		//clear buffer after reading
+		idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
+
+	}
+						
+}
+	
+void ClearUserInputBuffer(void){
+	counter=sizeof(UserInputBuffer);
+	while(counter){
+		UserInputBuffer[counter--]='\0';
+	}
+}
