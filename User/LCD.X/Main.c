@@ -4,7 +4,6 @@
 #include "xlcddelays.h"
 #include "LCDWrite.h"
 
-
 void main( void ){
   
     LCDInitialise();

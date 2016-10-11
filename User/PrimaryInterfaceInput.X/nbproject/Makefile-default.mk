@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Main.c UserInput.c
+SOURCEFILES_QUOTED_IF_SPACED=Main.c UserInput.c StateChange.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Main.o ${OBJECTDIR}/UserInput.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Main.o.d ${OBJECTDIR}/UserInput.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Main.o ${OBJECTDIR}/UserInput.o ${OBJECTDIR}/StateChange.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Main.o.d ${OBJECTDIR}/UserInput.o.d ${OBJECTDIR}/StateChange.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Main.o ${OBJECTDIR}/UserInput.o
+OBJECTFILES=${OBJECTDIR}/Main.o ${OBJECTDIR}/UserInput.o ${OBJECTDIR}/StateChange.o
 
 # Source Files
-SOURCEFILES=Main.c UserInput.c
+SOURCEFILES=Main.c UserInput.c StateChange.c
 
 
 CFLAGS=
@@ -111,6 +111,14 @@ ${OBJECTDIR}/UserInput.o: UserInput.c  nbproject/Makefile-${CND_CONF}.mk
 	@${DEP_GEN} -d ${OBJECTDIR}/UserInput.o 
 	@${FIXDEPS} "${OBJECTDIR}/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
+${OBJECTDIR}/StateChange.o: StateChange.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/StateChange.o.d 
+	@${RM} ${OBJECTDIR}/StateChange.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/StateChange.o   StateChange.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/StateChange.o 
+	@${FIXDEPS} "${OBJECTDIR}/StateChange.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
 else
 ${OBJECTDIR}/Main.o: Main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -127,6 +135,14 @@ ${OBJECTDIR}/UserInput.o: UserInput.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInput.o   UserInput.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UserInput.o 
 	@${FIXDEPS} "${OBJECTDIR}/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/StateChange.o: StateChange.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/StateChange.o.d 
+	@${RM} ${OBJECTDIR}/StateChange.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/StateChange.o   StateChange.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/StateChange.o 
+	@${FIXDEPS} "${OBJECTDIR}/StateChange.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 endif
 

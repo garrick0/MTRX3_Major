@@ -47,36 +47,36 @@ void UserInputSetup(void){
 
 void CheckUserInput(void){
 	if(dpadUP){
-		WriteUserInputBuffer("U",idx,UserInputBuffer);
+		WriteUserInputBuffer("U",&idx,UserInputBuffer);
 	}
 	if(dpadDOWN){
-		WriteUserInputBuffer("D",idx,UserInputBuffer);
+		WriteUserInputBuffer("D",&idx,UserInputBuffer);
 	}
 	if(dpadLEFT){
-		WriteUserInputBuffer("L",idx,UserInputBuffer);
+		WriteUserInputBuffer("L",&idx,UserInputBuffer);
 	}
 	if(dpadRIGHT){
-		WriteUserInputBuffer("R",idx,UserInputBuffer);
+		WriteUserInputBuffer("R",&idx,UserInputBuffer);
 	}
 	if(Abutton){
-		WriteUserInputBuffer("A",idx,UserInputBuffer);
+		WriteUserInputBuffer("A",&idx,UserInputBuffer);
 	}
 	if(Bbutton){
-		WriteUserInputBuffer("B",idx,UserInputBuffer);
+		WriteUserInputBuffer("B",&idx,UserInputBuffer);
 	}
     if(FullScan){
-        WriteUserInputBuffer("F",idx,UserInputBuffer);
+        WriteUserInputBuffer("F",&idx,UserInputBuffer);
     }
     if(HalfScan){
-        WriteUserInputBuffer("H",idx,UserInputBuffer);
+        WriteUserInputBuffer("H",&idx,UserInputBuffer);
     }
 }
 
 //stores user input letter in circular buffer
-void WriteUserInputBuffer(const rom char *letter, int idx,char *UserInputBuffer){
+void WriteUserInputBuffer(const rom char *letter, int *idx,char *UserInputBuffer){
 	
-	UserInputBuffer[idx++]=*letter;     //store letter in buffer
-	idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
+	UserInputBuffer[*idx++]=*letter;     //store letter in buffer
+	*idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
 }
 
 //have to decide the type of output and if the whole buffer is read at once
@@ -84,12 +84,12 @@ void WriteUserInputBuffer(const rom char *letter, int idx,char *UserInputBuffer)
 //if characters are read 1 at a time (current setup):
 //possible issue-buffer inputs may be overwritten by WriteUserInputBuffer
 //reads user inputs from circular buffer	
-char ReadUserInputBuffer(char *UserInputBuffer,int idx){
+char ReadUserInputBuffer(char *UserInputBuffer,int *idx){
 	//int counter=sizeof(UserInputBuffer);
 	//while(counter--){
-		char output=UserInputBuffer[idx];		//read buffer
-		UserInputBuffer[idx++]='\0';		//clear buffer after reading
-		idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
+		char output=UserInputBuffer[*idx];		//read buffer
+		UserInputBuffer[*idx++]='\0';		//clear buffer after reading
+		*idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
 
 	//}
 		return output;				

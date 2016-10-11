@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>ConfigRegs_18F4520.h</itemPath>
       <itemPath>UserInput.h</itemPath>
+      <itemPath>StateChange.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -16,6 +17,7 @@
                    projectFiles="true">
       <itemPath>Main.c</itemPath>
       <itemPath>UserInput.c</itemPath>
+      <itemPath>StateChange.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -1,7 +1,17 @@
-#define USER_MANUAL_MODE 	0
-#define USER_AUTO_MODE 		1
-#define	FACTORY_MODE		2
+//flow of user interface functions within main program :
 
-#define	PRIMARY_INTERFACE_MODE	0
-#define	SECODARY_INTERFACE_MODE	1
+char Instruction;
+
+void main(void){
+
+while(1){
+	
+	Instruction= ReadUserInputBuffer();
+	StateChange(Instruction);
+	PrimaryInterfaceOutput(CURRENT_STATE,INTERFACE_MODE,PARROT_FOUND,PARROT_MOVING,CURRENT_DIRECTION,PARROT_DISTANCE);
+	SecondaryInterfaceOutput(
+}
+
+	
+	
 
