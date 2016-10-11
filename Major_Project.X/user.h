@@ -7,6 +7,8 @@
 #ifndef USER_H_
 #define USER_H_
 
+void initialSetup(void);
+
 void getInputs(void);
 
 int userOutput(int directionInput, int scan, int changeState, int secondayInterface);

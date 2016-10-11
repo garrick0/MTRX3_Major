@@ -6,8 +6,13 @@
  *
  */
 
+#include    <p18f452.h>
+#include    "navigation.h"
+#include    "define.h"
+
 unsigned char   CURRENT_STATE;      /**< Current state of the robot */
 unsigned char   MAX_ROBOT_SPEED;    /**< Maximum speed of the robot */
 unsigned char   CURRENT_DIRECTION;  /**< The direction of the robot */
 unsigned char   PARROT_FOUND;       /**< Has the parrot been found */
 unsigned char   INTERFACE_MODE;     /**< Current interface mode */   
+

@@ -23,11 +23,16 @@
 #include	"user.h"
 
 void main(void){
-    while(1){
+        // All setups here
+        initialSetup();
         setupLEDs(); // Set-up and calibrate
-        CURRENT_STATE = MANUAL; // Get user input;
-        stateControl(LOST);  
-    }
+        // CURRENT_STATE = MANUAL; // Get user input;
+        // stateControl(LOST); 
+        
+        // Module priorities start here
+        while(1){
+         
+        }    
 }
 
 // Proposed workflow

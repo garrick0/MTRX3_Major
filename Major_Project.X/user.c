@@ -15,6 +15,7 @@
 
 //! Start up initialization - specifically to put mode into MANUAL.
 void initialSetup(void){
+     CURRENT_STATE = MANUAL;
     
 }
 
