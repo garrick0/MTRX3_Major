@@ -13,7 +13,7 @@
 #include    "define.h"
 #include    "globalVars.h"
 
-int stateControl(unsigned char CURRENT_STATE) {
+int stateControl(void) {
   if (CURRENT_STATE == MANUAL){
       PORTB = ONELED; 
   }

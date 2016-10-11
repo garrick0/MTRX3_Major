@@ -1,5 +1,5 @@
 MPLINK 5.00, LINKER
-Linker Map File - Created Tue Oct 11 17:13:18 2016
+Linker Map File - Created Tue Oct 11 17:39:15 2016
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -7,41 +7,41 @@ Linker Map File - Created Tue Oct 11 17:13:18 2016
                _entry_scn       code   0x000000    program   0x000006
                    .cinit    romdata   0x000006    program   0x000002
                _cinit_scn       code   0x000008    program   0x00009e
-            .code_state.o       code   0x0000a6    program   0x00003c
-                    .code       code   0x0000e2    program   0x000020
-             _startup_scn       code   0x000102    program   0x00001c
-             .code_user.o       code   0x00011e    program   0x00001a
-         .code_movement.o       code   0x000138    program   0x000012
-       .code_navigation.o       code   0x00014a    program   0x000010
-           .code_serial.o       code   0x00015a    program   0x00000c
-    .code_communication.o       code   0x000166    program   0x00000c
-             .code_main.o       code   0x000172    program   0x00000a
-            .code_setup.o       code   0x00017c    program   0x000006
-           .code___init.o       code   0x000182    program   0x000002
-        .romdata___init.o    romdata   0x000184    program   0x000000
-        .idata_serial.o_i    romdata   0x000184    program   0x000000
-        .romdata_serial.o    romdata   0x000184    program   0x000000
-         .idata_state.o_i    romdata   0x000184    program   0x000000
-         .romdata_state.o    romdata   0x000184    program   0x000000
-        .idata___init.o_i    romdata   0x000184    program   0x000000
-          .idata_user.o_i    romdata   0x000184    program   0x000000
-          .romdata_user.o    romdata   0x000184    program   0x000000
-         .idata_setup.o_i    romdata   0x000184    program   0x000000
-         .romdata_setup.o    romdata   0x000184    program   0x000000
-    .idata_globalVars.o_i    romdata   0x000184    program   0x000000
-    .romdata_globalVars.o    romdata   0x000184    program   0x000000
-       .code_globalVars.o       code   0x000184    program   0x000000
-         .idata_c018i.o_i    romdata   0x000184    program   0x000000
-         .romdata_c018i.o    romdata   0x000184    program   0x000000
-            .code_c018i.o       code   0x000184    program   0x000000
- .idata_communication.o_i    romdata   0x000184    program   0x000000
- .romdata_communication.o    romdata   0x000184    program   0x000000
-          .idata_main.o_i    romdata   0x000184    program   0x000000
-          .romdata_main.o    romdata   0x000184    program   0x000000
-      .idata_movement.o_i    romdata   0x000184    program   0x000000
-      .romdata_movement.o    romdata   0x000184    program   0x000000
-    .idata_navigation.o_i    romdata   0x000184    program   0x000000
-    .romdata_navigation.o    romdata   0x000184    program   0x000000
+            .code_state.o       code   0x0000a6    program   0x00002a
+                    .code       code   0x0000d0    program   0x000020
+             _startup_scn       code   0x0000f0    program   0x00001c
+             .code_user.o       code   0x00010c    program   0x000018
+         .code_movement.o       code   0x000124    program   0x000012
+       .code_navigation.o       code   0x000136    program   0x000010
+             .code_main.o       code   0x000146    program   0x00000e
+           .code_serial.o       code   0x000154    program   0x00000c
+    .code_communication.o       code   0x000160    program   0x00000c
+            .code_setup.o       code   0x00016c    program   0x000006
+           .code___init.o       code   0x000172    program   0x000002
+        .romdata___init.o    romdata   0x000174    program   0x000000
+        .idata_serial.o_i    romdata   0x000174    program   0x000000
+        .romdata_serial.o    romdata   0x000174    program   0x000000
+         .idata_state.o_i    romdata   0x000174    program   0x000000
+         .romdata_state.o    romdata   0x000174    program   0x000000
+        .idata___init.o_i    romdata   0x000174    program   0x000000
+          .idata_user.o_i    romdata   0x000174    program   0x000000
+          .romdata_user.o    romdata   0x000174    program   0x000000
+         .idata_setup.o_i    romdata   0x000174    program   0x000000
+         .romdata_setup.o    romdata   0x000174    program   0x000000
+    .idata_globalVars.o_i    romdata   0x000174    program   0x000000
+    .romdata_globalVars.o    romdata   0x000174    program   0x000000
+       .code_globalVars.o       code   0x000174    program   0x000000
+         .idata_c018i.o_i    romdata   0x000174    program   0x000000
+         .romdata_c018i.o    romdata   0x000174    program   0x000000
+            .code_c018i.o       code   0x000174    program   0x000000
+ .idata_communication.o_i    romdata   0x000174    program   0x000000
+ .romdata_communication.o    romdata   0x000174    program   0x000000
+          .idata_main.o_i    romdata   0x000174    program   0x000000
+          .romdata_main.o    romdata   0x000174    program   0x000000
+      .idata_movement.o_i    romdata   0x000174    program   0x000000
+      .romdata_movement.o    romdata   0x000174    program   0x000000
+    .idata_navigation.o_i    romdata   0x000174    program   0x000000
+    .romdata_navigation.o    romdata   0x000174    program   0x000000
     .config_300001_main.o    romdata   0x300001    program   0x000001
     .config_300002_main.o    romdata   0x300002    program   0x000001
     .config_300003_main.o    romdata   0x300003    program   0x000001
@@ -85,11 +85,11 @@ Linker Map File - Created Tue Oct 11 17:13:18 2016
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000183      
+                            0x000000    0x000173      
                             0x300001    0x300003      
                             0x300005    0x300006      
                             0x300008    0x30000d      
-            399 out of 33048 program addresses used, program memory utilization is 1%
+            383 out of 33048 program addresses used, program memory utilization is 1%
 
 
 
@@ -97,7 +97,7 @@ Linker Map File - Created Tue Oct 11 17:13:18 2016
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x00011c    program     static                          
+       ___return_lbl00001   0x00010a    program     static                          
        ___return_lbl00002   0x0000a4    program     static                          
                __config_0   0x300001    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
                __config_1   0x300002    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
@@ -110,38 +110,38 @@ Linker Map File - Created Tue Oct 11 17:13:18 2016
                __config_7   0x30000a    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
                __config_8   0x30000b    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
                __config_9   0x30000c    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
-                   __init   0x000182    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-                   __pa_0   0x00012c    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-                   __pa_0   0x00014e    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
-                   __pa_0   0x00013e    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
-            __zero_memory   0x0000e2    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                   __init   0x000172    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
+                   __pa_0   0x000118    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+                   __pa_0   0x00013a    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
+                   __pa_0   0x00012a    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
+            __zero_memory   0x0000d0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
                 _do_cinit   0x000008    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                 _startup   0x000102    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-            communication   0x000166    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\communication.c
-                compare_l   0x0000f8    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                 _startup   0x0000f0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+            communication   0x000160    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\communication.c
+                compare_l   0x0000e6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
                 copy_loop   0x00007a    program     static                          
             copy_one_byte   0x000080    program     static                          
-               displayLCD   0x00012a    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-          distanceControl   0x00014c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
+               displayLCD   0x000116    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+          distanceControl   0x000138    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
                      done   0x0000a4    program     static                          
              done_copying   0x00008e    program     static                          
-          encoderMovement   0x00013c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
-                getInputs   0x000126    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-             initialSetup   0x00011e    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-                     loop   0x000112    program     static                          
-                   loop_h   0x0000f0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                   loop_l   0x0000fa    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                     main   0x000172    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
-                 movement   0x000138    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
-               navigation   0x00014a    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
-                 rotation   0x00013a    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
-                   serial   0x00015a    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\serial.c
-                setupLEDs   0x00017c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\setup.c
+          encoderMovement   0x000128    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
+                getInputs   0x000112    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+             initialSetup   0x00010c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+                     loop   0x000100    program     static                          
+                   loop_h   0x0000de    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                   loop_l   0x0000e8    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                     main   0x000146    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
+                 movement   0x000124    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
+               navigation   0x000136    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
+                 rotation   0x000126    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
+                   serial   0x000154    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\serial.c
+                setupLEDs   0x00016c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\setup.c
              stateControl   0x0000a6    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\state.c
                      test   0x000022    program     static                          
-               userOutput   0x000128    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-               zero_block   0x0000f0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+               userOutput   0x000114    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+               zero_block   0x0000de    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
                    ADCON0   0x000fc2       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
                ADCON0bits   0x000fc2       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
                    ADCON1   0x000fc1       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
@@ -338,31 +338,31 @@ Linker Map File - Created Tue Oct 11 17:13:18 2016
        ___return_lbl00002   0x0000a4    program     static                          
                      done   0x0000a4    program     static                          
              stateControl   0x0000a6    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\state.c
-            __zero_memory   0x0000e2    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-               zero_block   0x0000f0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                   loop_h   0x0000f0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                compare_l   0x0000f8    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                   loop_l   0x0000fa    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                 _startup   0x000102    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x000112    program     static                          
-       ___return_lbl00001   0x00011c    program     static                          
-             initialSetup   0x00011e    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-                getInputs   0x000126    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-               userOutput   0x000128    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-               displayLCD   0x00012a    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-                   __pa_0   0x00012c    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
-                 movement   0x000138    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
-                 rotation   0x00013a    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
-          encoderMovement   0x00013c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
-                   __pa_0   0x00013e    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
-               navigation   0x00014a    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
-          distanceControl   0x00014c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
-                   __pa_0   0x00014e    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
-                   serial   0x00015a    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\serial.c
-            communication   0x000166    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\communication.c
-                     main   0x000172    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
-                setupLEDs   0x00017c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\setup.c
-                   __init   0x000182    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
+            __zero_memory   0x0000d0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+               zero_block   0x0000de    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                   loop_h   0x0000de    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                compare_l   0x0000e6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                   loop_l   0x0000e8    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                 _startup   0x0000f0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x000100    program     static                          
+       ___return_lbl00001   0x00010a    program     static                          
+             initialSetup   0x00010c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+                getInputs   0x000112    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+               userOutput   0x000114    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+               displayLCD   0x000116    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+                   __pa_0   0x000118    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\user.c
+                 movement   0x000124    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
+                 rotation   0x000126    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
+          encoderMovement   0x000128    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
+                   __pa_0   0x00012a    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\movement.c
+               navigation   0x000136    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
+          distanceControl   0x000138    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
+                   __pa_0   0x00013a    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\navigation.c
+                     main   0x000146    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
+                   serial   0x000154    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\serial.c
+            communication   0x000160    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\communication.c
+                setupLEDs   0x00016c    program     extern C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\setup.c
+                   __init   0x000172    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
                __config_0   0x300001    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
                __config_1   0x300002    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c
                __config_2   0x300003    program     static C:\Users\Monadil\Desktop\MTRX3_Major\Major_Project.X\main.c

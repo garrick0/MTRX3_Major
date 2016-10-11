@@ -9,6 +9,6 @@
 #ifndef STATE_H_
 #define STATE_H_
 
-int stateControl(unsigned char CURRENT_STATE);
+int stateControl(void);
 
 #endif
