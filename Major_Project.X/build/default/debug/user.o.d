@@ -1,5 +1,6 @@
 build/default/debug/user.o:  \
-	E:/Major_Project.X/user.c  \
-	E:/Major_Project.X/user.h  \
-	E:/Major_Project.X/globalVars.h  \
+	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/user.c  \
+	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/user.h  \
+	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/globalVars.h  \
+	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/define.h  \
 

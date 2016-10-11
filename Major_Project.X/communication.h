@@ -7,6 +7,6 @@
 #ifndef WIRELESSCOMC2R_H_
 #define WIRELESSCOMC2R_H_
 
-void communication(int pidInput, int pidGains, int chirpstrength);
+ void communication(int pidInput, int pidGains, int chirpstrength, int direction);
 
 #endif

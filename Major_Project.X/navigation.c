@@ -10,11 +10,14 @@
   */
 
 #include    <p18f452.h>
+#include    "navigation.h"
+#include    "define.h"
+#include    "globalVars.h"
 
 void navigation(int location, int movement){
 
   }
 
-int distanceControl(int distance){
-    return 0;
+void distanceControl(int distance){
+
 }

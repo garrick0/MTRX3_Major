@@ -10,7 +10,8 @@
 
 #include    <p18f452.h>
 #include    "setup.h"
-
+#include    "define.h"
+#include    "globalVars.h"
 
 void setupLEDs(void){
     PORTB = 0x00;

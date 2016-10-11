@@ -9,13 +9,15 @@
  */
 
 #include    <p18f452.h>
+#include    "define.h"
+#include    "globalVars.h"
 
 void movement(int location, int gains){
 
 }
 
-int rotation(int pidInput, int gains){
-    return 0;
+void rotation(int pidInput, int gains){
+    
 
 }
 

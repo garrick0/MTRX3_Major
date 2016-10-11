@@ -11,6 +11,8 @@
 
 #include    <p18f452.h>
 #include    "communication.h"
+#include    "define.h"
+#include    "globalVars.h"
 
 /**
  *  @struct communication
@@ -27,19 +29,11 @@ struct communication {
 
 /**
  *  @file   communication.c
- *  @brief  Wirless communication between the robot and robot commander
- *
+ *  @brief  Wireless communication between the robot commander and robot
+ * 
  *  @todo   Replace return type void to struct. 
  */
- void communication(int pidInput, int pidGains, int chirpstrength)
+ void communication(int pidInput, int pidGains, int chirpstrength, int direction)
  {
 
  }
-
-// struct communication func(){
-//     struct commincation result;
-//     result.encoderPositionR = 3;
-//     result.encoderPositionL = 4;
-//     return result;
-//   }
-// }

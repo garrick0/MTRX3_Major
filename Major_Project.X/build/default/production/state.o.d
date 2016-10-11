@@ -1,4 +1,6 @@
 build/default/production/state.o:  \
-	E:/Major_Project.X/state.c  \
-	E:/Major_Project.X/state.h  \
+	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/state.c  \
+	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/state.h  \
+	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/define.h  \
+	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/globalVars.h  \
 

@@ -10,6 +10,8 @@
 
 #include    <p18f452.h>
 #include    "serial.h"
+#include    "define.h"
+#include    "globalVars.h"
 
 void serial(char *buffer){
 

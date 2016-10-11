@@ -7,7 +7,7 @@
 #ifndef NAVIGATION_H_
 #define NAVIGATION_H_
 
- void navigation(int location, int movement);
- int distanceControl(int distance);
+void navigation(int location, int movement);
+void distanceControl(int distance);
 
 #endif

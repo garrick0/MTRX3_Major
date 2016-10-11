@@ -10,6 +10,8 @@
 
 #include    <p18f452.h>
 #include    "state.h"
+#include    "define.h"
+#include    "globalVars.h"
 
 int stateControl(unsigned char CURRENT_STATE) {
   if (CURRENT_STATE == MANUAL){

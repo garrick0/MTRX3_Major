@@ -11,6 +11,12 @@
 #include    <p18f452.h>
 #include    "globalVars.h"
 #include    "user.h"
+#include    "define.h"
+
+//! Start up initialization - specifically to put mode into MANUAL.
+void initialSetup(void){
+    
+}
 
 //! Maybe implement an interrupt where all the user inputs are stored into a buffer.
 void getInputs(void){

@@ -13,6 +13,7 @@
 #include    <p18f452.h>
 #include    "ConfigRegs.h"
 #include	"communication.h"
+#include    "define.h"
 #include    "globalVars.h"
 #include	"movement.h"
 #include	"navigation.h"
@@ -24,7 +25,7 @@
 void main(void){
     while(1){
         setupLEDs(); // Set-up and calibrate
-        CURRENT_STATE = MANUAL;
+        CURRENT_STATE = MANUAL; // Get user input;
         stateControl(LOST);  
     }
 }
