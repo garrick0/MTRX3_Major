@@ -5,6 +5,6 @@
 ### Communication (Wei)  
 ### Movement (Riley and Tousif)  
 ### Navigation (Riley and Tousif)  
-### User (Will)  
+### User (Will and Kewei)  
 ### Serial (Will)  
 
