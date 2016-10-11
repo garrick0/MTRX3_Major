@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=UserInput.X
+PROJECTNAME=PrimaryInterfaceInput.X
 
 # Active Configuration
 DEFAULTCONF=default
