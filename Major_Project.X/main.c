@@ -31,9 +31,10 @@ void main(void){
         
         // Module priorities start here
         while(1){
+            
             getInputs();
             stateControl();
-            displayLCD(CURRENT_STATE);
+            
         }    
 }
 

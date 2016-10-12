@@ -13,7 +13,8 @@
 #include    "define.h"
 #include    "globalVars.h"
 
-int stateControl(void) {
+//! State control - check whether change state has been found
+void stateControl(unsigned char CURRENT_STATE) {
   if (CURRENT_STATE == MANUAL){
       PORTB = ONELED; 
   }

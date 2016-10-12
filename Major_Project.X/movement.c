@@ -18,7 +18,6 @@ void movement(int location, int gains){
 
 void rotation(int pidInput, int gains){
     
-
 }
 
 void encoderMovement(char *buffer){
