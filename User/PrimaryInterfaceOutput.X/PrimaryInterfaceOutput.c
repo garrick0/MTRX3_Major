@@ -36,7 +36,7 @@ void    InitialiseServo(void){
    
     CCP1CON=0x0B;    //setup CCP1 for compare and special event
     
-    T1CON=0x81;       //setup timer 1, 16 bit operation, 1:1 prescale    
+    T1CON=0x80;       //setup timer 1, 16 bit operation, 1:1 prescale    
     
     PORTBbits.RB2=0;    //set as output  
     TRISBbits.RB2=0;
