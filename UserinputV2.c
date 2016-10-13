@@ -46,7 +46,7 @@ void UserInputSetup(void){
     PORTA=0x00;
     PORTB=0x00;             //set PORTB as outputs
     TRISB = 0x1F;       //set PORTB 0:4 pins to inputs and 5:7 pins as outputs
-    TRISA = 0xFF;    
+    TRISA = 0x3F;       //set PORTA 0:5 pins to inputs and 5:7 pins as outputs
     ADCON1=0x0F;        //set all PORTS as digital I/O (may have to change for f452)
 
     
@@ -81,24 +81,7 @@ void UserInputSetup(void){
 
 
 
-void highPriorityIsr(void) {
-  	if(INTCONbits.RBIF){            //check if user input triggered interrupt
-		INTCONbits.RBIF = 0;        //clear PORTB 4:7 interrupt flag
-        ON_OFF();
-	}
-		
-	if(EmergencyStop){              //check if user input triggered interrupt
-        INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
-		Emergency_Stop();
-	}
-}
 
-void lowPriorityIsr(void) {
-	if(ORInput){				//check if user input triggered interrupt
-        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
-		CheckUserInput();
-	}
-}
 
 
 #pragma code highPriorityInterruptAddress=0x0008
@@ -207,11 +190,32 @@ void  StateChange(char Instruction,int CURRENT_STATE,int INTERFACE_MODE){
 
 
 #pragma code
+
 void main( void ){
-        
+ UserInputSetup();
+    
+while(1){
+}    
    
 }
 
 
+void highPriorityIsr(void) {
+  	if(INTCONbits.RBIF){            //check if user input triggered interrupt
+		INTCONbits.RBIF = 0;        //clear PORTB 4:7 interrupt flag
+        ON_OFF();
+	}
+		
+	if(EmergencyStop){              //check if user input triggered interrupt
+        INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
+		Emergency_Stop();
+	}
+}
 
+void lowPriorityIsr(void) {
+	if(ORInput){				//check if user input triggered interrupt
+        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
+		CheckUserInput();
+	}
+}
 
