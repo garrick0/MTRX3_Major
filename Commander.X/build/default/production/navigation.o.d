@@ -1,6 +1,6 @@
 build/default/production/navigation.o:  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/navigation.c  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/navigation.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/define.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/globalVars.h  \
+	E:/MTRX3_Major/Commander.X/navigation.c  \
+	E:/MTRX3_Major/Commander.X/navigation.h  \
+	E:/MTRX3_Major/Commander.X/define.h  \
+	E:/MTRX3_Major/Commander.X/globalVars.h  \
 

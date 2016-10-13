@@ -1,6 +1,6 @@
 build/default/production/communication.o:  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/communication.c  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/communication.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/define.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/globalVars.h  \
+	E:/MTRX3_Major/Commander.X/communication.c  \
+	E:/MTRX3_Major/Commander.X/communication.h  \
+	E:/MTRX3_Major/Commander.X/define.h  \
+	E:/MTRX3_Major/Commander.X/globalVars.h  \
 

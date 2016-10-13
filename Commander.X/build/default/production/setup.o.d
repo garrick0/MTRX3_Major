@@ -1,6 +1,6 @@
 build/default/production/setup.o:  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/setup.c  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/setup.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/define.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/globalVars.h  \
+	E:/MTRX3_Major/Commander.X/setup.c  \
+	E:/MTRX3_Major/Commander.X/setup.h  \
+	E:/MTRX3_Major/Commander.X/define.h  \
+	E:/MTRX3_Major/Commander.X/globalVars.h  \
 

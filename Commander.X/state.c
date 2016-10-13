@@ -14,21 +14,25 @@
 #include    "globalVars.h"
 
 //! State control - check whether change state has been found
-void stateControl(unsigned char CURRENT_STATE) {
+unsigned char stateControl(unsigned char CURRENT_STATE) {
   if (CURRENT_STATE == MANUAL){
       PORTB = ONELED; 
+      return CURRENT_STATE;
   }
   
   else if (CURRENT_STATE == AUTOMATIC){
       PORTB = TWOLED;
+      return CURRENT_STATE;
   }
   
   else if (CURRENT_STATE == FACTORY){
       PORTB = THREELED;
+      return CURRENT_STATE;
   }
   
   else if (CURRENT_STATE == LOST){
       PORTB = FOURLED;
+      return CURRENT_STATE;
   }
 }
       

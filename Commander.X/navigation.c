@@ -17,7 +17,3 @@
 void navigation(int location, int movement){
 
   }
-
-void distanceControl(int distance){
-
-}

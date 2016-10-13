@@ -7,8 +7,6 @@
 #ifndef MOVEMENT_H_
 #define MOVEMENT_H_
 
-void movement(int location, int gains);
-int rotation(int pidInput, int gains);
-void encoderMovement(char *buffer);
+void movement(int location, int pidGains);
 
 #endif

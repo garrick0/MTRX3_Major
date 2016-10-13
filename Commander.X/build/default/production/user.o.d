@@ -1,6 +1,6 @@
 build/default/production/user.o:  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/user.c  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/user.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/globalVars.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/define.h  \
+	E:/MTRX3_Major/Commander.X/user.c  \
+	E:/MTRX3_Major/Commander.X/user.h  \
+	E:/MTRX3_Major/Commander.X/globalVars.h  \
+	E:/MTRX3_Major/Commander.X/define.h  \
 

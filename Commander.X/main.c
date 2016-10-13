@@ -17,7 +17,6 @@
 #include    "globalVars.h"
 #include	"movement.h"
 #include	"navigation.h"
-#include	"serial.h"
 #include    "setup.h"
 #include	"state.h"
 #include	"user.h"
@@ -26,23 +25,9 @@ void main(void){
         // All setups here
         initialSetup();
         setupLEDs(); // Set-up and calibrate
-        // CURRENT_STATE = MANUAL; // Get user input;
-        // stateControl(LOST); 
-        
-        // Module priorities start here
+
+        // Asynchronous scheduling method 
         while(1){
-            
-            getInputs();
-            stateControl();
-            
+            stateControl(CURRENT_STATE);
         }    
 }
-
-// Proposed workflow
-// 1. PowerOn - Calibrate initial settings
-// 2. Manual mode on default
-// 3. GetUserInput from commander (full scan)
-// 4. Communication module transmit user commands
-// 5. Communication module received from robot
-// 6. Movement module - encoders positioned to move
-// 7. 

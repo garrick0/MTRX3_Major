@@ -7,7 +7,6 @@
       <itemPath>communication.h</itemPath>
       <itemPath>movement.h</itemPath>
       <itemPath>navigation.h</itemPath>
-      <itemPath>serial.h</itemPath>
       <itemPath>state.h</itemPath>
       <itemPath>user.h</itemPath>
       <itemPath>ConfigRegs.h</itemPath>
@@ -26,7 +25,6 @@
       <itemPath>main.c</itemPath>
       <itemPath>movement.c</itemPath>
       <itemPath>navigation.c</itemPath>
-      <itemPath>serial.c</itemPath>
       <itemPath>state.c</itemPath>
       <itemPath>user.c</itemPath>
       <itemPath>setup.c</itemPath>

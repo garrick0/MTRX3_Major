@@ -1,5 +1,5 @@
 build/default/production/movement.o:  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/movement.c  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/define.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/globalVars.h  \
+	E:/MTRX3_Major/Commander.X/movement.c  \
+	E:/MTRX3_Major/Commander.X/define.h  \
+	E:/MTRX3_Major/Commander.X/globalVars.h  \
 

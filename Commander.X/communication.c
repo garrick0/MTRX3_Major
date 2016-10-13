@@ -33,7 +33,6 @@ struct communication {
  * 
  *  @todo   Replace return type void to struct. 
  */
- void communication(int pidInput, int pidGains, int chirpstrength, int direction)
- {
+void communication(int IR_sample, int location, int movement){
 
  }

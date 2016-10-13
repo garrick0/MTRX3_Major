@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=cof
 DEBUGGABLE_SUFFIX=cof
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Major_Project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Commander.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=cof
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Major_Project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Commander.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=communication.c main.c movement.c navigation.c serial.c state.c user.c setup.c globalVars.c
+SOURCEFILES_QUOTED_IF_SPACED=communication.c main.c movement.c navigation.c state.c user.c setup.c globalVars.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/communication.o ${OBJECTDIR}/main.o ${OBJECTDIR}/movement.o ${OBJECTDIR}/navigation.o ${OBJECTDIR}/serial.o ${OBJECTDIR}/state.o ${OBJECTDIR}/user.o ${OBJECTDIR}/setup.o ${OBJECTDIR}/globalVars.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/communication.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/movement.o.d ${OBJECTDIR}/navigation.o.d ${OBJECTDIR}/serial.o.d ${OBJECTDIR}/state.o.d ${OBJECTDIR}/user.o.d ${OBJECTDIR}/setup.o.d ${OBJECTDIR}/globalVars.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/communication.o ${OBJECTDIR}/main.o ${OBJECTDIR}/movement.o ${OBJECTDIR}/navigation.o ${OBJECTDIR}/state.o ${OBJECTDIR}/user.o ${OBJECTDIR}/setup.o ${OBJECTDIR}/globalVars.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/communication.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/movement.o.d ${OBJECTDIR}/navigation.o.d ${OBJECTDIR}/state.o.d ${OBJECTDIR}/user.o.d ${OBJECTDIR}/setup.o.d ${OBJECTDIR}/globalVars.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/communication.o ${OBJECTDIR}/main.o ${OBJECTDIR}/movement.o ${OBJECTDIR}/navigation.o ${OBJECTDIR}/serial.o ${OBJECTDIR}/state.o ${OBJECTDIR}/user.o ${OBJECTDIR}/setup.o ${OBJECTDIR}/globalVars.o
+OBJECTFILES=${OBJECTDIR}/communication.o ${OBJECTDIR}/main.o ${OBJECTDIR}/movement.o ${OBJECTDIR}/navigation.o ${OBJECTDIR}/state.o ${OBJECTDIR}/user.o ${OBJECTDIR}/setup.o ${OBJECTDIR}/globalVars.o
 
 # Source Files
-SOURCEFILES=communication.c main.c movement.c navigation.c serial.c state.c user.c setup.c globalVars.c
+SOURCEFILES=communication.c main.c movement.c navigation.c state.c user.c setup.c globalVars.c
 
 
 CFLAGS=
@@ -81,7 +81,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/Major_Project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/Commander.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=18F452
 MP_PROCESSOR_OPTION_LD=18f452
@@ -126,14 +126,6 @@ ${OBJECTDIR}/navigation.o: navigation.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/navigation.o   navigation.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/navigation.o 
 	@${FIXDEPS} "${OBJECTDIR}/navigation.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/serial.o: serial.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/serial.o.d 
-	@${RM} ${OBJECTDIR}/serial.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/serial.o   serial.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/serial.o 
-	@${FIXDEPS} "${OBJECTDIR}/serial.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/state.o: state.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -200,14 +192,6 @@ ${OBJECTDIR}/navigation.o: navigation.c  nbproject/Makefile-${CND_CONF}.mk
 	@${DEP_GEN} -d ${OBJECTDIR}/navigation.o 
 	@${FIXDEPS} "${OBJECTDIR}/navigation.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
-${OBJECTDIR}/serial.o: serial.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/serial.o.d 
-	@${RM} ${OBJECTDIR}/serial.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/serial.o   serial.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/serial.o 
-	@${FIXDEPS} "${OBJECTDIR}/serial.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
 ${OBJECTDIR}/state.o: state.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/state.o.d 
@@ -245,13 +229,13 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/Major_Project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+dist/${CND_CONF}/${IMAGE_TYPE}/Commander.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_LD} $(MP_EXTRA_LD_PRE)   -p$(MP_PROCESSOR_OPTION_LD)  -w -x -u_DEBUG -m"${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"  -z__MPLAB_BUILD=1  -u_CRUNTIME -z__MPLAB_DEBUG=1 -z__MPLAB_DEBUGGER_SIMULATOR=1 $(MP_LINKER_DEBUG_OPTION) -l ${MP_CC_DIR}\\..\\lib  -o dist/${CND_CONF}/${IMAGE_TYPE}/Major_Project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}   
+	${MP_LD} $(MP_EXTRA_LD_PRE)   -p$(MP_PROCESSOR_OPTION_LD)  -w -x -u_DEBUG -m"${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"  -z__MPLAB_BUILD=1  -u_CRUNTIME -z__MPLAB_DEBUG=1 -z__MPLAB_DEBUGGER_SIMULATOR=1 $(MP_LINKER_DEBUG_OPTION) -l ${MP_CC_DIR}\\..\\lib  -o dist/${CND_CONF}/${IMAGE_TYPE}/Commander.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}   
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/Major_Project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+dist/${CND_CONF}/${IMAGE_TYPE}/Commander.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_LD} $(MP_EXTRA_LD_PRE)   -p$(MP_PROCESSOR_OPTION_LD)  -w  -m"${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"  -z__MPLAB_BUILD=1  -u_CRUNTIME -l ${MP_CC_DIR}\\..\\lib  -o dist/${CND_CONF}/${IMAGE_TYPE}/Major_Project.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}   
+	${MP_LD} $(MP_EXTRA_LD_PRE)   -p$(MP_PROCESSOR_OPTION_LD)  -w  -m"${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"  -z__MPLAB_BUILD=1  -u_CRUNTIME -l ${MP_CC_DIR}\\..\\lib  -o dist/${CND_CONF}/${IMAGE_TYPE}/Commander.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}   
 endif
 
 

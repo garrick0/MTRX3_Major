@@ -20,17 +20,13 @@ void initialSetup(void){
 }
 
 //! Maybe implement an interrupt where all the user inputs are stored into a buffer.
-void getInputs(void){
+void getInputs(unsigned char PARROT_FOUND, unsigned char INTERFACE_MODE){
     
 }
 
 //! Take inputs from the command controller and output appropriate state.
-int userOutput(int directionInput, int scan, int changeState, int secondayInterface){
-
-}
-
-void displayLCD(unsigned char CURRENT_STATE){
-    
+char userOutput(void){
+ 
 }
 
 

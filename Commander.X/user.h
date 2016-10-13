@@ -9,10 +9,8 @@
 
 void initialSetup(void);
 
-void getInputs(void);
+void getInputs(unsigned char PARROT_FOUND, unsigned char INTERFACE_MODE);
 
-int userOutput(int directionInput, int scan, int changeState, int secondayInterface);
-
-void displayLCD(unsigned char CURRENT_STATE);
+char userOutput(void);
 
 #endif

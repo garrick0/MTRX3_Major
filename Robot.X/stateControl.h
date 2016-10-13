@@ -6,9 +6,8 @@
  *
  */
 
-#ifndef STATE_H_
-#define STATE_H_
+#ifndef STATECONTROL_H
+#define	STATECONTROL_H
 
-unsigned char stateControl(unsigned char CURRENT_STATE);
+#endif	/* STATECONTROL_H */
 
-#endif

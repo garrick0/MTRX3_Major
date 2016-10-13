@@ -1,13 +1,12 @@
 build/default/production/main.o:  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/main.c  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/communication.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/movement.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/navigation.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/serial.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/user.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/ConfigRegs.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/define.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/globalVars.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/setup.h  \
-	C:/Users/Monadil/Desktop/MTRX3_Major/Major_Project.X/state.h  \
+	E:/MTRX3_Major/Commander.X/main.c  \
+	E:/MTRX3_Major/Commander.X/communication.h  \
+	E:/MTRX3_Major/Commander.X/movement.h  \
+	E:/MTRX3_Major/Commander.X/navigation.h  \
+	E:/MTRX3_Major/Commander.X/state.h  \
+	E:/MTRX3_Major/Commander.X/user.h  \
+	E:/MTRX3_Major/Commander.X/ConfigRegs.h  \
+	E:/MTRX3_Major/Commander.X/define.h  \
+	E:/MTRX3_Major/Commander.X/globalVars.h  \
+	E:/MTRX3_Major/Commander.X/setup.h  \
 
