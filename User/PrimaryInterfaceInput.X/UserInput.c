@@ -1,3 +1,6 @@
+#include "ConfigRegs_18F4520.h"
+#include    <p18f4520.h>
+
 #define  dpadUP         PORTAbits.RA0
 #define  dpadDOWN       PORTAbits.RA1
 #define  dpadLEFT       PORTAbits.RA2
@@ -45,61 +48,64 @@ void UserInputSetup(void){
 	INTCONbits.PEIE_GIEL = 1;   //peripheral interrupt enable
 }
 
-void CheckUserInput(void){
+
+void WriteUserInputBuffer(const rom char *letter,char *UserInputBuffer){
+	
+	UserInputBuffer[0]=*letter;     //store letter in buffer
+	//*idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
+}
+
+void CheckUserInput(char *UserInputBuffer){
 	if(dpadUP){
-		WriteUserInputBuffer("U",&idx,UserInputBuffer);
+		WriteUserInputBuffer("U",UserInputBuffer);
 	}
 	if(dpadDOWN){
-		WriteUserInputBuffer("D",&idx,UserInputBuffer);
+		WriteUserInputBuffer("D",UserInputBuffer);
 	}
 	if(dpadLEFT){
-		WriteUserInputBuffer("L",&idx,UserInputBuffer);
+		WriteUserInputBuffer("L",UserInputBuffer);
 	}
 	if(dpadRIGHT){
-		WriteUserInputBuffer("R",&idx,UserInputBuffer);
+		WriteUserInputBuffer("R",UserInputBuffer);
 	}
+    if(HalfScan){
+        WriteUserInputBuffer("H",UserInputBuffer);
+    }
+    if(FullScan){
+        WriteUserInputBuffer("F",UserInputBuffer);
+    }
 	if(Abutton){
-		WriteUserInputBuffer("A",&idx,UserInputBuffer);
+		WriteUserInputBuffer("A",UserInputBuffer);
 	}
 	if(Bbutton){
-		WriteUserInputBuffer("B",&idx,UserInputBuffer);
-	}
-    if(FullScan){
-        WriteUserInputBuffer("F",&idx,UserInputBuffer);
-    }
-    if(HalfScan){
-        WriteUserInputBuffer("H",&idx,UserInputBuffer);
-    }
+		WriteUserInputBuffer("B",UserInputBuffer);
+	}    
 }
 
 //stores user input letter in circular buffer
-void WriteUserInputBuffer(const rom char *letter, int *idx,char *UserInputBuffer){
-	
-	UserInputBuffer[*idx++]=*letter;     //store letter in buffer
-	*idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
-}
+
 
 //have to decide the type of output and if the whole buffer is read at once
 //if whole buffer is read at once, output type must also be a char buffer
 //if characters are read 1 at a time (current setup):
 //possible issue-buffer inputs may be overwritten by WriteUserInputBuffer
+//
 //reads user inputs from circular buffer	
-char ReadUserInputBuffer(char *UserInputBuffer,int *idx){
+char ReadUserInputBuffer(char *UserInputBuffer){
 	//int counter=sizeof(UserInputBuffer);
 	//while(counter--){
-		char output=UserInputBuffer[*idx];		//read buffer
-		UserInputBuffer[*idx++]='\0';		//clear buffer after reading
-		*idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
-
-	//}
+		char output=UserInputBuffer[0];		//read buffer
+		UserInputBuffer[0]='\0';		//clear buffer after reading
+		//*idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
+        //}
 		return output;				
 }
 
-void ClearUserInputBuffer(void){
-	int counter=sizeof(UserInputBuffer);
-	while(counter--){           
-		UserInputBuffer[counter]='\0';
-	}
+void ClearUserInputBuffer(char *UserInputBuffer){
+	//int counter=sizeof(UserInputBuffer);
+	//while(counter--){           
+		UserInputBuffer[0]='\0';
+	//}
 }
 
 void ON_OFF(void){
@@ -115,9 +121,9 @@ void ON_OFF(void){
     }
 }
 
-void Emergency_Stop(void){
+void Emergency_Stop(char *UserInputBuffer){
     //send stop to mobile robot
-    ClearUserInputBuffer();
+    ClearUserInputBuffer(UserInputBuffer);
     //delay for approx 3 seconds
     
 }

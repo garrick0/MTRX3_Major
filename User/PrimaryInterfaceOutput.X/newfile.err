@@ -1,0 +1,14 @@
+Error[1105] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 7 : symbol 'PORTCbits' has not been defined
+Error[1151] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 7 : struct or union object designator expected
+Error[1101] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 7 : lvalue required
+Error[1105] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 8 : symbol 'TRISCbits' has not been defined
+Error[1151] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 8 : struct or union object designator expected
+Error[1101] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 8 : lvalue required
+Error[1105] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 15 : symbol 'CCPR2L' has not been defined
+Error[1101] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 15 : lvalue required
+Error[1105] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 16 : symbol 'CCPR2H' has not been defined
+Error[1101] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 16 : lvalue required
+Error[1105] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 20 : symbol 'CCPR2L' has not been defined
+Error[1101] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 20 : lvalue required
+Error[1105] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 21 : symbol 'CCPR2H' has not been defined
+Error[1101] C:\Users\W\Documents\MTRX3700\Major Project\PrimaryInterfaceOutput.X\newfile.c 21 : lvalue required

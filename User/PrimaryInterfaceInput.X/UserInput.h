@@ -9,12 +9,12 @@
 #define	USERINPUTSETUP_H
 
 void UserInputSetup(void);
-void CheckUserInput(void);
-void WriteUserInputBuffer(const rom char *letter, int idx,char *UserInputBuffer);
-void ReadUserInputBuffer(char *UserInputBuffer,int idx);
-void ClearUserInputBuffer(void);
+void CheckUserInput(char *UserInputBuffer);
+void WriteUserInputBuffer(const rom char *letter,char *UserInputBuffer);
+void ReadUserInputBuffer(char *UserInputBuffer);
+void ClearUserInputBuffer(char *UserInputBuffer);
 void ON_OFF(void);
-void Emergency_Stop(void);
+void Emergency_Stop(char *UserInputBuffer);
 
 #endif	/* USERINPUTSETUP_H */
 

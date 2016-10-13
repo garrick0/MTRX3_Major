@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Main.c PrimaryInterfaceOutput.c
+SOURCEFILES_QUOTED_IF_SPACED=Main.c PrimaryInterfaceOutput.c newfile.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Main.o ${OBJECTDIR}/PrimaryInterfaceOutput.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Main.o.d ${OBJECTDIR}/PrimaryInterfaceOutput.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Main.o ${OBJECTDIR}/PrimaryInterfaceOutput.o ${OBJECTDIR}/newfile.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Main.o.d ${OBJECTDIR}/PrimaryInterfaceOutput.o.d ${OBJECTDIR}/newfile.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Main.o ${OBJECTDIR}/PrimaryInterfaceOutput.o
+OBJECTFILES=${OBJECTDIR}/Main.o ${OBJECTDIR}/PrimaryInterfaceOutput.o ${OBJECTDIR}/newfile.o
 
 # Source Files
-SOURCEFILES=Main.c PrimaryInterfaceOutput.c
+SOURCEFILES=Main.c PrimaryInterfaceOutput.c newfile.c
 
 
 CFLAGS=
@@ -111,6 +111,14 @@ ${OBJECTDIR}/PrimaryInterfaceOutput.o: PrimaryInterfaceOutput.c  nbproject/Makef
 	@${DEP_GEN} -d ${OBJECTDIR}/PrimaryInterfaceOutput.o 
 	@${FIXDEPS} "${OBJECTDIR}/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
+${OBJECTDIR}/newfile.o: newfile.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/newfile.o.d 
+	@${RM} ${OBJECTDIR}/newfile.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/newfile.o   newfile.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/newfile.o 
+	@${FIXDEPS} "${OBJECTDIR}/newfile.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
 else
 ${OBJECTDIR}/Main.o: Main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -127,6 +135,14 @@ ${OBJECTDIR}/PrimaryInterfaceOutput.o: PrimaryInterfaceOutput.c  nbproject/Makef
 	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/PrimaryInterfaceOutput.o   PrimaryInterfaceOutput.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/PrimaryInterfaceOutput.o 
 	@${FIXDEPS} "${OBJECTDIR}/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/newfile.o: newfile.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/newfile.o.d 
+	@${RM} ${OBJECTDIR}/newfile.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/newfile.o   newfile.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/newfile.o 
+	@${FIXDEPS} "${OBJECTDIR}/newfile.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 endif
 

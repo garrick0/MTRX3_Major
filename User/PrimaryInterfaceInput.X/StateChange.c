@@ -9,11 +9,11 @@ void  StateChange(char Instruction,int CURRENT_STATE,int INTERFACE_MODE){
     if((INTERFACE_MODE==PRIMARY_INTERFACE_MODE) && (Instruction == 'A')){
         
         INTERFACE_MODE= SECONDARY_INTERFACE_MODE;    
-        
+    
     }
     if((INTERFACE_MODE==SECONDARY_INTERFACE_MODE) && (Instruction == 'B')){
         
-        INTERFACE_MODE= PRIMARY_INTERFACE_MODE;
+        //INTERFACE_MODE= PRIMARY_INTERFACE_MODE;
         
     }
    

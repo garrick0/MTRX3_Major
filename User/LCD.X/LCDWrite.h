@@ -11,7 +11,7 @@
 void LCDInitialise(void);
 void LCDLine1Write(const rom char *buff);
 void LCDLine2Write(const rom char *buff);
-
+void LCDClear(void);
 
 #endif	/* LCDWRITE_H */
 

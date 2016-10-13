@@ -32,12 +32,12 @@ void low_interrupt( void ){
 }
 
 
-char	UserInputBuffer[10];			//stores user inputs
-int 	idx=0;                          //indicators for UserInputBuffer idx=current buffer location
+char	UserInputBuffer[1];			//stores user inputs
+//int 	idx=0;                          //indicators for UserInputBuffer idx=current buffer location
 
 #pragma code
 void main( void ){
-        
+    while(1);
    
 }
 
@@ -45,7 +45,7 @@ void LowPriorityISR(void){
 
 	if(ORInput){				//check if user input triggered interrupt
         INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
-		CheckUserInput();
+		CheckUserInput(UserInputBuffer);
 	}
 }
 
@@ -59,7 +59,7 @@ void HighPriorityISR(void){
 		
 	if(EmergencyStop){              //check if user input triggered interrupt
         INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
-		Emergency_Stop();
+		Emergency_Stop(UserInputBuffer);
 	}
 }
 

@@ -23,4 +23,7 @@ void LCDLine2Write(const rom char *buff){
     DelayXLCD(); //check if able to remove
     putrsXLCD( buff );
 }
-
+void LCDClear(void){
+    LCDLine1Write("                  ");
+    LCDLine2Write("                  ");
+}
