@@ -34,6 +34,17 @@ int 	idx=0;
 #define	PRIMARY_INTERFACE_MODE	0
 #define	SECONDARY_INTERFACE_MODE	1
 
+#pragma code highPriorityInterruptAddress=0x0008
+void high_interrupt(void){  
+    _asm GOTO highPriorityIsr _endasm   
+}
+#pragma code
+
+#pragma code lowPriorityInterruptAddress=0x0018
+void low_interrupt( void ){
+    _asm GOTO lowPriorityIsr _endasm       
+}
+#pragma code
 
 void UserInputSetup(void){
     INTCONbits.GIE_GIEH = 0;    //global interrupt disable
@@ -80,18 +91,6 @@ void UserInputSetup(void){
 
 
 
-
-
-
-
-#pragma code highPriorityInterruptAddress=0x0008
-void high_interrupt(void){  
-    _asm GOTO highPriorityIsr _endasm   
-}
-#pragma code lowPriorityInterruptAddress=0x0018
-void low_interrupt( void ){
-    _asm GOTO lowPriorityIsr _endasm       
-}
 
 void CheckUserInput(void){
 	if(dpadUP){
@@ -188,9 +187,6 @@ void  StateChange(char Instruction,int CURRENT_STATE,int INTERFACE_MODE){
    
 }
 
-
-#pragma code
-
 void main( void ){
  UserInputSetup();
     
@@ -199,7 +195,7 @@ while(1){
    
 }
 
-
+#pragma interrupt highPriorityIsr
 void highPriorityIsr(void) {
   	if(INTCONbits.RBIF){            //check if user input triggered interrupt
 		INTCONbits.RBIF = 0;        //clear PORTB 4:7 interrupt flag
@@ -211,7 +207,7 @@ void highPriorityIsr(void) {
 		Emergency_Stop();
 	}
 }
-
+#pragma interrupt lowPriorityIsr
 void lowPriorityIsr(void) {
 	if(ORInput){				//check if user input triggered interrupt
         INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
