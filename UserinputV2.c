@@ -16,7 +16,7 @@ void  StateChange(char Instruction,int CURRENT_STATE,int INTERFACE_MODE);
 char	UserInputBuffer[10];			//stores user inputs
 int 	idx=0;    
 
-#define  dpadUP         PORTAbits.RA0
+#define  HalfScan        PORTAbits.RA0
 #define  dpadDOWN       PORTAbits.RA1
 #define  dpadLEFT       PORTAbits.RA2
 #define  dpadRIGHT      PORTAbits.RA3
@@ -24,7 +24,7 @@ int 	idx=0;
 #define  Bbutton        PORTAbits.RA5
 #define  EmergencyStop	PORTBbits.RB0
 #define  ORInput        PORTBbits.RB1
-#define  HalfScan       PORTBbits.RB2
+#define  dpadUP       PORTBbits.RB2
 #define  FullScan       PORTBbits.RB3 
 #define  On_Off_Switch	PORTBbits.RB4
 //state defined
@@ -93,7 +93,7 @@ void UserInputSetup(void){
 
 
 void CheckUserInput(void){
-	if(dpadUP){
+	if(HalfScan){
 		WriteUserInputBuffer("U",&idx,UserInputBuffer);
 	}
 	if(dpadDOWN){
@@ -114,8 +114,8 @@ void CheckUserInput(void){
     if(FullScan){
         WriteUserInputBuffer("F",&idx,UserInputBuffer);
     }
-    if(HalfScan){
-        WriteUserInputBuffer("H",&idx,UserInputBuffer);
+    if(dpadUP){
+        WriteUserInputBuffer("U",&idx,UserInputBuffer);
     }
 }
 
