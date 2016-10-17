@@ -15,43 +15,7 @@
 /* -- Includes -- */
 #include <p18f452.h>            
 #include "ConfigRegs.h"
-
-
-
-
-
-
-
-/* -- Function Prototypes -- */
-void high_interrupt(void);
-
-// UI
-void UISetup(void);
-void receiveUI(int* UIVals);
-void outputUI(char state,char* parrotPosition, char* IRVals);
-
-
-// Comms
-void commSetup(void);
-void receiveComms(int* recVals);
-void transmitComms(int* encoderVals);
-
-
-//Nav
-void navSetup(void);
-
-
-
-// misc
-
-
-
-
-
-/* -- Global Variables -- */
-#define MANUAL_MODE 0
-#define AUTOMATIC_MODE 1
-#define FACTORY_MODE 2
+#include "main.h"
 
 
 
@@ -91,13 +55,16 @@ void main(void) {
         int encoderVals[2];
         
         //System State
-        char state = MANUAL_MODE;
+        char State = MANUAL_MODE;
         
         //Relative x,y value of parrot to robot
         char parrotPosition[2];
         
         //IR Value Thresholds
         char IRVals[3];
+        
+          //hold current encoder values
+         int currentEncoder[2];
     
 
 
@@ -125,25 +92,33 @@ void main(void) {
     
     
     
-    
-    
+  
 
     
     /* Loop */
     while(1){
         
 
-        
+               //Receive user interface input
+            //array[state change, moveforward,moveback,turnright,turnleft]
+        receiveUI(UIVals);
+         
         
         
         //Receive Comms from ground (array)
             //array [IRVal1,IRVal2,IRVal3,signalStrength,EncoderLeft,EncoderRight]
         receiveComms(recVals);
+        currentEncoder[0] = recVals[4];
+        currentEncoder[1] = recVals[5];
         
-        //Receive user interface input
-            //array[state change, moveforward,moveback,turnright,turnleft]
-        receiveUI(UIVals);
         
+        //Process chirps,encoders -> angle -> strength
+        
+        //check signal strength is in acceptable range
+              //if not, spin
+        
+        //inputs - chirp/encoder buffer, state
+        //outputs - encoder values
         
  
         
@@ -152,7 +127,9 @@ void main(void) {
         
             // Find where parrot is
                 //Use chirps and spins
-            
+        //locateParrot()    
+        
+        
             //Find how to get there
                 //Manual = inputs
                 //Auto = algorithm
@@ -160,9 +137,9 @@ void main(void) {
         
         
         
-        if (state == MANUAL_MODE) {
-            
-        }
+        
+        
+        robotMove(State,encoderVals,currentEncoder,recVals[3]);
         
         
         
@@ -171,7 +148,7 @@ void main(void) {
         transmitComms(encoderVals);
                 
         //write to UI
-        outputUI(state,parrotPosition,IRVals);
+        outputUI(State,parrotPosition,IRVals);
 
     }
 }
