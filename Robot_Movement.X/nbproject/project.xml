@@ -6,12 +6,12 @@
             <name>Robot_Movement</name>
             <creation-uuid>d4d76a00-4f29-4da2-8d39-7e4d11854cc7</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
             <header-extensions/>
             <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
-            <sourceEncoding>UTF-8</sourceEncoding>
         </data>
     </configuration>
 </project>
