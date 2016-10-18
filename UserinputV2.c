@@ -13,10 +13,10 @@ void ON_OFF(void);
 void Emergency_Stop(void);
 void  StateChange(char Instruction,int CURRENT_STATE,int INTERFACE_MODE);
 
-char	UserInputBuffer[10];			//stores user inputs
+char	UserInputBuffer[2];			//stores user inputs
 int 	idx=0;    
 
-#define  dpadUP         PORTAbits.RA0
+#define  HalfScan        PORTAbits.RA0
 #define  dpadDOWN       PORTAbits.RA1
 #define  dpadLEFT       PORTAbits.RA2
 #define  dpadRIGHT      PORTAbits.RA3
@@ -24,7 +24,7 @@ int 	idx=0;
 #define  Bbutton        PORTAbits.RA5
 #define  EmergencyStop	PORTBbits.RB0
 #define  ORInput        PORTBbits.RB1
-#define  HalfScan       PORTBbits.RB2
+#define  dpadUP       PORTBbits.RB2
 #define  FullScan       PORTBbits.RB3 
 #define  On_Off_Switch	PORTBbits.RB4
 //state defined
@@ -34,6 +34,18 @@ int 	idx=0;
 #define	PRIMARY_INTERFACE_MODE	0
 #define	SECONDARY_INTERFACE_MODE	1
 
+#pragma code highPriorityInterruptAddress=0x0008
+void high_interrupt(void){
+ 
+    _asm GOTO highPriorityIsr _endasm   
+    }
+#pragma code
+
+#pragma code lowPriorityInterruptAddress=0x0018
+void low_interrupt( void ){
+    _asm GOTO lowPriorityIsr _endasm       
+}
+#pragma code
 
 void UserInputSetup(void){
     INTCONbits.GIE_GIEH = 0;    //global interrupt disable
@@ -46,7 +58,7 @@ void UserInputSetup(void){
     PORTA=0x00;
     PORTB=0x00;             //set PORTB as outputs
     TRISB = 0x1F;       //set PORTB 0:4 pins to inputs and 5:7 pins as outputs
-    TRISA = 0xFF;    
+    TRISA = 0x3F;       //set PORTA 0:5 pins to inputs and 5:7 pins as outputs
     ADCON1=0x0F;        //set all PORTS as digital I/O (may have to change for f452)
 
     
@@ -81,59 +93,30 @@ void UserInputSetup(void){
 
 
 
-void highPriorityIsr(void) {
-  	if(INTCONbits.RBIF){            //check if user input triggered interrupt
-		INTCONbits.RBIF = 0;        //clear PORTB 4:7 interrupt flag
-        ON_OFF();
-	}
-		
-	if(EmergencyStop){              //check if user input triggered interrupt
-        INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
-		Emergency_Stop();
-	}
-}
-
-void lowPriorityIsr(void) {
-	if(ORInput){				//check if user input triggered interrupt
-        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
-		CheckUserInput();
-	}
-}
-
-
-#pragma code highPriorityInterruptAddress=0x0008
-void high_interrupt(void){  
-    _asm GOTO highPriorityIsr _endasm   
-}
-#pragma code lowPriorityInterruptAddress=0x0018
-void low_interrupt( void ){
-    _asm GOTO lowPriorityIsr _endasm       
-}
-
 void CheckUserInput(void){
-	if(dpadUP){
+	if(HalfScan){
 		WriteUserInputBuffer("U",&idx,UserInputBuffer);
 	}
-	if(dpadDOWN){
+	else if(dpadDOWN){
 		WriteUserInputBuffer("D",&idx,UserInputBuffer);
 	}
-	if(dpadLEFT){
+	else if(dpadLEFT){
 		WriteUserInputBuffer("L",&idx,UserInputBuffer);
 	}
-	if(dpadRIGHT){
+	else if(dpadRIGHT){
 		WriteUserInputBuffer("R",&idx,UserInputBuffer);
 	}
-	if(Abutton){
+	else if(Abutton){
 		WriteUserInputBuffer("A",&idx,UserInputBuffer);
 	}
-	if(Bbutton){
+	else if(Bbutton){
 		WriteUserInputBuffer("B",&idx,UserInputBuffer);
 	}
-    if(FullScan){
+    else if(FullScan){
         WriteUserInputBuffer("F",&idx,UserInputBuffer);
     }
-    if(HalfScan){
-        WriteUserInputBuffer("H",&idx,UserInputBuffer);
+    else if(dpadUP){
+        WriteUserInputBuffer("U",&idx,UserInputBuffer);
     }
 }
 
@@ -205,13 +188,35 @@ void  StateChange(char Instruction,int CURRENT_STATE,int INTERFACE_MODE){
    
 }
 
-
-#pragma code
 void main( void ){
-        
+ UserInputSetup();
+    
+while(1){
+}    
    
 }
 
+#pragma interrupt highPriorityIsr
+void highPriorityIsr(void) {
+  	
+         if(INTCONbits.RBIF){            //check if user input triggered interrupt
+		INTCONbits.RBIF = 0;        //clear PORTB 4:7 interrupt flag
+	}
+   	
+	if(EmergencyStop){              //check if user input triggered interrupt
+        INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
+		Emergency_Stop();
+	}
+}
+#pragma interrupt lowPriorityIsr
+void lowPriorityIsr(void) {
+    
 
-
+    
+    
+	if(ORInput){				//check if user input triggered interrupt
+        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
+		CheckUserInput();
+	}
+}
 
