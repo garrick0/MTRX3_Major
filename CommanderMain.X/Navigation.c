@@ -51,6 +51,19 @@ void robotMove(char State,int* targetEncoder,int* currentEncoder,int* chirpStren
 
 void getRobotState(char State,int* targetEncoder,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance) {
     
+    //Test values
+    int currEncoder[2];
+    int scanEncoderValsLeft[10];
+    int scanEncoderValsRight[10];
+    currEncoder[0] = 500;
+    currEncoder[1] = 500;
+    //int totalScans = 3;
+
+    
+    
+    calcScanPositions(currentEncoder,3, scanEncoderValsLeft, scanEncoderValsRight);
+    
+    
     //if new command required
     if (robotState == IDLE) {
         if (State == MANUAL_MODE) {
@@ -229,5 +242,40 @@ void scan(int* currentEncoder,int* targetEncoder,int* chirpStrength,int totalSca
             
         }
         
-       // ENCODERTICKSPERREVOLUTION/
+        
+        //if index is odd
+        else {
+            int i;
+            //centre index + .5
+            int centreIndexHigh = totalScans/2;
+            
+            
+                        //store current encoder values at center index
+            scanEncoderValsLeft[centreIndexHigh] = currentEncoder[0] + Incs15Degrees;
+            scanEncoderValsRight[centreIndexHigh] = currentEncoder[1] - Incs15Degrees;
+            
+            //centre - 1
+            scanEncoderValsLeft[centreIndexHigh] = currentEncoder[0] - Incs15Degrees;
+            scanEncoderValsRight[centreIndexHigh] = currentEncoder[1] + Incs15Degrees;
+            
+            //Cycle through and add for those not in middle
+            for (i = 0; i < centreIndexHigh-1; i++) {
+                //values right of centre
+                scanEncoderValsLeft[centreIndexHigh] = currentEncoder[0] + Incs15Degrees +2*i*Incs15Degrees;
+                scanEncoderValsRight[centreIndexHigh] = currentEncoder[1] - Incs15Degrees - 2*i*Incs15Degrees;
+                
+                //values left of centre
+                scanEncoderValsLeft[centreIndexHigh] = currentEncoder[0] - Incs15Degrees-2*i*Incs15Degrees;
+                scanEncoderValsRight[centreIndexHigh] = currentEncoder[1] + Incs15Degrees+2*i*Incs15Degrees;
+                
+            }
+            
+            
+            
+            
+            
+            
+        }
+        
+       
     }

@@ -27,6 +27,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>../RobotMain.X</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
