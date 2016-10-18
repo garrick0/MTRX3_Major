@@ -1,4 +1,9 @@
 #include "usart.h"
+#include "p18f4520.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "pconfig.h"
+#include "ConfigRegs_18F4520.h"
 #define CR 0x0D
 #define FULL 0xFF
 #define chirpSound 'z'
@@ -32,11 +37,11 @@ void commsSetup(void) {
 }
 /**
  * @brief send the data package from robot to commander 
- * @param values for IR in char form
- * @param values for signal strength in char form
- * @param valuse for encoder values in char form 
+ * @param values for IR in char form (Null terminated)
+ * @param values for signal strength in char form(Null terminated)
+ * @param valuse for encoder values in char form (Null terminated)
  */
-char endsString[] = {FULL,endsByte,FULL,NULL};
+char endsString[] = {FULL,endsChar,FULL,NULL};
 char separatorString[] = {sep,FULL,NULL};
 void transmitData(char* IRValsPackage, char* signalStrengthPackage, char* currentEncoderValsPackage) {
     
@@ -75,6 +80,7 @@ void intToPackage(int* data, char* dataInChar){
         dataInChar++;
     }  
     *dataInChar = NULL; // null terminated
+    return 0;
 }
 /**
  * @brief converts string of char values into string in package
@@ -90,6 +96,7 @@ void RSSIToPackage(char* RSSIval, char* dataInPack){
         dataInPack++;
     }   
     *dataInPack = NULL; // null terminated 
+    return 0;
 }
 /**
  * @brief interrupt routine for receive 
