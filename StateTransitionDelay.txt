@@ -1,0 +1,20 @@
+#include <p18f4520.h>
+//setup for delay which allows for transition from initialisation to normal state
+void initialisation(void){
+    
+    T0CON=0x95; //1:64 prescale, 16 bit operation
+    INTCONbits.TMR0IE=1; //enable timer0 overflow interrupt
+    INTCON2bits.TMR0IP; //low priority
+    INTCONbits.TMR0IF=0; //reset flag
+    //total time to overflow:
+    //2^16*4*64/10MHz = 1.67 seconds
+}
+void lowPriorityIsr(void){
+
+	if(INTCONbits.TMR0IF){				//check if timer flag casued interrupt
+        INTCONbits.TMR0IF = 0;	//clear interrupt flag
+		INTCONbits.TMR0IE =0; //disable timer0 overflow interrupts
+        T0CONbits.TMR0ON=0; //turn off timer0
+        ptrInput->initialisation = 1;
+	}
+}
