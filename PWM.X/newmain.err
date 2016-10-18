@@ -1,0 +1,4 @@
+Warning[2054] E:\PWM.X\newmain.c 20 : suspicious pointer conversion
+Warning[2066] E:\PWM.X\newmain.c 20 : type qualifier mismatch in assignment
+Warning[2054] E:\PWM.X\newmain.c 26 : suspicious pointer conversion
+Warning[2066] E:\PWM.X\newmain.c 26 : type qualifier mismatch in assignment
