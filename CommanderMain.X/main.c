@@ -52,7 +52,7 @@ void main(void) {
         int UIVals[1];
         
         //Hold the encoder (L/R) values
-        int encoderVals[2];
+        int targetEncoder[2];
         
         //System State
         char State = MANUAL_MODE;
@@ -65,7 +65,12 @@ void main(void) {
         
           //hold current encoder values
          int currentEncoder[2];
-    
+         
+         //Parrot Location
+         int parrotLoc[2];
+         
+         //Parrot Distance
+         char parrotDistance;
 
 
     
@@ -139,13 +144,13 @@ void main(void) {
         
         
         
-        robotMove(State,encoderVals,currentEncoder,recVals[3]);
+        robotMove(State,targetEncoder,currentEncoder,&recVals[3],parrotLoc,&parrotDistance);
         
         
         
         
         //transmit to ground to move robot
-        transmitComms(encoderVals);
+        transmitComms(targetEncoder);
                 
         //write to UI
         outputUI(State,parrotPosition,IRVals);

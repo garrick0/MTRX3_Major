@@ -40,7 +40,7 @@ void transmitComms(int* encoderVals);
 
 //Nav
 void navSetup(void);
-void robotMove(char State,int* encoderVals,int* currentEncoder,int chirpStrength);
+void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
 
 
 

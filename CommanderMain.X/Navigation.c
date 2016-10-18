@@ -1,6 +1,8 @@
 #include <p18f452.h>            
+#include <math.h>
 //#include "ConfigRegs.h"
 #include "main.h"
+
 
 
 
@@ -15,24 +17,39 @@
 
 #define SCAN_NUMBER 3
 
+#define SWATHSIZE 30
+#define MAX_SCANS 360/SWATHSIZE
+
+#define ENCODERTICKSPERREVOLUTION 1000
+
+
 
 char robotState = RECALIBRATE;
 
-void getRobotState(char State,int* encoderVals,int* currentEncoder,int chirpStrength);
+void getRobotState(char State,int* targetEncoder,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
+
+void scan(int* currentEncoder,int* targetEncoder,int* chirpStrength,int totalScans,int* parrotLoc,char* distance);
+
+//Calculates encoder array positions
+void calcScanPositions(int* currentEncoder,int totalScans,int* scanEncoderValsLeft,int* scanEncoderValsRight);
+
+
+
+
 
 
 void navSetup(void) {
     
 }
 
-void robotMove(char State,int* encoderVals,int* currentEncoder,int chirpStrength) {
+void robotMove(char State,int* targetEncoder,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance) {
     
-    getRobotState(State,encoderVals,currentEncoder,chirpStrength);
+    getRobotState(State,targetEncoder,currentEncoder,chirpStrength,parrotLoc,distance);
     
 }
 
 
-void getRobotState(char State,int* encoderVals,int* currentEncoder,int chirpStrength) {
+void getRobotState(char State,int* targetEncoder,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance) {
     
     //if new command required
     if (robotState == IDLE) {
@@ -53,9 +70,9 @@ void getRobotState(char State,int* encoderVals,int* currentEncoder,int chirpStre
     //if  moving
     else if (robotState == MOVING) {
         //check if finished moving
-       if ((currentEncoder[0] == encoderVals[0]) && (currentEncoder[1] == encoderVals[1])) {
+       if ((currentEncoder[0] == targetEncoder[0]) && (currentEncoder[1] == targetEncoder[1])) {
            //perform scan
-           robotState = SCAN;
+           robotState = IDLE;
        }
            
            //continue if still moving
@@ -75,13 +92,42 @@ void getRobotState(char State,int* encoderVals,int* currentEncoder,int chirpStre
         //if exceeds threshold begin moving
         
         //Calculate scanning encoder values for each swath if first time
-        if (scanNum == 20) {
+    }
+}
+
+
+
+
+void scan(int* currentEncoder,int* targetEncoder,int* chirpStrength,int totalScans,int* parrotLoc,char* parrotDistance) {
+    //generic index
+    int i;
+    
+    //Initialise scan at -1
+    int scanNum = -1;
+    
+    //Stores encoder start and end value for each scan
+    int scanEncoderValsLeft[(MAX_SCANS)];
+    int scanEncoderValsRight[MAX_SCANS];
+    
+    //calcScanPositions(currentEncoder,totalScans);
+    
+    
+    
+    //Stores chirp strength at each movement
+    char scanChirpVals[MAX_SCANS];
+    
+    
+    calcScanPositions(currentEncoder,totalScans,scanEncoderValsLeft,scanEncoderValsRight);
+    
+    //initScan
+    if (scanNum == -1) {
         //calculateSwathThresholds(currentValues);
             
         //calculateEncoder Positions
             
         //Turn robot to first scan position
-            
+        targetEncoder[0] = scanEncoderValsLeft[0];
+        targetEncoder[1] = scanEncoderValsRight[0];
             
         
             
@@ -89,19 +135,99 @@ void getRobotState(char State,int* encoderVals,int* currentEncoder,int chirpStre
         }
         
         
-        //If robot in position and 
-        if ((currentEncoder[0] == scanEdgeValues[scanNum*2]) && (currentEncoder[1] == encoderVals[scanNum*2+1]) && (chirpStrength > 0)) {
+        //If robot in position and chirp detected
+        if ((currentEncoder[0] == scanEncoderValsLeft[scanNum]) && (currentEncoder[1] == scanEncoderValsRight[scanNum]) && (*chirpStrength > 0)) {
             //MOVEROBOT
+            //Store chirp strength for this scan
+            scanChirpVals[scanNum] = *chirpStrength;
+            
+            //clear chirp
+            *chirpStrength = 0;
+            
+            //Increment scan
+            scanNum++;
+            
+            
+            
+            //if final scan, analyse data
+            if (scanNum == totalScans) {
+                char maxChirpLoc=0;
+                for (i = 0; i < totalScans; i++) {
+                    
+                    //Get scan location where chirp strength is highest
+                    if (scanChirpVals[i] > scanChirpVals[maxChirpLoc]) {
+                        maxChirpLoc = i;
+                        
+
+                    } 
+                    
+
+                }
+                                    
+                
+                   //Parrot direction is at max chirp location
+                parrotLoc[0] = scanEncoderValsLeft[maxChirpLoc];
+                parrotLoc[1] = scanEncoderValsRight[maxChirpLoc];
+                    
+                    //calculate parrot distance
+                *parrotDistance = scanChirpVals[maxChirpLoc];
+                
+                    
+
+            } 
+            
+            
+            // If more scans required
+            else {
+                //Update Target encoder values
+                targetEncoder[0] = scanEncoderValsLeft[scanNum];
+                targetEncoder[1] = scanEncoderValsRight[scanNum];
+                 
+            }
         }
+                    
+            
+    }
         
         
-        //Perform 3 scans
-        for (scanNum = 0; scanNum < SCAN_NUMBER; scanNum++) {
+        
+        
+    //
+    void calcScanPositions(int* currentEncoder,int totalScans,int* scanEncoderValsLeft,int* scanEncoderValsRight) {
+        int i;
+        
+        int Incs15Degrees = ENCODERTICKSPERREVOLUTION/24;
+        
+
+        
+        if (totalScans%2 == 1) {
+                    //get value of middle index
+            
+            int centreIndex = (totalScans+1)/2-1;
+            
+            //store current encoder values at center index
+            scanEncoderValsLeft[centreIndex] = currentEncoder[0];
+            scanEncoderValsRight[centreIndex] = currentEncoder[1];
+            
+            
+            //add current position as centre value
+            //scanEncoderVals[(totalScans-1)] = currentEncoder[0];
+            //scanEncoderVals[totalScans] = currentEncoder[1];
+            
+            for (i=0;i< centreIndex;i++) {
+                //Store centre + ith value
+                scanEncoderValsLeft[centreIndex+i] = currentEncoder[0]+Incs15Degrees;
+                scanEncoderValsRight[centreIndex+i] = currentEncoder[1]-Incs15Degrees;
+                
+                //Store centre - ith value (signs swapped)
+                scanEncoderValsLeft[centreIndex-i] = currentEncoder[0]-Incs15Degrees;
+                scanEncoderValsRight[centreIndex-i] = currentEncoder[1]+Incs15Degrees;
+                
+                
+            }
+            
             
         }
+        
+       // ENCODERTICKSPERREVOLUTION/
     }
-}
-
-
-
-
