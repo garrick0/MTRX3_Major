@@ -3,10 +3,10 @@
 #define FULL 0xFF
 #define chirpSound 'z'
 #define BIT0 0x01
-#define endsByte 'K'
+#define endsChar 'K'
 #define sep '*'
 #define comma ','
-#define end '#'
+#define endBuf '#'
 #define valMask 0x0F
 /**
  * @brief Initiate the USART communications on the robot 
@@ -36,7 +36,7 @@ void commsSetup(void) {
  * @param values for signal strength in char form
  * @param valuse for encoder values in char form 
  */
-char endsString[] = {endsByte,FULL,NULL};
+char endsString[] = {FULL,endsByte,FULL,NULL};
 char separatorString[] = {sep,FULL,NULL};
 void transmitData(char* IRValsPackage, char* signalStrengthPackage, char* currentEncoderValsPackage) {
     
@@ -73,7 +73,8 @@ void intToPackage(int* data, char* dataInChar){
         dataInChar++; // increment buffer place 
         *dataInChar = FULL; // allow for falling edge resistor to detect
         dataInChar++;
-    }   
+    }  
+    *dataInChar = NULL; // null terminated
 }
 /**
  * @brief converts string of char values into string in package
@@ -88,6 +89,7 @@ void RSSIToPackage(char* RSSIval, char* dataInPack){
         *dataInPack = FULL; // allow for falling edge resistor to detect
         dataInPack++;
     }   
+    *dataInPack = NULL; // null terminated 
 }
 /**
  * @brief interrupt routine for receive 
@@ -106,11 +108,11 @@ void receiveData(void){
         rcPtr = buf; // point to beginning of buffer 
     }
     if(flag && RCREG != chirpSound){ // when flag is turned on discard all chirps
-        RSSIPtr++; // save RCREG in circular buffer
-        if(*RSSIPtr == end){
+        rcPtr++; // save RCREG in circular buffer
+        if(*rcPtr == endBuf){
             RSSIPtr = buf;
         }
-        *RSSIPtr = ReadUSART();
+        *rcPtr = ReadUSART();
     }
     return 0;
 }
