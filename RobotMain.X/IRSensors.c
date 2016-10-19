@@ -30,7 +30,7 @@ void IRDistances(int numAverage, int* vals);
     
     unsigned char counter = 0;
 
-void IRSetup() {
+void IRSetup(void) {
     
     //Set portA to inputs
     TRISA = 0xFF;

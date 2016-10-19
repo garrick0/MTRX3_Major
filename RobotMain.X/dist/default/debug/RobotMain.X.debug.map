@@ -1,5 +1,5 @@
 MPLINK 4.48, Linker
-Linker Map File - Created Wed Oct 19 19:58:20 2016
+Linker Map File - Created Wed Oct 19 23:10:10 2016
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -7,38 +7,51 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                _entry_scn       code   0x000000    program   0x000006
             .code_debug.o       code   0x000006    program   0x000002
     high_interrupt_vector       code   0x000008    program   0x000006
-                   .cinit    romdata   0x00000e    program   0x00001a
-        .code_IRSensors.o       code   0x000028    program   0x000448
-             .code_main.o       code   0x000470    program   0x000176
-               _cinit_scn       code   0x0005e6    program   0x00009e
-                     PROG       code   0x000684    program   0x00004c
-         .code_fxd1616u.o       code   0x0006d0    program   0x00002c
-   .code_Communications.o       code   0x0006fc    program   0x000020
-                    .code       code   0x00071c    program   0x000020
-             _startup_scn       code   0x00073c    program   0x00001c
-         .code_Encoders.o       code   0x000758    program   0x00001c
-     .code_MotorDrivers.o       code   0x000774    program   0x00000e
-           .code___init.o       code   0x000782    program   0x000002
-             .stringtable    romdata   0x000784    program   0x000001
-      .romdata_fxd1616u.o    romdata   0x000785    program   0x000000
-        .romdata___init.o    romdata   0x000785    program   0x000000
-         .romdata_debug.o    romdata   0x000785    program   0x000000
-  .romdata_MotorDrivers.o    romdata   0x000785    program   0x000000
-      .romdata_Encoders.o    romdata   0x000785    program   0x000000
-.romdata_Communications.o    romdata   0x000785    program   0x000000
-     .romdata_IRSensors.o    romdata   0x000785    program   0x000000
-         .romdata_c018i.o    romdata   0x000785    program   0x000000
-          .idata_main.o_i    romdata   0x000785    program   0x00000b
-          .romdata_main.o    romdata   0x000785    program   0x000000
-         .idata_c018i.o_i    romdata   0x000790    program   0x000000
-        .idata___init.o_i    romdata   0x000790    program   0x000000
-      .idata_fxd1616u.o_i    romdata   0x000790    program   0x000000
-         .idata_debug.o_i    romdata   0x000790    program   0x000000
-  .idata_MotorDrivers.o_i    romdata   0x000790    program   0x000000
-     .idata_IRSensors.o_i    romdata   0x000790    program   0x000016
-      .idata_Encoders.o_i    romdata   0x0007a6    program   0x000000
-.idata_Communications.o_i    romdata   0x0007a6    program   0x000000
-            .code_c018i.o       code   0x0007a6    program   0x000000
+                   .cinit    romdata   0x00000e    program   0x000026
+        .code_IRSensors.o       code   0x000034    program   0x0005f8
+   .code_Communications.o       code   0x00062c    program   0x000478
+             .code_main.o       code   0x000aa4    program   0x00018a
+               _cinit_scn       code   0x000c2e    program   0x00009e
+            .code_uopen.o       code   0x000ccc    program   0x00008a
+                     PROG       code   0x000d56    program   0x00004c
+            .code_uread.o       code   0x000da2    program   0x00003e
+             D10KTCYXCODE       code   0x000de0    program   0x00002e
+           .code_uwrite.o       code   0x000e0e    program   0x00002e
+         .code_fxd1616u.o       code   0x000e3c    program   0x00002c
+         .code_Encoders.o       code   0x000e68    program   0x000020
+                    .code       code   0x000e88    program   0x000020
+             _startup_scn       code   0x000ea8    program   0x00001c
+     .code_MotorDrivers.o       code   0x000ec4    program   0x000012
+           .code___init.o       code   0x000ed6    program   0x000002
+         .idata_uread.o_i    romdata   0x000ed8    program   0x000000
+         .romdata_uread.o    romdata   0x000ed8    program   0x000000
+         .romdata_uopen.o    romdata   0x000ed8    program   0x000000
+         .idata_uopen.o_i    romdata   0x000ed8    program   0x000000
+         .idata_udefs.o_i    romdata   0x000ed8    program   0x000000
+      .romdata_fxd1616u.o    romdata   0x000ed8    program   0x000000
+         .romdata_udefs.o    romdata   0x000ed8    program   0x000000
+        .idata_uwrite.o_i    romdata   0x000ed8    program   0x000000
+        .romdata_uwrite.o    romdata   0x000ed8    program   0x000000
+        .romdata___init.o    romdata   0x000ed8    program   0x000000
+         .romdata_debug.o    romdata   0x000ed8    program   0x000000
+  .romdata_MotorDrivers.o    romdata   0x000ed8    program   0x000000
+      .romdata_Encoders.o    romdata   0x000ed8    program   0x000000
+         .romdata_c018i.o    romdata   0x000ed8    program   0x000000
+             .stringtable    romdata   0x000ed8    program   0x000000
+.romdata_Communications.o    romdata   0x000ed8    program   0x000000
+          .idata_main.o_i    romdata   0x000ed8    program   0x000005
+     .romdata_IRSensors.o    romdata   0x000ed8    program   0x000000
+          .romdata_main.o    romdata   0x000ed8    program   0x000000
+         .idata_c018i.o_i    romdata   0x000edd    program   0x000000
+        .idata___init.o_i    romdata   0x000edd    program   0x000000
+  .idata_MotorDrivers.o_i    romdata   0x000edd    program   0x000000
+         .idata_debug.o_i    romdata   0x000edd    program   0x000000
+     .idata_IRSensors.o_i    romdata   0x000edd    program   0x000016
+      .idata_fxd1616u.o_i    romdata   0x000edd    program   0x000000
+.idata_Communications.o_i    romdata   0x000ef3    program   0x00001b
+      .idata_Encoders.o_i    romdata   0x000ef3    program   0x000000
+            .code_udefs.o       code   0x000f0e    program   0x000000
+            .code_c018i.o       code   0x000f0e    program   0x000000
     .config_300001_main.o    romdata   0x300001    program   0x000001
     .config_300002_main.o    romdata   0x300002    program   0x000001
     .config_300003_main.o    romdata   0x300003    program   0x000001
@@ -52,25 +65,35 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
     .config_30000d_main.o    romdata   0x30000d    program   0x000001
                 MATH_DATA      udata   0x000000       data   0x000010
                  .tmpdata      udata   0x000010       data   0x000004
-            .udata_main.o      udata   0x000080       data   0x00003a
-       .idata_IRSensors.o      idata   0x0000ba       data   0x000016
-            .idata_main.o      idata   0x0000d0       data   0x00000b
-           .udata_c018i.o      udata   0x0000db       data   0x00000a
-          .idata___init.o      idata   0x0000e5       data   0x000000
-          .udata___init.o      udata   0x0000e5       data   0x000000
-        .idata_fxd1616u.o      idata   0x0000e5       data   0x000000
-        .udata_fxd1616u.o      udata   0x0000e5       data   0x000000
-           .idata_debug.o      idata   0x0000e5       data   0x000000
-           .udata_debug.o      udata   0x0000e5       data   0x000000
-    .idata_MotorDrivers.o      idata   0x0000e5       data   0x000000
-    .udata_MotorDrivers.o      udata   0x0000e5       data   0x000000
-        .idata_Encoders.o      idata   0x0000e5       data   0x000000
-        .udata_Encoders.o      udata   0x0000e5       data   0x000000
-  .idata_Communications.o      idata   0x0000e5       data   0x000000
-  .udata_Communications.o      udata   0x0000e5       data   0x000000
-       .udata_IRSensors.o      udata   0x0000e5       data   0x000000
-           .idata_c018i.o      idata   0x0000e5       data   0x000000
+                DELAYDAT2      udata   0x000014       data   0x000001
+                DELAYDAT1      udata   0x000015       data   0x000001
+            .udata_main.o      udata   0x000080       data   0x000043
+  .idata_Communications.o      idata   0x0000c3       data   0x00001b
+       .idata_IRSensors.o      idata   0x0000de       data   0x000016
+           .udata_c018i.o      udata   0x0000f4       data   0x00000a
+  .udata_Communications.o      udata   0x0000fe       data   0x000002
                    .stack      udata   0x000400       data   0x000100
+            .idata_main.o      idata   0x000500       data   0x000005
+           .udata_udefs.o      udata   0x000505       data   0x000001
+           .idata_c018i.o      idata   0x000506       data   0x000000
+          .idata___init.o      idata   0x000506       data   0x000000
+          .udata___init.o      udata   0x000506       data   0x000000
+          .idata_uwrite.o      idata   0x000506       data   0x000000
+          .udata_uwrite.o      udata   0x000506       data   0x000000
+           .idata_udefs.o      idata   0x000506       data   0x000000
+           .idata_uread.o      idata   0x000506       data   0x000000
+           .udata_uread.o      udata   0x000506       data   0x000000
+           .idata_uopen.o      idata   0x000506       data   0x000000
+           .udata_uopen.o      udata   0x000506       data   0x000000
+        .idata_fxd1616u.o      idata   0x000506       data   0x000000
+        .udata_fxd1616u.o      udata   0x000506       data   0x000000
+       .udata_IRSensors.o      udata   0x000506       data   0x000000
+           .idata_debug.o      idata   0x000506       data   0x000000
+           .udata_debug.o      udata   0x000506       data   0x000000
+    .idata_MotorDrivers.o      idata   0x000506       data   0x000000
+    .udata_MotorDrivers.o      udata   0x000506       data   0x000000
+        .idata_Encoders.o      idata   0x000506       data   0x000000
+        .udata_Encoders.o      udata   0x000506       data   0x000000
             SFR_UNBANKED0      udata   0x000f80       data   0x000080
 
 
@@ -78,35 +101,45 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0007a5      
+                            0x000000    0x000f0d      
                             0x300001    0x300003      
                             0x300005    0x300006      
                             0x300008    0x30000d      
-            1969 out of 33048 program addresses used, program memory utilization is 5%
+            3865 out of 33048 program addresses used, program memory utilization is 11%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   D1616S   0x0006a6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x0006b4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x0006b0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x0006c6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA1616S   0x000696    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-              DriveMotors   0x000776    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
-                 FXD1616S   0x000684    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXD1616U   0x0006d0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                 IRDetect   0x00005c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-              IRDistances   0x00015e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  IRSetup   0x000028    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-             IRThresholds   0x0000ba    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-            SetupEncoders   0x000758    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+                   D10K_1   0x000dec    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kl   0x000df8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kx   0x000dea    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                   D1616S   0x000d78    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x000d86    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x000d82    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x000d98    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA1616S   0x000d68    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+             Delay10KTCYx   0x000de0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+              DriveMotors   0x000ec6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
+                 FXD1616S   0x000d56    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 FXD1616U   0x000e3c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                 IRDetect   0x000068    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+              IRDistances   0x0001e4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                  IRSetup   0x000034    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+             IRThresholds   0x0000e8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                OpenUSART   0x000ccc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
+            RSSIToPackage   0x0008c8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                ReadUSART   0x000da2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uread.c
+            SetupEncoders   0x000e68    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+               WriteUSART   0x000e0e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
+       _D10KTCYXCODE_0010   0x000df0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_001C   0x000dfc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
        ___return_lbl00000   0x00000c    program     static                          
+       ___return_lbl00000   0x000e66    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00000   0x0006fa    program     static                          
-       ___return_lbl00001   0x000756    program     static                          
-       ___return_lbl00002   0x000682    program     static                          
+       ___return_lbl00001   0x000ec2    program     static                          
+       ___return_lbl00002   0x000cca    program     static                          
                __config_0   0x300001    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_1   0x300002    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
               __config_10   0x30000d    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
@@ -118,57 +151,42 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                __config_7   0x30000a    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_8   0x30000b    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_9   0x30000c    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                   __init   0x000782    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-                   __pa_0   0x0005dc    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                   __pa_0   0x000710    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-                   __pa_0   0x000354    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_1   0x000388    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_10   0x00041e    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_11   0x00042a    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_12   0x000438    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_13   0x000442    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_14   0x000456    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_15   0x000462    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_2   0x0003a2    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_3   0x0003b6    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_4   0x0003ce    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_5   0x0003d8    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_6   0x0003e8    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_7   0x0003f8    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_8   0x000406    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_9   0x000414    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-               __string_0   0x000784    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-            __zero_memory   0x00071c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                _do_cinit   0x0005e6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                   __init   0x000ed6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
+            __zero_memory   0x000e88    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                _do_cinit   0x000c2e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                 _startup   0x00073c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-             changeSensor   0x0002be    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-               commsSetup   0x0006fc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-                compare_l   0x000732    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                copy_loop   0x000658    program     static                          
-            copy_one_byte   0x00065e    program     static                          
+                 _startup   0x000ea8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+             changeSensor   0x000552    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+               commsSetup   0x00062c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                compare_l   0x000e9e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                copy_loop   0x000ca0    program     static                          
+            copy_one_byte   0x000ca6    program     static                          
+           createCheckSum   0x000a4a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
                debugSetup   0x000006    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\debug.c
-                     done   0x000682    program     static                          
-             done_copying   0x00066c    program     static                          
-                  endloop   0x0006f6    program     static                          
+                     done   0x000cca    program     static                          
+             done_copying   0x000cb4    program     static                          
+                  endloop   0x000e62    program     static                          
+                  getRSSI   0x000948    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
             goto_high_ISR   0x000008    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-           high_interrupt   0x00058a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                     loop   0x0006da    program     static                          
-                     loop   0x00074c    program     static                          
-                   loop_h   0x00072a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_l   0x000734    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     main   0x000470    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-               motorSetup   0x000774    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
-          processReceived   0x00070e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-                   readIR   0x00029c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-              receiveData   0x000700    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-           sampleEncoders   0x00075a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
-                 sampleIR   0x000270    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-              storeBuffer   0x0002f4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                     test   0x000600    program     static                          
-               timerSetup   0x00003e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-             transmitData   0x0006fe    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-               zero_block   0x00072a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+           high_interrupt   0x000bd0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+             intToPackage   0x0007c0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                     loop   0x000eb8    program     static                          
+                     loop   0x000e46    program     static                          
+                   loop_h   0x000e96    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_l   0x000ea0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     main   0x000aa4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+               motorSetup   0x000ec4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
+          processReceived   0x0007b0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                   readIR   0x00051e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+              receiveData   0x00073a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+           sampleEncoders   0x000e6a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+                 sampleIR   0x0004e4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                  sendMsg   0x000a04    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+              storeBuffer   0x00058a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                     test   0x000c48    program     static                          
+               timerSetup   0x00004a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+             transmitData   0x000650    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+               zero_block   0x000e96    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADCON0   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                ADCON0bits   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADCON1   0x000fc1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -178,6 +196,9 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                     ADRES   0x000fc3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADRESH   0x000fc4       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADRESL   0x000fc3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+             ATCommandEnd   0x0000d8       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+            ATCommandRSSI   0x0000d2       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+           ATCommandStart   0x0000ce       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
                   BAUDCON   0x000fb8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
               BAUDCONbits   0x000fb8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   BAUDCTL   0x000fb8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -207,6 +228,8 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                  DDRDbits   0x000f95       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      DDRE   0x000f96       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  DDREbits   0x000f96       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+            DelayCounter1   0x000015       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\delayd1.asm
+            DelayCounter2   0x000014       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\delayd2.asm
                   ECCP1AS   0x000fb6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
               ECCP1ASbits   0x000fb6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  ECCP1DEL   0x000fb7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -242,12 +265,12 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                  IPR1bits   0x000f9f       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      IPR2   0x000fa2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  IPR2bits   0x000fa2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                IRBuffer0   0x0000c6       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                IRBuffer1   0x0000ba       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                IRBuffer2   0x0000c0       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                 IRIndex0   0x0000ce       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                 IRIndex1   0x0000cc       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                 IRIndex2   0x0000cd       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                IRBuffer0   0x0000ea       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                IRBuffer1   0x0000de       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                IRBuffer2   0x0000e4       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                 IRIndex0   0x0000f2       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                 IRIndex1   0x0000f0       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                 IRIndex2   0x0000f1       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
                      LATA   0x000f89       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  LATAbits   0x000f89       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      LATB   0x000f8a       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -361,6 +384,7 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                     TXREG   0x000fad       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     TXSTA   0x000fac       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 TXSTAbits   0x000fac       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+             USART_Status   0x000505       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\udefs.c
                         W   0x000fe8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    WDTCON   0x000fd1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                WDTCONbits   0x000fd1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -385,21 +409,28 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                   __REMB1   0x000004       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                   __REMB2   0x000003       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                   __REMB3   0x000002       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                  __tmp_0   0x000010       data     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
                   __tmp_0   0x000010       data     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                 chirpStr   0x0000b8       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                  counter   0x0000cf       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                curr_byte   0x0000de       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-               curr_entry   0x0000e0       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-       currentEncoderVals   0x0000d6       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                 data_ptr   0x0000e2       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-               detectVals   0x000080       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-          instructionFlag   0x0000b9       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                     prom   0x0000db       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-            receiveBuffer   0x000086       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-              receiveFlag   0x0000da       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-           signalStrength   0x0000d4       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-           targetEncoders   0x0000d0       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                  __tmp_0   0x000010       data     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                  __tmp_0   0x000010       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
+                  __tmp_0   0x000010       data     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                 chirpStr   0x0000c1       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                  counter   0x0000f3       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                curr_byte   0x0000f7       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+               curr_entry   0x0000f9       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+       currentEncoderVals   0x000085       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                 data_ptr   0x0000fb       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+               detectVals   0x000089       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                endString   0x0000c7       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                     flag   0x0000cd       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+          instructionFlag   0x0000c2       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                     prom   0x0000f4       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                    rcPtr   0x0000fe       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+            receiveBuffer   0x00008f       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+              receiveFlag   0x000504       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+          separatorString   0x0000ca       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+           signalStrength   0x000080       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+              startString   0x0000c3       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+           targetEncoders   0x000500       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
 
 
 
@@ -411,70 +442,65 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                debugSetup   0x000006    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\debug.c
             goto_high_ISR   0x000008    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
        ___return_lbl00000   0x00000c    program     static                          
-                  IRSetup   0x000028    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-               timerSetup   0x00003e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                 IRDetect   0x00005c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-             IRThresholds   0x0000ba    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-              IRDistances   0x00015e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                 sampleIR   0x000270    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   readIR   0x00029c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-             changeSensor   0x0002be    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-              storeBuffer   0x0002f4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_0   0x000354    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_1   0x000388    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_2   0x0003a2    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_3   0x0003b6    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_4   0x0003ce    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_5   0x0003d8    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_6   0x0003e8    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_7   0x0003f8    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_8   0x000406    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                   __pa_9   0x000414    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_10   0x00041e    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_11   0x00042a    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_12   0x000438    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_13   0x000442    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_14   0x000456    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  __pa_15   0x000462    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                     main   0x000470    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-           high_interrupt   0x00058a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                   __pa_0   0x0005dc    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                _do_cinit   0x0005e6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     test   0x000600    program     static                          
-                copy_loop   0x000658    program     static                          
-            copy_one_byte   0x00065e    program     static                          
-             done_copying   0x00066c    program     static                          
-       ___return_lbl00002   0x000682    program     static                          
-                     done   0x000682    program     static                          
-                 FXD1616S   0x000684    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA1616S   0x000696    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                   D1616S   0x0006a6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x0006b0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x0006b4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x0006c6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXD1616U   0x0006d0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                     loop   0x0006da    program     static                          
-                  endloop   0x0006f6    program     static                          
-       ___return_lbl00000   0x0006fa    program     static                          
-               commsSetup   0x0006fc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-             transmitData   0x0006fe    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-              receiveData   0x000700    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-          processReceived   0x00070e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-                   __pa_0   0x000710    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-            __zero_memory   0x00071c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-               zero_block   0x00072a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_h   0x00072a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                compare_l   0x000732    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_l   0x000734    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 _startup   0x00073c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x00074c    program     static                          
-       ___return_lbl00001   0x000756    program     static                          
-            SetupEncoders   0x000758    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
-           sampleEncoders   0x00075a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
-               motorSetup   0x000774    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
-              DriveMotors   0x000776    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
-                   __init   0x000782    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-               __string_0   0x000784    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                  IRSetup   0x000034    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+               timerSetup   0x00004a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                 IRDetect   0x000068    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+             IRThresholds   0x0000e8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+              IRDistances   0x0001e4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                 sampleIR   0x0004e4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                   readIR   0x00051e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+             changeSensor   0x000552    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+              storeBuffer   0x00058a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+               commsSetup   0x00062c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+             transmitData   0x000650    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+              receiveData   0x00073a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+          processReceived   0x0007b0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+             intToPackage   0x0007c0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+            RSSIToPackage   0x0008c8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                  getRSSI   0x000948    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                  sendMsg   0x000a04    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+           createCheckSum   0x000a4a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                     main   0x000aa4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+           high_interrupt   0x000bd0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                _do_cinit   0x000c2e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     test   0x000c48    program     static                          
+                copy_loop   0x000ca0    program     static                          
+            copy_one_byte   0x000ca6    program     static                          
+             done_copying   0x000cb4    program     static                          
+       ___return_lbl00002   0x000cca    program     static                          
+                     done   0x000cca    program     static                          
+                OpenUSART   0x000ccc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
+                 FXD1616S   0x000d56    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA1616S   0x000d68    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                   D1616S   0x000d78    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x000d82    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x000d86    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x000d98    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                ReadUSART   0x000da2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uread.c
+             Delay10KTCYx   0x000de0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kx   0x000dea    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                   D10K_1   0x000dec    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_0010   0x000df0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kl   0x000df8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_001C   0x000dfc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+               WriteUSART   0x000e0e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
+                 FXD1616U   0x000e3c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                     loop   0x000e46    program     static                          
+                  endloop   0x000e62    program     static                          
+       ___return_lbl00000   0x000e66    program     static                          
+            SetupEncoders   0x000e68    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+           sampleEncoders   0x000e6a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+            __zero_memory   0x000e88    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+               zero_block   0x000e96    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_h   0x000e96    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                compare_l   0x000e9e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_l   0x000ea0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 _startup   0x000ea8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x000eb8    program     static                          
+       ___return_lbl00001   0x000ec2    program     static                          
+               motorSetup   0x000ec4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
+              DriveMotors   0x000ec6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
+                   __init   0x000ed6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
                __config_0   0x300001    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_1   0x300002    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_2   0x300003    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
@@ -487,14 +513,14 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                __config_9   0x30000c    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
               __config_10   0x30000d    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                      SIGN   0x000000       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
-                __FPFLAGS   0x000001       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
             __FPFLAGSbits   0x000001       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
-                 __AARGB7   0x000002       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                __FPFLAGS   0x000001       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
                   __REMB3   0x000002       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB6   0x000003       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB7   0x000002       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                   __REMB2   0x000003       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB5   0x000004       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB6   0x000003       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                   __REMB1   0x000004       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB5   0x000004       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                  __AARGB4   0x000005       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                   __REMB0   0x000005       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                  __AARGB3   0x000006       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
@@ -507,79 +533,92 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                  __BARGB1   0x00000d       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
                  __BARGB0   0x00000e       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
                    __BEXP   0x00000f       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                  __tmp_0   0x000010       data     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                  __tmp_0   0x000010       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
                   __tmp_0   0x000010       data     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
                   __tmp_0   0x000010       data     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-               detectVals   0x000080       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-            receiveBuffer   0x000086       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                 chirpStr   0x0000b8       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-          instructionFlag   0x0000b9       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                IRBuffer1   0x0000ba       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                IRBuffer2   0x0000c0       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                IRBuffer0   0x0000c6       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                 IRIndex1   0x0000cc       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                 IRIndex2   0x0000cd       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                 IRIndex0   0x0000ce       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                  counter   0x0000cf       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-           targetEncoders   0x0000d0       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-           signalStrength   0x0000d4       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-       currentEncoderVals   0x0000d6       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-              receiveFlag   0x0000da       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                     prom   0x0000db       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                curr_byte   0x0000de       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-               curr_entry   0x0000e0       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                 data_ptr   0x0000e2       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+            DelayCounter2   0x000014       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\delayd2.asm
+            DelayCounter1   0x000015       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\delayd1.asm
+           signalStrength   0x000080       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+       currentEncoderVals   0x000085       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+               detectVals   0x000089       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+            receiveBuffer   0x00008f       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                 chirpStr   0x0000c1       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+          instructionFlag   0x0000c2       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+              startString   0x0000c3       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                endString   0x0000c7       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+          separatorString   0x0000ca       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                     flag   0x0000cd       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+           ATCommandStart   0x0000ce       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+            ATCommandRSSI   0x0000d2       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+             ATCommandEnd   0x0000d8       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+                IRBuffer1   0x0000de       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                IRBuffer2   0x0000e4       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                IRBuffer0   0x0000ea       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                 IRIndex1   0x0000f0       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                 IRIndex2   0x0000f1       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                 IRIndex0   0x0000f2       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                  counter   0x0000f3       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
+                     prom   0x0000f4       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                curr_byte   0x0000f7       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+               curr_entry   0x0000f9       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                 data_ptr   0x0000fb       data     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                    rcPtr   0x0000fe       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
+           targetEncoders   0x000500       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+              receiveFlag   0x000504       data     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+             USART_Status   0x000505       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\udefs.c
                 PORTAbits   0x000f80       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     PORTA   0x000f80       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 PORTBbits   0x000f81       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     PORTB   0x000f81       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                PORTCbits   0x000f82       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     PORTC   0x000f82       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                PORTDbits   0x000f83       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                PORTCbits   0x000f82       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     PORTD   0x000f83       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                PORTDbits   0x000f83       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 PORTEbits   0x000f84       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     PORTE   0x000f84       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     LATA   0x000f89       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  LATAbits   0x000f89       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     LATA   0x000f89       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      LATB   0x000f8a       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  LATBbits   0x000f8a       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      LATC   0x000f8b       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  LATCbits   0x000f8b       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 LATDbits   0x000f8c       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      LATD   0x000f8c       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 LATEbits   0x000f8d       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 LATDbits   0x000f8c       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      LATE   0x000f8d       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 LATEbits   0x000f8d       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 DDRAbits   0x000f92       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     DDRA   0x000f92       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 TRISAbits   0x000f92       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     TRISA   0x000f92       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     DDRA   0x000f92       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 DDRAbits   0x000f92       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 DDRBbits   0x000f93       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     DDRB   0x000f93       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 TRISBbits   0x000f93       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     TRISB   0x000f93       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     DDRB   0x000f93       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 DDRBbits   0x000f93       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     DDRC   0x000f94       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 DDRCbits   0x000f94       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 TRISCbits   0x000f94       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     TRISC   0x000f94       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     DDRD   0x000f95       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     DDRC   0x000f94       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 DDRCbits   0x000f94       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 DDRDbits   0x000f95       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 TRISDbits   0x000f95       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     TRISD   0x000f95       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 DDRDbits   0x000f95       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     DDRE   0x000f96       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                    TRISE   0x000f96       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     DDRD   0x000f95       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 TRISEbits   0x000f96       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  DDREbits   0x000f96       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     DDRE   0x000f96       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                    TRISE   0x000f96       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   OSCTUNE   0x000f9b       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
               OSCTUNEbits   0x000f9b       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     PIE1   0x000f9d       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  PIE1bits   0x000f9d       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     PIE1   0x000f9d       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  PIR1bits   0x000f9e       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      PIR1   0x000f9e       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 IPR1bits   0x000f9f       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      IPR1   0x000f9f       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     PIE2   0x000fa0       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 IPR1bits   0x000f9f       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  PIE2bits   0x000fa0       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 PIR2bits   0x000fa1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     PIE2   0x000fa0       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      PIR2   0x000fa1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 PIR2bits   0x000fa1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  IPR2bits   0x000fa2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      IPR2   0x000fa2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    EECON1   0x000fa6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -587,10 +626,10 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                    EECON2   0x000fa7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    EEDATA   0x000fa8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     EEADR   0x000fa9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                    RCSTA   0x000fab       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 RCSTAbits   0x000fab       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                    TXSTA   0x000fac       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                    RCSTA   0x000fab       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 TXSTAbits   0x000fac       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                    TXSTA   0x000fac       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     TXREG   0x000fad       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     RCREG   0x000fae       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     SPBRG   0x000faf       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -603,36 +642,36 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                     CMCON   0x000fb4       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                CVRCONbits   0x000fb5       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    CVRCON   0x000fb5       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-              ECCP1ASbits   0x000fb6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   ECCP1AS   0x000fb6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+              ECCP1ASbits   0x000fb6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ECCPAS   0x000fb6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                ECCPASbits   0x000fb6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-             ECCP1DELbits   0x000fb7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  ECCP1DEL   0x000fb7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-              PWM1CONbits   0x000fb7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+             ECCP1DELbits   0x000fb7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   PWM1CON   0x000fb7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+              PWM1CONbits   0x000fb7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   BAUDCON   0x000fb8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
               BAUDCONbits   0x000fb8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-              BAUDCTLbits   0x000fb8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   BAUDCTL   0x000fb8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+              BAUDCTLbits   0x000fb8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   CCP2CON   0x000fba       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
               CCP2CONbits   0x000fba       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   CCPR2L   0x000fbb       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     CCPR2   0x000fbb       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   CCPR2L   0x000fbb       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    CCPR2H   0x000fbc       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                  CCP1CON   0x000fbd       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
               CCP1CONbits   0x000fbd       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                  CCP1CON   0x000fbd       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     CCPR1   0x000fbe       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    CCPR1L   0x000fbe       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    CCPR1H   0x000fbf       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   ADCON2   0x000fc0       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                ADCON2bits   0x000fc0       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-               ADCON1bits   0x000fc1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   ADCON2   0x000fc0       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADCON1   0x000fc1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-               ADCON0bits   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+               ADCON1bits   0x000fc1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADCON0   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   ADRESL   0x000fc3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+               ADCON0bits   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     ADRES   0x000fc3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   ADRESL   0x000fc3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADRESH   0x000fc4       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   SSPCON2   0x000fc5       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
               SSPCON2bits   0x000fc5       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -642,20 +681,20 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                   SSPSTAT   0x000fc7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    SSPADD   0x000fc8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    SSPBUF   0x000fc9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                    T2CON   0x000fca       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 T2CONbits   0x000fca       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                    T2CON   0x000fca       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                       PR2   0x000fcb       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      TMR2   0x000fcc       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                    T1CON   0x000fcd       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                 T1CONbits   0x000fcd       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                    T1CON   0x000fcd       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     TMR1L   0x000fce       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     TMR1H   0x000fcf       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                  RCONbits   0x000fd0       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      RCON   0x000fd0       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-               WDTCONbits   0x000fd1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    WDTCON   0x000fd1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   LVDCON   0x000fd2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+               WDTCONbits   0x000fd1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                LVDCONbits   0x000fd2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   LVDCON   0x000fd2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
               HLVDCONbits   0x000fd2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   HLVDCON   0x000fd2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                OSCCONbits   0x000fd3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -666,8 +705,8 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                     TMR0H   0x000fd7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                STATUSbits   0x000fd8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    STATUS   0x000fd8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     FSR2   0x000fd9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     FSR2L   0x000fd9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     FSR2   0x000fd9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     FSR2H   0x000fda       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    PLUSW2   0x000fdb       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   PREINC2   0x000fdc       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -685,8 +724,8 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                     INDF1   0x000fe7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                         W   0x000fe8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      WREG   0x000fe8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                     FSR0   0x000fe9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     FSR0L   0x000fe9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     FSR0   0x000fe9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     FSR0H   0x000fea       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    PLUSW0   0x000feb       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   PREINC0   0x000fec       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -699,12 +738,12 @@ Linker Map File - Created Wed Oct 19 19:58:20 2016
                   INTCON2   0x000ff1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                INTCONbits   0x000ff2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    INTCON   0x000ff2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                    PRODL   0x000ff3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      PROD   0x000ff3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                    PRODL   0x000ff3       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                     PRODH   0x000ff4       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    TABLAT   0x000ff5       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                  TBLPTRL   0x000ff6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    TBLPTR   0x000ff6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                  TBLPTRL   0x000ff6       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   TBLPTRH   0x000ff7       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                   TBLPTRU   0x000ff8       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                        PC   0x000ff9       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm

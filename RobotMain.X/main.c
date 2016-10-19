@@ -27,7 +27,8 @@
 void high_interrupt(void);
 
 // IRs
-void SetupIR(void);
+
+void IRSetup(void);
 void IRProcess(int* IRVals);
 void sampleIR(void);
 
@@ -41,8 +42,8 @@ char DriveMotors(int magnitude,char direction,char mainFlag);
 
 //Communications
 void commsSetup(void);
-char transmitData(int* IRVals,char signalStrength,char processComplete);
-char receiveData();
+char transmitData(int* IRVals,char* signalStrength,char processComplete);
+char receiveData(char* buffer);
 /*Processes incoming messages, update encoder values and return received chirp strength*/
 char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag);
 
@@ -55,13 +56,13 @@ void debugSetup(void);
 /* -- Global Variables -- */
 
 //Target number of encoder increments (transmitted from main)
-int* targetEncoders[2] = {10,10};
+int targetEncoders[2] = {10,10};
 
 //signal strength is modified by the receive interrupt
-char* signalStrength = "";
+char signalStrength[5];
 
 //The current encoder values, modified in the readEncoders function
-int* currentEncoderVals[2] = {0,0};
+int currentEncoderVals[2];
 
 
 //Array containing detected object thresholds
@@ -106,7 +107,7 @@ void goto_high_ISR(void) {
 
 
 void main(void) {
-    int* IRVals[3];
+    int IRVals[3];
     int i;
     
     int instMag=100;
@@ -159,18 +160,19 @@ void main(void) {
         //Read IR sensor buffer and return result
         IRDetect(2,detectVals);
         
-        if (detectVals[0] > 0) {
-            i++;
-        }
-        if (detectVals[1] > 0) {
-            i++;
-        }
-              
-        if (detectVals[2] > 0) {
-            i++;
-        }
-              
-               
+    
+        IRVals[0] = 1111;
+        IRVals[1] = 1111;
+        IRVals[2] = 0;
+        signalStrength[0] = 5;
+        signalStrength[1] = 5;
+        signalStrength[2] = 5;
+        signalStrength[3] = 5;
+        signalStrength[4] = 0x00;
+        //signalStrength = {5,5,5,5,5};
+        instructionFlag = 0;
+        
+        
 
          //transmit to commander
         transmitData(IRVals,signalStrength,instructionFlag);
@@ -228,7 +230,8 @@ void high_interrupt(void) {
     
         /*Serial Receive Interrupt*/
     if (PIR1bits.RCIF == 1) {
-        receiveFlag = receiveData();
+        receiveFlag = receiveData(receiveBuffer);
+        
         
         PIR1bits.RCIF = 0;
 
