@@ -129,14 +129,17 @@ void main(void) {
     debugSetup();
     
     //Timer 1 Setup
-    IPR1bits.TMR1IP = 1; // timer 1 overflow
-    PIE1bits.TMR1IE = 1;
-    T1CON = 0b10110001;
+    //IPR1bits.TMR1IP = 1; // timer 1 overflow
+    //PIE1bits.TMR1IE = 1;
+    //T1CON = 0b10110001;
     
     //Timer 3 Setup
     IPR2bits.TMR3IP = 1;
     PIE2bits.TMR3IE = 1;
     T3CON = 0b10110001;
+    ADCON0bits.GO = 1;
+    
+    //Turn on timer 3
 
     
     
@@ -196,29 +199,31 @@ void high_interrupt(void) {
     // Disable Interrupts
     INTCONbits.GIE = 0;
     
+ 
     
-    /* IRSensors Timer Interrupt */
-    if ((PIR1bits.TMR1IF == 1)&&(PIE1bits.TMR1IE == 1)) {
+        /* IRSensors Timer Interrupt */
+    //if ((PIR1bits.TMR1IF == 1)&&(PIE1bits.TMR1IE == 1)) {
     //reset clock
-        TMR1H = 0;
-        TMR1L = 0;
+        //TMR1H = 0;
+        //TMR1L = 0;
         
         
 
         //sampleIR();
         //Begin new IR conversion
-        ADCON0bits.GO = 1;
+        //ADCON0bits.GO = 1;
     
         //Clear timer flag
-        PIR1bits.TMR1IF = 0;
+        //PIR1bits.TMR1IF = 0;
         
-        PIR1 = 0;
-        PIR2 = 0;
+        //PIR1 = 0;
+       // PIR2 = 0;
         
         
     
 
-    }
+    //}
+    
     
     
     
@@ -240,6 +245,11 @@ void high_interrupt(void) {
         
         PIR1 = 0;
         PIR2 = 0;
+        
+            IPR2bits.TMR3IP = 1;
+    PIE2bits.TMR3IE = 1;
+    T3CON = 0b10110001;
+    ADCON0bits.GO = 1;
         
         
         

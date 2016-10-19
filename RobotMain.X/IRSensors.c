@@ -60,29 +60,7 @@ void IRSetup(void) {
 
 
 
-void timerSetup() {
-    
-    T1CON = 0b10000001;
-    T3CON = 0b00000000;
-            
-    CCP1CON = 0b00000010;
-    PIE1bits.CCP1IE = 1;     // Enables CCP1 interrupts
-    IPR1bits.CCP1IP = 1;     // Sets CCP1 interrupt to high priority
-    PIR1bits.CCP1IF = 0;
-    
-    
-    //PIE1 = 0b00000100;      
 
-    //IPR1 = 0b00000100;     
-
-    RCON = 0b10000000;      // Enables priority levels on interrupts 
-
-    CCPR1L = 0x82;         // Set period to 30Hz  
-    //CCPR1H = 0x35;
-    
-    //slower value
-    CCPR1H = 0xF5;
-}
 
 
 
