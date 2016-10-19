@@ -1,5 +1,5 @@
 MPLINK 4.48, Linker
-Linker Map File - Created Wed Oct 19 23:10:10 2016
+Linker Map File - Created Wed Oct 19 23:38:54 2016
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -10,48 +10,48 @@ Linker Map File - Created Wed Oct 19 23:10:10 2016
                    .cinit    romdata   0x00000e    program   0x000026
         .code_IRSensors.o       code   0x000034    program   0x0005f8
    .code_Communications.o       code   0x00062c    program   0x000478
-             .code_main.o       code   0x000aa4    program   0x00018a
-               _cinit_scn       code   0x000c2e    program   0x00009e
-            .code_uopen.o       code   0x000ccc    program   0x00008a
-                     PROG       code   0x000d56    program   0x00004c
-            .code_uread.o       code   0x000da2    program   0x00003e
-             D10KTCYXCODE       code   0x000de0    program   0x00002e
-           .code_uwrite.o       code   0x000e0e    program   0x00002e
-         .code_fxd1616u.o       code   0x000e3c    program   0x00002c
-         .code_Encoders.o       code   0x000e68    program   0x000020
-                    .code       code   0x000e88    program   0x000020
-             _startup_scn       code   0x000ea8    program   0x00001c
-     .code_MotorDrivers.o       code   0x000ec4    program   0x000012
-           .code___init.o       code   0x000ed6    program   0x000002
-         .idata_uread.o_i    romdata   0x000ed8    program   0x000000
-         .romdata_uread.o    romdata   0x000ed8    program   0x000000
-         .romdata_uopen.o    romdata   0x000ed8    program   0x000000
-         .idata_uopen.o_i    romdata   0x000ed8    program   0x000000
-         .idata_udefs.o_i    romdata   0x000ed8    program   0x000000
-      .romdata_fxd1616u.o    romdata   0x000ed8    program   0x000000
-         .romdata_udefs.o    romdata   0x000ed8    program   0x000000
-        .idata_uwrite.o_i    romdata   0x000ed8    program   0x000000
-        .romdata_uwrite.o    romdata   0x000ed8    program   0x000000
-        .romdata___init.o    romdata   0x000ed8    program   0x000000
-         .romdata_debug.o    romdata   0x000ed8    program   0x000000
-  .romdata_MotorDrivers.o    romdata   0x000ed8    program   0x000000
-      .romdata_Encoders.o    romdata   0x000ed8    program   0x000000
-         .romdata_c018i.o    romdata   0x000ed8    program   0x000000
-             .stringtable    romdata   0x000ed8    program   0x000000
-.romdata_Communications.o    romdata   0x000ed8    program   0x000000
-          .idata_main.o_i    romdata   0x000ed8    program   0x000005
-     .romdata_IRSensors.o    romdata   0x000ed8    program   0x000000
-          .romdata_main.o    romdata   0x000ed8    program   0x000000
-         .idata_c018i.o_i    romdata   0x000edd    program   0x000000
-        .idata___init.o_i    romdata   0x000edd    program   0x000000
-  .idata_MotorDrivers.o_i    romdata   0x000edd    program   0x000000
-         .idata_debug.o_i    romdata   0x000edd    program   0x000000
-     .idata_IRSensors.o_i    romdata   0x000edd    program   0x000016
-      .idata_fxd1616u.o_i    romdata   0x000edd    program   0x000000
-.idata_Communications.o_i    romdata   0x000ef3    program   0x00001b
-      .idata_Encoders.o_i    romdata   0x000ef3    program   0x000000
-            .code_udefs.o       code   0x000f0e    program   0x000000
-            .code_c018i.o       code   0x000f0e    program   0x000000
+             .code_main.o       code   0x000aa4    program   0x0001ca
+               _cinit_scn       code   0x000c6e    program   0x00009e
+            .code_uopen.o       code   0x000d0c    program   0x00008a
+                     PROG       code   0x000d96    program   0x00004c
+            .code_uread.o       code   0x000de2    program   0x00003e
+             D10KTCYXCODE       code   0x000e20    program   0x00002e
+           .code_uwrite.o       code   0x000e4e    program   0x00002e
+         .code_fxd1616u.o       code   0x000e7c    program   0x00002c
+         .code_Encoders.o       code   0x000ea8    program   0x000020
+                    .code       code   0x000ec8    program   0x000020
+             _startup_scn       code   0x000ee8    program   0x00001c
+     .code_MotorDrivers.o       code   0x000f04    program   0x000012
+           .code___init.o       code   0x000f16    program   0x000002
+         .idata_uread.o_i    romdata   0x000f18    program   0x000000
+         .romdata_uread.o    romdata   0x000f18    program   0x000000
+         .romdata_uopen.o    romdata   0x000f18    program   0x000000
+         .idata_uopen.o_i    romdata   0x000f18    program   0x000000
+         .idata_udefs.o_i    romdata   0x000f18    program   0x000000
+      .romdata_fxd1616u.o    romdata   0x000f18    program   0x000000
+         .romdata_udefs.o    romdata   0x000f18    program   0x000000
+        .idata_uwrite.o_i    romdata   0x000f18    program   0x000000
+        .romdata_uwrite.o    romdata   0x000f18    program   0x000000
+        .romdata___init.o    romdata   0x000f18    program   0x000000
+         .romdata_debug.o    romdata   0x000f18    program   0x000000
+  .romdata_MotorDrivers.o    romdata   0x000f18    program   0x000000
+      .romdata_Encoders.o    romdata   0x000f18    program   0x000000
+         .romdata_c018i.o    romdata   0x000f18    program   0x000000
+             .stringtable    romdata   0x000f18    program   0x000000
+.romdata_Communications.o    romdata   0x000f18    program   0x000000
+          .idata_main.o_i    romdata   0x000f18    program   0x000005
+     .romdata_IRSensors.o    romdata   0x000f18    program   0x000000
+          .romdata_main.o    romdata   0x000f18    program   0x000000
+         .idata_c018i.o_i    romdata   0x000f1d    program   0x000000
+        .idata___init.o_i    romdata   0x000f1d    program   0x000000
+  .idata_MotorDrivers.o_i    romdata   0x000f1d    program   0x000000
+         .idata_debug.o_i    romdata   0x000f1d    program   0x000000
+     .idata_IRSensors.o_i    romdata   0x000f1d    program   0x000016
+      .idata_fxd1616u.o_i    romdata   0x000f1d    program   0x000000
+.idata_Communications.o_i    romdata   0x000f33    program   0x00001b
+      .idata_Encoders.o_i    romdata   0x000f33    program   0x000000
+            .code_udefs.o       code   0x000f4e    program   0x000000
+            .code_c018i.o       code   0x000f4e    program   0x000000
     .config_300001_main.o    romdata   0x300001    program   0x000001
     .config_300002_main.o    romdata   0x300002    program   0x000001
     .config_300003_main.o    romdata   0x300003    program   0x000001
@@ -101,45 +101,45 @@ Linker Map File - Created Wed Oct 19 23:10:10 2016
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000f0d      
+                            0x000000    0x000f4d      
                             0x300001    0x300003      
                             0x300005    0x300006      
                             0x300008    0x30000d      
-            3865 out of 33048 program addresses used, program memory utilization is 11%
+            3929 out of 33048 program addresses used, program memory utilization is 11%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   D10K_1   0x000dec    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kl   0x000df8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kx   0x000dea    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                   D1616S   0x000d78    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x000d86    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x000d82    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x000d98    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA1616S   0x000d68    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-             Delay10KTCYx   0x000de0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-              DriveMotors   0x000ec6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
-                 FXD1616S   0x000d56    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXD1616U   0x000e3c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                   D10K_1   0x000e2c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kl   0x000e38    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kx   0x000e2a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                   D1616S   0x000db8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x000dc6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x000dc2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x000dd8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA1616S   0x000da8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+             Delay10KTCYx   0x000e20    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+              DriveMotors   0x000f06    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
+                 FXD1616S   0x000d96    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 FXD1616U   0x000e7c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
                  IRDetect   0x000068    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
               IRDistances   0x0001e4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
                   IRSetup   0x000034    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
              IRThresholds   0x0000e8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                OpenUSART   0x000ccc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
+                OpenUSART   0x000d0c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
             RSSIToPackage   0x0008c8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-                ReadUSART   0x000da2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uread.c
-            SetupEncoders   0x000e68    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
-               WriteUSART   0x000e0e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
-       _D10KTCYXCODE_0010   0x000df0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_001C   0x000dfc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                ReadUSART   0x000de2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uread.c
+            SetupEncoders   0x000ea8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+               WriteUSART   0x000e4e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
+       _D10KTCYXCODE_0010   0x000e30    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_001C   0x000e3c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
        ___return_lbl00000   0x00000c    program     static                          
-       ___return_lbl00000   0x000e66    program     static                          
+       ___return_lbl00000   0x000ea6    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x000ec2    program     static                          
-       ___return_lbl00002   0x000cca    program     static                          
+       ___return_lbl00001   0x000f02    program     static                          
+       ___return_lbl00002   0x000d0a    program     static                          
                __config_0   0x300001    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_1   0x300002    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
               __config_10   0x30000d    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
@@ -151,42 +151,42 @@ Linker Map File - Created Wed Oct 19 23:10:10 2016
                __config_7   0x30000a    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_8   0x30000b    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_9   0x30000c    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                   __init   0x000ed6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-            __zero_memory   0x000e88    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                _do_cinit   0x000c2e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                   __init   0x000f16    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
+            __zero_memory   0x000ec8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                _do_cinit   0x000c6e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                 _startup   0x000ea8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                 _startup   0x000ee8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
              changeSensor   0x000552    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
                commsSetup   0x00062c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-                compare_l   0x000e9e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                copy_loop   0x000ca0    program     static                          
-            copy_one_byte   0x000ca6    program     static                          
+                compare_l   0x000ede    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                copy_loop   0x000ce0    program     static                          
+            copy_one_byte   0x000ce6    program     static                          
            createCheckSum   0x000a4a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
                debugSetup   0x000006    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\debug.c
-                     done   0x000cca    program     static                          
-             done_copying   0x000cb4    program     static                          
-                  endloop   0x000e62    program     static                          
+                     done   0x000d0a    program     static                          
+             done_copying   0x000cf4    program     static                          
+                  endloop   0x000ea2    program     static                          
                   getRSSI   0x000948    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
             goto_high_ISR   0x000008    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-           high_interrupt   0x000bd0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+           high_interrupt   0x000c18    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
              intToPackage   0x0007c0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-                     loop   0x000eb8    program     static                          
-                     loop   0x000e46    program     static                          
-                   loop_h   0x000e96    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_l   0x000ea0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                     loop   0x000ef8    program     static                          
+                     loop   0x000e86    program     static                          
+                   loop_h   0x000ed6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_l   0x000ee0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                      main   0x000aa4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-               motorSetup   0x000ec4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
+               motorSetup   0x000f04    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
           processReceived   0x0007b0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
                    readIR   0x00051e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
               receiveData   0x00073a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-           sampleEncoders   0x000e6a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+           sampleEncoders   0x000eaa    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
                  sampleIR   0x0004e4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
                   sendMsg   0x000a04    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
               storeBuffer   0x00058a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
-                     test   0x000c48    program     static                          
+                     test   0x000c88    program     static                          
                timerSetup   0x00004a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\IRSensors.c
              transmitData   0x000650    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
-               zero_block   0x000e96    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+               zero_block   0x000ed6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADCON0   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                ADCON0bits   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADCON1   0x000fc1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -461,46 +461,46 @@ Linker Map File - Created Wed Oct 19 23:10:10 2016
                   sendMsg   0x000a04    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
            createCheckSum   0x000a4a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Communications.c
                      main   0x000aa4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-           high_interrupt   0x000bd0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
-                _do_cinit   0x000c2e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     test   0x000c48    program     static                          
-                copy_loop   0x000ca0    program     static                          
-            copy_one_byte   0x000ca6    program     static                          
-             done_copying   0x000cb4    program     static                          
-       ___return_lbl00002   0x000cca    program     static                          
-                     done   0x000cca    program     static                          
-                OpenUSART   0x000ccc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
-                 FXD1616S   0x000d56    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA1616S   0x000d68    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                   D1616S   0x000d78    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x000d82    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x000d86    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x000d98    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                ReadUSART   0x000da2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uread.c
-             Delay10KTCYx   0x000de0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kx   0x000dea    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                   D10K_1   0x000dec    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_0010   0x000df0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kl   0x000df8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_001C   0x000dfc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-               WriteUSART   0x000e0e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
-                 FXD1616U   0x000e3c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                     loop   0x000e46    program     static                          
-                  endloop   0x000e62    program     static                          
-       ___return_lbl00000   0x000e66    program     static                          
-            SetupEncoders   0x000e68    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
-           sampleEncoders   0x000e6a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
-            __zero_memory   0x000e88    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-               zero_block   0x000e96    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_h   0x000e96    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                compare_l   0x000e9e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_l   0x000ea0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 _startup   0x000ea8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x000eb8    program     static                          
-       ___return_lbl00001   0x000ec2    program     static                          
-               motorSetup   0x000ec4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
-              DriveMotors   0x000ec6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
-                   __init   0x000ed6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
+           high_interrupt   0x000c18    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
+                _do_cinit   0x000c6e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     test   0x000c88    program     static                          
+                copy_loop   0x000ce0    program     static                          
+            copy_one_byte   0x000ce6    program     static                          
+             done_copying   0x000cf4    program     static                          
+       ___return_lbl00002   0x000d0a    program     static                          
+                     done   0x000d0a    program     static                          
+                OpenUSART   0x000d0c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
+                 FXD1616S   0x000d96    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA1616S   0x000da8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                   D1616S   0x000db8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x000dc2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x000dc6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x000dd8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                ReadUSART   0x000de2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uread.c
+             Delay10KTCYx   0x000e20    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kx   0x000e2a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                   D10K_1   0x000e2c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_0010   0x000e30    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kl   0x000e38    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_001C   0x000e3c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+               WriteUSART   0x000e4e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
+                 FXD1616U   0x000e7c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                     loop   0x000e86    program     static                          
+                  endloop   0x000ea2    program     static                          
+       ___return_lbl00000   0x000ea6    program     static                          
+            SetupEncoders   0x000ea8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+           sampleEncoders   0x000eaa    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\Encoders.c
+            __zero_memory   0x000ec8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+               zero_block   0x000ed6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_h   0x000ed6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                compare_l   0x000ede    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_l   0x000ee0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 _startup   0x000ee8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x000ef8    program     static                          
+       ___return_lbl00001   0x000f02    program     static                          
+               motorSetup   0x000f04    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
+              DriveMotors   0x000f06    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\MotorDrivers.c
+                   __init   0x000f16    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
                __config_0   0x300001    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_1   0x300002    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c
                __config_2   0x300003    program     static C:\Users\sgle6040\Documents\MTRX3_Major\RobotMain.X\main.c

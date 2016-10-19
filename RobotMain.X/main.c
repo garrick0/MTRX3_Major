@@ -112,8 +112,7 @@ void main(void) {
     
     int instMag=100;
     char instDir = 'F';
-    //Set up IR sensors
-    IRSetup();
+
     //timerSetup();
     //SetupIR();
     
@@ -124,6 +123,8 @@ void main(void) {
     commsSetup();
     motorSetup();
     
+    //Set up IR sensors
+    IRSetup();
     
     debugSetup();
     
@@ -160,7 +161,17 @@ void main(void) {
         //Read IR sensor buffer and return result
         IRDetect(2,detectVals);
         
-    
+        if (detectVals[0] > 0) {
+            i++;
+        }
+        if (detectVals[1] > 0) {
+            i++;
+        }
+        if (detectVals[2] > 0) {
+            i++;
+        }
+        
+        //Testing Values for comms
         IRVals[0] = 1111;
         IRVals[1] = 1111;
         IRVals[2] = 0;
@@ -193,8 +204,8 @@ void high_interrupt(void) {
         TMR1L = 0;
         
         
-        sampleIR();
-        
+
+        //sampleIR();
         //Begin new IR conversion
         ADCON0bits.GO = 1;
     
@@ -211,16 +222,35 @@ void high_interrupt(void) {
     
     
     
-        /* Encoder Timer Interrupt */
+        /* IRSensors Timer Interrupt */
     if ((PIR2bits.TMR3IF == 1)&&(PIE2bits.TMR3IE == 1)) {
     //reset clock
         TMR3H = 0;
         TMR3L = 0;
-        sampleEncoders(currentEncoderVals);
+        
+        
+        
+         sampleIR();
+        //Begin new IR conversion
+        ADCON0bits.GO = 1;
+    
+        //Clear timer flag
+ 
+        PIR2bits.TMR3IF = 0;
+        
+        PIR1 = 0;
+        PIR2 = 0;
+        
+        
+        
+        
+        //sampleEncoders(currentEncoderVals);
+        //sampleIR();
+        //ADCON0bits.GO = 1;
    
     
         //Clear timer flag
-        PIR2bits.TMR3IF = 0;
+        
 
     }
     
@@ -241,7 +271,7 @@ void high_interrupt(void) {
 
     //Enable Interrupts
     INTCONbits.GIE = 1;
-    
+    return;
 
     
 }
