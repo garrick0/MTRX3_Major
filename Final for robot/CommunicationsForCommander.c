@@ -11,7 +11,8 @@
 #define BIT0 0x01
 #define BIT1 0x02
 #define BIT4 0x10
-#define endsChar 'K'
+#define startChar 'K'
+#define endChar 'O'
 #define sep '*'
 #define comma ','
 #define endBuf '#'
@@ -44,14 +45,23 @@ void commsSetupCommander(void) {
  * @param which area is the instruction directed at (IR,RSSI,...)
  * @param the message/instruction (eg value to write to wheels);
  */
-char endsString[] = {endsChar,NULL};
-char separatorString[] = {sep,NULL};
-void transmitDataCommander(char* identifier, char* instruction) {
+char startString[] = {startChar,NULL};
+char endString[] = {endChar,NULL};
+// system: 
+// + : to read 
+// - : to write 
+char IR[] = "+1";
+char RSSI[] = "+2";
+char ENC[] = "+3";
+char PWM[] = "-1";
+char MOVE[] = "-2";
+void transmitDataCommander(char* identifier, char* instruction, char *checkSum) {
     
-    putsUART(endsString); // send the package that indicates the start
+    putsUART(startString); // send the package that indicates the start
     putsUART(identifier); // sends the identifier for which instruction
     putsUART(instruction); // sends the instruction
-    putsUART(endsString); // send the package that indicates the end 
+    putsUART(checkSum); // send security check measure for instruction
+    putsUART(endString); // send the package that indicates the end 
     
     return 0;
 }
@@ -69,6 +79,19 @@ void receiveDataCommander(void){
     }
     *rcPtr = ReadUART();
     return 0;
+}
+/**
+ * @brief creates a check sum security measure 
+ * @param string of values to be sent 
+ * @return sum of individual values stored 
+ */
+char createCheckSum( char * string){
+    char checkSum = 0;
+    while (*string) // while not end of string 
+    {
+        checkSum = checkSum + *string; 
+    } 
+    return checkSum;
 }
 /**
  * @brief the delay functions for UART, written for minimal board only

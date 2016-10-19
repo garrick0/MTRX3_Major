@@ -8,7 +8,8 @@
 #define FULL 0xFF
 #define chirpSound 'z'
 #define BIT0 0x01
-#define endsChar 'K'
+#define startChar 'K'
+#define endChar 'O'
 #define sep '*'
 #define comma ','
 #define endBuf '#'
@@ -41,18 +42,20 @@ void commsSetup(void) {
  * @param values for signal strength in char form(Null terminated)
  * @param valuse for encoder values in char form (Null terminated)
  */
-char endsString[] = {FULL,endsChar,FULL,NULL};
+char startString[] = {FULL,startChar,FULL,NULL};
+char endString[] = {FULL,endChar,FULL,NULL};
 char separatorString[] = {sep,FULL,NULL};
-void transmitData(char* IRValsPackage, char* signalStrengthPackage, char* currentEncoderValsPackage) {
-    
+void transmitData(char* IRValsPackage, char* signalStrengthPackage, char* currentEncoderValsPackage, char checkSum) {
+    char checkSumPackage[] = {checkSum,FULL};
     while(RCREG != chirpSound); // wait till chirp is done then take chance to send data avoid confusion 
-    sendMsg(endsString); // send the package that indicates the start
+    sendMsg(startString); // send the package that indicates the start
     sendMsg(IRValsPackage); // send IR
     sendMsg(seperatorString); // separator 
     sendMsg(signalStrengthPackage); // send RSSI
     sendMsg(seperatorString); // separator 
     sendMsg(currentEncoderValsPackage); // send encoder 
-    sendMsg(endsString); // send the package that indicates the end 
+    sendMsg(checkSumPackage);
+    sendMsg(endString); // send the package that indicates the end 
     
     return 0;
 }
@@ -110,9 +113,11 @@ void receiveData(void){
     
     PIR1bits.RCIF=0; // clear receive flag
     
-    if(RCREG == endChar){ // turn on save text flag
-        flag = flag^BIT0; // toggle flag
+    if(RCREG == startChar){ // turn on save text flag
+        flag = 1; // turn on 
         rcPtr = buf; // point to beginning of buffer 
+    }else if (RCREG == endChar){ // turn on save text flag
+        flag = 0; // turn off
     }
     if(flag && RCREG != chirpSound){ // when flag is turned on discard all chirps
         rcPtr++; // save RCREG in circular buffer
@@ -157,4 +162,21 @@ void sendMsg(char *tx){
         txPtr++;  
     } 
     return 0;
+}
+/**
+ * @brief creates a check sum security measure 
+ * @param string of values to be sent 
+ * @return sum of individual values stored 
+ */
+// note , the max of the values is EF for sending to commander because first bit cannot be set
+char createCheckSum( char * string){
+    char checkSum = 0;
+    while (*string) // while not end of string 
+    {
+        checkSum = checkSum + *string; 
+    } 
+    if (checkSum>0xEF){
+        checkSum = 0xEF;
+    }
+    return checkSum;
 }
