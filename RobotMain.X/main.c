@@ -33,16 +33,18 @@ void sampleIR(void);
 
 // Encoders
 void SetupEncoders(void);
-void sampleEncoders(void);
+void sampleEncoders(int* encoderValues);
 
 //Motors
 void motorSetup(void);
-void DriveMotors(int* encoderIncs,int* currentEncoderVals);
+char DriveMotors(int magnitude,char direction,char mainFlag);
 
 //Communications
 void commsSetup(void);
 char transmitData(int* IRVals,char signalStrength,int* currentEncoderVals);
-void receiveData(void);
+char receiveData();
+/*Processes incoming messages, update encoder values and return received chirp strength*/
+char processReceived(char* buffer, int* tgtEncoders);
 
 // misc
 void debugSetup(void);
@@ -52,8 +54,8 @@ void debugSetup(void);
 
 /* -- Global Variables -- */
 
-//number of encoder increments
-int* encoderIncs[2] = {10,10};
+//Target number of encoder increments (transmitted from main)
+int* targetEncoders[2] = {10,10};
 
 //signal strength is modified by the receive interrupt
 char* signalStrength = "";
@@ -64,6 +66,18 @@ int* currentEncoderVals[2] = {0,0};
 
 //Array containing detected object thresholds
 int detectVals[3];
+
+//Buffer to store receive data
+char receiveBuffer[50];
+
+//Chirp Strength
+char chirpStr;
+
+//ReceiveFlag triggered when receive entered
+char receiveFlag=0;
+
+//MotorInstructionFlag
+char instructionFlag;
 
 
 
@@ -95,6 +109,8 @@ void main(void) {
     int* IRVals[3];
     int i;
     
+    int instMag=100;
+    char instDir = 'F';
     //Set up IR sensors
     IRSetup();
     //timerSetup();
@@ -133,8 +149,12 @@ void main(void) {
     /* Loop */
     while(1){
         
+        //Process Receive Function
+            //add inputs global variables
+        chirpStr = processReceived(receiveBuffer, targetEncoders);
+        
         //Perform PID or similar and drive motors
-        DriveMotors(encoderIncs,currentEncoderVals);
+        instructionFlag = DriveMotors(instMag,instDir,instructionFlag);
 
         //Read IR sensor buffer and return result
         IRDetect(2,detectVals);
@@ -194,7 +214,7 @@ void high_interrupt(void) {
     //reset clock
         TMR3H = 0;
         TMR3L = 0;
-        sampleEncoders();
+        sampleEncoders(currentEncoderVals);
    
     
         //Clear timer flag
@@ -208,7 +228,7 @@ void high_interrupt(void) {
     
         /*Serial Receive Interrupt*/
     if (PIR1bits.RCIF == 1) {
-        receiveData();
+        receiveFlag = receiveData();
         
         PIR1bits.RCIF = 0;
 
