@@ -17,8 +17,9 @@
 
 #define SCAN_NUMBER 3
 
-#define SWATHSIZE 30
-#define MAX_SCANS 360/SWATHSIZE
+//#define SWATHSIZE 30
+//#define MAX_SCANS 360/SWATHSIZE
+#define MAX_SCANS 12
 
 #define ENCODERTICKSPERREVOLUTION 1000
 
@@ -61,7 +62,7 @@ void getRobotState(char State,int* targetEncoder,int* currentEncoder,int* chirpS
 
     
     
-    calcScanPositions(currEncoder,3, scanEncValsLeft, scanEncValsRight);
+    calcScanPositions(currEncoder,12, scanEncValsLeft, scanEncValsRight);
     
     
     //if new command required
@@ -238,18 +239,18 @@ void scan(int* currentEncoder,int* targetEncoder,int* chirpStrength,int totalSca
             for (i=0;i< centreIndex;i++) {
 
                 //Store centre + ith value
-                test = currentEncoder[0]+Incs15Degrees;
+                test = currentEncoder[0]+2*(i+1)*Incs15Degrees;
                 x = centreIndex+i+1;
-                scanEncoderValsLeft[centreIndex+i+1] = currentEncoder[0]+Incs15Degrees;
+                scanEncoderValsLeft[centreIndex+i+1] = currentEncoder[0]+2*(i+1)*Incs15Degrees;
                 test = currentEncoder[1]-Incs15Degrees;
-                scanEncoderValsRight[centreIndex+i+1] = currentEncoder[1]-Incs15Degrees;
+                scanEncoderValsRight[centreIndex+i+1] = currentEncoder[1]-2*(i+1)*Incs15Degrees;
                 
                 //Store centre - ith value (signs swapped)
                 test = currentEncoder[0]-Incs15Degrees;
                 x = centreIndex-(i+1);
-                scanEncoderValsLeft[centreIndex-(i+1)] = currentEncoder[0]-Incs15Degrees;
+                scanEncoderValsLeft[centreIndex-(i+1)] = currentEncoder[0]-2*(i+1)*Incs15Degrees;
                 test = currentEncoder[0]-Incs15Degrees;
-                scanEncoderValsRight[centreIndex-(i+1)] = currentEncoder[1]+Incs15Degrees;
+                scanEncoderValsRight[centreIndex-(i+1)] = currentEncoder[1]+2*(i+1)*Incs15Degrees;
                 
                 
             }
@@ -269,27 +270,39 @@ void scan(int* currentEncoder,int* targetEncoder,int* chirpStrength,int totalSca
         //if index is odd
         else {
             int i;
+            int x;
+            int test;
             //centre index + .5
             int centreIndexHigh = totalScans/2;
             
             
                         //store current encoder values at center index
+            test =currentEncoder[0] + Incs15Degrees;
             scanEncoderValsLeft[centreIndexHigh] = currentEncoder[0] + Incs15Degrees;
+            test = currentEncoder[1] - Incs15Degrees;
             scanEncoderValsRight[centreIndexHigh] = currentEncoder[1] - Incs15Degrees;
             
             //centre - 1
-            scanEncoderValsLeft[centreIndexHigh] = currentEncoder[0] - Incs15Degrees;
-            scanEncoderValsRight[centreIndexHigh] = currentEncoder[1] + Incs15Degrees;
+            x = centreIndexHigh-1;
+            test =currentEncoder[0] - Incs15Degrees;
+            scanEncoderValsLeft[centreIndexHigh-1] = currentEncoder[0] - Incs15Degrees;
+            test =currentEncoder[0] + Incs15Degrees;
+            scanEncoderValsRight[centreIndexHigh-1] = currentEncoder[1] + Incs15Degrees;
             
             //Cycle through and add for those not in middle
             for (i = 0; i < centreIndexHigh-1; i++) {
                 //values right of centre
-                scanEncoderValsLeft[centreIndexHigh] = currentEncoder[0] + Incs15Degrees +2*i*Incs15Degrees;
-                scanEncoderValsRight[centreIndexHigh] = currentEncoder[1] - Incs15Degrees - 2*i*Incs15Degrees;
-                
+                x =centreIndexHigh+(i+1);
+                test = currentEncoder[0] + Incs15Degrees +2*(i+1)*Incs15Degrees;
+                scanEncoderValsLeft[centreIndexHigh+(i+1)] = currentEncoder[0] + Incs15Degrees +2*(i+1)*Incs15Degrees;
+                test= currentEncoder[1] - Incs15Degrees - 2*(i+1)*Incs15Degrees;
+                scanEncoderValsRight[centreIndexHigh+(i+1)] = currentEncoder[1] - Incs15Degrees - 2*(i+1)*Incs15Degrees;
+                x =centreIndexHigh-(i+1);
                 //values left of centre
-                scanEncoderValsLeft[centreIndexHigh] = currentEncoder[0] - Incs15Degrees-2*i*Incs15Degrees;
-                scanEncoderValsRight[centreIndexHigh] = currentEncoder[1] + Incs15Degrees+2*i*Incs15Degrees;
+                test = currentEncoder[0] - Incs15Degrees-2*(i+1)*Incs15Degrees;
+                scanEncoderValsLeft[centreIndexHigh-(i+2)] = currentEncoder[0] - Incs15Degrees-2*(i+1)*Incs15Degrees;
+                test=currentEncoder[1] + Incs15Degrees+2*(i+1)*Incs15Degrees;
+                scanEncoderValsRight[centreIndexHigh-(i+2)] = currentEncoder[1] + Incs15Degrees+2*(i+1)*Incs15Degrees;
                 
             }
             

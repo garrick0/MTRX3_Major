@@ -1,5 +1,5 @@
 MPLINK 4.48, Linker
-Linker Map File - Created Wed Oct 19 13:28:42 2016
+Linker Map File - Created Wed Oct 19 15:11:43 2016
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -8,30 +8,30 @@ Linker Map File - Created Wed Oct 19 13:28:42 2016
            .code___init.o       code   0x000006    program   0x000002
     high_interrupt_vector       code   0x000008    program   0x000006
                    .cinit    romdata   0x00000e    program   0x00000e
-       .code_Navigation.o       code   0x00001c    program   0x000eee
-             .code_main.o       code   0x000f0a    program   0x000146
-                     PROG       code   0x001050    program   0x0000a6
-               _cinit_scn       code   0x0010f6    program   0x00009e
-         .code_fxd1616u.o       code   0x001194    program   0x00002c
-    .code_UserInterface.o       code   0x0011c0    program   0x000022
-   .code_Communications.o       code   0x0011e2    program   0x000022
-                    .code       code   0x001204    program   0x000020
-             _startup_scn       code   0x001224    program   0x00001c
- .romdata_UserInterface.o    romdata   0x001240    program   0x000000
-    .idata_Navigation.o_i    romdata   0x001240    program   0x000001
-    .romdata_Navigation.o    romdata   0x001240    program   0x000000
-.romdata_Communications.o    romdata   0x001240    program   0x000000
-      .idata_fxd1616u.o_i    romdata   0x001240    program   0x000000
-      .romdata_fxd1616u.o    romdata   0x001240    program   0x000000
-        .idata___init.o_i    romdata   0x001240    program   0x000000
-        .romdata___init.o    romdata   0x001240    program   0x000000
-         .idata_c018i.o_i    romdata   0x001240    program   0x000000
-         .romdata_c018i.o    romdata   0x001240    program   0x000000
-          .idata_main.o_i    romdata   0x001240    program   0x000000
-          .romdata_main.o    romdata   0x001240    program   0x000000
- .idata_UserInterface.o_i    romdata   0x001240    program   0x000000
-.idata_Communications.o_i    romdata   0x001241    program   0x000000
-            .code_c018i.o       code   0x001242    program   0x000000
+       .code_Navigation.o       code   0x00001c    program   0x00148c
+             .code_main.o       code   0x0014a8    program   0x000146
+                     PROG       code   0x0015ee    program   0x0000a6
+               _cinit_scn       code   0x001694    program   0x00009e
+         .code_fxd1616u.o       code   0x001732    program   0x00002c
+    .code_UserInterface.o       code   0x00175e    program   0x000022
+   .code_Communications.o       code   0x001780    program   0x000022
+                    .code       code   0x0017a2    program   0x000020
+             _startup_scn       code   0x0017c2    program   0x00001c
+ .romdata_UserInterface.o    romdata   0x0017de    program   0x000000
+    .idata_Navigation.o_i    romdata   0x0017de    program   0x000001
+    .romdata_Navigation.o    romdata   0x0017de    program   0x000000
+.romdata_Communications.o    romdata   0x0017de    program   0x000000
+      .idata_fxd1616u.o_i    romdata   0x0017de    program   0x000000
+      .romdata_fxd1616u.o    romdata   0x0017de    program   0x000000
+        .idata___init.o_i    romdata   0x0017de    program   0x000000
+        .romdata___init.o    romdata   0x0017de    program   0x000000
+         .idata_c018i.o_i    romdata   0x0017de    program   0x000000
+         .romdata_c018i.o    romdata   0x0017de    program   0x000000
+          .idata_main.o_i    romdata   0x0017de    program   0x000000
+          .romdata_main.o    romdata   0x0017de    program   0x000000
+ .idata_UserInterface.o_i    romdata   0x0017de    program   0x000000
+.idata_Communications.o_i    romdata   0x0017df    program   0x000000
+            .code_c018i.o       code   0x0017e0    program   0x000000
     .config_300001_main.o    romdata   0x300001    program   0x000001
     .config_300002_main.o    romdata   0x300002    program   0x000001
     .config_300003_main.o    romdata   0x300003    program   0x000001
@@ -67,32 +67,32 @@ Linker Map File - Created Wed Oct 19 13:28:42 2016
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x001240      
+                            0x000000    0x0017de      
                             0x300001    0x300003      
                             0x300005    0x300006      
                             0x300008    0x30000d      
-            4684 out of 33048 program addresses used, program memory utilization is 14%
+            6122 out of 33048 program addresses used, program memory utilization is 18%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   D1616S   0x001072    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x001080    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x00107c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x001092    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA1616S   0x001062    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXD1616S   0x001050    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXD1616U   0x001194    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                 FXM1616S   0x00109c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
-               TSIGN1616A   0x0010e8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
-                  UISetup   0x0011c0    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
-       ___return_lbl00000   0x0011be    program     static                          
+                   D1616S   0x001610    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x00161e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x00161a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x001630    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA1616S   0x001600    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 FXD1616S   0x0015ee    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 FXD1616U   0x001732    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                 FXM1616S   0x00163a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
+               TSIGN1616A   0x001686    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
+                  UISetup   0x00175e    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
+       ___return_lbl00000   0x00175c    program     static                          
        ___return_lbl00000   0x000004    program     static                          
        ___return_lbl00000   0x00000c    program     static                          
-       ___return_lbl00001   0x00123e    program     static                          
-       ___return_lbl00002   0x001192    program     static                          
+       ___return_lbl00001   0x0017dc    program     static                          
+       ___return_lbl00002   0x001730    program     static                          
                __config_0   0x300001    program     static C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
                __config_1   0x300002    program     static C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
               __config_10   0x30000d    program     static C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
@@ -105,35 +105,36 @@ Linker Map File - Created Wed Oct 19 13:28:42 2016
                __config_8   0x30000b    program     static C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
                __config_9   0x30000c    program     static C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
                    __init   0x000006    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-            __zero_memory   0x001204    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                _do_cinit   0x0010f6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+              __tmplbl_14   0x001494    program     static                          
+            __zero_memory   0x0017a2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                _do_cinit   0x001694    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                 _startup   0x001224    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                 _startup   0x0017c2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
         calcScanPositions   0x00058e    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Navigation.c
-                commSetup   0x0011e2    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
-                compare_l   0x00121a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                copy_loop   0x001168    program     static                          
-            copy_one_byte   0x00116e    program     static                          
-                     done   0x001192    program     static                          
-             done_copying   0x00117c    program     static                          
-                  endloop   0x0011ba    program     static                          
+                commSetup   0x001780    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
+                compare_l   0x0017b8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                copy_loop   0x001706    program     static                          
+            copy_one_byte   0x00170c    program     static                          
+                     done   0x001730    program     static                          
+             done_copying   0x00171a    program     static                          
+                  endloop   0x001758    program     static                          
             getRobotState   0x00007a    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Navigation.c
             goto_high_ISR   0x000008    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
-           high_interrupt   0x001022    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
-                     loop   0x001234    program     static                          
-                     loop   0x00119e    program     static                          
-                   loop_h   0x001212    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                   loop_l   0x00121c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                     main   0x000f0a    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
+           high_interrupt   0x0015c0    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
+                     loop   0x0017d2    program     static                          
+                     loop   0x00173c    program     static                          
+                   loop_h   0x0017b0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                   loop_l   0x0017ba    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                     main   0x0014a8    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
                  navSetup   0x00001c    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Navigation.c
-                 outputUI   0x0011d2    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
-             receiveComms   0x0011e4    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
-                receiveUI   0x0011c2    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
+                 outputUI   0x001770    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
+             receiveComms   0x001782    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
+                receiveUI   0x001760    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
                 robotMove   0x00001e    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Navigation.c
                      scan   0x000198    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Navigation.c
-                     test   0x001110    program     static                          
-            transmitComms   0x0011f4    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
-               zero_block   0x001212    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                     test   0x0016ae    program     static                          
+            transmitComms   0x001792    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
+               zero_block   0x0017b0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
                    ADCON0   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
                ADCON0bits   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
                    ADCON1   0x000fc1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
@@ -351,41 +352,42 @@ Linker Map File - Created Wed Oct 19 13:28:42 2016
             getRobotState   0x00007a    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Navigation.c
                      scan   0x000198    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Navigation.c
         calcScanPositions   0x00058e    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Navigation.c
-                     main   0x000f0a    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
-           high_interrupt   0x001022    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
-                 FXD1616S   0x001050    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA1616S   0x001062    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                   D1616S   0x001072    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x00107c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x001080    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x001092    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXM1616S   0x00109c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
-               TSIGN1616A   0x0010e8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
-                _do_cinit   0x0010f6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     test   0x001110    program     static                          
-                copy_loop   0x001168    program     static                          
-            copy_one_byte   0x00116e    program     static                          
-             done_copying   0x00117c    program     static                          
-       ___return_lbl00002   0x001192    program     static                          
-                     done   0x001192    program     static                          
-                 FXD1616U   0x001194    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                     loop   0x00119e    program     static                          
-                  endloop   0x0011ba    program     static                          
-       ___return_lbl00000   0x0011be    program     static                          
-                  UISetup   0x0011c0    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
-                receiveUI   0x0011c2    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
-                 outputUI   0x0011d2    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
-                commSetup   0x0011e2    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
-             receiveComms   0x0011e4    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
-            transmitComms   0x0011f4    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
-            __zero_memory   0x001204    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                   loop_h   0x001212    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-               zero_block   0x001212    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                compare_l   0x00121a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                   loop_l   0x00121c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
-                 _startup   0x001224    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x001234    program     static                          
-       ___return_lbl00001   0x00123e    program     static                          
+              __tmplbl_14   0x001494    program     static                          
+                     main   0x0014a8    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
+           high_interrupt   0x0015c0    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
+                 FXD1616S   0x0015ee    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA1616S   0x001600    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                   D1616S   0x001610    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x00161a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x00161e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x001630    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 FXM1616S   0x00163a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
+               TSIGN1616A   0x001686    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
+                _do_cinit   0x001694    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     test   0x0016ae    program     static                          
+                copy_loop   0x001706    program     static                          
+            copy_one_byte   0x00170c    program     static                          
+             done_copying   0x00171a    program     static                          
+                     done   0x001730    program     static                          
+       ___return_lbl00002   0x001730    program     static                          
+                 FXD1616U   0x001732    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                     loop   0x00173c    program     static                          
+                  endloop   0x001758    program     static                          
+       ___return_lbl00000   0x00175c    program     static                          
+                  UISetup   0x00175e    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
+                receiveUI   0x001760    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
+                 outputUI   0x001770    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\UserInterface.c
+                commSetup   0x001780    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
+             receiveComms   0x001782    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
+            transmitComms   0x001792    program     extern C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\Communications.c
+            __zero_memory   0x0017a2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+               zero_block   0x0017b0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                   loop_h   0x0017b0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                compare_l   0x0017b8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                   loop_l   0x0017ba    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f452.asm
+                 _startup   0x0017c2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x0017d2    program     static                          
+       ___return_lbl00001   0x0017dc    program     static                          
                __config_0   0x300001    program     static C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
                __config_1   0x300002    program     static C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
                __config_2   0x300003    program     static C:\Users\sgle6040\MPLABXProjects\MTRX3_Major\CommanderMain.X\main.c
