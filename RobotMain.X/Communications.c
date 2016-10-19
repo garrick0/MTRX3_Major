@@ -3,7 +3,7 @@ void commsSetup(void) {
 }
 
 
-char transmitData(int* IRVals,char signalStrength,int* currentEncoderVals) {
+char transmitData(int* IRVals,char signalStrength,char processComplete) {
     
 }
 
@@ -12,7 +12,7 @@ char receiveData(char* buffer){
     return 1;
 }
 
-/**/
-char processReceived(char* buffer, int* tgtEncoders) {
+/*Parses the receive buffer and modifies the instructions and instruction flag*/
+char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag) {
     
 }

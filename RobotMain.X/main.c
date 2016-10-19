@@ -41,10 +41,10 @@ char DriveMotors(int magnitude,char direction,char mainFlag);
 
 //Communications
 void commsSetup(void);
-char transmitData(int* IRVals,char signalStrength,int* currentEncoderVals);
+char transmitData(int* IRVals,char signalStrength,char processComplete);
 char receiveData();
 /*Processes incoming messages, update encoder values and return received chirp strength*/
-char processReceived(char* buffer, int* tgtEncoders);
+char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag);
 
 // misc
 void debugSetup(void);
@@ -151,7 +151,7 @@ void main(void) {
         
         //Process Receive Function
             //add inputs global variables
-        chirpStr = processReceived(receiveBuffer, targetEncoders);
+        chirpStr = processReceived(receiveBuffer, &instMag,&instDir,&instructionFlag);
         
         //Perform PID or similar and drive motors
         instructionFlag = DriveMotors(instMag,instDir,instructionFlag);
@@ -173,7 +173,7 @@ void main(void) {
                
 
          //transmit to commander
-        transmitData(IRVals,signalStrength,currentEncoderVals);
+        transmitData(IRVals,signalStrength,instructionFlag);
     }
 }
 
