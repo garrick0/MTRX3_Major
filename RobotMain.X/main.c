@@ -1,4 +1,4 @@
-
+   
 /**
  * @file robotmain.c
  * @date 15 Oct 2016
@@ -254,7 +254,7 @@ void high_interrupt(void) {
         
         
         
-        //sampleEncoders(currentEncoderVals);
+    sampleEncoders(currentEncoderVals);
         //sampleIR();
         //ADCON0bits.GO = 1;
    

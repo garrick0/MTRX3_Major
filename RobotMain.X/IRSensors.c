@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <p18f4520.h>
 #include "IRSensors.h"
 #include <math.h>
+#include <p18f4520.h>           
 //#include "IRSensors.c"
 
 //#include "ConfigRegs_18F4520.h"
@@ -60,7 +60,10 @@ void IRSetup(void) {
 
 
 
+void timerSetup() {
+    
 
+}
 
 
 
