@@ -12,7 +12,7 @@
 #define endChar 'O'
 #define sep '*'
 #define comma ','
-#define endBuf '#'
+#define endBuf 0xFF
 #define valMask 0x0F
 /**
  * @brief Initiate the USART communications on the robot 
@@ -47,14 +47,15 @@ char endString[] = {FULL,endChar,FULL,NULL};
 char separatorString[] = {sep,FULL,NULL};
 void transmitData(char* IRValsPackage, char* signalStrengthPackage, char* currentEncoderValsPackage, char checkSum) {
     char checkSumPackage[] = {checkSum,FULL};
-    while(RCREG != chirpSound); // wait till chirp is done then take chance to send data avoid confusion 
+    //while(RCREG != chirpSound); // wait till chirp is done then take chance to send data avoid confusion 
     sendMsg(startString); // send the package that indicates the start
     sendMsg(IRValsPackage); // send IR
     sendMsg(seperatorString); // separator 
     sendMsg(signalStrengthPackage); // send RSSI
     sendMsg(seperatorString); // separator 
     sendMsg(currentEncoderValsPackage); // send encoder 
-    sendMsg(checkSumPackage);
+    sendMsg(seperatorString); // separator 
+    sendMsg(checkSumPackage); // security
     sendMsg(endString); // send the package that indicates the end 
     
     return 0;
@@ -106,7 +107,7 @@ void RSSIToPackage(char* RSSIval, char* dataInPack){
  * @usage when it detects the end bytes of the message ie the start and end
  * it toggles the flag which allows it to save
  * which means that it 1 instance of flag will cause it to save, the second will 
- * cause it to stop saving 
+ * cause it to stop saving. The buffer ends with 0xFF
  */
 char flag = 0x00; // for indication of save on/off
 void receiveData(void){

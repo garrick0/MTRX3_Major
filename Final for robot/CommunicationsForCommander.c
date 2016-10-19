@@ -15,7 +15,7 @@
 #define endChar 'O'
 #define sep '*'
 #define comma ','
-#define endBuf '#'
+#define endBuf 0xFF
 #define valMask 0x0F
 
 /**
@@ -60,7 +60,7 @@ void transmitDataCommander(char* identifier, char* instruction, char *checkSum) 
     putsUART(startString); // send the package that indicates the start
     putsUART(identifier); // sends the identifier for which instruction
     putsUART(instruction); // sends the instruction
-    putsUART(checkSum); // send security check measure for instruction
+    WriteUART(checkSum); // send security check measure for instruction
     putsUART(endString); // send the package that indicates the end 
     
     return 0;
