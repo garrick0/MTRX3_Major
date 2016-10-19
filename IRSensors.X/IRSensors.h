@@ -12,14 +12,14 @@
 extern "C" {
 #endif
     
-#define MAXIMUM_IR 3
+
     
-    unsigned int IRBuffer1[MAXIMUM_IR]  = {0};
-    unsigned int IRBuffer2[MAXIMUM_IR]  = {0};
-    unsigned int IRBuffer0[MAXIMUM_IR]  = {0};
-    unsigned char IRIndex1 = 0;
-    unsigned char IRIndex2 = 0;
-    unsigned char IRIndex0 = 0;
+
+    void IRDetect( int numAverage,int* detectArray);
+    void sampleIR();
+    
+
+    
     
     
     
