@@ -14,6 +14,8 @@
 #define comma ','
 #define endBuf 0xFF
 #define valMask 0x0F
+#define processing 0
+#define sum 2
 /**
  * @brief Initiate the USART communications on the robot 
  * @usage allows the 2 RF modules to communicate to each other 
@@ -38,16 +40,27 @@ void commsSetup(void) {
 }
 /**
  * @brief send the data package from robot to commander 
- * @param values for IR in char form (Null terminated)
- * @param values for signal strength in char form(Null terminated)
- * @param valuse for encoder values in char form (Null terminated)
+ * @param values for IR in int form (Null terminated)
+ * @param values for signal strength in char form (Null terminated)
+ * @param the indication if the process is complete
  */
 char startString[] = {FULL,startChar,FULL,NULL};
-char endString[] = {FULL,endChar,FULL,NULL};
+char endString[] = {endChar,FULL,NULL};
 char separatorString[] = {sep,FULL,NULL};
-void transmitData(char* IRValsPackage, char* signalStrengthPackage, char* currentEncoderValsPackage, char checkSum) {
-    char checkSumPackage[] = {checkSum,FULL};
-    //while(RCREG != chirpSound); // wait till chirp is done then take chance to send data avoid confusion 
+void transmitData(int* IRVals, char* signalStrength, char processComplete) {
+   
+    char IRValsPackage[]; // data in mode that can be received
+    char signalStrengthPackage[];
+    char checkSum;
+    char checkPackage[] = {NULL,FULL,NULL,FULL,NULL}; // process complete and check sum 
+    
+    intToPackage(IRVals, IRValsPackage);
+    RSSIToPackage(signalStrength, signalStrengthPackage);
+    // create the security 
+    checkSum = createCheckSum(IRValsPackage) + createCheckSum(signalStrengthPackage) + processComplete;
+    checkPackage[processing] = processComplete; // insert check sum
+    checkPackage[sum] = checkSum;
+    
     sendMsg(startString); // send the package that indicates the start
     sendMsg(IRValsPackage); // send IR
     sendMsg(seperatorString); // separator 
@@ -55,7 +68,7 @@ void transmitData(char* IRValsPackage, char* signalStrengthPackage, char* curren
     sendMsg(seperatorString); // separator 
     sendMsg(currentEncoderValsPackage); // send encoder 
     sendMsg(seperatorString); // separator 
-    sendMsg(checkSumPackage); // security
+    sendMsg(checkPackage); // security
     sendMsg(endString); // send the package that indicates the end 
     
     return 0;
@@ -94,7 +107,7 @@ void intToPackage(int* data, char* dataInChar){
 void RSSIToPackage(char* RSSIval, char* dataInPack){
 
     while(*RSSIval){
-        *dataInPack = *RSSIval&valMask; // get rid of first byte 
+        *dataInPack = (*RSSIval)&valMask; // get rid of first byte 
         dataInPack++; // increment buffer place 
         *dataInPack = FULL; // allow for falling edge resistor to detect
         dataInPack++;
@@ -110,24 +123,24 @@ void RSSIToPackage(char* RSSIval, char* dataInPack){
  * cause it to stop saving. The buffer ends with 0xFF
  */
 char flag = 0x00; // for indication of save on/off
-void receiveData(void){
+char receiveData(char * buffer){
     
     PIR1bits.RCIF=0; // clear receive flag
     
     if(RCREG == startChar){ // turn on save text flag
         flag = 1; // turn on 
-        rcPtr = buf; // point to beginning of buffer 
+        rcPtr = buffer; // point to beginning of buffer 
     }else if (RCREG == endChar){ // turn on save text flag
         flag = 0; // turn off
     }
     if(flag && RCREG != chirpSound){ // when flag is turned on discard all chirps
         rcPtr++; // save RCREG in circular buffer
         if(*rcPtr == endBuf){
-            RSSIPtr = buf;
+            RSSIPtr = buffer;
         }
         *rcPtr = ReadUSART();
     }
-    return 0;
+    return 1;
 }
 /**
  * @brief requests the value of RSSI
@@ -138,7 +151,7 @@ void receiveData(void){
 const char ATCommandStart[] = "+++"; //Initialize AT Command Mode.
 const char ATCommandRSSI[] = "ATDB\r"; // read signal strength
 const char ATCommandEnd[] = "ATCN\r"; // end command
-void getRSSI(void){
+void getRSSI(char * buffer, char * signalStrength){
     
     while(RCREG != chirpSound); //wait till chirp received
     sendMsg(ATCommandStart); // start command mode
@@ -146,7 +159,14 @@ void getRSSI(void){
     sendMsg(ATCommandRSSI); // request RSSI
     while(RCREG != CR);
     sendMsg(ATCommandEnd); // end AT mode
-
+    while(RCREG != CR);
+    buffer ++; // originally pointing to the start byte
+    while(*buffer != endChar){
+        *signalStrength = *buffer;
+        signalStrength++;
+        buffer++;
+    }
+    *signalStrength = NULL; 
     return 0;
 }
 /**
@@ -170,13 +190,15 @@ void sendMsg(char *tx){
  * @return sum of individual values stored 
  */
 // note , the max of the values is EF for sending to commander because first bit cannot be set
-char createCheckSum( char * string){
+char createCheckSum(char * string){
     char checkSum = 0;
     while (*string) // while not end of string 
     {
-        checkSum = checkSum + *string; 
+        if(*string != FULL){ // when it is not the FF
+            checkSum = checkSum + *string; 
+        }      
     } 
-    if (checkSum>0xEF){
+    if (checkSum>0xEF){ // cap at EF 
         checkSum = 0xEF;
     }
     return checkSum;
