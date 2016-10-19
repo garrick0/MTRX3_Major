@@ -99,7 +99,7 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -107,7 +107,7 @@ ${OBJECTDIR}/UserInterface.o: UserInterface.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/UserInterface.o.d 
 	@${RM} ${OBJECTDIR}/UserInterface.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInterface.o   UserInterface.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInterface.o   UserInterface.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UserInterface.o 
 	@${FIXDEPS} "${OBJECTDIR}/UserInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -115,7 +115,7 @@ ${OBJECTDIR}/Navigation.o: Navigation.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Navigation.o.d 
 	@${RM} ${OBJECTDIR}/Navigation.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Navigation.o   Navigation.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Navigation.o   Navigation.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/Navigation.o 
 	@${FIXDEPS} "${OBJECTDIR}/Navigation.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -123,7 +123,7 @@ ${OBJECTDIR}/Communications.o: Communications.c  nbproject/Makefile-${CND_CONF}.
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Communications.o.d 
 	@${RM} ${OBJECTDIR}/Communications.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Communications.o   Communications.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Communications.o   Communications.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/Communications.o 
 	@${FIXDEPS} "${OBJECTDIR}/Communications.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -132,7 +132,7 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -140,7 +140,7 @@ ${OBJECTDIR}/UserInterface.o: UserInterface.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/UserInterface.o.d 
 	@${RM} ${OBJECTDIR}/UserInterface.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInterface.o   UserInterface.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInterface.o   UserInterface.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UserInterface.o 
 	@${FIXDEPS} "${OBJECTDIR}/UserInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -148,7 +148,7 @@ ${OBJECTDIR}/Navigation.o: Navigation.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Navigation.o.d 
 	@${RM} ${OBJECTDIR}/Navigation.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Navigation.o   Navigation.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Navigation.o   Navigation.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/Navigation.o 
 	@${FIXDEPS} "${OBJECTDIR}/Navigation.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -156,7 +156,7 @@ ${OBJECTDIR}/Communications.o: Communications.c  nbproject/Makefile-${CND_CONF}.
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Communications.o.d 
 	@${RM} ${OBJECTDIR}/Communications.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Communications.o   Communications.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Communications.o   Communications.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/Communications.o 
 	@${FIXDEPS} "${OBJECTDIR}/Communications.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	

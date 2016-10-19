@@ -53,15 +53,15 @@ void getRobotState(char State,int* targetEncoder,int* currentEncoder,int* chirpS
     
     //Test values
     int currEncoder[2];
-    int scanEncoderValsLeft[10];
-    int scanEncoderValsRight[10];
-    currEncoder[0] = 500;
-    currEncoder[1] = 500;
+    int scanEncValsLeft[10];
+    int scanEncValsRight[10];
+    currEncoder[0] = 100;
+    currEncoder[1] = 100;
     //int totalScans = 3;
 
     
     
-    calcScanPositions(currentEncoder,3, scanEncoderValsLeft, scanEncoderValsRight);
+    calcScanPositions(currEncoder,3, scanEncValsLeft, scanEncValsRight);
     
     
     //if new command required
@@ -208,8 +208,13 @@ void scan(int* currentEncoder,int* targetEncoder,int* chirpStrength,int totalSca
     //
     void calcScanPositions(int* currentEncoder,int totalScans,int* scanEncoderValsLeft,int* scanEncoderValsRight) {
         int i;
+        int test;
+        int x;
+        
         
         int Incs15Degrees = ENCODERTICKSPERREVOLUTION/24;
+        currentEncoder[0]=100;
+        currentEncoder[1]=100;
         
 
         
@@ -219,7 +224,10 @@ void scan(int* currentEncoder,int* targetEncoder,int* chirpStrength,int totalSca
             int centreIndex = (totalScans+1)/2-1;
             
             //store current encoder values at center index
+            test = currentEncoder[0];
+            x = centreIndex;
             scanEncoderValsLeft[centreIndex] = currentEncoder[0];
+            test = currentEncoder[1];
             scanEncoderValsRight[centreIndex] = currentEncoder[1];
             
             
@@ -228,15 +236,30 @@ void scan(int* currentEncoder,int* targetEncoder,int* chirpStrength,int totalSca
             //scanEncoderVals[totalScans] = currentEncoder[1];
             
             for (i=0;i< centreIndex;i++) {
+
                 //Store centre + ith value
-                scanEncoderValsLeft[centreIndex+i] = currentEncoder[0]+Incs15Degrees;
-                scanEncoderValsRight[centreIndex+i] = currentEncoder[1]-Incs15Degrees;
+                test = currentEncoder[0]+Incs15Degrees;
+                x = centreIndex+i+1;
+                scanEncoderValsLeft[centreIndex+i+1] = currentEncoder[0]+Incs15Degrees;
+                test = currentEncoder[1]-Incs15Degrees;
+                scanEncoderValsRight[centreIndex+i+1] = currentEncoder[1]-Incs15Degrees;
                 
                 //Store centre - ith value (signs swapped)
-                scanEncoderValsLeft[centreIndex-i] = currentEncoder[0]-Incs15Degrees;
-                scanEncoderValsRight[centreIndex-i] = currentEncoder[1]+Incs15Degrees;
+                test = currentEncoder[0]-Incs15Degrees;
+                x = centreIndex-(i+1);
+                scanEncoderValsLeft[centreIndex-(i+1)] = currentEncoder[0]-Incs15Degrees;
+                test = currentEncoder[0]-Incs15Degrees;
+                scanEncoderValsRight[centreIndex-(i+1)] = currentEncoder[1]+Incs15Degrees;
                 
                 
+            }
+            
+            for (i = 0; i < MAX_SCANS; i++) {
+                x++;
+                test = scanEncoderValsLeft[i];
+                x++;
+                test = scanEncoderValsRight[i];
+                x++;
             }
             
             
