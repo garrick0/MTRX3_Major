@@ -13,9 +13,10 @@
 
 
 /* -- Includes -- */
-#include <p18f452.h>            
-#include "ConfigRegs.h"
-
+#include <p18f4520.h>            
+//#include "ConfigRegs.h"
+#include "ConfigRegs_18F4520.h"
+#include "IRSensors.h"
 
 
 
@@ -61,6 +62,10 @@ char* signalStrength = "";
 int* currentEncoderVals[2] = {0,0};
 
 
+//Array containing detected object thresholds
+int detectVals[3];
+
+
 
 
 
@@ -88,13 +93,16 @@ void goto_high_ISR(void) {
 
 void main(void) {
     int* IRVals[3];
+    int i;
     
     //Set up IR sensors
+    IRSetup();
+    //timerSetup();
     //SetupIR();
     
     //Set up Encoders
     //SetupEncoders();
-    SetupIR();
+    //SetupIR();
     SetupEncoders();
     commsSetup();
     motorSetup();
@@ -127,8 +135,22 @@ void main(void) {
         
         //Perform PID or similar and drive motors
         DriveMotors(encoderIncs,currentEncoderVals);
-        //process IR sensor data
-        IRProcess(IRVals);
+
+        //Read IR sensor buffer and return result
+        IRDetect(2,detectVals);
+        
+        if (detectVals[0] > 0) {
+            i++;
+        }
+        if (detectVals[1] > 0) {
+            i++;
+        }
+              
+        if (detectVals[2] > 0) {
+            i++;
+        }
+              
+               
 
          //transmit to commander
         transmitData(IRVals,signalStrength,currentEncoderVals);
@@ -148,10 +170,19 @@ void high_interrupt(void) {
         TMR1H = 0;
         TMR1L = 0;
         
+        
         sampleIR();
+        
+        //Begin new IR conversion
+        ADCON0bits.GO = 1;
     
         //Clear timer flag
         PIR1bits.TMR1IF = 0;
+        
+        PIR1 = 0;
+        PIR2 = 0;
+        
+        
     
 
     }
