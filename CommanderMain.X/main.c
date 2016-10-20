@@ -13,12 +13,37 @@
 
 
 /* -- Includes -- */
-#include <p18f452.h>            
-#include "ConfigRegs.h"
+#include <p18f4520.h>            
+
+#include "ConfigRegs_18F4520.h"
 #include "main.h"
 
 
 
+
+/* -- Function Prototypes -- */
+void high_interrupt(void);
+
+// UI
+void UISetup(void);
+void receiveUI(int* UIVals);
+void outputUI(char state,char* parrotPosition, char* IRVals);
+
+
+// Comms
+void commSetup(void);
+char receiveComms(char* receiveBuffer);
+void transmitComms(int instMag,char instDir);
+char processReceived(char* recBuffer,char* IRVals,char* instructionFlag);
+
+
+//Nav
+void navSetup(void);
+void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
+
+
+
+// misc
 
 
 
@@ -28,6 +53,13 @@ void goto_high_ISR(void) {
     _asm goto high_interrupt _endasm
 }
 #pragma code
+
+
+//Global Variables
+//flag set on serial receive
+char receiveFlag;
+//Receive Buffer used for storage         
+char recBuffer[30];
 
 
 
@@ -45,12 +77,17 @@ void goto_high_ISR(void) {
 
 void main(void) {
     
-    
-    
+        //Chirp Strength
+    char chirpStrength;
+        // Is robot ready for new command
+    char instructionFlag;
 
+        //Robot Instruction Magnitude
+    int instMag;
     
-        //packet received from robot
-        int recVals[6];
+        //Robot Instruction Type
+    char instDir;
+
         //packet received from UI
         int UIVals[1];
         
@@ -74,12 +111,14 @@ void main(void) {
          
          //Parrot Distance
          char parrotDistance;
+         
+
 
 
     
     
     //UI
-    UISetup();
+    //UISetup();
 
 
     // Comms
@@ -109,15 +148,20 @@ void main(void) {
 
                //Receive user interface input
             //array[state change, moveforward,moveback,turnright,turnleft]
-        receiveUI(UIVals);
+        //receiveUI(UIVals);
          
         
         
         //Receive Comms from ground (array)
-            //array [IRVal1,IRVal2,IRVal3,signalStrength,EncoderLeft,EncoderRight]
-        receiveComms(recVals);
-        currentEncoder[0] = recVals[4];
-        currentEncoder[1] = recVals[5];
+            //array [IRVals,signalStrength,instructionFlag]
+        if (receiveFlag == 1) {
+            
+            //Get sensor data from robot
+            //chirpStrength = processReceived(recBuffer,IRVals,&instructionFlag);
+            
+            //Reset flag
+            receiveFlag = 0;
+        }
         
         
         //Process chirps,encoders -> angle -> strength
@@ -147,16 +191,17 @@ void main(void) {
         
         
         
-        robotMove(State,targetEncoder,currentEncoder,&recVals[3],parrotLoc,&parrotDistance);
+        //robotMove(State,targetEncoder,currentEncoder,&recVals[3],parrotLoc,&parrotDistance);
         
         
         
-        
+        instMag = 100;
+        instDir = 'f';
         //transmit to ground to move robot
-        transmitComms(targetEncoder);
+        transmitComms(instMag,instDir);
                 
         //write to UI
-        outputUI(State,parrotPosition,IRVals);
+        //outputUI(State,parrotPosition,IRVals);
 
     }
 }
@@ -168,46 +213,18 @@ void high_interrupt(void) {
     INTCONbits.GIE = 0;
     
     
-    /* IRSensors Timer Interrupt */
-    if ((PIR1bits.TMR1IF == 1)&&(PIE1bits.TMR1IE == 1)) {
-    //reset clock
-        TMR1H = 0;
-        TMR1L = 0;
-        
-
-    
-        //Clear timer flag
-        PIR1bits.TMR1IF = 0;
-    
-
-    }
-    
-    
-    
-        /* Encoder Timer Interrupt */
-    if ((PIR2bits.TMR3IF == 1)&&(PIE2bits.TMR3IE == 1)) {
-    //reset clock
-        TMR3H = 0;
-        TMR3L = 0;
-
-   
-    
-        //Clear timer flag
-        PIR2bits.TMR3IF = 0;
-
-    }
     
     
     
     
     
         /*Serial Receive Interrupt*/
-    if (PIR1bits.RCIF == 1) {
+    //if (PIR1bits.RCIF == 1) {
 
-        
-        PIR1bits.RCIF = 0;
+        receiveFlag = receiveComms(recBuffer);
+        //PIR1bits.RCIF = 0;
 
-    }
+    //}
     
     
 

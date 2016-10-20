@@ -23,29 +23,6 @@ extern "C" {
 
 
 
-/* -- Function Prototypes -- */
-void high_interrupt(void);
-
-// UI
-void UISetup(void);
-void receiveUI(int* UIVals);
-void outputUI(char state,char* parrotPosition, char* IRVals);
-
-
-// Comms
-void commSetup(void);
-void receiveComms(int* recVals);
-void transmitComms(int* encoderVals);
-
-
-//Nav
-void navSetup(void);
-void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
-
-
-
-// misc
-
 
 
 

@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>../RobotMain.X/ConfigRegs.h</itemPath>
       <itemPath>main.h</itemPath>
+      <itemPath>ConfigRegs_18F4520.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -14,10 +15,14 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>main.c</itemPath>
-      <itemPath>UserInterface.c</itemPath>
-      <itemPath>Navigation.c</itemPath>
+      <itemPath>openuart.asm</itemPath>
+      <itemPath>putsuart.c</itemPath>
+      <itemPath>readuart.asm</itemPath>
+      <itemPath>writuart.asm</itemPath>
       <itemPath>Communications.c</itemPath>
+      <itemPath>Navigation.c</itemPath>
+      <itemPath>UserInterface.c</itemPath>
+      <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -34,7 +39,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC18F452</targetDevice>
+        <targetDevice>PIC18F4520</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD3PlatformTool</platformTool>
@@ -90,6 +95,14 @@
         <property key="verbose" value="false"/>
         <property key="warning-level" value="2"/>
       </C18>
+      <C18-AS>
+        <property key="cross.reference.file" value=""/>
+        <property key="default.radix" value="HEX"/>
+        <property key="enable.case.sensitivity" value="true"/>
+        <property key="hex.output.format" value="INHX32"/>
+        <property key="preprocessor.macros" value=""/>
+        <property key="warning.level" value="0"/>
+      </C18-AS>
       <C18-LD>
         <property key="cod-file" value="false"/>
         <property key="extra-lib-directories" value=""/>
@@ -113,6 +126,7 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>

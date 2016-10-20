@@ -1,4 +1,4 @@
-#include <p18f452.h>            
+#include <p18f4520.h>            
 #include <math.h>
 //#include "ConfigRegs.h"
 #include "main.h"
@@ -45,9 +45,18 @@ void navSetup(void) {
 
 void robotMove(char State,int* targetEncoder,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance) {
     
-    getRobotState(State,targetEncoder,currentEncoder,chirpStrength,parrotLoc,distance);
+    //check if in state
+    //generate next function
+    
+    
+    
+    
+    //getRobotState(State,targetEncoder,currentEncoder,chirpStrength,parrotLoc,distance);
     
 }
+
+
+
 
 
 void getRobotState(char State,int* targetEncoder,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance) {
