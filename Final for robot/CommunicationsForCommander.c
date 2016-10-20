@@ -10,10 +10,11 @@
 #define chirpSound 'z'
 #define BIT0 0x01
 #define BIT1 0x02
+#define BIT2 0x04
 #define BIT4 0x10
 #define startChar 'K'
 #define endChar 'O'
-#define sep '*'
+#define sep 0x16
 #define comma ','
 #define endBuf 0xFF
 #define valMask 0x0F
@@ -25,74 +26,76 @@
 void commsSetupCommander(void) {
     
     OpenUART(); // set up UART 
-    // TX - pin default - B4
+    // TX - pin C4
     // RX - pin B1     
     INTCON2bits.RBPU = 0; //PORTB internal pull-ups enabled
-    PORTB=PORTB&(~(BIT1|BIT4)); //set PORTB pin 1 & 4 as 0
-    TRISB = (TRISB|BIT1)&(~BIT4); //set PORTB 0:3 pins to inputs and 4:7 pins as outputs
-    ADCON1=0x0F; //set all PORTS as digital I/O 
+    PORTBbits.RB2 = 0; //set PORTB pin 2
+    TRISBbits.TRISB2 = 1; //set PORTB 2 to input
+    ADCON1=0x0F; //set all PORTB as digital I/O 
+    
+    PORTCbits.RC4 = 0; // set RC4 to 0
+    TRISCbits.TRISC4 = 0; // RC4 is output
 
     //interrupt setup for xBee signal capture
-    INTCON3bits.INT1IE = 1;	//enable PORTB1 interrupt
-    INTCON3bits.INT1IP = 1;	//set PORTB1 interrupt to high priority
-    INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
-    INTCON2bits.INTEDG1 = 0; //PORTB1 interrupt on falling edge
+    INTCON3bits.INT2IE = 1;	//enable PORTB2 interrupt
+    INTCON3bits.INT2IP = 1;	//set PORTB2 interrupt to high priority
+    INTCON3bits.INT2IF = 0;	//clear PORTB2 interrupt flag
+    INTCON2bits.INTEDG2 = 0; //PORTB2 interrupt on falling edge
 
     return 0;
 }
 /**
  * @brief send the data package from commander to robot 
- * @param which area is the instruction directed at (IR,RSSI,...)
- * @param the message/instruction (eg value to write to wheels);
+ * @param magnitude upper lower null
+ * @param direction null
  */
 char startString[] = {startChar,NULL};
+char separatorString[] = {sep,NULL}; // indicate the different values
 char endString[] = {endChar,NULL};
-// system: 
-// + : to read 
-// - : to write 
-char IR[] = "+1";
-char RSSI[] = "+2";
-char ENC[] = "+3";
-char PWM[] = "-1";
-char MOVE[] = "-2";
-void transmitDataCommander(char* identifier, char* instruction, char *checkSum) {
+void transmitDataCommander(int instMag, char instDir) {
+    char magPack[10];
+    char dirPack[10] = {instDir,NULL};
+    intToPackage(instMag,magPack); // convert to deliverable form
     
     putsUART(startString); // send the package that indicates the start
-    putsUART(identifier); // sends the identifier for which instruction
-    putsUART(instruction); // sends the instruction
-    WriteUART(checkSum); // send security check measure for instruction
+    putsUART(magPack); // sends the identifier for which instruction
+    putsUARTseparatorString); // send the separators
+    putsUART(dirPack); // sends the instruction
     putsUART(endString); // send the package that indicates the end 
     
     return 0;
+}
+/**
+ * @brief converts string of int values into string of char in package separated by comma
+ * @param string of int data
+ * @param string of char data thats been converted 
+ */
+void intToPackage(int data, char* dataInChar){
+    
+    *dataInChar = (*data) >> 8;
+    dataInChar++; // increment buffer place 
+    *dataInChar = (*data) & 0xFF;
+    dataInChar++;
+
+    *dataInChar = NULL; // null terminated
 }
 
 /**
  * @brief interrupt routine for receive 
  * @usage directly saves received data into a circular buffer due to the time constraints of SW serial
  */
-void receiveDataCommander(void){
+char *rcPtr;
+void receiveDataCommander(char* buffer){
     
-    INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
+    INTCON3bits.INT2IF = 0;	//clear PORTB2 interrupt flag
     rcPtr++; // save RCREG in circular buffer
     if(*rcPtr == endBuf){
-        RSSIPtr = buf;
+        rcPtr = buffer;
     }
     *rcPtr = ReadUART();
     return 0;
 }
-/**
- * @brief creates a check sum security measure 
- * @param string of values to be sent 
- * @return sum of individual values stored 
- */
-char createCheckSum( char * string){
-    char checkSum = 0;
-    while (*string) // while not end of string 
-    {
-        checkSum = checkSum + *string; 
-    } 
-    return checkSum;
-}
+
 /**
  * @brief the delay functions for UART, written for minimal board only
  * @usage written for serial read, stated number of Tosc
