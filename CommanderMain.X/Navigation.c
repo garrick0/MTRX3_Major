@@ -2,6 +2,8 @@
 #include <math.h>
 //#include "ConfigRegs.h"
 #include "main.h"
+#include "Communications.h"
+#include "UserInterface.h"
 
 
 
@@ -43,15 +45,8 @@ void navSetup(void) {
     
 }
 
-void robotMove(char State,int* targetEncoder,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance) {
-    
-    //check if in state
-    //generate next function
-    
-    
-    
-    
-    //getRobotState(State,targetEncoder,currentEncoder,chirpStrength,parrotLoc,distance);
+
+void robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput* CommsOutput,struct UserInterfaceInput UIInput,struct communicationsInput CommsInput,char State){
     
 }
 

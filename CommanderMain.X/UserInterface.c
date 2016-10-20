@@ -1,4 +1,4 @@
-
+#include "UserInterface.h"
 /*Performs the setup for user interface*/
 void UISetup(void) {
     
@@ -17,7 +17,7 @@ void inputUI(char* UIbuffer,struct UserInterfaceInput* UIInput) {
 }
 
 /*Outputs internal values to the user for display*/
-void outputUI(char state,char parrotPosition, char* IRVals,char parrot_moving,char parrot_found){
+void outputUI(struct UserInterfaceOutput UIOutput){
     
 }
 

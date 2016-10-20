@@ -18,6 +18,27 @@ extern "C" {
 #ifdef	__cplusplus
 }
 #endif
+struct communicationsInput {
+    
+    /*VALUES THAT WILL BE INPUT BY MAIN*/
+    
+    char IR1;
+    char IR2;
+    char IR3;
+    char chirpStrength;
+    char instructionFlag;
+    
 
+
+};
+
+
+struct communicationsOutput {
+    
+    int instMag;
+    char instDir;
+    
+    
+};
 #endif	/* COMMUNICATIONS_H */
 

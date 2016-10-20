@@ -29,7 +29,7 @@ struct UserInterfaceInput {
     char stateRequest;
     char commandInput;
     /////////////////////////////////////
-    
+    /*
     
 	char userinput;			//movement command or NULL
 
@@ -45,7 +45,7 @@ struct UserInterfaceInput {
 	int d_gain;				//also need: motors=On/Off and find_parrot=on/off requests
 
 	int motors;
-	int find_parrot;
+	int find_parrot;*/
 };
 
 struct UserInterfaceOutput {
@@ -66,7 +66,7 @@ struct UserInterfaceOutput {
     
     ////////////////////////////////
     
-    
+    /*
 	int current_state;		//return current state
 
 	int initialising;		//0 when initialisation of new state not complete, 1 when complete
@@ -90,7 +90,7 @@ struct UserInterfaceOutput {
 	int ir_left;			//distance in cm
 	int ir_right;
 	int ir_front;
-
+*/
 };
 
 #endif	/* USERINTERFACE_H */

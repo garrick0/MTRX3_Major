@@ -18,6 +18,7 @@
 #include "ConfigRegs_18F4520.h"
 #include "main.h"
 #include "UserInterface.h"
+#include "Communications.h"
 
 
 
@@ -29,21 +30,24 @@ void high_interrupt(void);
 void UISetup(void);
 void inputUI(char* UIbuffer,struct UserInterfaceInput* UIInput);
 //void inputUI(char* UIBuffer,char* State,char* commandInput);
-void outputUI(char state,char parrotPosition, char* IRVals,char parrot_moving,char parrot_found);
+void outputUI(struct UserInterfaceOutput UIOutput);
 char storeUI(char* UIBuffer);
 
 // Comms
 void commSetup(void);
 char receiveComms(char* receiveBuffer);
-void transmitComms(int instMag,char instDir);
+void transmitComms(struct communicationsOutput CommsOutput);
 char processReceived(char* recBuffer,char* IRVals,char* instructionFlag);
 
 
 //Nav
 void navSetup(void);
-void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
-
-
+//void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
+void robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput* CommsOutput,struct UserInterfaceInput UIInput,struct communicationsInput CommsInput,char State);
+    
+    
+    //Holds values output to the user
+    
 
 // misc
 char stateControl(char State,char stateRequest);
@@ -106,6 +110,11 @@ void main(void) {
     //Holds values output to the user
     struct UserInterfaceOutput UIOutput;
     
+    //Holds values transmitted by robot comms
+    struct communicationsInput RobotReceiveComms;
+    
+    struct communicationsOutput RobotTransmitComms;
+    
     
     //Triggered in interrupt
     char UIFlag;
@@ -157,7 +166,7 @@ void main(void) {
          
          
     //UI
-    //UISetup();
+    UISetup();
 
 
     // Comms
@@ -204,11 +213,13 @@ void main(void) {
             
             //Get sensor data from robot
             chirpStrength = processReceived(recBuffer,IRVals,&instructionFlag);
+            RobotReceiveComms.IR1 = IRVals[0];
+            RobotReceiveComms.IR2 = IRVals[1];
+            RobotReceiveComms.IR3 = IRVals[2];
+            RobotReceiveComms.instructionFlag = instructionFlag;
             
-            UIOutput.IR1 = IRVals[0];
-            UIOutput.IR2 = IRVals[1];
-            UIOutput.IR3 = IRVals[2];
-            UIOutput.instructionFlag = instructionFlag;
+
+            //UIOutput.
             
             //Reset flag
             receiveFlag = 0;
@@ -217,36 +228,28 @@ void main(void) {
         //State Control
         State = stateControl(State,UIInput.stateRequest);
         
-        //UIOutput = robotMove(UIInput,State,IRVals);
+        
+        robotMove(&UIOutput,&RobotTransmitComms,UIInput,RobotReceiveComms,State);
         //outputs - instMag,instDir
         //        - parrotPosition,IRVals,parrot_moving,parrot_found
         //inputs  - chirpStrength,IRVals,instructionFlag,State
         
         
+        
+        
         //instMag = 100;
         //instDir = 'f';
         //transmit to ground to move robot
-        //transmitComms(instMag,instDir);
+        transmitComms(RobotTransmitComms);
                 
 
-        //Assign value to UIOut struct
-        //UIOutput.State = State;
-        //UIOutput.IR1 = IRV
         
-           // char State;
-    //char parrotDirection;
-    //char parrotDistance;
-    //char IR1;
-    //char IR2;
-    //char IR3;
-    //char parrot_moving;
-    //char parrot_found;
-        //instMag,instDir
+        
             
                 
                 
         //State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found
-        //outputUI(State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found);
+        //outputUI(UIOutput);
 
     }
 }

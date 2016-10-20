@@ -1,5 +1,6 @@
 #include "sw_uart.h"
 #include "p18f4520.h"
+#include "Communications.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "delays.h"
@@ -66,7 +67,7 @@ char receiveComms(char* receiveBuffer) {
 }
 
 /*Transmit to Robot*/
-void transmitComms(int instMag,char instDir) {
+void transmitComms(struct communicationsOutput CommsOutput){
     
 }
 
