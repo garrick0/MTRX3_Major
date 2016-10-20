@@ -1,5 +1,7 @@
 //UserinterfaceOutput returns requests for robot movements, change of state,
 //and parameter changes.
+//#pragma udata large_udata
+
 struct UserinterfaceOutput {
 	char userinput;			//movement command or NULL
 
@@ -45,7 +47,7 @@ struct UserinterfaceInput {
 	int ir_front;
 
 };
-
+//#pragma udata
 
 #include   "LCDWrite.h"
 #include <stdio.h>
@@ -138,7 +140,7 @@ void    ServoOutput(int CURRENT_DIRECTION){
 //
 //}
 
-char string[80];
+char string[16];
 
 void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface_mode,int state_variable,int menu_position){
 
@@ -149,13 +151,14 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
             //............................
         switch(state_variable){
             case ENTRY:
-                LCDClear();
-                LCDLine1Write("Welcome to...");
-                LCDLine2Write("Initialising..");
+                //LCDClear();
+                LCDLine1ROMWrite("Welcome to...   ");
+                LCDLine2ROMWrite("Initialising... ");
                 break;
             case NORMAL:
-                LCDClear();
-                LCDLine1Write("USER_MANUAL_MODE");
+                //LCDClear();
+                LCDLine1ROMWrite("USER_MANUAL_MODE");
+                LCDLine2ROMWrite("                ");
                 break;
         }
     }
@@ -167,31 +170,37 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
         if((ptrInput->current_state)==USER_MANUAL_MODE){
             //............................
             if(state_variable==ENTRY){
-                LCDClear();
-                LCDLine1Write("USER_MANUAL_MODE");
+                //LCDClear();
+                LCDLine1ROMWrite("USER_MANUAL_MODE");
+                LCDLine2ROMWrite("                ");
             }
             //...............................
             if(state_variable==NORMAL){
                 switch(menu_position){
                     case 0:
-                        LCDClear();
-                        LCDLine1Write("0-SET_MOTORS_ON");
+                        //LCDClear();
+                        LCDLine1ROMWrite("0-SET_MOTORS_ON ");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 1:
-                        LCDClear();
-                        LCDLine1Write("1-SET_MOTORS_OFF");
+                        //LCDClear();
+                        LCDLine1ROMWrite("1-SET_MOTORS_OFF");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 2:
-                        LCDClear();
-                        LCDLine1Write("2-SET_SPEED_MAX");
+                        //LCDClear();
+                        LCDLine1ROMWrite("2-SET_SPEED_MAX ");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 3:
-                        LCDClear();
-                        LCDLine1Write("3-SET_MODE_USER_AUTO");
+                        //LCDClear();
+                        LCDLine1ROMWrite("3-SET_USER_AUTO ");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 4:
-                        LCDClear();
-                        LCDLine1Write("4-SET_MODE_FACTORY");
+                        //LCDClear();
+                        LCDLine1ROMWrite("4-SET_FACTORY   ");
+                        LCDLine2ROMWrite("                ");
                         break;
                 }
 
@@ -200,23 +209,26 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
             if(state_variable==PARAMETER){
                 switch(menu_position){
                     case 0:
-                        LCDClear();
-                        LCDLine1Write("MOTORS_ON");				/////////////////////////////////////////////////////////
+                        //LCDClear();
+                        LCDLine1ROMWrite("MOTORS_ON");				/////////////////////////////////////////////////////////
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 1:
-                        LCDClear();
-                        LCDLine1Write("MOTORS_OFF");			/////////////////////////////////////////////////////////
+                        //LCDClear();
+                        LCDLine1ROMWrite("MOTORS_OFF");			/////////////////////////////////////////////////////////
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 2:
-                        LCDClear();
+                        //LCDClear();
 
-                        sprintf(string,"%d",(ptrInput->max_robot_speed));
-                        LCDLine1Write("MAX SPEED=");
-                        LCDLine2Write(string);
+                        sprintf(string,"%d               ",(ptrInput->max_robot_speed));
+                        LCDLine1ROMWrite("MAX SPEED=      ");
+                        LCDLine2RAMWrite(string);
                         break;
                     case 4:
-                        LCDClear();
-                        LCDLine1Write("Enter Passcode:");
+                        //LCDClear();
+                        LCDLine1ROMWrite("Enter Passcode: ");
+                        LCDLine2ROMWrite("                ");
                         break;
                 }
             }
@@ -227,19 +239,22 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
         if((ptrInput->current_state)==USER_AUTO_MODE){
             //............................
             if(state_variable==ENTRY){
-                LCDClear();
-                LCDLine1Write("USER_AUTO_MODE");
+                //LCDClear();
+                LCDLine1ROMWrite("USER_AUTO_MODE  ");
+                LCDLine2ROMWrite("                ");
             }
             //...............................
             if(state_variable==NORMAL){
                 switch(menu_position){
                     case 0:
-                        LCDClear();
-                        LCDLine1Write("0-SET_FIND_PARROT");
+                        //LCDClear();
+                        LCDLine1ROMWrite("0-SET_FINDPARROT");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 1:
-                        LCDClear();
-                        LCDLine1Write("1-SET_MODE_USER_MANUAL");
+                        //LCDClear();
+                        LCDLine1ROMWrite("1-SET_USERMANUAL");
+                        LCDLine2ROMWrite("                ");
                         break;
                 }
             }
@@ -250,39 +265,47 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
         if((ptrInput->current_state)==FACTORY_MODE){
             //............................
             if(state_variable==ENTRY){
-                LCDClear();
-                LCDLine1Write("FACTORY_MODE");
+                //LCDClear();
+                LCDLine1ROMWrite("FACTORY_MODE    ");
+                LCDLine2ROMWrite("                ");
             }
             //...............................
             if(state_variable==NORMAL){
                 switch(menu_position){
                     case 0:
-                        LCDClear();
-                        LCDLine1Write("0-SET_PID_GAINS");
+                        //LCDClear();
+                        LCDLine1ROMWrite("0-SET_PID_GAINS ");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 1:
-                        LCDClear();
-                        LCDLine1Write("1-SET_SPEED_MAX");
+                        //LCDClear();
+                        LCDLine1ROMWrite("1-SET_SPEED_MAX ");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 2:
-                        LCDClear();
-                        LCDLine1Write("2-SET_YAW_RATE_MAX");
+                        //LCDClear();
+                        LCDLine1ROMWrite("2-SET_YAW_RATE  ");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 3:
-                        LCDClear();
-                        LCDLine1Write("3-SET_IR_SAMPLES_PER_ESTIMATE");
+                        //LCDClear();
+                        LCDLine1ROMWrite("3-SET_IR_SAMPLES");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 4:
-                        LCDClear();
-                        LCDLine1Write("4-SET_IR_SAMPLE_RATE");
+                        //LCDClear();
+                        LCDLine1ROMWrite("4-SET_IR_RATE   ");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 5:
-                        LCDClear();
-                        LCDLine1Write("5-SET_RF_SAMPLES_PER_ESTIMATE");
+                        //LCDClear();
+                        LCDLine1ROMWrite("5-SET_RF_SAMPLES");
+                        LCDLine2ROMWrite("                ");
                         break;
                     case 6:
-                        LCDClear();
-                        LCDLine1Write("6-SET_MODE_USER_MANUAL");
+                        //LCDClear();
+                        LCDLine1ROMWrite("6-SET_MODEMANUAL");
+                        LCDLine2ROMWrite("                ");
                         break;
                 }
             }
@@ -292,61 +315,61 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
                     case 0:
                         break;
                     case 1:
-                        LCDClear();
+                        //LCDClear();
 
-                        sprintf(string,"%d",(ptrInput->max_robot_speed));
-                        LCDLine1Write("MAX SPEED=");
-                        LCDLine2Write(string);
+                        sprintf(string,"%d               ",(ptrInput->max_robot_speed));
+                        LCDLine1ROMWrite("MAX SPEED=      ");
+                        LCDLine2RAMWrite(string);
                         break;
                     case 2:
-                        LCDClear();
+                        //LCDClear();
 
-                        sprintf(string,"%d",(ptrInput->max_yaw_rate));
-                        LCDLine1Write("MAX YAW RATE=");
-                        LCDLine2Write(string);
+                        sprintf(string,"%d               ",(ptrInput->max_yaw_rate));
+                        LCDLine1ROMWrite("MAX YAW RATE=   ");
+                        LCDLine2RAMWrite(string);
                         break;
                     case 3:
-                        LCDClear();
+                        //LCDClear();
 
-                        sprintf(string,"%d",(ptrInput->ir_samples));
-                        LCDLine1Write("IR SAMPLES PER ESTIMATE=");
-                        LCDLine2Write(string);
+                        sprintf(string,"%d               ",(ptrInput->ir_samples));
+                        LCDLine1ROMWrite("IR SAMPLES=     ");
+                        LCDLine2RAMWrite(string);
                         break;
                     case 4:
-                        LCDClear();
+                        //LDClear();
 
-                        sprintf(string,"%d",(ptrInput->ir_rate));
-                        LCDLine1Write("IR SAMPLE RATE=");
-                        LCDLine2Write(string);
+                        sprintf(string,"%d               ",(ptrInput->ir_rate));
+                        LCDLine1ROMWrite("IR SAMPLE RATE= ");
+                        LCDLine2RAMWrite(string);
                         break;
                     case 5:
-                        LCDClear();
+                        //LCDClear();
 
-                        sprintf(string,"%d",(ptrInput->rf_samples));
-                        LCDLine1Write("RF SAMPLES PER ESTIMATE=");
-                        LCDLine2Write(string);
+                        sprintf(string,"%d               ",(ptrInput->rf_samples));
+                        LCDLine1ROMWrite("RF SAMPLES=     ");
+                        LCDLine2RAMWrite(string);
                         break;
                 }
             }
             if(state_variable==PID){
             	switch(menu_position){
             		case 0:
-                        LCDClear();
-                        sprintf(string,"%d",(ptrInput->p_gain));
-                        LCDLine1Write("PROPORTIONAL GAIN=");
-                        LCDLine2Write(string);
+                        //LCDClear();
+                        sprintf(string,"%d               ",(ptrInput->p_gain));
+                        LCDLine1ROMWrite("P GAIN=         ");
+                        LCDLine2RAMWrite(string);
                         break;
             		case 1:
                         LCDClear();
-                        sprintf(string,"%d",(ptrInput->i_gain));
-                        LCDLine1Write("INTEGRAL GAIN=");
-                        LCDLine2Write(string);
+                        sprintf(string,"%d               ",(ptrInput->i_gain));
+                        LCDLine1ROMWrite("I GAIN=         ");
+                        LCDLine2RAMWrite(string);
                         break;
             		case 2:
                         LCDClear();
-                        sprintf(string,"%d",(ptrInput->d_gain));
-                        LCDLine1Write("DERIVATIVE GAIN=");
-                        LCDLine2Write(string);
+                        sprintf(string,"%d               ",(ptrInput->d_gain));
+                        LCDLine1ROMWrite("D GAIN=         ");
+                        LCDLine2RAMWrite(string);
                         break;
 
             	}
@@ -359,24 +382,25 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
             //............................
             switch(state_variable){
                 case ENTRY:
-                    LCDClear();
-                    LCDLine1Write("USER_MANUAL_MODE");
+                    //LCDClear();
+                    LCDLine1ROMWrite("USER_MANUAL_MODE");
+                    LCDLine2ROMWrite("                ");
                     break;
                 case NORMAL:
                 	if((ptrInput->full_scan)){
-						LCDClear();
-						LCDLine1Write("Full Scan");
-						LCDLine2Write("Scanning...");
+						//LCDClear();
+						LCDLine1ROMWrite("Full Scan       ");
+						LCDLine2ROMWrite("Scanning...     ");
 					}else if((ptrInput->half_scan)){
-						LCDClear();
-						LCDLine1Write("Half Scan");
-						LCDLine2Write("Scanning...");
+						//LCDClear();
+						LCDLine1ROMWrite("Half Scan       ");
+						LCDLine2ROMWrite("Scanning...     ");
 					}else{
-                    LCDClear();
-                    sprintf(string,"LEFT: %d cm RIGHT %d cm",(ptrInput->ir_left),(ptrInput->ir_right));
-                    LCDLine1Write(string);
-                    sprintf(string,"FRONT: %d cm",(ptrInput->ir_front));
-                    LCDLine2Write(string);
+                    //LCDClear();
+                    sprintf(string,"L=%d cm R=%d cm ",(ptrInput->ir_left),(ptrInput->ir_right));
+                    LCDLine1RAMWrite(string);
+                    sprintf(string,"FRONT:%d cm     ",(ptrInput->ir_front));
+                    LCDLine2RAMWrite(string);
 					}
                     break;
             }
@@ -385,21 +409,23 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
             //............................
             switch(state_variable){
                 case ENTRY:
-                    LCDClear();
-                    LCDLine1Write("USER_AUTO_MODE");
+                    //LCDClear();
+                    LCDLine1ROMWrite("USER_AUTO_MODE  ");
+                    LCDLine2ROMWrite("                ");
                     break;
                 case NORMAL:
                 	if((ptrInput->full_scan)){
-						LCDClear();
-						LCDLine1Write("Full Scan");
-						LCDLine2Write("Scanning...");
+						//LCDClear();
+						LCDLine1ROMWrite("Full Scan       ");
+						LCDLine2ROMWrite("Scanning...     ");
 					}else if((ptrInput->half_scan)){
-						LCDClear();
-						LCDLine1Write("Half Scan");
-						LCDLine2Write("Scanning...");
+						//LCDClear();
+						LCDLine1ROMWrite("Half Scan       ");
+						LCDLine2ROMWrite("Scanning...     ");
 					}else{
-                    LCDClear();
-                    LCDLine1Write("USER_AUTO_MODE");
+                    //LCDClear();
+                    LCDLine1ROMWrite("USER_AUTO_MODE  ");
+                    LCDLine2ROMWrite("                ");
 					}
                     break;
             }
@@ -407,24 +433,25 @@ void    PrimaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface
         if((ptrInput->current_state)==FACTORY_MODE){
             switch(state_variable){
                 case ENTRY:
-                    LCDClear();
-                    LCDLine1Write("FACTORY_MODE");
+                    //LCDClear();
+                    LCDLine1ROMWrite("FACTORY_MODE    ");
+                    LCDLine2ROMWrite("                ");
                     break;
                 case NORMAL:
                 	if((ptrInput->full_scan)){
-                		LCDClear();
-                		LCDLine1Write("Full Scan");
-                		LCDLine2Write("Scanning...");
+                		//LCDClear();
+                		LCDLine1ROMWrite("Full Scan       ");
+                		LCDLine2ROMWrite("Scanning...     ");
                 	}else if((ptrInput->half_scan)){
-                		LCDClear();
-                		LCDLine1Write("Half Scan");
-                		LCDLine2Write("Scanning...");
+                		//LCDClear();
+                		LCDLine1ROMWrite("Half Scan       ");
+                		LCDLine2ROMWrite("Scanning...     ");
                 	}else{
-                    LCDClear();
-                    sprintf(string,"LEFT: %d cm RIGHT %d cm",(ptrInput->ir_left),(ptrInput->ir_right));
-                    LCDLine1Write(string);
-                    sprintf(string,"FRONT: %d cm",(ptrInput->ir_front));
-                    LCDLine2Write(string);
+                    //LCDClear();
+                    sprintf(string,"L=%d cm R=%d cm ",(ptrInput->ir_left),(ptrInput->ir_right));
+                    LCDLine1RAMWrite(string);
+                    sprintf(string,"FRONT:%d cm     ",(ptrInput->ir_front));
+                    LCDLine2RAMWrite(string);
                 	}
                     break;
             }

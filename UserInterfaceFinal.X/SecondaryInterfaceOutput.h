@@ -8,9 +8,10 @@
 #ifndef SECONDARYINTERFACEOUTPUT_H
 #define	SECONDARYINTERFACEOUTPUT_H
 
-void    PCWrite(char *Data);
+void    PCROMWrite(rom char *Data);
+void    PCRAMWrite(char *Data);
 void    PCLineClear(void);
+void    initialiseComs(void);
 void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interface_mode,int state_variable,int menu_position);
 
 #endif	/* SECONDARYINTERFACEOUTPUT_H */
-

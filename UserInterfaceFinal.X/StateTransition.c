@@ -1,5 +1,7 @@
 //UserinterfaceOutput returns requests for robot movements, change of state,
 //and parameter changes.
+//#pragma udata large_udata
+
 struct UserinterfaceOutput {
 	char userinput;			//movement command or NULL
 
@@ -45,7 +47,7 @@ struct UserinterfaceInput {
 	int ir_front;
 
 };
-
+//#pragma udata
 #include "SecondaryInterfaceOutput.h"
 #include <stdlib.h>
 
@@ -61,16 +63,25 @@ struct UserinterfaceInput {
 #define NORMAL              1
 #define PARAMETER           2
 #define	PID					3
+
+#define LEFT                'L'
+#define RIGHT               'R'
+#define UP                  'U'
+#define DOWN                'D'
+#define Abutton             'A'
+#define BButton             'B'
+#define HALFSCAN            'H'       
+#define FULLSCAN            'F'
 //secondary output *flag *flag;
 
 //void    PCWrite(char *Data);
 
 
-char passcode[]= "UUDDLRLRBA";
+char passcode[]= "UU";
 int i=0;
 int success;
-int GetPasscode(char userinput){
-	if(userinput==passcode[i]){
+int GetPasscode(char *input){
+	if(*input==passcode[i]){
 		i++;
 		if(i==(sizeof(passcode)-1)){
 			return 2;		//if whole passcode correct, return 2
@@ -83,9 +94,9 @@ int GetPasscode(char userinput){
 	}
 }
 //flag is set upon variable change or successful state change
-struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,int *interface_mode,int *state_variable,int *menu_position,char *userinput,int *flag){
-
-	struct UserinterfaceOutput *ptrOutput;
+void StateTransition(struct UserinterfaceInput *ptrInput,struct UserinterfaceOutput *ptrOutput,int *interface_mode,int *state_variable,int *menu_position,char *userinput,int *flag){
+//struct UserinterfaceOutput *
+	//struct UserinterfaceOutput *ptrOutput;
 	//ptrOutput = (struct UserinterfaceOutput *) malloc(sizeof(struct UserinterfaceOutput));
 
 	//initialise the output struct to the input values:
@@ -129,7 +140,7 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                         }
                         break;
                     case NORMAL:
-                        if(*userinput=='A'){
+                        if(*userinput==Abutton){
                             //(ptrOutput->current_state)=USER_MANUAL_MODE;
                             *interface_mode=SECONDARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
@@ -149,7 +160,7 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                         }
                         break;
                     case NORMAL:
-                        if(*userinput=='A'){
+                        if(*userinput==Abutton){
                             //(ptrOutput->current_state)=USER_MANUAL_MODE;
                             *interface_mode=SECONDARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
@@ -169,7 +180,7 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                         }
                         break;
                     case NORMAL:
-                        if(*userinput=='A'){
+                        if(*userinput==Abutton){
                             //(ptrOutput->current_state)=USER_MANUAL_MODE;
                             *interface_mode=SECONDARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
@@ -181,9 +192,9 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                 break;
 
         }
-        if(*userinput=='A' || *userinput=='B'){ 	//if A or B button pressed
+        if(*userinput==Abutton || *userinput==BButton){ 	//if A or B button pressed
 			(ptrOutput->userinput)='\0';
-			if(*userinput=='A'){
+			if(*userinput==Abutton){
 				*flag=1;
 			}
 		}else{
@@ -204,7 +215,7 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                         }
                         break;
                     case NORMAL:
-                        if(*userinput=='A'){
+                        if(*userinput==Abutton){
                             if((*menu_position)!=3){
                                 *state_variable=PARAMETER;
 
@@ -216,19 +227,19 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                             }
 
                         }
-                        if(*userinput=='B'){
+                        if(*userinput==BButton){
                             *interface_mode=PRIMARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
                             *menu_position=0;
 
                         }
-                        if(*userinput=='U'){
+                        if(*userinput==UP){
                             if((*menu_position)>0){
                                 *menu_position=*menu_position-1;
 
                             }
                         }
-                        if(*userinput=='D'){
+                        if(*userinput==DOWN){
                             if((*menu_position)<4){
                             	 *menu_position=*menu_position+1;
 
@@ -250,41 +261,43 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
 
                                 break;
                             case 2:
-                                if(*userinput=='L'){
+                                if(*userinput==LEFT){
                                     (ptrOutput->max_robot_speed)=(ptrInput->max_robot_speed)-1;
 
                                 }
-                                if(*userinput=='R'){
+                                if(*userinput==RIGHT){
                                     (ptrOutput->max_robot_speed)=(ptrInput->max_robot_speed)+1;
 
                                 }
-                                if(*userinput=='B'){
+                                if(*userinput==BButton){
                                     *state_variable=NORMAL;
 
                                 }
                                 break;
                             case 4:
-//                                if(*userinput=='U'){
+//                                if(*userinput==UP){
 //                                    (ptrOutput->current_state)=FACTORY_MODE;
 //                                    *state_variable=ENTRY;
 //                                    *menu_position=0;
 //                                }
-//                                else if(*userinput!='U'){
+//                                else if(*userinput!=UP){
 //                                    *state_variable=NORMAL;
 //                                    PCWrite("Wrong Passcode");
 //
 //                                }
-                            	success=GetPasscode(*userinput);
-                            	if(success==0){
-                                    *state_variable=NORMAL;
-                                    PCWrite("Wrong Passcode");
-                            	}else if(success==1){
-                            		//no action
-                            	}else if(success==2){
-									(ptrOutput->current_state)=FACTORY_MODE;
-									*state_variable=ENTRY;
-									*menu_position=0;
-                            	}
+                                if(*userinput){ // == 1
+                                    success=GetPasscode(userinput);
+                                    if(success==0){
+                                        *state_variable=NORMAL;
+                                        PCROMWrite("Wrong Passcode");
+                                    }else if(success==1){
+                                        //no action
+                                    }else if(success==2){
+                                        (ptrOutput->current_state)=FACTORY_MODE;
+                                        *state_variable=ENTRY;
+                                        *menu_position=0;
+                                    }
+                                }
                                 break;
 
                         }
@@ -301,7 +314,7 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                         }
                         break;
                     case NORMAL:
-                        if(*userinput=='A'){
+                        if(*userinput==Abutton){
                             switch(*menu_position){
                                 case 0:
                                 	*state_variable=PARAMETER;
@@ -313,19 +326,19 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                                     break;
                             }
                         }
-                        if(*userinput=='B'){
+                        if(*userinput==BButton){
                             *interface_mode=PRIMARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
                             *menu_position=0;
 
                         }
-                        if(*userinput=='U'){
+                        if(*userinput==UP){
                             if((*menu_position)>0){
                             	*menu_position=*menu_position-1;
 
                             }
                         }
-                        if(*userinput=='D'){
+                        if(*userinput==DOWN){
                             if((*menu_position)<1){
                             	*menu_position=*menu_position+1;
 
@@ -350,7 +363,7 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                         }
                         break;
                     case NORMAL:
-                        if(*userinput=='A'){
+                        if(*userinput==Abutton){
                             if((*menu_position)!=6){
                                 *state_variable=PARAMETER;
 
@@ -360,17 +373,17 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                                 *menu_position=0;
                             }
                         }
-                        if(*userinput=='B'){
+                        if(*userinput==BButton){
                             *interface_mode=PRIMARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
                             *menu_position=0;
                         }
-                        if(*userinput=='U'){
+                        if(*userinput==UP){
                             if((*menu_position)>0){
                             	 *menu_position=*menu_position-1;
                             }
                         }
-                        if(*userinput=='D'){
+                        if(*userinput==DOWN){
                             if((*menu_position)<6){
                             	 *menu_position=*menu_position+1;
                             }
@@ -382,57 +395,57 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
 								*state_variable=PID;
                                 break;
                             case 1:
-                                if(*userinput=='L'){
+                                if(*userinput==LEFT){
                                     (ptrOutput->max_robot_speed)=(ptrInput->max_robot_speed)-1;       //request
                                 }
-                                if(*userinput=='R'){
+                                if(*userinput==RIGHT){
                                     (ptrOutput->max_robot_speed)=(ptrInput->max_robot_speed)+1;
                                 }
-                                if(*userinput=='B'){
+                                if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
                             case 2:
-                                if(*userinput=='L'){
+                                if(*userinput==LEFT){
                                     (ptrOutput->max_yaw_rate)=(ptrInput->max_yaw_rate)-1;       //request
                                 }
-                                if(*userinput=='R'){
+                                if(*userinput==RIGHT){
                                     (ptrOutput->max_yaw_rate)=(ptrInput->max_yaw_rate)+1;
                                 }
-                                if(*userinput=='B'){
+                                if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
                             case 3:
-                                if(*userinput=='L'){
+                                if(*userinput==LEFT){
                                     (ptrOutput->ir_samples)=(ptrInput->ir_samples)-1;       //request
                                 }
-                                if(*userinput=='R'){
+                                if(*userinput==RIGHT){
                                     (ptrOutput->ir_samples)=(ptrInput->ir_samples)+1;
                                 }
-                                if(*userinput=='B'){
+                                if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
                             case 4:
-                                if(*userinput=='L'){
+                                if(*userinput==LEFT){
                                     (ptrOutput->ir_rate)=(ptrInput->ir_rate)-1;       //request
                                 }
-                                if(*userinput=='R'){
+                                if(*userinput==RIGHT){
                                     (ptrOutput->ir_rate)=(ptrInput->ir_rate)+1;
                                 }
-                                if(*userinput=='B'){
+                                if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
                             case 5:
-                                if(*userinput=='L'){
+                                if(*userinput==LEFT){
                                     (ptrOutput->rf_samples)=(ptrInput->rf_samples)-1;       //request
                                 }
-                                if(*userinput=='R'){
+                                if(*userinput==RIGHT){
                                     (ptrOutput->rf_samples)=(ptrInput->rf_samples)+1;
                                 }
-                                if(*userinput=='B'){
+                                if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
@@ -442,66 +455,66 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
 					case PID:
 						switch(*menu_position){
 							case 0:
-								if(*userinput=='L'){
+								if(*userinput==LEFT){
 									(ptrOutput->p_gain)=(ptrInput->p_gain)-1;       //request
 								}
-								if(*userinput=='R'){
+								if(*userinput==RIGHT){
 									(ptrOutput->p_gain)=(ptrInput->p_gain)+1;
 								}
-								if(*userinput=='B'){
+								if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}
-								if(*userinput=='U'){
+								if(*userinput==UP){
 									if((*menu_position)>0){
 										 *menu_position=*menu_position-1;
 									}
 								}
-								if(*userinput=='D'){
+								if(*userinput==DOWN){
 									if((*menu_position)<2){
 										*menu_position=*menu_position+1;
 									}
 								}
 								break;
 							case 1:
-                                if(*userinput=='L'){
+                                if(*userinput==LEFT){
                                     (ptrOutput->i_gain)=(ptrInput->i_gain)-1;       //request
                                 }
-                                if(*userinput=='R'){
+                                if(*userinput==RIGHT){
                                     (ptrOutput->i_gain)=(ptrInput->i_gain)+1;
                                 }
-								if(*userinput=='B'){
+								if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}
-								if(*userinput=='U'){
+								if(*userinput==UP){
 									if((*menu_position)>0){
 										 *menu_position=*menu_position-1;
 									}
 								}
-								if(*userinput=='D'){
+								if(*userinput==DOWN){
 									if((*menu_position)<2){
 										*menu_position=*menu_position+1;
 									}
 								}
                                 break;
 							case 2:
-                                if(*userinput=='L'){
+                                if(*userinput==LEFT){
                                     (ptrOutput->d_gain)=(ptrInput->d_gain)-1;       //request
                                 }
-                                if(*userinput=='R'){
+                                if(*userinput==RIGHT){
                                     (ptrOutput->d_gain)=(ptrInput->d_gain)+1;
                                 }
-								if(*userinput=='B'){
+								if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}
-								if(*userinput=='U'){
+								if(*userinput==UP){
 									if((*menu_position)>0){
 										 *menu_position=*menu_position-1;
 									}
 								}
-								if(*userinput=='D'){
+								if(*userinput==DOWN){
 									if((*menu_position)<2){
 										*menu_position=*menu_position+1;
 									}
@@ -516,7 +529,7 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
                 break;
 
         }
-        if(*userinput=='F' || *userinput=='H'){ 	//if full scan or half scan button pressed
+        if(*userinput==FULLSCAN || *userinput==HALFSCAN){ 	//if full scan or half scan button pressed
         	(ptrOutput->userinput)=*userinput;
         }else{
         	(ptrOutput->userinput)='\0';
@@ -524,5 +537,5 @@ struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,
         }
     }
 
-    return ptrOutput;
+    //return ptrOutput;
 }

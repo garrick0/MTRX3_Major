@@ -29,17 +29,17 @@
         <itemPath>XLCD/readdata.c</itemPath>
         <itemPath>XLCD/setcgram.c</itemPath>
         <itemPath>XLCD/setddram.c</itemPath>
+        <itemPath>XLCD/UserinterfaceInitialise.c</itemPath>
         <itemPath>XLCD/wcmdxlcd.c</itemPath>
         <itemPath>XLCD/writdata.c</itemPath>
       </logicalFolder>
+      <itemPath>LCDWrite.c</itemPath>
       <itemPath>Main.c</itemPath>
       <itemPath>PrimaryInterfaceOutput.c</itemPath>
       <itemPath>SecondaryInterfaceOutput.c</itemPath>
       <itemPath>StateTransition.c</itemPath>
       <itemPath>UserInput.c</itemPath>
       <itemPath>xlcddelays.c</itemPath>
-      <itemPath>//MXLABSERVER1/Users/wmar5627/Desktop/LCDtest.X/LCDWrite.c</itemPath>
-      <itemPath>XLCD/UserinterfaceInitialise.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -48,7 +48,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>XLCD</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -92,25 +92,33 @@
         <property key="enable-all-optimizations" value="true"/>
         <property key="enable-int-promotion" value="false"/>
         <property key="enable-multi-bank-stack-model" value="false"/>
-        <property key="enable-ob" value="true"/>
-        <property key="enable-od" value="true"/>
+        <property key="enable-ob" value="false"/>
+        <property key="enable-od" value="false"/>
         <property key="enable-om" value="true"/>
         <property key="enable-on" value="true"/>
-        <property key="enable-op" value="true"/>
-        <property key="enable-opa" value="true"/>
-        <property key="enable-or" value="true"/>
+        <property key="enable-op" value="false"/>
+        <property key="enable-opa" value="false"/>
+        <property key="enable-or" value="false"/>
         <property key="enable-os" value="true"/>
-        <property key="enable-ot" value="true"/>
-        <property key="enable-ou" value="true"/>
+        <property key="enable-ot" value="false"/>
+        <property key="enable-ou" value="false"/>
         <property key="enable-ow" value="true"/>
         <property key="extra-include-directories" value=""/>
-        <property key="optimization-master" value="Enable all"/>
+        <property key="optimization-master" value="Debug friendly"/>
         <property key="preprocessor-macros" value=""/>
         <property key="procedural-abstraction-passes" value="4"/>
         <property key="storage-class" value="sca"/>
         <property key="verbose" value="false"/>
         <property key="warning-level" value="2"/>
       </C18>
+      <C18-AS>
+        <property key="cross.reference.file" value=""/>
+        <property key="default.radix" value="HEX"/>
+        <property key="enable.case.sensitivity" value="true"/>
+        <property key="hex.output.format" value="INHX32"/>
+        <property key="preprocessor.macros" value=""/>
+        <property key="warning.level" value="0"/>
+      </C18-AS>
       <C18-LD>
         <property key="cod-file" value="false"/>
         <property key="extra-lib-directories" value=""/>
@@ -133,7 +141,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
-        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>

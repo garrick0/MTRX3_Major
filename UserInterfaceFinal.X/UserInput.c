@@ -96,7 +96,7 @@ char ReadUserInputBuffer(char *UserInputBuffer){
 	//while(counter--){
 		char output;
         output=UserInputBuffer[0];		//read buffer
-		UserInputBuffer[0]='\0';		//clear buffer after reading
+		*UserInputBuffer='\0';		//clear buffer after reading
 		//*idx %= sizeof(UserInputBuffer);		//if end of buffer reached, reset pointer
         //}
 		return output;				

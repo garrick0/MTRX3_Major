@@ -8,8 +8,8 @@
 #ifndef STATETRANSITION_H
 #define	STATETRANSITION_H
 
-struct UserinterfaceOutput *StateTransition(struct UserinterfaceInput *ptrInput,int *interface_mode,int *state_variable,int *menu_position,char *userinput,int *flag);
-void GetPasscode(char *userinput);
+void StateTransition(struct UserinterfaceInput *ptrInput,struct UserinterfaceOutput *ptrOutput,int *interface_mode,int *state_variable,int *menu_position,char *userinput,int *flag);
+int GetPasscode(char input);
 
 
 #endif	/* STATETRANSITION_H */

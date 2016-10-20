@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Main.c PrimaryInterfaceOutput.c SecondaryInterfaceOutput.c StateTransition.c UserInput.c xlcddelays.c //MXLABSERVER1/Users/wmar5627/Desktop/LCDtest.X/LCDWrite.c XLCD/busyxlcd.c XLCD/openxlcd.c XLCD/putrxlcd.c XLCD/putsxlcd.c XLCD/readaddr.c XLCD/readdata.c XLCD/setcgram.c XLCD/setddram.c XLCD/wcmdxlcd.c XLCD/writdata.c XLCD/UserinterfaceInitialise.c
+SOURCEFILES_QUOTED_IF_SPACED=XLCD/busyxlcd.c XLCD/openxlcd.c XLCD/putrxlcd.c XLCD/putsxlcd.c XLCD/readaddr.c XLCD/readdata.c XLCD/setcgram.c XLCD/setddram.c XLCD/UserinterfaceInitialise.c XLCD/wcmdxlcd.c XLCD/writdata.c LCDWrite.c Main.c PrimaryInterfaceOutput.c SecondaryInterfaceOutput.c StateTransition.c UserInput.c xlcddelays.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Main.o ${OBJECTDIR}/PrimaryInterfaceOutput.o ${OBJECTDIR}/SecondaryInterfaceOutput.o ${OBJECTDIR}/StateTransition.o ${OBJECTDIR}/UserInput.o ${OBJECTDIR}/xlcddelays.o ${OBJECTDIR}/_ext/358124066/LCDWrite.o ${OBJECTDIR}/XLCD/busyxlcd.o ${OBJECTDIR}/XLCD/openxlcd.o ${OBJECTDIR}/XLCD/putrxlcd.o ${OBJECTDIR}/XLCD/putsxlcd.o ${OBJECTDIR}/XLCD/readaddr.o ${OBJECTDIR}/XLCD/readdata.o ${OBJECTDIR}/XLCD/setcgram.o ${OBJECTDIR}/XLCD/setddram.o ${OBJECTDIR}/XLCD/wcmdxlcd.o ${OBJECTDIR}/XLCD/writdata.o ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Main.o.d ${OBJECTDIR}/PrimaryInterfaceOutput.o.d ${OBJECTDIR}/SecondaryInterfaceOutput.o.d ${OBJECTDIR}/StateTransition.o.d ${OBJECTDIR}/UserInput.o.d ${OBJECTDIR}/xlcddelays.o.d ${OBJECTDIR}/_ext/358124066/LCDWrite.o.d ${OBJECTDIR}/XLCD/busyxlcd.o.d ${OBJECTDIR}/XLCD/openxlcd.o.d ${OBJECTDIR}/XLCD/putrxlcd.o.d ${OBJECTDIR}/XLCD/putsxlcd.o.d ${OBJECTDIR}/XLCD/readaddr.o.d ${OBJECTDIR}/XLCD/readdata.o.d ${OBJECTDIR}/XLCD/setcgram.o.d ${OBJECTDIR}/XLCD/setddram.o.d ${OBJECTDIR}/XLCD/wcmdxlcd.o.d ${OBJECTDIR}/XLCD/writdata.o.d ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/XLCD/busyxlcd.o ${OBJECTDIR}/XLCD/openxlcd.o ${OBJECTDIR}/XLCD/putrxlcd.o ${OBJECTDIR}/XLCD/putsxlcd.o ${OBJECTDIR}/XLCD/readaddr.o ${OBJECTDIR}/XLCD/readdata.o ${OBJECTDIR}/XLCD/setcgram.o ${OBJECTDIR}/XLCD/setddram.o ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o ${OBJECTDIR}/XLCD/wcmdxlcd.o ${OBJECTDIR}/XLCD/writdata.o ${OBJECTDIR}/LCDWrite.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/PrimaryInterfaceOutput.o ${OBJECTDIR}/SecondaryInterfaceOutput.o ${OBJECTDIR}/StateTransition.o ${OBJECTDIR}/UserInput.o ${OBJECTDIR}/xlcddelays.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/XLCD/busyxlcd.o.d ${OBJECTDIR}/XLCD/openxlcd.o.d ${OBJECTDIR}/XLCD/putrxlcd.o.d ${OBJECTDIR}/XLCD/putsxlcd.o.d ${OBJECTDIR}/XLCD/readaddr.o.d ${OBJECTDIR}/XLCD/readdata.o.d ${OBJECTDIR}/XLCD/setcgram.o.d ${OBJECTDIR}/XLCD/setddram.o.d ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d ${OBJECTDIR}/XLCD/wcmdxlcd.o.d ${OBJECTDIR}/XLCD/writdata.o.d ${OBJECTDIR}/LCDWrite.o.d ${OBJECTDIR}/Main.o.d ${OBJECTDIR}/PrimaryInterfaceOutput.o.d ${OBJECTDIR}/SecondaryInterfaceOutput.o.d ${OBJECTDIR}/StateTransition.o.d ${OBJECTDIR}/UserInput.o.d ${OBJECTDIR}/xlcddelays.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Main.o ${OBJECTDIR}/PrimaryInterfaceOutput.o ${OBJECTDIR}/SecondaryInterfaceOutput.o ${OBJECTDIR}/StateTransition.o ${OBJECTDIR}/UserInput.o ${OBJECTDIR}/xlcddelays.o ${OBJECTDIR}/_ext/358124066/LCDWrite.o ${OBJECTDIR}/XLCD/busyxlcd.o ${OBJECTDIR}/XLCD/openxlcd.o ${OBJECTDIR}/XLCD/putrxlcd.o ${OBJECTDIR}/XLCD/putsxlcd.o ${OBJECTDIR}/XLCD/readaddr.o ${OBJECTDIR}/XLCD/readdata.o ${OBJECTDIR}/XLCD/setcgram.o ${OBJECTDIR}/XLCD/setddram.o ${OBJECTDIR}/XLCD/wcmdxlcd.o ${OBJECTDIR}/XLCD/writdata.o ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o
+OBJECTFILES=${OBJECTDIR}/XLCD/busyxlcd.o ${OBJECTDIR}/XLCD/openxlcd.o ${OBJECTDIR}/XLCD/putrxlcd.o ${OBJECTDIR}/XLCD/putsxlcd.o ${OBJECTDIR}/XLCD/readaddr.o ${OBJECTDIR}/XLCD/readdata.o ${OBJECTDIR}/XLCD/setcgram.o ${OBJECTDIR}/XLCD/setddram.o ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o ${OBJECTDIR}/XLCD/wcmdxlcd.o ${OBJECTDIR}/XLCD/writdata.o ${OBJECTDIR}/LCDWrite.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/PrimaryInterfaceOutput.o ${OBJECTDIR}/SecondaryInterfaceOutput.o ${OBJECTDIR}/StateTransition.o ${OBJECTDIR}/UserInput.o ${OBJECTDIR}/xlcddelays.o
 
 # Source Files
-SOURCEFILES=Main.c PrimaryInterfaceOutput.c SecondaryInterfaceOutput.c StateTransition.c UserInput.c xlcddelays.c //MXLABSERVER1/Users/wmar5627/Desktop/LCDtest.X/LCDWrite.c XLCD/busyxlcd.c XLCD/openxlcd.c XLCD/putrxlcd.c XLCD/putsxlcd.c XLCD/readaddr.c XLCD/readdata.c XLCD/setcgram.c XLCD/setddram.c XLCD/wcmdxlcd.c XLCD/writdata.c XLCD/UserinterfaceInitialise.c
+SOURCEFILES=XLCD/busyxlcd.c XLCD/openxlcd.c XLCD/putrxlcd.c XLCD/putsxlcd.c XLCD/readaddr.c XLCD/readdata.c XLCD/setcgram.c XLCD/setddram.c XLCD/UserinterfaceInitialise.c XLCD/wcmdxlcd.c XLCD/writdata.c LCDWrite.c Main.c PrimaryInterfaceOutput.c SecondaryInterfaceOutput.c StateTransition.c UserInput.c xlcddelays.c
 
 
 CFLAGS=
@@ -85,7 +85,7 @@ endif
 
 MP_PROCESSOR_OPTION=18F4520
 MP_PROCESSOR_OPTION_LD=18f4520
-MP_LINKER_DEBUG_OPTION= -u_DEBUGCODESTART=0x7dc0 -u_DEBUGCODELEN=0x240 -u_DEBUGDATASTART=0x5f4 -u_DEBUGDATALEN=0xb
+MP_LINKER_DEBUG_OPTION= -u_DEBUGCODESTART=0x7d30 -u_DEBUGCODELEN=0x2d0 -u_DEBUGDATASTART=0x5ef -u_DEBUGDATALEN=0x10
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -95,67 +95,11 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Main.o: Main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Main.o.d 
-	@${RM} ${OBJECTDIR}/Main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Main.o   Main.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/Main.o 
-	@${FIXDEPS} "${OBJECTDIR}/Main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/PrimaryInterfaceOutput.o: PrimaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PrimaryInterfaceOutput.o.d 
-	@${RM} ${OBJECTDIR}/PrimaryInterfaceOutput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/PrimaryInterfaceOutput.o   PrimaryInterfaceOutput.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/PrimaryInterfaceOutput.o 
-	@${FIXDEPS} "${OBJECTDIR}/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/SecondaryInterfaceOutput.o: SecondaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/SecondaryInterfaceOutput.o.d 
-	@${RM} ${OBJECTDIR}/SecondaryInterfaceOutput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/SecondaryInterfaceOutput.o   SecondaryInterfaceOutput.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/SecondaryInterfaceOutput.o 
-	@${FIXDEPS} "${OBJECTDIR}/SecondaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/StateTransition.o: StateTransition.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/StateTransition.o.d 
-	@${RM} ${OBJECTDIR}/StateTransition.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/StateTransition.o   StateTransition.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/StateTransition.o 
-	@${FIXDEPS} "${OBJECTDIR}/StateTransition.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/UserInput.o: UserInput.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/UserInput.o.d 
-	@${RM} ${OBJECTDIR}/UserInput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInput.o   UserInput.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/UserInput.o 
-	@${FIXDEPS} "${OBJECTDIR}/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/xlcddelays.o: xlcddelays.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/xlcddelays.o.d 
-	@${RM} ${OBJECTDIR}/xlcddelays.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/xlcddelays.o   xlcddelays.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/xlcddelays.o 
-	@${FIXDEPS} "${OBJECTDIR}/xlcddelays.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/_ext/358124066/LCDWrite.o: //MXLABSERVER1/Users/wmar5627/Desktop/LCDtest.X/LCDWrite.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/358124066" 
-	@${RM} ${OBJECTDIR}/_ext/358124066/LCDWrite.o.d 
-	@${RM} ${OBJECTDIR}/_ext/358124066/LCDWrite.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/358124066/LCDWrite.o   //MXLABSERVER1/Users/wmar5627/Desktop/LCDtest.X/LCDWrite.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/_ext/358124066/LCDWrite.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/358124066/LCDWrite.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
 ${OBJECTDIR}/XLCD/busyxlcd.o: XLCD/busyxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/busyxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/busyxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/busyxlcd.o   XLCD/busyxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/busyxlcd.o   XLCD/busyxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/busyxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/busyxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -163,7 +107,7 @@ ${OBJECTDIR}/XLCD/openxlcd.o: XLCD/openxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/openxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/openxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/openxlcd.o   XLCD/openxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/openxlcd.o   XLCD/openxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/openxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/openxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -171,7 +115,7 @@ ${OBJECTDIR}/XLCD/putrxlcd.o: XLCD/putrxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/putrxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/putrxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/putrxlcd.o   XLCD/putrxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/putrxlcd.o   XLCD/putrxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/putrxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/putrxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -179,7 +123,7 @@ ${OBJECTDIR}/XLCD/putsxlcd.o: XLCD/putsxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/putsxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/putsxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/putsxlcd.o   XLCD/putsxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/putsxlcd.o   XLCD/putsxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/putsxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/putsxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -187,7 +131,7 @@ ${OBJECTDIR}/XLCD/readaddr.o: XLCD/readaddr.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/readaddr.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/readaddr.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/readaddr.o   XLCD/readaddr.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/readaddr.o   XLCD/readaddr.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/readaddr.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/readaddr.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -195,7 +139,7 @@ ${OBJECTDIR}/XLCD/readdata.o: XLCD/readdata.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/readdata.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/readdata.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/readdata.o   XLCD/readdata.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/readdata.o   XLCD/readdata.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/readdata.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/readdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -203,7 +147,7 @@ ${OBJECTDIR}/XLCD/setcgram.o: XLCD/setcgram.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/setcgram.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/setcgram.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/setcgram.o   XLCD/setcgram.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/setcgram.o   XLCD/setcgram.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/setcgram.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/setcgram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -211,15 +155,23 @@ ${OBJECTDIR}/XLCD/setddram.o: XLCD/setddram.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/setddram.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/setddram.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/setddram.o   XLCD/setddram.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/setddram.o   XLCD/setddram.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/setddram.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/setddram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/XLCD/UserinterfaceInitialise.o: XLCD/UserinterfaceInitialise.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/XLCD" 
+	@${RM} ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d 
+	@${RM} ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o   XLCD/UserinterfaceInitialise.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o 
+	@${FIXDEPS} "${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/XLCD/wcmdxlcd.o: XLCD/wcmdxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/wcmdxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/wcmdxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/wcmdxlcd.o   XLCD/wcmdxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/wcmdxlcd.o   XLCD/wcmdxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/wcmdxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/wcmdxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -227,80 +179,72 @@ ${OBJECTDIR}/XLCD/writdata.o: XLCD/writdata.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/writdata.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/writdata.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/writdata.o   XLCD/writdata.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/writdata.o   XLCD/writdata.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/writdata.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/writdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
-${OBJECTDIR}/XLCD/UserinterfaceInitialise.o: XLCD/UserinterfaceInitialise.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/XLCD" 
-	@${RM} ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d 
-	@${RM} ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o   XLCD/UserinterfaceInitialise.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o 
-	@${FIXDEPS} "${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+${OBJECTDIR}/LCDWrite.o: LCDWrite.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/LCDWrite.o.d 
+	@${RM} ${OBJECTDIR}/LCDWrite.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/LCDWrite.o   LCDWrite.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/LCDWrite.o 
+	@${FIXDEPS} "${OBJECTDIR}/LCDWrite.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/Main.o: Main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Main.o.d 
+	@${RM} ${OBJECTDIR}/Main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Main.o   Main.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/Main.o 
+	@${FIXDEPS} "${OBJECTDIR}/Main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/PrimaryInterfaceOutput.o: PrimaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PrimaryInterfaceOutput.o.d 
+	@${RM} ${OBJECTDIR}/PrimaryInterfaceOutput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/PrimaryInterfaceOutput.o   PrimaryInterfaceOutput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/PrimaryInterfaceOutput.o 
+	@${FIXDEPS} "${OBJECTDIR}/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/SecondaryInterfaceOutput.o: SecondaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SecondaryInterfaceOutput.o.d 
+	@${RM} ${OBJECTDIR}/SecondaryInterfaceOutput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/SecondaryInterfaceOutput.o   SecondaryInterfaceOutput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/SecondaryInterfaceOutput.o 
+	@${FIXDEPS} "${OBJECTDIR}/SecondaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/StateTransition.o: StateTransition.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/StateTransition.o.d 
+	@${RM} ${OBJECTDIR}/StateTransition.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/StateTransition.o   StateTransition.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/StateTransition.o 
+	@${FIXDEPS} "${OBJECTDIR}/StateTransition.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UserInput.o: UserInput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UserInput.o.d 
+	@${RM} ${OBJECTDIR}/UserInput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInput.o   UserInput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UserInput.o 
+	@${FIXDEPS} "${OBJECTDIR}/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/xlcddelays.o: xlcddelays.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/xlcddelays.o.d 
+	@${RM} ${OBJECTDIR}/xlcddelays.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/xlcddelays.o   xlcddelays.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/xlcddelays.o 
+	@${FIXDEPS} "${OBJECTDIR}/xlcddelays.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 else
-${OBJECTDIR}/Main.o: Main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Main.o.d 
-	@${RM} ${OBJECTDIR}/Main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Main.o   Main.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/Main.o 
-	@${FIXDEPS} "${OBJECTDIR}/Main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/PrimaryInterfaceOutput.o: PrimaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PrimaryInterfaceOutput.o.d 
-	@${RM} ${OBJECTDIR}/PrimaryInterfaceOutput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/PrimaryInterfaceOutput.o   PrimaryInterfaceOutput.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/PrimaryInterfaceOutput.o 
-	@${FIXDEPS} "${OBJECTDIR}/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/SecondaryInterfaceOutput.o: SecondaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/SecondaryInterfaceOutput.o.d 
-	@${RM} ${OBJECTDIR}/SecondaryInterfaceOutput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/SecondaryInterfaceOutput.o   SecondaryInterfaceOutput.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/SecondaryInterfaceOutput.o 
-	@${FIXDEPS} "${OBJECTDIR}/SecondaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/StateTransition.o: StateTransition.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/StateTransition.o.d 
-	@${RM} ${OBJECTDIR}/StateTransition.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/StateTransition.o   StateTransition.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/StateTransition.o 
-	@${FIXDEPS} "${OBJECTDIR}/StateTransition.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/UserInput.o: UserInput.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/UserInput.o.d 
-	@${RM} ${OBJECTDIR}/UserInput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInput.o   UserInput.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/UserInput.o 
-	@${FIXDEPS} "${OBJECTDIR}/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/xlcddelays.o: xlcddelays.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/xlcddelays.o.d 
-	@${RM} ${OBJECTDIR}/xlcddelays.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/xlcddelays.o   xlcddelays.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/xlcddelays.o 
-	@${FIXDEPS} "${OBJECTDIR}/xlcddelays.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/_ext/358124066/LCDWrite.o: //MXLABSERVER1/Users/wmar5627/Desktop/LCDtest.X/LCDWrite.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/358124066" 
-	@${RM} ${OBJECTDIR}/_ext/358124066/LCDWrite.o.d 
-	@${RM} ${OBJECTDIR}/_ext/358124066/LCDWrite.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/358124066/LCDWrite.o   //MXLABSERVER1/Users/wmar5627/Desktop/LCDtest.X/LCDWrite.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/_ext/358124066/LCDWrite.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/358124066/LCDWrite.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
 ${OBJECTDIR}/XLCD/busyxlcd.o: XLCD/busyxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/busyxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/busyxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/busyxlcd.o   XLCD/busyxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/busyxlcd.o   XLCD/busyxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/busyxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/busyxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -308,7 +252,7 @@ ${OBJECTDIR}/XLCD/openxlcd.o: XLCD/openxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/openxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/openxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/openxlcd.o   XLCD/openxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/openxlcd.o   XLCD/openxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/openxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/openxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -316,7 +260,7 @@ ${OBJECTDIR}/XLCD/putrxlcd.o: XLCD/putrxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/putrxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/putrxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/putrxlcd.o   XLCD/putrxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/putrxlcd.o   XLCD/putrxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/putrxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/putrxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -324,7 +268,7 @@ ${OBJECTDIR}/XLCD/putsxlcd.o: XLCD/putsxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/putsxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/putsxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/putsxlcd.o   XLCD/putsxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/putsxlcd.o   XLCD/putsxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/putsxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/putsxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -332,7 +276,7 @@ ${OBJECTDIR}/XLCD/readaddr.o: XLCD/readaddr.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/readaddr.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/readaddr.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/readaddr.o   XLCD/readaddr.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/readaddr.o   XLCD/readaddr.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/readaddr.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/readaddr.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -340,7 +284,7 @@ ${OBJECTDIR}/XLCD/readdata.o: XLCD/readdata.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/readdata.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/readdata.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/readdata.o   XLCD/readdata.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/readdata.o   XLCD/readdata.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/readdata.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/readdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -348,7 +292,7 @@ ${OBJECTDIR}/XLCD/setcgram.o: XLCD/setcgram.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/setcgram.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/setcgram.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/setcgram.o   XLCD/setcgram.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/setcgram.o   XLCD/setcgram.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/setcgram.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/setcgram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -356,15 +300,23 @@ ${OBJECTDIR}/XLCD/setddram.o: XLCD/setddram.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/setddram.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/setddram.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/setddram.o   XLCD/setddram.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/setddram.o   XLCD/setddram.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/setddram.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/setddram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/XLCD/UserinterfaceInitialise.o: XLCD/UserinterfaceInitialise.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/XLCD" 
+	@${RM} ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d 
+	@${RM} ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o   XLCD/UserinterfaceInitialise.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o 
+	@${FIXDEPS} "${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/XLCD/wcmdxlcd.o: XLCD/wcmdxlcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/wcmdxlcd.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/wcmdxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/wcmdxlcd.o   XLCD/wcmdxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/wcmdxlcd.o   XLCD/wcmdxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/wcmdxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/wcmdxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -372,17 +324,65 @@ ${OBJECTDIR}/XLCD/writdata.o: XLCD/writdata.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/XLCD" 
 	@${RM} ${OBJECTDIR}/XLCD/writdata.o.d 
 	@${RM} ${OBJECTDIR}/XLCD/writdata.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/writdata.o   XLCD/writdata.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/writdata.o   XLCD/writdata.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/writdata.o 
 	@${FIXDEPS} "${OBJECTDIR}/XLCD/writdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
-${OBJECTDIR}/XLCD/UserinterfaceInitialise.o: XLCD/UserinterfaceInitialise.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/XLCD" 
-	@${RM} ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d 
-	@${RM} ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o   XLCD/UserinterfaceInitialise.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/XLCD/UserinterfaceInitialise.o 
-	@${FIXDEPS} "${OBJECTDIR}/XLCD/UserinterfaceInitialise.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+${OBJECTDIR}/LCDWrite.o: LCDWrite.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/LCDWrite.o.d 
+	@${RM} ${OBJECTDIR}/LCDWrite.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/LCDWrite.o   LCDWrite.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/LCDWrite.o 
+	@${FIXDEPS} "${OBJECTDIR}/LCDWrite.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/Main.o: Main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Main.o.d 
+	@${RM} ${OBJECTDIR}/Main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Main.o   Main.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/Main.o 
+	@${FIXDEPS} "${OBJECTDIR}/Main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/PrimaryInterfaceOutput.o: PrimaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PrimaryInterfaceOutput.o.d 
+	@${RM} ${OBJECTDIR}/PrimaryInterfaceOutput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/PrimaryInterfaceOutput.o   PrimaryInterfaceOutput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/PrimaryInterfaceOutput.o 
+	@${FIXDEPS} "${OBJECTDIR}/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/SecondaryInterfaceOutput.o: SecondaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SecondaryInterfaceOutput.o.d 
+	@${RM} ${OBJECTDIR}/SecondaryInterfaceOutput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/SecondaryInterfaceOutput.o   SecondaryInterfaceOutput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/SecondaryInterfaceOutput.o 
+	@${FIXDEPS} "${OBJECTDIR}/SecondaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/StateTransition.o: StateTransition.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/StateTransition.o.d 
+	@${RM} ${OBJECTDIR}/StateTransition.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/StateTransition.o   StateTransition.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/StateTransition.o 
+	@${FIXDEPS} "${OBJECTDIR}/StateTransition.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UserInput.o: UserInput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UserInput.o.d 
+	@${RM} ${OBJECTDIR}/UserInput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInput.o   UserInput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UserInput.o 
+	@${FIXDEPS} "${OBJECTDIR}/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/xlcddelays.o: xlcddelays.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/xlcddelays.o.d 
+	@${RM} ${OBJECTDIR}/xlcddelays.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/xlcddelays.o   xlcddelays.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/xlcddelays.o 
+	@${FIXDEPS} "${OBJECTDIR}/xlcddelays.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 endif
 

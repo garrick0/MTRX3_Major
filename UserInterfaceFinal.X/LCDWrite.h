@@ -9,8 +9,10 @@
 #define	LCDWRITE_H
 
 void LCDInitialise(void);
-void LCDLine1Write(const rom char *buff);
-void LCDLine2Write(const rom char *buff);
+void LCDLine1ROMWrite(char buff[]);
+void LCDLine1RAMWrite(char *buff);
+void LCDLine2ROMWrite(char buff[]);
+void LCDLine2RAMWrite(char *buff);
 void LCDClear(void);
 
 #endif	/* LCDWRITE_H */

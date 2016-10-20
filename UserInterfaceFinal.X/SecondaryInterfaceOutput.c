@@ -1,5 +1,7 @@
 //UserinterfaceOutput returns requests for robot movements, change of state,
 //and parameter changes.
+//#pragma udata large_udata
+
 struct UserinterfaceOutput {
 	char userinput;			//movement command or NULL
 
@@ -45,8 +47,12 @@ struct UserinterfaceInput {
 	int ir_front;
 
 };
-
+//#pragma udata
 #include <stdio.h>
+#include <p18f4520.h>
+#include    <usart.h>
+#include    <delays.h>
+
 
 #define INITIALISE          0
 #define USER_MANUAL_MODE 	1
@@ -63,11 +69,54 @@ struct UserinterfaceInput {
 //unsigned char   *(ptrInput->max_robot_speed);
 
 
-void    PCWrite(char *Data){
-    printf("%s",Data);
+void initialiseComs(void);
+void waitTransmit(void);
+void PCROMWrite(rom char *Data);
+void PCRAMWrite(char *Data);
+
+void initialiseComs(void)
+{
+    TRISCbits.TRISC6 = 0;
+    TRISCbits.TRISC7 = 1;
+    
+    Delay10KTCYx(250);
+    
+    OpenUSART( USART_TX_INT_OFF  &
+             USART_RX_INT_OFF  &
+             USART_ASYNCH_MODE &
+             USART_EIGHT_BIT   &
+             USART_CONT_RX &
+             USART_BRGH_HIGH, 64 );
 }
+
+void  PCROMWrite(rom char *Data)
+{
+	while(*Data != '\0'){
+
+        while(TXSTAbits.TRMT != 1);
+        
+        putcUSART(*Data);
+        
+        Data++;
+    }
+}
+
+void  PCRAMWrite(char *Data)
+{
+	while(*Data != '\0'){
+
+        while(TXSTAbits.TRMT != 1);
+        
+        putcUSART(*Data);
+        
+        Data++;
+    }
+}
+
+
+
 void    PCLineClear(void){
-    printf("\r                                          \r");
+    PCROMWrite("\r                                          \r");
 }
 
 char str[80];
@@ -79,10 +128,10 @@ void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interfa
         //............................
         switch(state_variable){
             case ENTRY:
-                PCWrite("Welcome to...\nPress A to enter commands and UP/DOWN arrows to scroll\nInitialising...\n");
+                PCROMWrite("Welcome to...\n\rPress A to enter commands and UP/DOWN arrows to scroll\n\rInitialising...\n\r");
                 break;
             case NORMAL:
-                PCWrite("USER_MANUAL_MODE\nPress A to enter command\n");
+                PCROMWrite("USER_MANUAL_MODE\n\rPress A to enter command\n\r");
                 break;
         }
     }
@@ -93,8 +142,8 @@ void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interfa
         if((ptrInput->current_state)==USER_MANUAL_MODE){
             //............................
             if(state_variable==ENTRY){
-                PCWrite("USER_MANUAL_MODE\n0-SET_MOTORS_ON\n1-SET_MOTORS_OFF\n2-SET_SPEED_MAX\n3-SET_MODE_USER_AUTO\n4-SET_MODE_FACTORY\n");
-                PCWrite("Use UP/DOWN arrows to scroll\nPress A to select\nPress B to exit\n\n");
+                PCROMWrite("USER_MANUAL_MODE\n\n\r0-SET_MOTORS_ON\n\r1-SET_MOTORS_OFF\n\r2-SET_SPEED_MAX\n\r3-SET_MODE_USER_AUTO\n\r4-SET_MODE_FACTORY\n\r");
+                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
             }
             //...............................
             if(state_variable==NORMAL){
@@ -102,23 +151,23 @@ void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interfa
                 switch(menu_position){
                     case 0:
                         PCLineClear();
-                        PCWrite("0-SET_MOTORS_ON");
+                        PCROMWrite("0-SET_MOTORS_ON");
                         break;
                     case 1:
                         PCLineClear();
-                        PCWrite("1-SET_MOTORS_OFF");
+                        PCROMWrite("1-SET_MOTORS_OFF");
                         break;
                     case 2:
                         PCLineClear();
-                        PCWrite("2-SET_SPEED_MAX");
+                        PCROMWrite("2-SET_SPEED_MAX");
                         break;
                     case 3:
                         PCLineClear();
-                        PCWrite("3-SET_MODE_USER_AUTO");
+                        PCROMWrite("3-SET_MODE_USER_AUTO");
                         break;
                     case 4:
                         PCLineClear();
-                        PCWrite("4-SET_MODE_FACTORY");
+                        PCROMWrite("4-SET_MODE_FACTORY");
                         break;
                 }
 
@@ -128,22 +177,22 @@ void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interfa
 
                 switch(menu_position){
                     case 0:
-                        PCWrite("\nMOTORS_ON\n");
+                        PCROMWrite("\nMOTORS_ON\n\r");
                         break;
                     case 1:
-                        PCWrite("\nMOTORS_OFF\n");
+                        PCROMWrite("\nMOTORS_OFF\n\r");
                         break;
 
                     case 2:
-                        //PCWrite("\nMAX SPEED=\n");           //////////////////change
+                        //PCWrite("\nMAX SPEED=\n\r");           //////////////////change
                         PCLineClear();
 
-                        sprintf(str,"MAX SPEED= %d",(ptrInput->max_robot_speed));
-                        PCWrite(str);
+                        sprintf(str,"MAX SPEED= %d\r",(ptrInput->max_robot_speed));
+                        PCRAMWrite(str);
                         break;
                     case 4:
                     	PCLineClear();
-                        PCWrite("Enter Passcode:");
+                        PCROMWrite("Enter Passcode:\r");
                         break;
                 }
             }
@@ -154,24 +203,24 @@ void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interfa
         if((ptrInput->current_state)==USER_AUTO_MODE){
             //............................
             if(state_variable==ENTRY){
-                PCWrite("USER_AUTO_MODE\n0-SET_FIND_PARROT\n1-SET_MODE_USER_MANUAL\n");
-                PCWrite("Use UP/DOWN arrows to scroll\nPress A to select\nPress B to exit\n\n");
+                PCROMWrite("\nUSER_AUTO_MODE\n\r0-SET_FIND_PARROT\n\r1-SET_MODE_USER_MANUAL\n\r");
+                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
             }
             //...............................
             if(state_variable==NORMAL){
                 switch(menu_position){
                     case 0:
                         PCLineClear();
-                        PCWrite("0-SET_FIND_PARROT");
+                        PCROMWrite("0-SET_FIND_PARROT\r");
                         break;
                     case 1:
                         PCLineClear();
-                        PCWrite("1-SET_MODE_USER_MANUAL");
+                        PCROMWrite("1-SET_MODE_USER_MANUAL\r");
                         break;
                 }
             }
             if(state_variable==PARAMETER){
-            	PCWrite("\nFinding Parrot\n");
+            	PCROMWrite("\nFinding Parrot\n\r");
             }
         }
 
@@ -179,39 +228,39 @@ void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interfa
         if((ptrInput->current_state)==FACTORY_MODE){
             //............................
             if(state_variable==ENTRY){
-                PCWrite("\nFACTORY_MODE\n0-SET_PID_GAINS\n1-SET_SPEED_MAX\n2-SET_YAW_RATE_MAX\n3-SET_IR_SAMPLES_PER_ESTIMATE\n4-SET_IR_SAMPLE_RATE\n5-SET_RF_SAMPLES_PER_ESTIMATE\n6-SET_MODE_USER_MANUAL\n");
-                PCWrite("Use UP/DOWN arrows to scroll\nPress A to select\nPress B to exit\n\n");
+                PCROMWrite("\nFACTORY_MODE\n\r0-SET_PID_GAINS\n\r1-SET_SPEED_MAX\n\r2-SET_YAW_RATE_MAX\n\r3-SET_IR_SAMPLES_PER_ESTIMATE\n\r4-SET_IR_SAMPLE_RATE\n\r5-SET_RF_SAMPLES_PER_ESTIMATE\n\r6-SET_MODE_USER_MANUAL\n\r");
+                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
             }
             //...............................
             if(state_variable==NORMAL){
                 switch(menu_position){
                     case 0:
                         PCLineClear();
-                        PCWrite("0-SET_PID_GAINS");
+                        PCROMWrite("0-SET_PID_GAINS\r");
                         break;
                     case 1:
                         PCLineClear();
-                        PCWrite("1-SET_SPEED_MAX");
+                        PCROMWrite("1-SET_SPEED_MAX\r");
                         break;
                     case 2:
                         PCLineClear();
-                        PCWrite("2-SET_YAW_RATE_MAX");
+                        PCROMWrite("2-SET_YAW_RATE_MAX\r");
                         break;
                     case 3:
                         PCLineClear();
-                        PCWrite("3-SET_IR_SAMPLES_PER_ESTIMATE");
+                        PCROMWrite("3-SET_IR_SAMPLES_PER_ESTIMATE\r");
                         break;
                     case 4:
                         PCLineClear();
-                        PCWrite("4-SET_IR_SAMPLE_RATE");
+                        PCROMWrite("4-SET_IR_SAMPLE_RATE\r");
                         break;
                     case 5:
                         PCLineClear();
-                        PCWrite("5-SET_RF_SAMPLES_PER_ESTIMATE");
+                        PCROMWrite("5-SET_RF_SAMPLES_PER_ESTIMATE\r");
                         break;
                     case 6:
                         PCLineClear();
-                        PCWrite("6-SET_MODE_USER_MANUAL");
+                        PCROMWrite("6-SET_MODE_USER_MANUAL\r");
                         break;
                 }
             }
@@ -223,32 +272,32 @@ void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interfa
                     case 1:
                     	PCLineClear();
 
-						sprintf(str,"MAX SPEED= %d",(ptrInput->max_robot_speed));
-						PCWrite(str);
+						sprintf(str,"MAX SPEED= %d\r",(ptrInput->max_robot_speed));
+						PCRAMWrite(str);
 						break;
                     case 2:
                     	PCLineClear();
 
-						sprintf(str,"MAX YAW RATE= %d",(ptrInput->max_yaw_rate));
-						PCWrite(str);
+						sprintf(str,"MAX YAW RATE= %d\r",(ptrInput->max_yaw_rate));
+						PCRAMWrite(str);
                         break;
                     case 3:
                     	PCLineClear();
 
-						sprintf(str,"IR SAMPLES PER ESTIMATE= %d",(ptrInput->ir_samples));
-						PCWrite(str);
+						sprintf(str,"IR SAMPLES PER ESTIMATE= %d\r",(ptrInput->ir_samples));
+						PCRAMWrite(str);
                         break;
                     case 4:
                     	PCLineClear();
 
-						sprintf(str,"IR SAMPLE RATE= %d",(ptrInput->ir_rate));
-						PCWrite(str);
+						sprintf(str,"IR SAMPLE RATE= %d\r",(ptrInput->ir_rate));
+						PCRAMWrite(str);
                         break;
                     case 5:
                     	PCLineClear();
 
-						sprintf(str,"RF SAMPLES PER ESTIMATE= %d",(ptrInput->rf_samples));
-						PCWrite(str);
+						sprintf(str,"RF SAMPLES PER ESTIMATE= %d\r",(ptrInput->rf_samples));
+						PCRAMWrite(str);
                         break;
                 }
             }
@@ -256,18 +305,18 @@ void    SecondaryInterfaceOutput(struct UserinterfaceInput *ptrInput,int interfa
             	switch(menu_position){
             		case 0:
                     	PCLineClear();
-						sprintf(str,"Proportional Gain= %d",(ptrInput->p_gain));
-						PCWrite(str);
+						sprintf(str,"Proportional Gain= %d\r",(ptrInput->p_gain));
+						PCRAMWrite(str);
                         break;
             		case 1:
                     	PCLineClear();
-						sprintf(str,"Integral Gain= %d",(ptrInput->i_gain));
-						PCWrite(str);
+						sprintf(str,"Integral Gain= %d\r",(ptrInput->i_gain));
+						PCRAMWrite(str);
                         break;
             		case 2:
                     	PCLineClear();
-						sprintf(str,"Derivative Gain= %d",(ptrInput->d_gain));
-						PCWrite(str);
+						sprintf(str,"Derivative Gain= %d\r",(ptrInput->d_gain));
+						PCRAMWrite(str);
                         break;
             	}
             }
