@@ -17,6 +17,7 @@
 
 #include "ConfigRegs_18F4520.h"
 #include "main.h"
+#include "UserInterface.h"
 
 
 
@@ -26,9 +27,10 @@ void high_interrupt(void);
 
 // UI
 void UISetup(void);
-void receiveUI(int* UIVals);
-void outputUI(char state,char* parrotPosition, char* IRVals);
-
+void inputUI(char* UIbuffer,struct UserInterfaceInput* UIInput);
+//void inputUI(char* UIBuffer,char* State,char* commandInput);
+void outputUI(char state,char parrotPosition, char* IRVals,char parrot_moving,char parrot_found);
+char storeUI(char* UIBuffer);
 
 // Comms
 void commSetup(void);
@@ -44,7 +46,7 @@ void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrengt
 
 
 // misc
-
+char stateControl(char State,char stateRequest);
 
 
 /* Interrupt Declarations */
@@ -87,6 +89,39 @@ void main(void) {
     
         //Robot Instruction Type
     char instDir;
+    
+    
+    
+    
+    
+    
+    
+    //USERINTERFACE
+    
+    //Input and output structs
+    
+    //Holds values input by the user
+    struct UserInterfaceInput UIInput;
+    
+    //Holds values output to the user
+    struct UserInterfaceOutput UIOutput;
+    
+    
+    //Triggered in interrupt
+    char UIFlag;
+    
+    char* UIBuffer;
+    
+    char commandInput;
+    
+    char parrot_moving;
+    
+    char parrot_found;
+    
+    char stateRequest;
+    
+    
+    
 
         //packet received from UI
         int UIVals[1];
@@ -98,7 +133,7 @@ void main(void) {
         char State = MANUAL_MODE;
         
         //Relative x,y value of parrot to robot
-        char parrotPosition[2];
+        char parrotPosition;
         
         //IR Value Thresholds
         char IRVals[3];
@@ -113,10 +148,14 @@ void main(void) {
          char parrotDistance;
          
 
-
-
+         //Initiate flags at 0
+         UIFlag = 0;
+         instructionFlag = 0;
     
     
+         
+         
+         
     //UI
     //UISetup();
 
@@ -146,9 +185,16 @@ void main(void) {
     while(1){
         
 
-               //Receive user interface input
-            //array[state change, moveforward,moveback,turnright,turnleft]
-        //receiveUI(UIVals);
+              
+            //Process user interface input if interrupt triggered
+        if (UIFlag ==1) {
+            //UI Should receive(Change of system state, Direction Inputs and parameter changes(not yet implemented)
+            
+            //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
+            inputUI(UIBuffer,&UIInput);
+            
+            UIFlag = 0;
+        }
          
         
         
@@ -157,51 +203,50 @@ void main(void) {
         if (receiveFlag == 1) {
             
             //Get sensor data from robot
-            //chirpStrength = processReceived(recBuffer,IRVals,&instructionFlag);
+            chirpStrength = processReceived(recBuffer,IRVals,&instructionFlag);
+            
+            UIOutput.IR1 = IRVals[0];
+            UIOutput.IR2 = IRVals[1];
+            UIOutput.IR3 = IRVals[2];
+            UIOutput.instructionFlag = instructionFlag;
             
             //Reset flag
             receiveFlag = 0;
         }
         
+        //State Control
+        State = stateControl(State,UIInput.stateRequest);
         
-        //Process chirps,encoders -> angle -> strength
-        
-        //check signal strength is in acceptable range
-              //if not, spin
-        
-        //inputs - chirp/encoder buffer, state
-        //outputs - encoder values
-        
- 
-        
-        //perform calculations
+        //UIOutput = robotMove(UIInput,State,IRVals);
+        //outputs - instMag,instDir
+        //        - parrotPosition,IRVals,parrot_moving,parrot_found
+        //inputs  - chirpStrength,IRVals,instructionFlag,State
         
         
-            // Find where parrot is
-                //Use chirps and spins
-        //locateParrot()    
-        
-        
-            //Find how to get there
-                //Manual = inputs
-                //Auto = algorithm
-        
-        
-        
-        
-        
-        
-        //robotMove(State,targetEncoder,currentEncoder,&recVals[3],parrotLoc,&parrotDistance);
-        
-        
-        
-        instMag = 100;
-        instDir = 'f';
+        //instMag = 100;
+        //instDir = 'f';
         //transmit to ground to move robot
-        transmitComms(instMag,instDir);
+        //transmitComms(instMag,instDir);
                 
-        //write to UI
-        //outputUI(State,parrotPosition,IRVals);
+
+        //Assign value to UIOut struct
+        //UIOutput.State = State;
+        //UIOutput.IR1 = IRV
+        
+           // char State;
+    //char parrotDirection;
+    //char parrotDistance;
+    //char IR1;
+    //char IR2;
+    //char IR3;
+    //char parrot_moving;
+    //char parrot_found;
+        //instMag,instDir
+            
+                
+                
+        //State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found
+        //outputUI(State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found);
 
     }
 }
@@ -221,7 +266,7 @@ void high_interrupt(void) {
         /*Serial Receive Interrupt*/
     //if (PIR1bits.RCIF == 1) {
 
-        receiveFlag = receiveComms(recBuffer);
+        //receiveFlag = receiveComms(recBuffer);
         //PIR1bits.RCIF = 0;
 
     //}
@@ -235,3 +280,7 @@ void high_interrupt(void) {
     
 }
 
+
+char stateControl(char State,char stateRequest) {
+    return stateRequest;
+}

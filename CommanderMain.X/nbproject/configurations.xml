@@ -29,6 +29,8 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>UserInterface.h</itemPath>
+    <itemPath>Communications.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>../RobotMain.X</Elem>
