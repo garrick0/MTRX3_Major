@@ -2,8 +2,6 @@
 #include "p18f4520.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "pconfig.h"
-#include "ConfigRegs_18F4520.h"
 #include "delays.h"
 #define CR 0x0D
 #define FULL 0xFF
@@ -12,23 +10,26 @@
 #define BIT1 0x02
 #define BIT2 0x04
 #define BIT4 0x10
-#define startChar 'K'
+#define startCh 'K'
 #define endChar 'O'
-#define sep 0x16
-#define comma ','
 #define endBuf 0xFF
 #define valMask 0x0F
+#define lowMask 0xF0
 
+void DelayTXBitUART(void);
+void DelayRXHalfBitUART(void);
+void DelayRXBitUART(void);
+void sendMsg(char*dataPack);
 /**
- * @brief Initiate the USART communications on the Commander
+ * @brief Initiate the UART communications on the Commander 
  * @usage allows the 2 RF modules to communicate to each other 
+ * robot commander uses software serial
  */
-void commsSetupCommander(void) {
-    
+void commSetup(void){
     OpenUART(); // set up UART 
     // TX - pin C4
     // RX - pin B1     
-    INTCON2bits.RBPU = 0; //PORTB internal pull-ups enabled
+    INTCON2bits.RBPU = 0; //PORTB internal pull-ups enable
     PORTBbits.RB2 = 0; //set PORTB pin 2
     TRISBbits.TRISB2 = 1; //set PORTB 2 to input
     ADCON1=0x0F; //set all PORTB as digital I/O 
@@ -42,59 +43,91 @@ void commsSetupCommander(void) {
     INTCON3bits.INT2IF = 0;	//clear PORTB2 interrupt flag
     INTCON2bits.INTEDG2 = 0; //PORTB2 interrupt on falling edge
 
-    return 0;
 }
-/**
- * @brief send the data package from commander to robot 
- * @param magnitude upper lower null
- * @param direction null
- */
-char startString[] = {startChar,NULL};
-char separatorString[] = {sep,NULL}; // indicate the different values
-char endString[] = {endChar,NULL};
-void transmitDataCommander(int instMag, char instDir) {
-    char magPack[10];
-    char dirPack[10] = {instDir,NULL};
-    intToPackage(instMag,magPack); // convert to deliverable form
-    
-    putsUART(startString); // send the package that indicates the start
-    putsUART(magPack); // sends the identifier for which instruction
-    putsUARTseparatorString); // send the separators
-    putsUART(dirPack); // sends the instruction
-    putsUART(endString); // send the package that indicates the end 
-    
-    return 0;
-}
-/**
- * @brief converts string of int values into string of char in package separated by comma
- * @param string of int data
- * @param string of char data thats been converted 
- */
-void intToPackage(int data, char* dataInChar){
-    
-    *dataInChar = (*data) >> 8;
-    dataInChar++; // increment buffer place 
-    *dataInChar = (*data) & 0xFF;
-    dataInChar++;
-
-    *dataInChar = NULL; // null terminated
-}
-
 /**
  * @brief interrupt routine for receive 
  * @usage directly saves received data into a circular buffer due to the time constraints of SW serial
+ * @param buffer to save the values received 
+ * @return whether instruction is received
  */
-char *rcPtr;
-void receiveDataCommander(char* buffer){
-    
+char *rcPtr, read ; // pointer initiated to storage buffer
+char receiveComms(char* receiveBuffer) {
+    read = ReadUART(); // immediately read
     INTCON3bits.INT2IF = 0;	//clear PORTB2 interrupt flag
-    rcPtr++; // save RCREG in circular buffer
-    if(*rcPtr == endBuf){
-        rcPtr = buffer;
+    if(read == startCh){
+        getsUART(receiveBuffer,8);
+        return 1;
     }
-    *rcPtr = ReadUART();
     return 0;
 }
+// old transmitt that definitely works
+/**
+ * @brief send the data package from commander to robot 
+ * @param magnitude
+ * @param direction 
+ * @usage byte 1: high instMag, 2: low instMag 3: dir
+ */
+//void transmitComms(int instMag,char instDir) {
+//    char magPack[2];
+//    char magH,magL;
+//    magH = (instMag >> 8)&0x00FF;
+//    magL = instMag&0x00FF;
+//    WriteUART(startCh); // send the package initiator
+//    WriteUART(magH); // high and low byte of mag
+//    WriteUART(magL);
+//    WriteUART(instDir); // sends the instruction
+//    WriteUART(endChar); // send the package that indicates the end 
+//    return;
+//}
+
+/**
+ * @brief send the data package from commander to robot 
+ * @param magnitude
+ * @param direction 
+ * @usage byte 1: high instMag, 2: low instMag 3: dir
+ */
+void transmitComms(struct communicationsOutput) {
+    char magPack[2];
+    char magH,magL;
+    magH = (communicationsOutput.instMag >> 8)&0x00FF;
+    magL = communicationsOutput.instMag&0x00FF;
+    WriteUART(startCh); // send the package initiator
+    WriteUART(magH); // high and low byte of mag
+    WriteUART(magL);
+    WriteUART(instDir); // sends the instruction
+    WriteUART(endChar); // send the package that indicates the end 
+    return;
+}
+/**
+ * @brief when data is received, takes and stores it
+ * @param buffer of stored values
+ * @param IR values
+ * @param instruction done flag
+ * @param chirp strength
+ */
+void processReceived(char* recBuffer,char* IRVals, char* instructionFlag, char * chirpStr) {
+    char type,i; // type of response
+    while(*recBuffer != startCh){
+        recBuffer ++; // scroll until you find the first receive 
+    }
+    recBuffer ++;
+    i = 0;
+    while(i<3){
+        *IRVals = *recBuffer; // get the three values
+        IRVals++;
+        recBuffer++;
+        i++;
+    }
+    recBuffer++;
+    *chirpStr = (*recBuffer) << 4; // high byte of rssi
+    recBuffer++;
+    *chirpStr = (*chirpStr) | ((*recBuffer)&valMask); // low byte
+    recBuffer++; 
+    *instructionFlag = (*recBuffer)&valMask;
+    return;
+    
+}
+
 
 /**
  * @brief the delay functions for UART, written for minimal board only
