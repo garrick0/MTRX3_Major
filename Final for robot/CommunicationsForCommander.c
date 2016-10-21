@@ -52,10 +52,11 @@ void commSetup(void){
  */
 char *rcPtr, read ; // pointer initiated to storage buffer
 char receiveComms(char* receiveBuffer) {
-    read = ReadUART(); // immediately read
+    *receiveBuffer = ReadUART(); // immediately read
     INTCON3bits.INT2IF = 0;	//clear PORTB2 interrupt flag
-    if(read == startCh){
-        getsUART(receiveBuffer,8);
+    if(*receiveBuffer == startCh){
+        receiveBuffer++;
+        getsUART(receiveBuffer,7);
         return 1;
     }
     return 0;

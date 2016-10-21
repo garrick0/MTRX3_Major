@@ -45,7 +45,7 @@ void commsSetup(void) {
  * @param the indication if the process is complete
  * @return done 
  */
-char startString[] = {startCh,FULL,startCh,NULL};
+char startString[] = {startCh,FULL,NULL};
 char endString[] = {endChar,NULL};
 void transmitData(char* IRVals,char* signalStrength,char processComplete) {
 
@@ -155,7 +155,7 @@ void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag){
         signalStrength++;
         buffer++;
     }
-    *signalStrength = NULL; 
+    *signalStrength = NULL; // null terminated
 }
 
 /**
