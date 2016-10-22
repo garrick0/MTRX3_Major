@@ -7,7 +7,7 @@
 #define FULL 0xFF
 #define chirpSound 'z'
 #define BIT0 0x01
-#define startChar 'K'
+#define startCh 'K'
 #define endChar 'O'
 #define endBuf 0xFF
 #define valMask 0x0F
@@ -15,6 +15,12 @@
 #define processing 0
 #define sum 2
 
+void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag);
+void sendMsg(char *tx);
+void commsSetup(void);
+void transmitData(char* IRVals,char* signalStrength,char processComplete);
+char receiveData(char* buffer, char *CRflag);
+char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag);
 void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag);
 void sendMsg(char *tx);
 
@@ -45,11 +51,11 @@ void commsSetup(void) {
  * @param the indication if the process is complete
  * @return done 
  */
-char startString[] = {startCh,FULL,NULL};
-char endString[] = {endChar,NULL};
+char startString[] = {startCh,NULL};
+char endString[] = {endChar,endChar,NULL}; // extra to ensure
 void transmitData(char* IRVals,char* signalStrength,char processComplete) {
 
-    char checkPackage[] = {0x30,NULL}; // process complete and check sum    
+    char checkPackage[] = {0x40,NULL}; // process complete and check sum    
 
     checkPackage[0] = checkPackage[0]|processComplete;
     
@@ -72,28 +78,29 @@ void transmitData(char* IRVals,char* signalStrength,char processComplete) {
  */
 char flag = 0x00; // for indication of save on/off
 char* rcPtr;
+char read;
 char receiveData(char* buffer, char *CRflag){
     
     PIR1bits.RCIF=0; // clear receive flag
-    
-    if(RCREG == startChar){ // turn on save text flag
+    *rcPtr = read;
+    if(read == startCh){ // turn on save text flag
         flag = 1; // turn on 
         rcPtr = buffer; // point to beginning of buffer 
-    }else if (RCREG == endChar){ // turn on save text flag
+    }else if (read == endChar){ // turn on save text flag
         flag = 0; // turn off
         rcPtr++;
         *rcPtr = endChar;
         return 1; // indicate that there is ins
     }
-    if(RCREG == CR){ // turn on save CR flag
+    if(read == CR){ // turn on save CR flag
         *CRflag = 1; // turn on 
      }
-    if(flag && RCREG != chirpSound){ // when flag is turned on discard all chirps
+    if(flag && read != chirpSound){ // when flag is turned on discard all chirps
         rcPtr++; // save RCREG in circular buffer
         if(*rcPtr == endBuf){
             rcPtr = buffer;
         }
-        *rcPtr = ReadUSART();
+        *rcPtr = read;
     }
     return 0;
 }
@@ -105,12 +112,16 @@ char receiveData(char* buffer, char *CRflag){
  * @param the flag that indicates command is received
  * @return done 
  */
+char gotIt[] = "K+O";
 char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag) {
 
     while(*buffer != startCh){
         buffer++;
     }
     buffer++;
+    if (*buffer == '+'){ // check if hand shaking 
+        sendMsg();
+    }
     *instMag = 0;
     // calculate magnitude
     *instMag = *instMag + (*buffer)*256;
@@ -133,8 +144,17 @@ char ATCommandRSSI[] = "ATDB\r"; // read signal strength
 char ATCommandEnd[] = "ATCN\r"; // end command
 
 void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag){
-    
-    while(RCREG != chirpSound); //wait till chirp received
+    int count = 5000000;
+    while(RCREG != chirpSound && count > 0){
+        Nop();
+        count--;
+    } //wait for chirp for 0.5 s
+    if (count == 0){
+        *signalStrength = 0x30;
+        signalStrength++;
+        *signalStrength = NULL;
+        return;
+    }
     sendMsg(ATCommandStart); // start command mode
     while(*CRflag != 1); // wait for CR
     *CRflag = 0; // reset
@@ -156,6 +176,7 @@ void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag){
         buffer++;
     }
     *signalStrength = NULL; // null terminated
+    return;
 }
 
 /**
@@ -169,6 +190,8 @@ void sendMsg(char *tx){
     {
         while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
         putcUSART(*tx); // write  
+        while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
+        putcUSART(FULL); // write  
         tx++;  
     } 
 
