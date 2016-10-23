@@ -31,7 +31,8 @@ void UISetup(void) {
 char storeUI(char* UIBuffer) {
     return 1;
 }
-//this function is not needed
+//this function is not needed. inputUI should be called each loop since state changes can occur 
+//without an input from the user
 
 /*Processes stored user input, outputs are state change and direction commands which are modified through pointers*/
 void inputUI(char* UIbuffer,struct UserInterfaceInput* UIInput) {
