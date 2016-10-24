@@ -26,7 +26,7 @@ void UISetup(void) {
     initialiseComs();
     LEDSetup();
     //servoSetup();
-   // initialiseCCP2();
+    //initialiseCCP2();
 }
 
 /*Stores user input through button interrupts, returns 1 to set input flag high and trigger inputUI on next loop*/

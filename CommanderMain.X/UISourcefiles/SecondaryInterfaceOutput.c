@@ -79,10 +79,10 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         //............................
         switch(state_variable){
             case ENTRY:
-                PCROMWrite("Welcome to the Harambe Soul Searcher\n\rPress A to enter commands and UP/DOWN arrows to scroll\n\rInitialising...\n\r");
+                PCROMWrite("\fWelcome to the Harambe Soul Seeker\n\rPress A to enter commands and UP/DOWN arrows to scroll\n\rInitialising...\n\r");
                 break;
             case NORMAL:
-                PCROMWrite("USER_MANUAL_MODE\n\rPress A to enter command\n\r");
+                PCROMWrite("initialising...\n\r");
                 break;
         }
     }
@@ -279,13 +279,19 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         }
         switch(UIOutput->State){
             case USER_MANUAL_MODE:
-                PCROMWrite("\n\rUSER_MANUAL_MODE");
+                PCROMWrite("\fUSER_MANUAL_MODE");
+                PCROMWrite("\n\rPress A to enter command\n\r");
+                break;
             case USER_AUTO_MODE:
-                PCROMWrite("\n\rUSER_AUTO_MODE");
+                PCROMWrite("\fUSER_AUTO_MODE");
+                PCROMWrite("\n\rPress A to enter command\n\r");
+                break;
             case FACTORY_MODE:
-                PCROMWrite("\n\rFACTORY_MODE");
+                PCROMWrite("\fFACTORY_MODE");
+                PCROMWrite("\n\rPress A to enter command\n\r");
+                break;
         }
-        PCROMWrite("\n\rPress A to enter command\n\r");
+        
     }
         
 }
