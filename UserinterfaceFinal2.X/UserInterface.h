@@ -63,6 +63,7 @@ struct UserInterfaceOutput {
 	//int ir_front;
 
 };
+extern int UIdelay;
 void UISetup(void);
 char storeUI(char* UIBuffer);
 void inputUI(char* UIbuffer,struct UserInterfaceInput* UIInput);
@@ -81,7 +82,7 @@ void ClearUserInputBuffer(char *UserInputBuffer);
 void ON_OFF(void);
 void Emergency_Stop(char *UserInputBuffer);
 //state transition functions
-int initialising_state(int *delay,int *setup);
+int initialising_state(int *setup);
 void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int *state_variable,int *menu_position,char *userinput,int *flag);
 int GetPasscode(char *input);
 //secondary interface functions

@@ -8,7 +8,7 @@
 #ifndef STATETRANSITION_H
 #define	STATETRANSITION_H
 
-int initialising_state(int *delay,int *setup);
+int initialising_state(int *setup);
 void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int *state_variable,int *menu_position,char *userinput,int *flag);
 int GetPasscode(char *input);
 

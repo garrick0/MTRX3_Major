@@ -32,7 +32,7 @@ void initialisation(void);
 
 
 char	UIbuffer[1];			//stores user inputs
-int UIDelay=0;
+int UIdelay=0;
 //USERINTERFACE
     
     //Input and output structs
@@ -116,7 +116,7 @@ void lowPriorityIsr(void){
         INTCONbits.TMR0IF=0;
         INTCONbits.TMR0IE =0;       //disable interrupt
         T0CONbits.TMR0ON =0;        //turn timer off       
-        //UIDelay=1;
+        UIdelay=1;
     }
     
 }

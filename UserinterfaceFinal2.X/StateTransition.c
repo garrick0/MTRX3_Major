@@ -41,22 +41,22 @@ int GetPasscode(char *input){
 		return 0;			//if passcode wrong, return 0
 	}
 }
-int delay=0,setup=0;
-int initialising_state(int *delay,int *setup){
-//    if(*setup==0){
-//        T0CON=0x96;             //set up delay of 1.5 seconds
-//        INTCONbits.TMR0IE=1;
-//        INTCONbits.TMR0IF=0;
-//        INTCON2bits.TMR0IP=0; //set to low priority
-//        *setup=1;
-//    }
-//    if(*delay){
+int setup=0;
+int initialising_state(int *setup){
+    if(*setup==0){
+        T0CON=0x96;             //set up delay of 1.5 seconds
+        INTCONbits.TMR0IE=1;
+        INTCONbits.TMR0IF=0;
+        INTCON2bits.TMR0IP=0; //set to low priority
+        *setup=1;
+    }
+    if(UIdelay){
         return 1;   
-//        *delay=0;
-//        *setup=0;
-//    }else{
-//        return 0;
-//    }
+        UIdelay=0;
+        *setup=0;
+    }else{
+        return 0;
+    }
 }
 
 //flag is set upon variable change or successful state change
@@ -72,13 +72,13 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
             case INITIALISE:
                 switch(*state_variable){
                     case ENTRY:
-                        if((initialising_state(&delay,&setup))){
+                        if((initialising_state(&setup))){
                             *state_variable=NORMAL;
                             *flag=1;
                         }
                         break;
                     case NORMAL:
-                        if((initialising_state(&delay,&setup))){
+                        if((initialising_state(&setup))){
                             (UIInput->State)=USER_MANUAL_MODE;     //request state change
                             *state_variable=ENTRY;
                         }
@@ -89,7 +89,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
             case USER_MANUAL_MODE:
                 switch(*state_variable){
                     case ENTRY:
-                        if((initialising_state(&delay,&setup))){
+                        if((initialising_state(&setup))){
                             *state_variable=NORMAL;
 
                         }
@@ -109,7 +109,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
             case USER_AUTO_MODE:
                 switch(*state_variable){
                     case ENTRY:
-                        if((initialising_state(&delay,&setup))){
+                        if((initialising_state(&setup))){
                             *state_variable=NORMAL;
 
                         }
@@ -129,7 +129,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
             case FACTORY_MODE:
                 switch(*state_variable){
                     case ENTRY:
-                        if((initialising_state(&delay,&setup))){
+                        if((initialising_state(&setup))){
                             *state_variable=NORMAL;
 
                         }
@@ -164,7 +164,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
             case USER_MANUAL_MODE:
                 switch(*state_variable){
                     case ENTRY:
-                        if((initialising_state(&delay,&setup))){
+                        if((initialising_state(&setup))){
                             *state_variable=NORMAL;
 
                         }
@@ -263,7 +263,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
             case USER_AUTO_MODE:
                 switch(*state_variable){
                     case ENTRY:
-                        if((initialising_state(&delay,&setup))){
+                        if((initialising_state(&setup))){
                             *state_variable=NORMAL;
 
                         }
@@ -312,7 +312,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
             case FACTORY_MODE:  ////////////////////////////
                 switch(*state_variable){
                     case ENTRY:
-                        if((initialising_state(&delay,&setup))){
+                        if((initialising_state(&setup))){
                             *state_variable=NORMAL;
 
                         }

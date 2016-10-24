@@ -127,10 +127,10 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
 
                 switch(menu_position){
                     case 0:
-                        PCROMWrite("\nMOTORS_ON\n\r");
+                        PCROMWrite("\n\rMOTORS_ON\n\r");
                         break;
                     case 1:
-                        PCROMWrite("\nMOTORS_OFF\n\r");
+                        PCROMWrite("\n\rMOTORS_OFF\n\r");
                         break;
 
                     case 2:
