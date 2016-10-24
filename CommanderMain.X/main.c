@@ -310,6 +310,9 @@ void low_interrupt(void){
         UIdelay=1;
     }else if(PIR1bits.RCIF){
         CheckPCInput(UIbuffer);
+    }else if(PIR2bits.CCP2IF){
+        PIR2bits.CCP2IF = 0;
+        servoOutput(PORTCbits.RC2,90);
     }
     INTCONbits.GIE = 1;
 }
@@ -356,3 +359,4 @@ void high_interrupt(void) {
 char stateControl(char State,char stateRequest) {
     return stateRequest;
 }
+

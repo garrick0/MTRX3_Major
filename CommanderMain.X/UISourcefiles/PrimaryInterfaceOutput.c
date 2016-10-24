@@ -40,25 +40,6 @@ void  LEDOutput(int parrot_found,int parrot_moving){
     }
 }
 
-//int turnFLAG = 0;
-//
-//void servo(int angle){
-//        turnFLAG ^= HIGH;  
-//    
-//        if (turnFLAG == HIGH){
-//            PORTCbits.RC1 = 0;
-//            degrees2pulse_LOW(angle);
-//        }
-//        
-//        if (turnFLAG == LOW){
-//            PORTCbits.RC1 = 1;
-//            degrees2pulse_HIGH(angle); 
-//        }
-//}
-
-
-
-
 char string[16];
 
 void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interface_mode,int state_variable,int menu_position){

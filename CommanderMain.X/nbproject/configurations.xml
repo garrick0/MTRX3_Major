@@ -40,6 +40,8 @@
         <itemPath>UISourcefiles/UserInput.c</itemPath>
         <itemPath>UISourcefiles/UserInterface.c</itemPath>
         <itemPath>UISourcefiles/xlcddelays.c</itemPath>
+        <itemPath>../RobotMain.X/servo.c</itemPath>
+        <itemPath>UISourcefiles/servo.c</itemPath>
       </logicalFolder>
       <itemPath>openuart.asm</itemPath>
       <itemPath>putsuart.c</itemPath>
@@ -152,6 +154,7 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>

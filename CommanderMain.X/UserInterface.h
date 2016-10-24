@@ -12,6 +12,8 @@
 #define  ORInput        PORTBbits.RB1
 #define  On_Off_Switch	PORTBbits.RB4
 #define INITIALISE 0
+#define HIGH 1
+#define LOW 0
 
 struct UserInterfaceInput {
     /*VALUES NEEDED TO OUTPUT TO MAIN*/
@@ -108,6 +110,32 @@ void LCDLine2ROMWrite(char buff[]);
 void LCDLine2RAMWrite(char *buff);
 void LCDClear(void);
 
-//#include    "servo.h"
+ /*!< Flag used to know whether to go to HIGH time or LOW time */
+// unsigned char initialFLAG = 0; /*!< Initialise to middle at the beginning */
+
+void servoOutput(char turnFLAG, int angle);
+void servoSetup(void);
+void servoTurn(void);
+void initialiseCCP2(void);
+
+//! Functions for degrees to servo movement
+void degrees2pulse_HIGH(int degrees);
+void degrees2pulse_LOW(int degrees);
+
+//! Functions for HIGH time control
+void move0_HIGH(void);
+void move45_HIGH(void);
+void move68_HIGH(void);
+void move90_HIGH(void);
+void move135_HIGH(void);
+void move180_HIGH(void);
+
+//! Functions for LOW time control
+void move0_LOW(void);
+void move45_LOW(void);
+void move68_LOW(void);
+void move90_LOW(void);
+void move135_LOW(void);
+void move180_LOW(void);
 
 #endif	/* USERINTERFACE_H */
