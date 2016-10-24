@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=openuart.asm putsuart.c readuart.asm writuart.asm Communications.c Navigation.c UserInterface.c main.c
+SOURCEFILES_QUOTED_IF_SPACED=openuart.asm putsuart.c readuart.asm writuart.asm Communications.c Navigation.c main.c UISourcefiles/LCDWrite.c UISourcefiles/PrimaryInterfaceOutput.c UISourcefiles/SecondaryInterfaceOutput.c UISourcefiles/StateTransition.c UISourcefiles/UserInput.c UISourcefiles/UserInterface.c UISourcefiles/XLCD/busyxlcd.c UISourcefiles/XLCD/openxlcd.c UISourcefiles/XLCD/putrxlcd.c UISourcefiles/XLCD/putsxlcd.c UISourcefiles/XLCD/readaddr.c UISourcefiles/XLCD/readdata.c UISourcefiles/XLCD/setcgram.c UISourcefiles/XLCD/setddram.c UISourcefiles/XLCD/UserinterfaceInitialise.c UISourcefiles/XLCD/wcmdxlcd.c UISourcefiles/XLCD/writdata.c UISourcefiles/xlcddelays.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/openuart.o ${OBJECTDIR}/putsuart.o ${OBJECTDIR}/readuart.o ${OBJECTDIR}/writuart.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/Navigation.o ${OBJECTDIR}/UserInterface.o ${OBJECTDIR}/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/openuart.o.d ${OBJECTDIR}/putsuart.o.d ${OBJECTDIR}/readuart.o.d ${OBJECTDIR}/writuart.o.d ${OBJECTDIR}/Communications.o.d ${OBJECTDIR}/Navigation.o.d ${OBJECTDIR}/UserInterface.o.d ${OBJECTDIR}/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/openuart.o ${OBJECTDIR}/putsuart.o ${OBJECTDIR}/readuart.o ${OBJECTDIR}/writuart.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/Navigation.o ${OBJECTDIR}/main.o ${OBJECTDIR}/UISourcefiles/LCDWrite.o ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o ${OBJECTDIR}/UISourcefiles/StateTransition.o ${OBJECTDIR}/UISourcefiles/UserInput.o ${OBJECTDIR}/UISourcefiles/UserInterface.o ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o ${OBJECTDIR}/UISourcefiles/xlcddelays.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/openuart.o.d ${OBJECTDIR}/putsuart.o.d ${OBJECTDIR}/readuart.o.d ${OBJECTDIR}/writuart.o.d ${OBJECTDIR}/Communications.o.d ${OBJECTDIR}/Navigation.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/UISourcefiles/LCDWrite.o.d ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o.d ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o.d ${OBJECTDIR}/UISourcefiles/StateTransition.o.d ${OBJECTDIR}/UISourcefiles/UserInput.o.d ${OBJECTDIR}/UISourcefiles/UserInterface.o.d ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o.d ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o.d ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o.d ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o.d ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o.d ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o.d ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o.d ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o.d ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o.d ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o.d ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o.d ${OBJECTDIR}/UISourcefiles/xlcddelays.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/openuart.o ${OBJECTDIR}/putsuart.o ${OBJECTDIR}/readuart.o ${OBJECTDIR}/writuart.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/Navigation.o ${OBJECTDIR}/UserInterface.o ${OBJECTDIR}/main.o
+OBJECTFILES=${OBJECTDIR}/openuart.o ${OBJECTDIR}/putsuart.o ${OBJECTDIR}/readuart.o ${OBJECTDIR}/writuart.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/Navigation.o ${OBJECTDIR}/main.o ${OBJECTDIR}/UISourcefiles/LCDWrite.o ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o ${OBJECTDIR}/UISourcefiles/StateTransition.o ${OBJECTDIR}/UISourcefiles/UserInput.o ${OBJECTDIR}/UISourcefiles/UserInterface.o ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o ${OBJECTDIR}/UISourcefiles/xlcddelays.o
 
 # Source Files
-SOURCEFILES=openuart.asm putsuart.c readuart.asm writuart.asm Communications.c Navigation.c UserInterface.c main.c
+SOURCEFILES=openuart.asm putsuart.c readuart.asm writuart.asm Communications.c Navigation.c main.c UISourcefiles/LCDWrite.c UISourcefiles/PrimaryInterfaceOutput.c UISourcefiles/SecondaryInterfaceOutput.c UISourcefiles/StateTransition.c UISourcefiles/UserInput.c UISourcefiles/UserInterface.c UISourcefiles/XLCD/busyxlcd.c UISourcefiles/XLCD/openxlcd.c UISourcefiles/XLCD/putrxlcd.c UISourcefiles/XLCD/putsxlcd.c UISourcefiles/XLCD/readaddr.c UISourcefiles/XLCD/readdata.c UISourcefiles/XLCD/setcgram.c UISourcefiles/XLCD/setddram.c UISourcefiles/XLCD/UserinterfaceInitialise.c UISourcefiles/XLCD/wcmdxlcd.c UISourcefiles/XLCD/writdata.c UISourcefiles/xlcddelays.c
 
 
 CFLAGS=
@@ -167,14 +167,6 @@ ${OBJECTDIR}/Navigation.o: Navigation.c  nbproject/Makefile-${CND_CONF}.mk
 	@${DEP_GEN} -d ${OBJECTDIR}/Navigation.o 
 	@${FIXDEPS} "${OBJECTDIR}/Navigation.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
-${OBJECTDIR}/UserInterface.o: UserInterface.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/UserInterface.o.d 
-	@${RM} ${OBJECTDIR}/UserInterface.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInterface.o   UserInterface.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/UserInterface.o 
-	@${FIXDEPS} "${OBJECTDIR}/UserInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
@@ -182,6 +174,150 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/LCDWrite.o: UISourcefiles/LCDWrite.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/LCDWrite.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/LCDWrite.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/LCDWrite.o   UISourcefiles/LCDWrite.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/LCDWrite.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/LCDWrite.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o: UISourcefiles/PrimaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o   UISourcefiles/PrimaryInterfaceOutput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o: UISourcefiles/SecondaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o   UISourcefiles/SecondaryInterfaceOutput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/StateTransition.o: UISourcefiles/StateTransition.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/StateTransition.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/StateTransition.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/StateTransition.o   UISourcefiles/StateTransition.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/StateTransition.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/StateTransition.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/UserInput.o: UISourcefiles/UserInput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/UserInput.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/UserInput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/UserInput.o   UISourcefiles/UserInput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/UserInput.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/UserInterface.o: UISourcefiles/UserInterface.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/UserInterface.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/UserInterface.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/UserInterface.o   UISourcefiles/UserInterface.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/UserInterface.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/UserInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o: UISourcefiles/XLCD/busyxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o   UISourcefiles/XLCD/busyxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o: UISourcefiles/XLCD/openxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o   UISourcefiles/XLCD/openxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o: UISourcefiles/XLCD/putrxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o   UISourcefiles/XLCD/putrxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o: UISourcefiles/XLCD/putsxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o   UISourcefiles/XLCD/putsxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o: UISourcefiles/XLCD/readaddr.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o   UISourcefiles/XLCD/readaddr.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/readdata.o: UISourcefiles/XLCD/readdata.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o   UISourcefiles/XLCD/readdata.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/readdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o: UISourcefiles/XLCD/setcgram.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o   UISourcefiles/XLCD/setcgram.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/setddram.o: UISourcefiles/XLCD/setddram.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o   UISourcefiles/XLCD/setddram.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/setddram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o: UISourcefiles/XLCD/UserinterfaceInitialise.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o   UISourcefiles/XLCD/UserinterfaceInitialise.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o: UISourcefiles/XLCD/wcmdxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o   UISourcefiles/XLCD/wcmdxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/writdata.o: UISourcefiles/XLCD/writdata.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o   UISourcefiles/XLCD/writdata.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/writdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/xlcddelays.o: UISourcefiles/xlcddelays.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/xlcddelays.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/xlcddelays.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/xlcddelays.o   UISourcefiles/xlcddelays.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/xlcddelays.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/xlcddelays.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 else
 ${OBJECTDIR}/putsuart.o: putsuart.c  nbproject/Makefile-${CND_CONF}.mk
@@ -208,14 +344,6 @@ ${OBJECTDIR}/Navigation.o: Navigation.c  nbproject/Makefile-${CND_CONF}.mk
 	@${DEP_GEN} -d ${OBJECTDIR}/Navigation.o 
 	@${FIXDEPS} "${OBJECTDIR}/Navigation.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
-${OBJECTDIR}/UserInterface.o: UserInterface.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/UserInterface.o.d 
-	@${RM} ${OBJECTDIR}/UserInterface.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UserInterface.o   UserInterface.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/UserInterface.o 
-	@${FIXDEPS} "${OBJECTDIR}/UserInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
@@ -223,6 +351,150 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/LCDWrite.o: UISourcefiles/LCDWrite.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/LCDWrite.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/LCDWrite.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/LCDWrite.o   UISourcefiles/LCDWrite.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/LCDWrite.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/LCDWrite.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o: UISourcefiles/PrimaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o   UISourcefiles/PrimaryInterfaceOutput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o: UISourcefiles/SecondaryInterfaceOutput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o   UISourcefiles/SecondaryInterfaceOutput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/StateTransition.o: UISourcefiles/StateTransition.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/StateTransition.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/StateTransition.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/StateTransition.o   UISourcefiles/StateTransition.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/StateTransition.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/StateTransition.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/UserInput.o: UISourcefiles/UserInput.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/UserInput.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/UserInput.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/UserInput.o   UISourcefiles/UserInput.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/UserInput.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/UserInterface.o: UISourcefiles/UserInterface.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/UserInterface.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/UserInterface.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/UserInterface.o   UISourcefiles/UserInterface.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/UserInterface.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/UserInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o: UISourcefiles/XLCD/busyxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o   UISourcefiles/XLCD/busyxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o: UISourcefiles/XLCD/openxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o   UISourcefiles/XLCD/openxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o: UISourcefiles/XLCD/putrxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o   UISourcefiles/XLCD/putrxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o: UISourcefiles/XLCD/putsxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o   UISourcefiles/XLCD/putsxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o: UISourcefiles/XLCD/readaddr.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o   UISourcefiles/XLCD/readaddr.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/readdata.o: UISourcefiles/XLCD/readdata.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o   UISourcefiles/XLCD/readdata.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/readdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o: UISourcefiles/XLCD/setcgram.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o   UISourcefiles/XLCD/setcgram.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/setddram.o: UISourcefiles/XLCD/setddram.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o   UISourcefiles/XLCD/setddram.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/setddram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o: UISourcefiles/XLCD/UserinterfaceInitialise.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o   UISourcefiles/XLCD/UserinterfaceInitialise.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o: UISourcefiles/XLCD/wcmdxlcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o   UISourcefiles/XLCD/wcmdxlcd.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/XLCD/writdata.o: UISourcefiles/XLCD/writdata.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o   UISourcefiles/XLCD/writdata.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/writdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/UISourcefiles/xlcddelays.o: UISourcefiles/xlcddelays.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
+	@${RM} ${OBJECTDIR}/UISourcefiles/xlcddelays.o.d 
+	@${RM} ${OBJECTDIR}/UISourcefiles/xlcddelays.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/xlcddelays.o   UISourcefiles/xlcddelays.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/xlcddelays.o 
+	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/xlcddelays.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 endif
 

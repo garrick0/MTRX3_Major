@@ -25,13 +25,15 @@
 
 /* -- Function Prototypes -- */
 void high_interrupt(void);
-
+void low_interrupt( void );
+//void goto_high_ISR(void);
+//void goto_low_ISR(void);
 // UI
 void UISetup(void);
 void inputUI(char* UIbuffer,struct UserInterfaceInput* UIInput);
 //void inputUI(char* UIBuffer,char* State,char* commandInput);
-void outputUI(struct UserInterfaceOutput UIOutput);
-char storeUI(char* UIBuffer);
+void outputUI(struct UserInterfaceOutput *UIOutput);
+//char storeUI(char* UIBuffer);
 
 // Comms
 void commSetup(void);
@@ -54,12 +56,17 @@ char stateControl(char State,char stateRequest);
 
 
 /* Interrupt Declarations */
-#pragma code high_interrupt_vector = 0x000008
+#pragma code high_interrupt_vector = 0x0008
 void goto_high_ISR(void) {
     _asm goto high_interrupt _endasm
 }
 #pragma code
 
+#pragma code low_interrupt_vector=0x0018
+void goto_low_ISR( void ){
+    _asm goto low_interrupt _endasm       
+}
+#pragma code
 
 //Global Variables
 //flag set on serial receive
@@ -67,8 +74,8 @@ char receiveFlag;
 //Receive Buffer used for storage         
 char recBuffer[30];
 
-
-
+char	UIbuffer[1];			//stores user inputs
+int UIdelay=0;
 
 /** 
  * @brief Main Function
@@ -96,19 +103,17 @@ void main(void) {
     
     
     
-    
-    
-    
-    
     //USERINTERFACE
     
     //Input and output structs
     
     //Holds values input by the user
     struct UserInterfaceInput UIInput;
+    struct UserInterfaceInput *ptrUIInput=&UIInput;
     
     //Holds values output to the user
     struct UserInterfaceOutput UIOutput;
+    struct UserInterfaceOutput *ptrUIOutput=&UIOutput;
     
     //Holds values transmitted by robot comms
     struct communicationsInput RobotReceiveComms;
@@ -119,7 +124,7 @@ void main(void) {
     //Triggered in interrupt
     char UIFlag;
     
-    char* UIBuffer;
+    
     
     char commandInput;
     
@@ -129,7 +134,7 @@ void main(void) {
     
     char stateRequest;
     
-    
+   
     
 
         //packet received from UI
@@ -161,8 +166,9 @@ void main(void) {
          UIFlag = 0;
          instructionFlag = 0;
     
-    
-         
+    //disable interrupts
+    INTCONbits.GIE_GIEH = 0;    //global interrupt disable
+	INTCONbits.PEIE_GIEL = 0;   //peripheral interrupt disable    
          
          
     //UI
@@ -170,25 +176,46 @@ void main(void) {
 
 
     // Comms
-    commSetup();
+    //commSetup();
 
 
 
     //Nav
-    navSetup();
+    //navSetup();
     
+   
+     //code for testing
+    (ptrUIInput->stateRequest)=INITIALISE;
+    (ptrUIInput->max_robot_speed)=10;
+    (ptrUIInput->max_yaw_rate)=10;		
+    (ptrUIInput->ir_samples)=10;
+    (ptrUIInput->ir_rate)=10;
+    (ptrUIInput->rf_samples)=10;
+    (ptrUIInput->p_gain)=10;
+    (ptrUIInput->i_gain)=10;
+    (ptrUIInput->d_gain)=10;			
+    (ptrUIInput->motors)=0;
+    (ptrUIInput->find_parrot)=0;
+    (ptrUIOutput->parrotDirection)=0;
+    (ptrUIOutput->parrotDistance)=10;
+    (ptrUIOutput->ir_left)=30;
+    (ptrUIOutput->ir_front)=20;
+    (ptrUIOutput->ir_right)=10;
+    (ptrUIOutput->parrot_moving)=0;
+    (ptrUIOutput->parrot_found)=0;
+    (ptrUIOutput->instMag)=0;
+    (ptrUIOutput->instDir)=0;
+    (ptrUIOutput->instructionFlag)=0;
+    (ptrUIOutput->half_scan)=0;			//1 when scanning, 0 when not scanning
+	(ptrUIOutput->full_scan)=0;
+	(ptrUIOutput->current_direction)=0;	//angle between 0 and 360
+    //end test code
     
   
-    //Enable Interrupts
+       //Enable Interrupts
     INTCONbits.PEIE = 1;
-    RCONbits.IPEN = 0;
+    RCONbits.IPEN = 1;
     INTCONbits.GIE = 1;
-    
-    
-    
-    
-  
-
     
     /* Loop */
     while(1){
@@ -196,14 +223,14 @@ void main(void) {
 
               
             //Process user interface input if interrupt triggered
-        if (UIFlag ==1) {
+        //if (UIFlag ==1) {
             //UI Should receive(Change of system state, Direction Inputs and parameter changes(not yet implemented)
             
             //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
-            inputUI(UIBuffer,&UIInput);
+        inputUI(UIbuffer,ptrUIInput);
             
-            UIFlag = 0;
-        }
+            //UIFlag = 0;
+        //}
          
         
         
@@ -212,7 +239,7 @@ void main(void) {
         if (receiveFlag == 1) {
             
             //Get sensor data from robot
-            chirpStrength = processReceived(recBuffer,IRVals,&instructionFlag);
+            //chirpStrength = processReceived(recBuffer,IRVals,&instructionFlag);
             RobotReceiveComms.IR1 = IRVals[0];
             RobotReceiveComms.IR2 = IRVals[1];
             RobotReceiveComms.IR3 = IRVals[2];
@@ -229,7 +256,7 @@ void main(void) {
         State = stateControl(State,UIInput.stateRequest);
         
         
-        robotMove(&UIOutput,&RobotTransmitComms,UIInput,RobotReceiveComms,State);
+        //robotMove(&UIOutput,&RobotTransmitComms,UIInput,RobotReceiveComms,State);
         //outputs - instMag,instDir
         //        - parrotPosition,IRVals,parrot_moving,parrot_found
         //inputs  - chirpStrength,IRVals,instructionFlag,State
@@ -240,20 +267,46 @@ void main(void) {
         //instMag = 100;
         //instDir = 'f';
         //transmit to ground to move robot
-        transmitComms(RobotTransmitComms);
+        //transmitComms(RobotTransmitComms);
                 
-
+        //test code
+        (ptrUIOutput->State)=(ptrUIInput->stateRequest);
+        (ptrUIOutput->max_robot_speed)=(ptrUIInput->max_robot_speed);	//return values of all parameters
+        (ptrUIOutput->max_yaw_rate)=(ptrUIInput->max_yaw_rate);
+        (ptrUIOutput->ir_samples)=(ptrUIInput->ir_samples);
+        (ptrUIOutput->ir_rate)=(ptrUIInput->ir_rate);
+        (ptrUIOutput->p_gain)=(ptrUIInput->p_gain);
+        (ptrUIOutput->i_gain)=(ptrUIInput->i_gain);
+        (ptrUIOutput->d_gain)=(ptrUIInput->d_gain);
+        (ptrUIOutput->rf_samples)=(ptrUIInput->rf_samples);
+        //end test code
         
         
             
                 
                 
         //State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found
-        //outputUI(UIOutput);
+        outputUI(ptrUIOutput);
 
     }
 }
-
+#pragma interrupt low_interrupt
+void low_interrupt(void){
+    INTCONbits.GIE = 0;
+    
+	if(ORInput){				//check if user input triggered interrupt
+        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
+		CheckUserInput(UIbuffer);
+        
+	}else if(INTCONbits.TMR0IF){
+        INTCONbits.TMR0IF=0;
+        INTCONbits.TMR0IE =0;       //disable interrupt
+        T0CONbits.TMR0ON =0;        //turn timer off       
+        UIdelay=1;
+    }
+    INTCONbits.GIE = 1;
+}
+#pragma interrupt high_interrupt
 void high_interrupt(void) {
 
     
@@ -267,12 +320,21 @@ void high_interrupt(void) {
     
     
         /*Serial Receive Interrupt*/
-    //if (PIR1bits.RCIF == 1) {
+    if (PIR1bits.RCIF == 1) {
 
         //receiveFlag = receiveComms(recBuffer);
-        //PIR1bits.RCIF = 0;
+        PIR1bits.RCIF = 0;
 
-    //}
+    }
+    if(INTCONbits.RBIF){            //check if On/Off switch triggered interrupt
+		INTCONbits.RBIF = 0;        //clear PORTB 4:7 interrupt flag
+        ON_OFF();
+	}
+		
+	if(EmergencyStop){              //check if user input triggered interrupt
+        INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
+		Emergency_Stop(UIbuffer);
+	}
     
     
 

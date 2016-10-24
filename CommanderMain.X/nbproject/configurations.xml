@@ -7,6 +7,8 @@
       <itemPath>../RobotMain.X/ConfigRegs.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>ConfigRegs_18F4520.h</itemPath>
+      <itemPath>UserInterface.h</itemPath>
+      <itemPath>xlcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -15,13 +17,36 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="UISourcefiles"
+                     displayName="UISourcefiles"
+                     projectFiles="true">
+        <logicalFolder name="XLCD" displayName="XLCD" projectFiles="true">
+          <itemPath>UISourcefiles/XLCD/busyxlcd.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/openxlcd.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/putrxlcd.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/putsxlcd.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/readaddr.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/readdata.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/setcgram.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/setddram.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/UserinterfaceInitialise.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/wcmdxlcd.c</itemPath>
+          <itemPath>UISourcefiles/XLCD/writdata.c</itemPath>
+        </logicalFolder>
+        <itemPath>UISourcefiles/LCDWrite.c</itemPath>
+        <itemPath>UISourcefiles/PrimaryInterfaceOutput.c</itemPath>
+        <itemPath>UISourcefiles/SecondaryInterfaceOutput.c</itemPath>
+        <itemPath>UISourcefiles/StateTransition.c</itemPath>
+        <itemPath>UISourcefiles/UserInput.c</itemPath>
+        <itemPath>UISourcefiles/UserInterface.c</itemPath>
+        <itemPath>UISourcefiles/xlcddelays.c</itemPath>
+      </logicalFolder>
       <itemPath>openuart.asm</itemPath>
       <itemPath>putsuart.c</itemPath>
       <itemPath>readuart.asm</itemPath>
       <itemPath>writuart.asm</itemPath>
       <itemPath>Communications.c</itemPath>
       <itemPath>Navigation.c</itemPath>
-      <itemPath>UserInterface.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -29,7 +54,6 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>UserInterface.h</itemPath>
     <itemPath>Communications.h</itemPath>
   </logicalFolder>
   <sourceRootList>
@@ -128,7 +152,6 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>
