@@ -32,11 +32,12 @@ void initialiseComs(void)
     Delay10KTCYx(250);
     
     OpenUSART( USART_TX_INT_OFF  &
-             USART_RX_INT_OFF  &
+             USART_RX_INT_ON  &
              USART_ASYNCH_MODE &
              USART_EIGHT_BIT   &
              USART_CONT_RX &
              USART_BRGH_HIGH, 64 );
+    IPR1bits.RCIP=0;    //set receive interrupts to low priority
 }
 
 void  PCROMWrite(rom char *Data)

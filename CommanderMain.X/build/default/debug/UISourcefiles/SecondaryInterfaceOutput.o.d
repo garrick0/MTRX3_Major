@@ -1,4 +1,4 @@
 build/default/debug/UISourcefiles/SecondaryInterfaceOutput.o:  \
-	C:/Users/wmar5627/Documents/MTRX3_Major/CommanderMain.X/UISourcefiles/SecondaryInterfaceOutput.c  \
-	C:/Users/wmar5627/Documents/MTRX3_Major/CommanderMain.X/UserInterface.h  \
+	C:/Users/sgle6040/Downloads/MTRX3_Major/CommanderMain.X/UISourcefiles/SecondaryInterfaceOutput.c  \
+	C:/Users/sgle6040/Downloads/MTRX3_Major/CommanderMain.X/UserInterface.h  \
 

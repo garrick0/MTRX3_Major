@@ -201,8 +201,8 @@ void main(void) {
     (ptrUIOutput->ir_left)=30;
     (ptrUIOutput->ir_front)=20;
     (ptrUIOutput->ir_right)=10;
-    (ptrUIOutput->parrot_moving)=0;
-    (ptrUIOutput->parrot_found)=0;
+    (ptrUIOutput->parrot_moving)=1;
+    (ptrUIOutput->parrot_found)=1;
     (ptrUIOutput->instMag)=0;
     (ptrUIOutput->instDir)=0;
     (ptrUIOutput->instructionFlag)=0;
@@ -231,6 +231,11 @@ void main(void) {
             
             //UIFlag = 0;
         //}
+        
+        if (ptrUIInput->stateRequest != 0) {
+            int test = ptrUIInput->commandInput;
+            test++;
+        }
          
         
         
@@ -303,6 +308,8 @@ void low_interrupt(void){
         INTCONbits.TMR0IE =0;       //disable interrupt
         T0CONbits.TMR0ON =0;        //turn timer off       
         UIdelay=1;
+    }else if(PIR1bits.RCIF){
+        CheckPCInput(UIbuffer);
     }
     INTCONbits.GIE = 1;
 }

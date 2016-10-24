@@ -50,10 +50,10 @@ int initialising_state(int *setup){
         INTCON2bits.TMR0IP=0; //set to low priority
         *setup=1;
     }
-    if(UIdelay){
-        return 1;   
+    if(UIdelay){ 
         UIdelay=0;
         *setup=0;
+        return 1;  
     }else{
         return 0;
     }
@@ -209,13 +209,13 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                             	(UIInput->motors)=1;           //request
                                 //*menu_position=0;
                                 *state_variable=NORMAL;
-
+                                *flag=1;
                                 break;
                             case 1:
                             	(UIInput->motors)=0;         //request
                                 //*menu_position=0;
                                 *state_variable=NORMAL;
-
+                                *flag=1;
                                 break;
                             case 2:
                                 if(*userinput==LEFT){
@@ -246,6 +246,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                     success=GetPasscode(userinput);
                                     if(success==0){
                                         *state_variable=NORMAL;
+
                                         PCROMWrite("Wrong Passcode");
                                     }else if(success==1){
                                         //no action

@@ -41,7 +41,7 @@ void UserInputSetup(void){
 
     //interrupt setup for state change of ON/OFF switch
     INTCONbits.RBIF = 0;	//clear PORTB 4:7 interrupt flag
-    INTCONbits.RBIE = 1;	//enable interrupt in PORTB 4:7 
+    INTCONbits.RBIE = 0;	//disable interrupt in PORTB 4:7 
     INTCON2bits.RBIP = 1;	//set interrupt to high priority
     
 
@@ -80,9 +80,9 @@ void CheckUserInput(char *UserInputBuffer){
 		WriteUserInputBuffer("U",UserInputBuffer);
 	}
 }
-/*
+
 void CheckPCInput(char *UserInputBuffer){ 
-    if(RCREG == '0x08'){ // 0x08 = Backspace
+    if(RCREG == 0x7F){  //backspace
 		WriteUserInputBuffer("B",UserInputBuffer);
 	}    
     else if(RCREG == '\r'){ // 
@@ -95,10 +95,10 @@ void CheckPCInput(char *UserInputBuffer){
         WriteUserInputBuffer("H",UserInputBuffer);
     }
     else if(RCREG == 'a'){
-		WriteUserInputBuffer("R",UserInputBuffer);
+		WriteUserInputBuffer("L",UserInputBuffer);
 	}
     else if(RCREG == 'd'){
-		WriteUserInputBuffer("L",UserInputBuffer);
+		WriteUserInputBuffer("R",UserInputBuffer);
 	}
 	else if(RCREG  == 's'){
 		WriteUserInputBuffer("D",UserInputBuffer);
@@ -108,7 +108,7 @@ void CheckPCInput(char *UserInputBuffer){
 	}
     
 }
-*/
+
 //stores user input letter in circular buffer
 
 

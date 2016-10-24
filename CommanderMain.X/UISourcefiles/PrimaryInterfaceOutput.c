@@ -18,7 +18,7 @@
 
 #define BirdMoving      PORTCbits.RC0
 #define BirdFound       PORTCbits.RC1
-//#define ServoControl    PORTCbits.RC2
+
 //#define PiezoControl    PORTCbits.RC3
 
 void LEDSetup(void){
