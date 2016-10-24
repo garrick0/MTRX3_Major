@@ -33,7 +33,7 @@ char DriveMotors(int magnitude,char direction,char mainFlag) {
     unsigned int currentEncoderValues[2];
     //unsigned int test;
     
-    getEncoderValues(currentEncoderValues);
+//    getEncoderValues(currentEncoderValues);
     /*test = 0;
     test = currentEncoderValues[0];
     test = currentEncoderValues[1];

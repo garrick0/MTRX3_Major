@@ -13,25 +13,16 @@ extern "C" {
 #endif
     
 
-    
-
-    void IRDetect( int numAverage,int* detectArray);
-    void sampleIR();
-    
-
-    
-    
-    
-    
-    
-    
-
-
-
 
 #ifdef	__cplusplus
 }
 #endif
+
+
+    void IRDetect( int numAverage,char* detectArray);
+    void sampleIR();
+    void IRSetup();
+
 
 #endif	/* IRSENSORS_H */
 

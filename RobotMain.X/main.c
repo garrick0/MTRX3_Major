@@ -6,7 +6,7 @@
  * 
  * Utilises timers, interrupts and function calls to implement control of the robot
  * 
- * @author Kelly Lynch
+ * @author Samuel Gleeson
  *
  * @bugs Still Writing
  */
@@ -17,6 +17,7 @@
 //#include "ConfigRegs.h"
 #include "ConfigRegs_18F4520.h"
 #include "IRSensors.h"
+#include "Communications.h"
 
 
 
@@ -26,11 +27,6 @@
 /* -- Function Prototypes -- */
 void high_interrupt(void);
 
-// IRs
-
-void IRSetup(void);
-void IRProcess(int* IRVals);
-void sampleIR(void);
 
 // Encoders
 void SetupEncoders(void);
@@ -40,15 +36,7 @@ void sampleEncoders(int* encoderValues);
 void motorSetup(void);
 char DriveMotors(int magnitude,char direction,char mainFlag);
 
-//Communications
-void commsSetup(void);
-char transmitData(int* IRVals,char* signalStrength,char processComplete);
-char receiveData(char* buffer);
-/*Processes incoming messages, update encoder values and return received chirp strength*/
-char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag);
 
-// misc
-void debugSetup(void);
 
 
 
@@ -69,13 +57,14 @@ int currentEncoderVals[2];
 int detectVals[3];
 
 //Buffer to store receive data
-char receiveBuffer[50];
+char receiveBuffer[50] = {0x00};
 
 //Chirp Strength
 char chirpStr;
 
 //ReceiveFlag triggered when receive entered
 char receiveFlag=0;
+char crflag = 0;
 
 //MotorInstructionFlag
 char instructionFlag;
@@ -107,8 +96,9 @@ void goto_high_ISR(void) {
 
 
 void main(void) {
-    int IRVals[3];
     int i;
+    char detectVals[3] = {0x00,0x00,0x00};
+
     
     int instMag=100;
     char instDir = 'F';
@@ -119,14 +109,14 @@ void main(void) {
     //Set up Encoders
     //SetupEncoders();
     //SetupIR();
-    SetupEncoders();
+    //SetupEncoders();
     commsSetup();
-    motorSetup();
+    //motorSetup();
     
     //Set up IR sensors
     IRSetup();
     
-    debugSetup();
+    //debugSetup();
     
     //Timer 1 Setup
     //IPR1bits.TMR1IP = 1; // timer 1 overflow
@@ -156,10 +146,12 @@ void main(void) {
         
         //Process Receive Function
             //add inputs global variables
-        chirpStr = processReceived(receiveBuffer, &instMag,&instDir,&instructionFlag);
-        
+        if (receiveFlag) {
+            processReceived(receiveBuffer, &instMag,&instDir,&instructionFlag);
+            receiveFlag=0;
+        }
         //Perform PID or similar and drive motors
-        instructionFlag = DriveMotors(instMag,instDir,instructionFlag);
+        //instructionFlag = DriveMotors(instMag,instDir,instructionFlag);
 
         //Read IR sensor buffer and return result
         IRDetect(2,detectVals);
@@ -175,21 +167,15 @@ void main(void) {
         }
         
         //Testing Values for comms
-        IRVals[0] = 1111;
-        IRVals[1] = 1111;
-        IRVals[2] = 0;
-        signalStrength[0] = 5;
-        signalStrength[1] = 5;
-        signalStrength[2] = 5;
-        signalStrength[3] = 5;
-        signalStrength[4] = 0x00;
-        //signalStrength = {5,5,5,5,5};
+        signalStrength[0] = 0x36;
+        signalStrength[1] = 0x35;
+        signalStrength[2] = 0x00;
         instructionFlag = 0;
         
         
 
          //transmit to commander
-        transmitData(IRVals,signalStrength,instructionFlag);
+        //transmitData(detectVals,signalStrength,instructionFlag);
     }
 }
 
@@ -235,7 +221,7 @@ void high_interrupt(void) {
         
         
         
-         sampleIR();
+        sampleIR();
         //Begin new IR conversion
         ADCON0bits.GO = 1;
     
@@ -270,9 +256,8 @@ void high_interrupt(void) {
     
         /*Serial Receive Interrupt*/
     if (PIR1bits.RCIF == 1) {
-        receiveFlag = receiveData(receiveBuffer);
-        
-        
+        receiveData(receiveBuffer, &crflag, &receiveFlag);
+
         PIR1bits.RCIF = 0;
 
     }

@@ -16,7 +16,7 @@ void changeSensor(void);
 void storeBuffer(int high);
 void changeSensor();
 
-void IRThresholds(int* IRVals, int* detectArray,int numAverage);
+void IRThresholds(int* IRVals, char* detectArray,int numAverage);
 void timerSetup();
 void IRDistances(int numAverage, int* vals);
 
@@ -68,7 +68,7 @@ void timerSetup() {
 
 
 
-void IRDetect( int numAverage,int* detectArray) {
+void IRDetect( int numAverage,char* detectArray) {
     int IRVals[3];
     int test;
     // Return the sum of 
@@ -93,7 +93,7 @@ void IRDetect( int numAverage,int* detectArray) {
 
 
 
-void IRThresholds(int* IRVals, int* detectArray,int numAverage) {
+void IRThresholds(int* IRVals, char* detectArray,int numAverage) {
     int i;
     int test = numAverage;
     for (i = 0; i < 3; i++) {

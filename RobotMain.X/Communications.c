@@ -1,30 +1,25 @@
 #include "usart.h"
-#include <p18f4520.h>           
+#include "p18f4520.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "delays.h"
-//#include "pconfig.h"
-//#include "ConfigRegs_18F4520.h"
-
-
 #define CR 0x0D
 #define FULL 0xFF
 #define chirpSound 'z'
 #define BIT0 0x01
-#define startChar 'K'
-#define endChar 'O'
-#define sep '*'
-#define comma ','
+#define startCh 'K' //4B
+#define safety '^' // 5E
+#define shake '~' // 7F
+#define endChar 'O' //4F
 #define endBuf 0xFF
 #define valMask 0x0F
+#define lowMask 0xF0
+#define numMask 0x30
 #define processing 0
 #define sum 2
 
-void getRSSI(char * buffer, char * signalStrength);
 void sendMsg(char *tx);
-char createCheckSum(char * string);
-void intToPackage(int* data, char* dataInChar);
-void RSSIToPackage(char* RSSIval, char* dataInPack);
 
 /**
  * @brief Initiate the USART communications on the robot 
@@ -44,127 +39,113 @@ void commsSetup(void) {
              USART_EIGHT_BIT   &
              USART_CONT_RX &
              USART_BRGH_HIGH, 64 );
-
-
     
 }
-
-
-
 /**
  * @brief send the data package from robot to commander 
  * @param values for IR in int form (Null terminated)
  * @param values for signal strength in char form (Null terminated)
  * @param the indication if the process is complete
+ * @return done 
  */
-char startString[] = {FULL,startChar,FULL,NULL};
-char endString[] = {endChar,FULL,NULL};
-char separatorString[] = {sep,FULL,NULL};
-char transmitData(int* IRVals,char* signalStrength,char processComplete) {
-    char IRValsPackage[]; // data in mode that can be received
-    char signalStrengthPackage[];
-    //char checkSum;
-    char checkPackage[] = {NULL,FULL,NULL}; // process complete and check sum 
-    
-    intToPackage(IRVals, IRValsPackage);
-    RSSIToPackage(signalStrength, signalStrengthPackage);
-    // create the security 
-    //checkSum = createCheckSum(IRValsPackage) + createCheckSum(signalStrengthPackage) + processComplete;
-    //checkPackage[processing] = processComplete; // insert check sum
-    checkPackage[0] = processComplete;
-    
+char startString[] = {startCh,safety,NULL};
+char endString[] = {endChar,NULL}; // extra to ensure
+void transmitData(char* IRVals,char* signalStrength,char processComplete) {
+    char i = 0;
+    char checkPackage[] = {0x10,NULL}; // process complete and check sum    
+    char IRpack[] = {0x20,0x20,0x20,0x00}; // process IRvalues 
+    checkPackage[0] = checkPackage[0]|processComplete;
+    while(i<3){ // package IR 
+        IRpack[i] = IRpack[i]|(*IRVals);
+        IRVals++;
+        i++;
+    }
     sendMsg(startString); // send the package that indicates the start
-    sendMsg(IRValsPackage); // send IR
-    sendMsg(separatorString); // separator 
-    sendMsg(signalStrengthPackage); // send RSSI
-    sendMsg(separatorString); // separator 
-    sendMsg(checkPackage); // security
+    sendMsg(IRpack); // send IR
+    sendMsg(signalStrength); // send RSSI
+    sendMsg(checkPackage); // process complete flag
     sendMsg(endString); // send the package that indicates the end 
-    
-    return 0;
-    
+    return;
 }
-
-/*Called during receive interrupt to store data in buffer, sets flag high*/
-
 /**
  * @brief interrupt routine for receive 
+ * @param buffer to save the string 
+ * @param the flag to indicate carriage return
+ * @return instruction received
  * @usage when it detects the end bytes of the message ie the start and end
  * it toggles the flag which allows it to save
  * which means that it 1 instance of flag will cause it to save, the second will 
  * cause it to stop saving. The buffer ends with 0xFF
  */
-char flag = 0x00; // for indication of save on/off
+
 char* rcPtr;
-char receiveData(char* buffer){
-    //return 1;
-        PIR1bits.RCIF=0; // clear receive flag
-    
-    if(RCREG == startChar){ // turn on save text flag
-        flag = 1; // turn on 
+char read;
+void receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF){
+    PIR1bits.RCIF=0; // clear receive flag
+    read = ReadUSART();
+    *recFlag = 0;
+    if(read == startCh){ // turn on save text flag
+        *saveF = 1; // turn on 
         rcPtr = buffer; // point to beginning of buffer 
-    }else if (RCREG == endChar){ // turn on save text flag
-        flag = 0; // turn off
+    }else if (read == endChar){ // turn on save text flag
+        *saveF = 0; // turn off
+        *recFlag = 1; // indicate that there is ins
     }
-    if(flag && RCREG != chirpSound){ // when flag is turned on discard all chirps
+    if(read == CR){ // turn on save CR flag
+        *CRflag = 1; // turn on 
+     }
+    if(*saveF && read != chirpSound){ // when flag is turned on discard all chirps
+        *rcPtr = read; // save
         rcPtr++; // save RCREG in circular buffer
         if(*rcPtr == endBuf){
             rcPtr = buffer;
         }
-        *rcPtr = ReadUSART();
     }
-    return 1;
+    return;
 }
-
-/*Parses the receive buffer and modifies the instructions and instruction flag*/
+/**
+ * @brief process the received data
+ * @param the buffer that saves received data
+ * @param the magnitude
+ * @param the direction 
+ * @param the flag that indicates command is received
+ * @return done 
+ */
+char gotIt[] = "K^~O";
+char test;
 char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag) {
-    //remove RSSI receive flag
+
+    int i = 0, j = 0;
+    while(*buffer != startCh){
+        buffer++;
+    }
+    buffer++;
+    if(*buffer != safety){ // failed read
+        return;
+    }
+    buffer++;
+    if (*buffer == shake){ // check if hand shaking 
+        sendMsg(gotIt);
+    }
+    *instMag = 0;
+    test = (*buffer)&0x0F0;
+    if(test == 0x010){
+
+        while(j<4){
+            *instMag = *instMag << 4;
+            *instMag = (*instMag) | (*buffer)&valMask;
+            buffer++; 
+            j++;
+        }          
+    }else{
+        return;
+    }
+
+    *instDir = (*buffer)&0x0F;
+    
+    *commandFlag = 1; // got command time for action
+    return 0; // reset the instruction received flag
 }
-
-
-/**
- * @brief converts string of int values into string of char in package separated by comma
- * @param string of int data
- * @param string of char data thats been converted 
- */
-void intToPackage(int* data, char* dataInChar){
-    while(*data){
-        *dataInChar = (*data) >> 8;
-        dataInChar++; // increment buffer place 
-        *dataInChar = FULL; // allow for falling edge resistor to detect
-        dataInChar++; // increment buffer place 
-        *dataInChar = (*data) & 0xFF;
-        dataInChar++; // increment buffer place 
-        *dataInChar = FULL; // allow for falling edge resistor to detect
-        
-        data++;
-        *dataInChar = comma;
-        dataInChar++; // increment buffer place 
-        *dataInChar = FULL; // allow for falling edge resistor to detect
-        dataInChar++;
-    }  
-    *dataInChar = NULL; // null terminated
-
-}
-
-/**
- * @brief converts string of char values into string in package
- * @param string of char ASCII data
- * @param string of char data thats been converted and separated 
- */
-void RSSIToPackage(char* RSSIval, char* dataInPack){
-
-    while(*RSSIval){
-        *dataInPack = (*RSSIval)&valMask; // get rid of first byte 
-        dataInPack++; // increment buffer place 
-        *dataInPack = FULL; // allow for falling edge resistor to detect
-        dataInPack++;
-        RSSIval++;
-    }   
-    *dataInPack = NULL; // null terminated 
-
-}
-
 /**
  * @brief requests the value of RSSI
  * @usage it waits for the most recent chirp, then sends command get into command mode
@@ -175,23 +156,41 @@ char ATCommandStart[] = "+++"; //Initialize AT Command Mode.
 char ATCommandRSSI[] = "ATDB\r"; // read signal strength
 char ATCommandEnd[] = "ATCN\r"; // end command
 
-void getRSSI(char * buffer, char * signalStrength){
-    
-    while(RCREG != chirpSound); //wait till chirp received
+
+void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag, char *saveF){
+    int count = 5000000;
+    while(RCREG != chirpSound && count > 0){
+        count --;
+    }
+    if (count == 0){
+        *signalStrength = 0x30;
+        signalStrength++;
+        *signalStrength = NULL; // null terminated
+        return;
+    }
     sendMsg(ATCommandStart); // start command mode
-    while(RCREG != CR);
+    while(*CRflag != 1); // wait for CR
+    *CRflag = 0; // reset
     sendMsg(ATCommandRSSI); // request RSSI
-    while(RCREG != CR);
+    while(*CRflag != 1); // wait for CR
+    *CRflag = 0; // reset
     sendMsg(ATCommandEnd); // end AT mode
-    while(RCREG != CR);
-    buffer ++; // originally pointing to the start byte
-    while(*buffer != endChar){
+    while(*CRflag != 1); // wait for CR
+    *CRflag = 0; // reset
+    // reset the received flag 
+    *saveF = 0; //since it ends with K disable flag
+    *rFlag = 0;
+    while(*buffer != CR){
+        buffer ++;
+    }
+    buffer++;
+    while(*buffer != CR){
         *signalStrength = *buffer;
         signalStrength++;
         buffer++;
     }
-    *signalStrength = NULL; 
-
+    *signalStrength = NULL; // null terminated
+    return;
 }
 
 /**
@@ -205,26 +204,9 @@ void sendMsg(char *tx){
     {
         while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
         putcUSART(*tx); // write  
+        while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
+        putcUSART(FULL); // write FF to ensure that the falling edge is reset
         tx++;  
     } 
 
-}
-/**
- * @brief creates a check sum security measure 
- * @param string of values to be sent 
- * @return sum of individual values stored 
- */
-// note , the max of the values is EF for sending to commander because first bit cannot be set
-char createCheckSum(char * string){
-    char checkSum = 0;
-    while (*string) // while not end of string 
-    {
-        if(*string != FULL){ // when it is not the FF
-            checkSum = checkSum + *string; 
-        }      
-    } 
-    if (checkSum>0xEF){ // cap at EF 
-        checkSum = 0xEF;
-    }
-    return checkSum;
 }
