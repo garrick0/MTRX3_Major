@@ -139,6 +139,7 @@ void handShake(void){
  * @param chirp strength
  */
 void processReceived(char* Buffer,char* IRVals, char* instructionFlag, char * chirpStr, char *connection) {
+    char test;
     char type,i,j=0; // type of response
     while(*Buffer != startCh){ // start at beginning 
         Buffer++;
@@ -148,31 +149,41 @@ void processReceived(char* Buffer,char* IRVals, char* instructionFlag, char * ch
         return;
     }
     Buffer++;
-    i = 0;
+    
     if(*Buffer == shake){
         *connection = 1; // if received handshake response
         return;
     }
-    while((*Buffer)&lowMask == 0x20){
-        *IRVals = (*Buffer)&valMask; // get the three values
-        IRVals++;
-        Buffer++;
-        i++;
+    test = (*Buffer)&lowMask;
+    i = 0;
+    if(test == 0x20){
+        while(i<3){
+            *IRVals = (*Buffer)&valMask; // get the three values
+            IRVals++;
+            Buffer++;
+            i++;
+        }
+    }else{
+        return;
     }
     *chirpStr = NULL;
     i = 0;
-
-    while((*Buffer)&lowMask == 0x30 || (*Buffer)&lowMask == 0x40){
-        *chirpStr = (*chirpStr) << 4;
-        if ((*Buffer)&lowMask == 0x30 ){
-            *chirpStr = (*chirpStr) | ((*Buffer)- 0x30); 
+    test = (*Buffer)&lowMask;
+    if(test == 0x30 || test == 0x40){
+        while(i<2){
+            *chirpStr = (*chirpStr) << 4;
+            if ((*Buffer)&lowMask == 0x30 ){
+                *chirpStr = (*chirpStr) | ((*Buffer)- 0x30); 
+            }
+            if ((*Buffer)&lowMask == 0x40 ){
+                *chirpStr = (*chirpStr) | ((*Buffer)- 0x37); 
+            }
+            Buffer++;
+            i++;
         }
-        if ((*Buffer)&lowMask == 0x40 ){
-            *chirpStr = (*chirpStr) | ((*Buffer)- 0x37); 
-        }
-        Buffer++;
+    }else{
+        return;
     }
-
     *instructionFlag = (*Buffer)&valMask; 
     return;
     
