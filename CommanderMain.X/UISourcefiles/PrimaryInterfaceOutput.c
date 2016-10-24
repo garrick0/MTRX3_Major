@@ -76,7 +76,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                 break;
             case NORMAL:
                 //LCDClear();
-                LCDLine1ROMWrite("USER_MANUAL_MODE");
+                LCDLine1ROMWrite("Initialising... ");
                 LCDLine2ROMWrite("                ");
                 break;
         }
