@@ -19,8 +19,8 @@
       <itemPath>IRSensors.c</itemPath>
       <itemPath>Communications.c</itemPath>
       <itemPath>Encoders.c</itemPath>
-      <itemPath>MotorDrivers.c</itemPath>
       <itemPath>debug.c</itemPath>
+      <itemPath>MotorDrivers.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

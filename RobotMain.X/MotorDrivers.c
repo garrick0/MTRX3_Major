@@ -1,6 +1,47 @@
-#include <p18f4520.h>         
-void getEncoderValues(int*);
+#include <p18f4520.h>   
 char currentFlag;
+
+
+
+void calcEncoderValues(void)
+{
+    unsigned int pi;
+    unsigned int wheel2cent_R;
+    unsigned int wheel_r;
+    unsigned int EncodErr;
+    unsigned int TargetEncod;
+    unsigned int EncodIn;
+    unsigned char MovType;
+    unsigned int Val; 
+    if(MovType=='f')
+    {
+        TargetEncod =  64*Val/(2*pi*wheel_r);
+        
+     
+        return TargetEncod;
+    }     
+    else if(MovType== 'r')
+    {
+     switch(Val)
+        {
+         case 90:
+            
+            TargetEncod = 64*((2*pi*wheel2cent_R/4)/(2*pi*wheel_r));
+            
+            return TargetEncod;
+            break;
+         case 360:
+            TargetEncod = 64*((2*pi*wheel2cent_R)/(2*pi*wheel_r));
+            
+          
+            return TargetEncod;
+            break;
+         default:
+             return;
+        }
+    
+    }
+}
 
 
 
@@ -12,7 +53,7 @@ void motorSetup(void) {
     PR2 = 0xFF;   //initialize PR2 registers for the set frequency 2.44Khz 
     CCP1CONbits.DC1B1 = 0;
     CCP1CONbits.DC1B0 = 0;
-    CCPR1L = 0x3F; //Set duty cycle to 100% (aka zero movement)
+    CCPR1L = 0x3F; //Set duty cycle 
     T2CON = 0b00000100; //Initialize Timer2 
     CCP1CON = 0b10001100;   //Initialize CCP1 module to PWM mode with two pins generating PWMs (RC2, [RD5 ??])
     TRISCbits.RC2 = 0;

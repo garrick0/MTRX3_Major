@@ -31,10 +31,11 @@ void high_interrupt(void);
 // Encoders
 void SetupEncoders(void);
 void sampleEncoders(int* encoderValues);
+void calcEncoderValues(void);
 
 //Motors
-void motorSetup(void);
-char DriveMotors(int magnitude,char direction,char mainFlag);
+//void motorSetup(void);
+//char DriveMotors(int magnitude,char direction,char mainFlag);
 
 
 
@@ -65,6 +66,7 @@ char chirpStr;
 //ReceiveFlag triggered when receive entered
 char receiveFlag=0;
 char crflag = 0;
+char saver;
 
 //MotorInstructionFlag
 char instructionFlag;
@@ -109,12 +111,12 @@ void main(void) {
     //Set up Encoders
     //SetupEncoders();
     //SetupIR();
-    //SetupEncoders();
+    SetupEncoders();
     commsSetup();
-    //motorSetup();
+    motorSetup();
     
     //Set up IR sensors
-    IRSetup();
+    //IRSetup();
     
     //debugSetup();
     
@@ -143,6 +145,7 @@ void main(void) {
     
     /* Loop */
     while(1){
+        getRSSI(receiveBuffer, signalStrength, &receiveFlag, &crflag, &saver);
         
         //Process Receive Function
             //add inputs global variables
@@ -154,28 +157,25 @@ void main(void) {
         //instructionFlag = DriveMotors(instMag,instDir,instructionFlag);
 
         //Read IR sensor buffer and return result
-        IRDetect(2,detectVals);
+        //IRDetect(2,detectVals);
         
-        if (detectVals[0] > 0) {
-            i++;
-        }
-        if (detectVals[1] > 0) {
-            i++;
-        }
-        if (detectVals[2] > 0) {
-            i++;
-        }
+        //if (detectVals[0] > 0) {
+        //    i++;
+        //}
+        //if (detectVals[1] > 0) {
+        //    i++;
+       // }
+       // if (detectVals[2] > 0) {
+      //      i++;
+      //  }
         
-        //Testing Values for comms
-        signalStrength[0] = 0x36;
-        signalStrength[1] = 0x35;
-        signalStrength[2] = 0x00;
-        instructionFlag = 0;
+
         
         
 
          //transmit to commander
-        //transmitData(detectVals,signalStrength,instructionFlag);
+        transmitData(detectVals,signalStrength,instructionFlag);
+        Delay10KTCYx(250);
     }
 }
 
@@ -240,7 +240,7 @@ void high_interrupt(void) {
         
         
         
-    sampleEncoders(currentEncoderVals);
+//    sampleEncoders(currentEncoderVals);
         //sampleIR();
         //ADCON0bits.GO = 1;
    
@@ -256,7 +256,7 @@ void high_interrupt(void) {
     
         /*Serial Receive Interrupt*/
     if (PIR1bits.RCIF == 1) {
-        receiveData(receiveBuffer, &crflag, &receiveFlag);
+    receiveData(receiveBuffer, &crflag, &receiveFlag, &saver);
 
         PIR1bits.RCIF = 0;
 

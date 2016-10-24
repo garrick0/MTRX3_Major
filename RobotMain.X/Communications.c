@@ -20,7 +20,7 @@
 #define sum 2
 
 void sendMsg(char *tx);
-
+void sendAT(char *tx);
 /**
  * @brief Initiate the USART communications on the robot 
  * @usage allows the 2 RF modules to communicate to each other 
@@ -168,13 +168,13 @@ void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag, c
         *signalStrength = NULL; // null terminated
         return;
     }
-    sendMsg(ATCommandStart); // start command mode
+    sendAT(ATCommandStart); // start command mode
     while(*CRflag != 1); // wait for CR
     *CRflag = 0; // reset
-    sendMsg(ATCommandRSSI); // request RSSI
+    sendAT(ATCommandRSSI); // request RSSI
     while(*CRflag != 1); // wait for CR
     *CRflag = 0; // reset
-    sendMsg(ATCommandEnd); // end AT mode
+    sendAT(ATCommandEnd); // end AT mode
     while(*CRflag != 1); // wait for CR
     *CRflag = 0; // reset
     // reset the received flag 
@@ -206,6 +206,17 @@ void sendMsg(char *tx){
         putcUSART(*tx); // write  
         while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
         putcUSART(FULL); // write FF to ensure that the falling edge is reset
+        tx++;  
+    } 
+
+}
+
+void sendAT(char *tx){
+    
+    while (*tx) // send string
+    {
+        while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
+        putcUSART(*tx); // write  
         tx++;  
     } 
 
