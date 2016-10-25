@@ -1,0 +1,4 @@
+Error[1027] C:\Users\wmar5627\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UISetup.c 1 : unable to locate 'UserInput.h'
+Error[1027] C:\Users\wmar5627\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UISetup.c 2 : unable to locate 'LCDWrite.h'
+Error[1027] C:\Users\wmar5627\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UISetup.c 3 : unable to locate 'SecondaryInterfaceOutput.h'
+Error[1027] C:\Users\wmar5627\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UISetup.c 4 : unable to locate 'PrimaryInterfaceOutput.h'
