@@ -11,74 +11,55 @@ unsigned char timerL;
 unsigned int counts;
 int timer;
 int j = 0;
+unsigned int currentEncoderValue;
+unsigned int nextEncoderValue;
+char currentFlag;
+char Flag;
 
-int wheel1_counterh,wheel1_counterl;
-int wheel2_counterh,wheel2_counterl;
-
-int wheel1_currentValue,wheel2_currentValue;
-int wheel1_nextValue,wheel2_nextValue;
 
 void setInitalSpeed(void);
 void setup(void);
 void set_speed(unsigned int);
-int calcEncoder1(char, int);
 void resetEncoders(void);
-void directionalMovement(int);
-void getEncoderValues(void);
-
+void directionalMovement(char);
+void getEncoderValues(unsigned int*);
+char DriveMotors(unsigned int,char,char,unsigned int);
 
 void main(void) {
     setup();
-    
-    directionalMovement(4);
-    resetEncoders();
-    getEncoderValues();
-    
-    wheel1_nextValue = calcEncoder1('f',30) + wheel1_currentValue;
-    wheel2_nextValue = calcEncoder1('f',30) + wheel2_currentValue;
-    
-    while(1){      
-        set_speed(100);
-        
-        getEncoderValues();
-        
-        if (wheel1_currentValue >= wheel1_nextValue || wheel2_currentValue >= wheel2_nextValue) {
-            set_speed(0);
-            resetEncoders();
-            directionalMovement(0);
-            while(1);
-        }
-
+    Flag = 1;
+    while (1){
+    Flag = DriveMotors(5000,'l',Flag,100);
     }
 }
 
-void directionalMovement(int direction){
+void directionalMovement(char direction){
     //Left Turn
-    if(direction == 1){
+    if(direction == 'L' || direction == 'l'){
         PORTDbits.RD4 = 1;
         PORTDbits.RD6 = 0;
         PORTDbits.RD0 = 1;
         PORTDbits.RD1 = 0;
     //Right Turn    
-    } else if (direction == 2) {
+    } else if (direction == 'R' || direction == 'r') {
         PORTDbits.RD4 = 0;
         PORTDbits.RD6 = 1;
         PORTDbits.RD0 = 0;
         PORTDbits.RD1 = 1;
     //Backwards
-    } else if (direction == 3) {
+    } else if (direction == 'B' || direction == 'b') {
         PORTDbits.RD4 = 0;
         PORTDbits.RD6 = 1;
         PORTDbits.RD0 = 1;
         PORTDbits.RD1 = 0;
     //Forwards
-    } else if (direction == 4) {
+    } else if (direction == 'F' || direction == 'f') {
         PORTDbits.RD4 = 1;
         PORTDbits.RD6 = 0;
         PORTDbits.RD0 = 0;
         PORTDbits.RD1 = 1;  
     //Stop
-    } else if (direction == 0) {
+    } else if (direction == 's' || direction == 'S') {
         PORTDbits.RD4 = 1;
         PORTDbits.RD6 = 1;
         PORTDbits.RD0 = 1;
@@ -86,17 +67,12 @@ void directionalMovement(int direction){
     }
 }
 
+void getEncoderValues(unsigned int* currentEncoderValue){
+    int wheel1_counterl = TMR0L;
+    int wheel1_counterh = TMR0H;
 
-void getEncoderValues(void){
-    wheel1_counterl= TMR0L;
-    wheel1_counterh = TMR0H;
-    wheel2_counterl= TMR1L;
-    wheel2_counterh = TMR1H;
-    
-    wheel1_currentValue = (wheel1_counterh*256) + wheel1_counterl;
-    wheel2_currentValue = (wheel2_counterh*256) + wheel2_counterl;
+    *currentEncoderValue = (wheel1_counterh*256) + wheel1_counterl;
 }
-
 
 void resetEncoders(void){
     TMR0L = 0;
@@ -106,12 +82,16 @@ void resetEncoders(void){
 }
 
 void setup(void){
+    currentFlag = 0;
+    
     TRISD = 0;
     PORTD = 0;
     PORTC = 0;
     TRISB = 0;
     PORTB = 0;
     
+    TRISCbits.RC0 = 1;
+    PORTCbits.RC0 = 1;
     INTCONbits.GIEH = 1; //enable interrupts
     INTCONbits.GIEL = 1; 
     RCONbits.IPEN = 1; // turn priority levels on
@@ -123,25 +103,7 @@ void setup(void){
     T0CONbits.T0CS = 1;
     T0CONbits.T0SE = 0;
     T0CONbits.PSA = 1;
-    
-  //  PORTAbits.AN4 = 0;
-    ADCON1bits.PCFG0 = 1;
-    ADCON1bits.PCFG1 = 1;
-    ADCON1bits.PCFG2 = 0;
-    ADCON1bits.PCFG3 = 1;
-    TRISAbits.RA4 = 1;
-      
-      
-    //16-bit counter wheel 2
-    T1CONbits.RD16 = 0;
-    T1CONbits.T1RUN = 0;
-    T1CONbits.T1CKPS0= 0;
-    T1CONbits.T1CKPS1= 0;
-    T1CONbits.T1OSCEN = 0;
-    T1CONbits.T1SYNC = 1;
-    T1CONbits.TMR1CS = 1;
-    T1CONbits.TMR1ON = 1;
-    
+
     //CCP Setup
     PR2 = 0xFF;   //initialize PR2 registers for the set frequency 2.44Khz 
     CCP1CONbits.DC1B1 = 0;
@@ -161,21 +123,38 @@ void set_speed(unsigned int duty)
     CCPR1L = duty_input;
 }
 
-int calcEncoder1(char MovType, int Val) {
-    int  TargetEncod;
-    float PI = 3.1415;
-    int wheel2cent_R = 10;
-    int wheel_r = 4.5;
-    int EncodErr;
-    float rads;
-    if(MovType == 'f') {
-        TargetEncod =  131*64*(Val/(2*PI*wheel_r)); //Calculate number of encoder clicks
-        return TargetEncod;
-    }     
-    else if(MovType == 'r') {
-        float rads = Val/180;
-        TargetEncod = 64*((wheel2cent_R*rads)/(2*PI*wheel_r)); //Calculate number of encoders 
-        return TargetEncod;
+//Drive the motors with a pwm
+
+/*Inputs an instruction maginitude and type (F,B,L,R), instruction flag(1 == instruction in process, 0 == hold or emergency stop)*/
+char DriveMotors(unsigned int magnitude,char direction,char mainFlag, unsigned int speed) {
+    if ((currentFlag == 0 && mainFlag == 0) || ((currentFlag == 1 && mainFlag == 0))) {
+        directionalMovement('s');
+        resetEncoders();
+        set_speed(0);
+        currentFlag == 0;
+        return 0;
+        
     }
-    return 0;
+    else if (currentFlag == 0 && mainFlag == 1) {
+        resetEncoders();
+        directionalMovement(direction);
+        set_speed(speed);
+        currentFlag = 1;
+        return 1;
+        
+    } else if (currentFlag == 1 && mainFlag == 1) {
+        getEncoderValues(&currentEncoderValue);
+    
+        if (currentEncoderValue >= magnitude) {
+            set_speed(0);
+            resetEncoders();
+            directionalMovement('s');
+            currentFlag = 0;
+            return 0;
+            
+        } else {
+            return 1;
+            
+        }
     }
+}
