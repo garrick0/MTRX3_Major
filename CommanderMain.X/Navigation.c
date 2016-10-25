@@ -14,6 +14,7 @@
 #define IDLE 1
 #define MOVING 2
 #define SCANNING 3
+#define TURNING 4
 
 #define MAX_SCANS 12
 
@@ -23,10 +24,15 @@
 #define DETECTION_THRESHOLD 50
 void parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsOutput* CommsOutput);
 char checkScan(char* chirpBuffer,struct UserInterfaceOutput* UIOutput);
+void autoAlgorithm(struct communicationsOutput* CommsOutput);
 
 char chirpBuffer[12] = {0x00};
-char robotState = SCANNING;
+char robotState = IDLE;
 char scanCounter = 0;
+
+char prevAutoInstr = IDLE;
+char parrotDirection = 0;
+char parrotDistance = 0;
 
 
 
@@ -78,6 +84,7 @@ void robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput*
             else {
                 //Calculate direction of highest chirp
                 char maxMagnitude = checkScan(chirpBuffer,UIOutput);
+                scanCounter = 0;
                 
                 //Check if value exceeds detection threshold
                     if (maxMagnitude > DETECTION_THRESHOLD) {
@@ -105,6 +112,10 @@ void robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput*
             
             else if (State == AUTOMATIC_MODE) {
                 //Automatic Algorithm
+                //Inputs are - last command used, 
+                autoAlgorithm(CommsOutput);
+                
+                //autoAlgorithm(UIOutput)
             }
             
             CommsInput->instructionFlag = 1;
@@ -141,7 +152,8 @@ char checkScan(char* chirpBuffer,struct UserInterfaceOutput* UIOutput)  {
     
     UIOutput->current_direction = maxDir;
     
-
+    parrotDistance = maxVal;
+    parrotDirection = maxDir;
     return maxVal;
     
 }
@@ -188,4 +200,44 @@ void parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsO
     
 }
     
+
+
+void autoAlgorithm(struct communicationsOutput* CommsOutput) {
     
+    //Initiate with rotation to get robot position
+    if ((prevAutoInstr == IDLE) || (prevAutoInstr == MOVING)) {
+        
+        //This will set the robot to perform a full scan
+        robotState = SCANNING;
+        prevAutoInstr = SCANNING;
+        
+    }
+    
+    //Assumption you have parrot position at this state
+    else if (prevAutoInstr == SCANNING) {
+        //Generate command yourself from chirps
+        CommsOutput->instDir = 'R';
+        CommsOutput->instMag = parrotDirection*INCS30DEGREES;
+        
+        //Change to moving
+        robotState = MOVING;
+        //Move to parrot direction
+        prevAutoInstr = TURNING;
+    }
+    else if (prevAutoInstr == TURNING) {
+        //Needs to be generated from calibration data
+        int distLookup[6] = {100,200,300,400,500,600};
+                
+        //Set to move forward
+        CommsOutput->instDir = 'F';
+        //look up increments in table
+        CommsOutput->instMag = distLookup[parrotDistance/10];
+        
+        //Change to moving
+        robotState = MOVING;
+        //Update auto mode
+        prevAutoInstr = MOVING;
+    }
+    
+    
+}

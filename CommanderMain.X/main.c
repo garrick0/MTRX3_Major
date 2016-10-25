@@ -226,7 +226,7 @@ void main(void) {
     
     
     
-        State = MANUAL_MODE;
+        State = AUTOMATIC_MODE;
         UIInput.commandInput='U';
         RobotReceiveComms.instructionFlag=0;
         test = RobotTransmitComms.instDir;
