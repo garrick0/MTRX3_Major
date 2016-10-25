@@ -37,10 +37,9 @@ void outputUI(struct UserInterfaceOutput *UIOutput);
 
 // Comms
 void commSetup(void);
-char receiveComms(char* receiveBuffer);
+void receiveComms(char* receiveBuffer,char *flag);
 void transmitComms(struct communicationsOutput CommsOutput);
-char processReceived(char* recBuffer,char* IRVals,char* instructionFlag);
-
+void processReceived(char* Buffer,char* IRVals, char* instructionFlag, char * chirpStr, char *connection);
 
 //Nav
 void navSetup(void);
@@ -92,6 +91,7 @@ void main(void) {
     
         //Chirp Strength
     char chirpStrength;
+    char connection;
         // Is robot ready for new command
     char instructionFlag;
 
@@ -178,7 +178,7 @@ void main(void) {
 
 
     // Comms
-    //commSetup();
+    commSetup();
 
 
 
@@ -210,7 +210,7 @@ void main(void) {
     (ptrUIOutput->instructionFlag)=0;
     (ptrUIOutput->half_scan)=0;			//1 when scanning, 0 when not scanning
 	(ptrUIOutput->full_scan)=0;
-	(ptrUIOutput->current_direction)=0;	//angle between 0 and 360
+	
     //end test code
     
   
@@ -226,7 +226,8 @@ void main(void) {
     
     
     
-        State = AUTOMATIC_MODE;
+        //State = AUTOMATIC_MODE;
+    State = MANUAL_MODE;
         UIInput.commandInput='U';
         RobotReceiveComms.instructionFlag=0;
         test = RobotTransmitComms.instDir;
@@ -240,6 +241,7 @@ void main(void) {
     /* Loop */
     while(1){
         int test;
+        int count;
         
 
               
@@ -248,61 +250,10 @@ void main(void) {
             //UI Should receive(Change of system state, Direction Inputs and parameter changes(not yet implemented)
             
             //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
-        //inputUI(UIbuffer,ptrUIInput);
+        inputUI(UIbuffer,ptrUIInput);
             
             //UIFlag = 0;
         //}
-        
-        if (ptrUIInput->stateRequest != 0) {
-            int test = ptrUIInput->commandInput;
-            test++;
-        }
-         
-        
-        
-        //Receive Comms from ground (array)
-            //array [IRVals,signalStrength,instructionFlag]
-        if (receiveFlag == 1) {
-            
-            //Get sensor data from robot
-            //chirpStrength = processReceived(recBuffer,IRVals,&instructionFlag);
-            RobotReceiveComms.IR1 = IRVals[0];
-            RobotReceiveComms.IR2 = IRVals[1];
-            RobotReceiveComms.IR3 = IRVals[2];
-            RobotReceiveComms.instructionFlag = instructionFlag;
-            
-
-            //UIOutput.
-            
-            //Reset flag
-            receiveFlag = 0;
-        }
-        
-        //State Control
-        //State = stateControl(State,UIInput.stateRequest);
-        
-        
-
-        
-        
-        robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
-        
-        test = RobotTransmitComms.instDir;
-        test = RobotTransmitComms.instMag;
-        
-        RobotReceiveComms.instructionFlag = 0;
-        //outputs - instMag,instDir
-        //        - parrotPosition,IRVals,parrot_moving,parrot_found
-        //inputs  - chirpStrength,IRVals,instructionFlag,State
-        
-        
-        
-        
-        //instMag = 100;
-        //instDir = 'f';
-        //transmit to ground to move robot
-        //transmitComms(RobotTransmitComms);
-                
         //test code
         (ptrUIOutput->State)=(ptrUIInput->stateRequest);
         (ptrUIOutput->max_robot_speed)=(ptrUIInput->max_robot_speed);	//return values of all parameters
@@ -321,29 +272,83 @@ void main(void) {
                 
         //State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found
         outputUI(ptrUIOutput);
+        
+        if (ptrUIInput->stateRequest != 0) {
+            int test = ptrUIInput->commandInput;
+            test++;
+        }
+         
+        
+        
+        //Receive Comms from ground (array)
+            //array [IRVals,signalStrength,instructionFlag]
+        if (receiveFlag == 1) {
+            
+            //Get sensor data from robot
+
+            processReceived(recBuffer,IRVals, &instructionFlag, &chirpStrength,&connection);
+            RobotReceiveComms.IR1 = IRVals[0];
+            RobotReceiveComms.IR2 = IRVals[1];
+            RobotReceiveComms.IR3 = IRVals[2];
+            RobotReceiveComms.instructionFlag = instructionFlag;
+            
+
+            //UIOutput.
+            
+            //Reset flag
+            receiveFlag = 0;
+        }
+        
+        //State Control
+        State = stateControl(State,UIInput.stateRequest);
+        
+        
+
+        
+        
+        robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
+        
+        test = RobotTransmitComms.instDir;
+        test = RobotTransmitComms.instMag;
+        
+        RobotReceiveComms.instructionFlag = 0;
+        //outputs - instMag,instDir
+        //        - parrotPosition,IRVals,parrot_moving,parrot_found
+        //inputs  - chirpStrength,IRVals,instructionFlag,State
+        
+        
+        
+        
+        RobotTransmitComms.instMag = 0x100;
+        RobotTransmitComms.instDir = 'f';
+        //transmit to ground to move robot
+        //count++;
+        //if (count > 50) {
+        //transmitComms(RobotTransmitComms);
+        //}
+                
+
 
     }
 }
 #pragma interrupt low_interrupt
 void low_interrupt(void){
-    INTCONbits.GIE = 0;
+    //INTCONbits.GIE = 0;
     
-	if(ORInput){				//check if user input triggered interrupt
-        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
-		CheckUserInput(UIbuffer);
-        
-	}else if(INTCONbits.TMR0IF){
+    if(INTCONbits.TMR0IF){          //delay interrupt
         INTCONbits.TMR0IF=0;
         INTCONbits.TMR0IE =0;       //disable interrupt
         T0CONbits.TMR0ON =0;        //turn timer off       
         UIdelay=1;
+        
     }else if(PIR1bits.RCIF){
         CheckPCInput(UIbuffer);
-    }else if(PIR2bits.CCP2IF){
+        
+    }else if(PIR2bits.CCP2IF){      //check is servo delay triggered interrupt
         PIR2bits.CCP2IF = 0;
-        servoOutput(PORTCbits.RC2,90);
+        servoToggle();
     }
-    INTCONbits.GIE = 1;
+    //INTCONbits.GIE = 1;
 }
 #pragma interrupt high_interrupt
 void high_interrupt(void) {
@@ -353,22 +358,20 @@ void high_interrupt(void) {
     INTCONbits.GIE = 0;
     
         /*Serial Receive Interrupt*/
-    if (PIR1bits.RCIF == 1) {
+    if (INTCON3bits.INT2IF == 1) {
 
-        //receiveFlag = receiveComms(recBuffer);
-        PIR1bits.RCIF = 0;
+        receiveComms(recBuffer,&receiveFlag);
+        INTCON3bits.INT2IF = 0;
 
-    }
-    if(INTCONbits.RBIF){            //check if On/Off switch triggered interrupt
-		INTCONbits.RBIF = 0;        //clear PORTB 4:7 interrupt flag
-        ON_OFF();
-	}
-		
-	if(EmergencyStop){              //check if user input triggered interrupt
+    }	
+	else if(EmergencyStop){              //check if user input triggered interrupt
         INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
 		Emergency_Stop(UIbuffer);
 	}
-    
+    else if(ORInput){				//check if user input triggered interrupt
+        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
+		CheckUserInput(UIbuffer);       
+	}
     
 
     //Enable Interrupts

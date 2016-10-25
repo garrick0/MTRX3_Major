@@ -2,7 +2,7 @@
 
 SWTXD           equ     PORTC           ; Transmit pin port and pin
 SWTXDpin        equ     4
-TRIS_SWTXD      equ     TRISB           ; Transmit pin tris and pin
+TRIS_SWTXD      equ     TRISC           ; Transmit pin tris and pin
 SWRXD           equ     PORTB           ; Receive pin port and pin
 SWRXDpin        equ     2
 TRIS_SWRXD      equ     TRISB           ; Receive pin tris and pin

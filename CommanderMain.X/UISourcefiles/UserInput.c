@@ -1,12 +1,12 @@
 //#include "ConfigRegs_18F4520.h"
 #include    <p18f4520.h>
 
-#define  dpadUP         PORTAbits.RA0
+#define  dpadRIGHT      PORTAbits.RA0
 #define  dpadDOWN       PORTAbits.RA1
-#define  dpadLEFT       PORTAbits.RA2
-#define  dpadRIGHT      PORTAbits.RA3
-#define  Abutton        PORTAbits.RA4
-#define  Bbutton        PORTAbits.RA5
+#define  dpadUP         PORTAbits.RA2
+#define  dpadLEFT      PORTAbits.RA3
+#define  Bbutton        PORTAbits.RA4
+#define  Abutton        PORTAbits.RA5
 
 #define  EmergencyStop	PORTBbits.RB0
 #define  ORInput        PORTBbits.RB1
@@ -31,7 +31,7 @@ void UserInputSetup(void){
 
     //interrupt setup for OR input
     INTCON3bits.INT1IE = 1;	//enable PORTB1 interrupt
-    INTCON3bits.INT1IP = 0;	//set PORTB1 interrupt to low priority
+    INTCON3bits.INT1IP = 1;	//set PORTB1 interrupt to high priority
     INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
     INTCON2bits.INTEDG1 = 1;	//PORTB1 interrupt on rising edge
 

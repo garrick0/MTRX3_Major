@@ -307,7 +307,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                     	(UIInput->find_parrot)=1;         //request
 						//*menu_position=0;
 						*state_variable=NORMAL;
-
+                        *flag=1;
 						break;
                 }
                 break;

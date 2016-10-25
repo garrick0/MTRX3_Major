@@ -82,7 +82,7 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
                 PCROMWrite("\fWelcome to the Harambe Soul Seeker\n\rPress A to enter commands and UP/DOWN arrows to scroll\n\rInitialising...\n\r");
                 break;
             case NORMAL:
-                PCROMWrite("initialising...\n\r");
+                PCROMWrite("Initialising...\n\r");
                 break;
         }
     }
@@ -93,7 +93,7 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         if((UIOutput->State)==USER_MANUAL_MODE){
             //............................
             if(state_variable==ENTRY){
-                PCROMWrite("USER_MANUAL_MODE\n\n\r0-SET_MOTORS_ON\n\r1-SET_MOTORS_OFF\n\r2-SET_SPEED_MAX\n\r3-SET_MODE_USER_AUTO\n\r4-SET_MODE_FACTORY\n\r");
+                PCROMWrite("\fUSER_MANUAL_MODE\n\n\r0-SET_MOTORS_ON\n\r1-SET_MOTORS_OFF\n\r2-SET_SPEED_MAX\n\r3-SET_MODE_USER_AUTO\n\r4-SET_MODE_FACTORY\n\r");
                 PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
             }
             //...............................
@@ -154,7 +154,7 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         if((UIOutput->State)==USER_AUTO_MODE){
             //............................
             if(state_variable==ENTRY){
-                PCROMWrite("\nUSER_AUTO_MODE\n\r0-SET_FIND_PARROT\n\r1-SET_MODE_USER_MANUAL\n\r");
+                PCROMWrite("\fUSER_AUTO_MODE\n\r0-SET_FIND_PARROT\n\r1-SET_MODE_USER_MANUAL\n\r");
                 PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
             }
             //...............................
@@ -179,7 +179,7 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         if((UIOutput->State)==FACTORY_MODE){
             //............................
             if(state_variable==ENTRY){
-                PCROMWrite("\nFACTORY_MODE\n\r0-SET_PID_GAINS\n\r1-SET_SPEED_MAX\n\r2-SET_YAW_RATE_MAX\n\r3-SET_IR_SAMPLES_PER_ESTIMATE\n\r4-SET_IR_SAMPLE_RATE\n\r5-SET_RF_SAMPLES_PER_ESTIMATE\n\r6-SET_MODE_USER_MANUAL\n\r");
+                PCROMWrite("\fFACTORY_MODE\n\r0-SET_PID_GAINS\n\r1-SET_SPEED_MAX\n\r2-SET_YAW_RATE_MAX\n\r3-SET_IR_SAMPLES_PER_ESTIMATE\n\r4-SET_IR_SAMPLE_RATE\n\r5-SET_RF_SAMPLES_PER_ESTIMATE\n\r6-SET_MODE_USER_MANUAL\n\r");
                 PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
             }
             //...............................
@@ -295,16 +295,3 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
     }
         
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,7 +18,7 @@
 
 #define BirdMoving      PORTCbits.RC0
 #define BirdFound       PORTCbits.RC1
-
+#define RobotMoving     PORTCbits.RC5
 //#define PiezoControl    PORTCbits.RC3
 
 void LEDSetup(void){
@@ -26,8 +26,11 @@ void LEDSetup(void){
     TRISCbits.RC0=0;
     PORTCbits.RC1=0;
     TRISCbits.RC1=0;
+    PORTCbits.RC5=0;
+    TRISCbits.RC5=0;
+    
 }
-void  LEDOutput(int parrot_found,int parrot_moving){
+void  LEDOutput(int parrot_found,int parrot_moving,char instructionFlag){
     if(parrot_found){
        BirdFound=1;
     }else{
@@ -38,14 +41,20 @@ void  LEDOutput(int parrot_found,int parrot_moving){
     }else{
        BirdMoving=0;
     }
+    if(instructionFlag){
+       RobotMoving=1;
+    }else{
+       RobotMoving=0;
+    }
 }
+
 
 char string[16];
 
 void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interface_mode,int state_variable,int menu_position){
 
-    LEDOutput((UIOutput->parrot_found),(UIOutput->parrot_moving));
-    //ServoOutput(CURRENT_DIRECTION);
+    LEDOutput((UIOutput->parrot_found),(UIOutput->parrot_moving),(UIOutput->instructionFlag));
+    servoOutput(UIOutput->parrotDirection);
 
     if((UIOutput->State)==INITIALISE){
             //............................

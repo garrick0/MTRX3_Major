@@ -57,7 +57,7 @@ struct UserInterfaceOutput {
 	int p_gain;
 	int i_gain;
 	int d_gain;
-	int current_direction;	//angle between 0 and 360
+	
 	
 
 };
@@ -99,7 +99,7 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
 
 //primary interface functions
 void LEDSetup(void);
-void  LEDOutput(int parrot_found,int parrot_moving);
+void  LEDOutput(int parrot_found,int parrot_moving,char instructionFlag);
 void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interface_mode,int state_variable,int menu_position);
 
 //LCD functions
@@ -113,7 +113,7 @@ void LCDClear(void);
  /*!< Flag used to know whether to go to HIGH time or LOW time */
 // unsigned char initialFLAG = 0; /*!< Initialise to middle at the beginning */
 
-void servoOutput(char turnFLAG, int angle);
+void servoToggle(void);
 void servoSetup(void);
 void servoTurn(void);
 void initialiseCCP2(void);
@@ -137,5 +137,7 @@ void move68_LOW(void);
 void move90_LOW(void);
 void move135_LOW(void);
 void move180_LOW(void);
+
+void servoOutput(int degrees);
 
 #endif	/* USERINTERFACE_H */

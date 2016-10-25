@@ -27,7 +27,14 @@ struct communicationsInput {
     char IR3;
     char chirpStrength;
     char instructionFlag;
-    
+    char max_robot_speed;	//return values of all parameters
+	char max_yaw_rate;
+	char ir_samples;
+	char ir_rate;	
+    char rf_samples;
+	char p_gain;
+	char i_gain;
+	char d_gain;
 
 
 };

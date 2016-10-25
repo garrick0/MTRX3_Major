@@ -31,7 +31,7 @@ char robotState = IDLE;
 char scanCounter = 0;
 
 char prevAutoInstr = IDLE;
-char parrotDirection = 0;
+char parrot_Direction = 0;
 char parrotDistance = 0;
 
 
@@ -150,10 +150,10 @@ char checkScan(char* chirpBuffer,struct UserInterfaceOutput* UIOutput)  {
         }
     }
     
-    UIOutput->current_direction = maxDir;
+    UIOutput->parrotDirection = maxDir;
     
     parrotDistance = maxVal;
-    parrotDirection = maxDir;
+    parrot_Direction = maxDir;
     return maxVal;
     
 }
@@ -217,7 +217,7 @@ void autoAlgorithm(struct communicationsOutput* CommsOutput) {
     else if (prevAutoInstr == SCANNING) {
         //Generate command yourself from chirps
         CommsOutput->instDir = 'R';
-        CommsOutput->instMag = parrotDirection*INCS30DEGREES;
+        CommsOutput->instMag = parrot_Direction*INCS30DEGREES;
         
         //Change to moving
         robotState = MOVING;

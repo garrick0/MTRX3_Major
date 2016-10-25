@@ -21,7 +21,7 @@ int     flag=1;
 
 
 void UISetup(void) {
-    LCDInitialise();
+    //LCDInitialise();
     UserInputSetup();
     initialiseComs();
     LEDSetup();
@@ -47,6 +47,6 @@ void outputUI(struct UserInterfaceOutput *UIOutput){
         SecondaryInterfaceOutput(UIOutput,interface_mode, state_variable,menu_position);
         flag=0;
     }
-    PrimaryInterfaceOutput(UIOutput,interface_mode,state_variable,menu_position);
+    //PrimaryInterfaceOutput(UIOutput,interface_mode,state_variable,menu_position);
 }
 
