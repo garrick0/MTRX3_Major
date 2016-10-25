@@ -182,8 +182,7 @@ void main(void) {
 
 
 
-    //Nav
-    //navSetup();
+ 
     
    
      //code for testing
@@ -270,8 +269,7 @@ void main(void) {
             
                 
                 
-        //State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found
-        outputUI(ptrUIOutput);
+
         
         if (ptrUIInput->stateRequest != 0) {
             int test = ptrUIInput->commandInput;
@@ -324,8 +322,12 @@ void main(void) {
         //transmit to ground to move robot
         //count++;
         //if (count > 50) {
-        //transmitComms(RobotTransmitComms);
+//        transmitComms(RobotTransmitComms);
         //}
+        
+        
+                //State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found
+        outputUI(ptrUIOutput);
                 
 
 
