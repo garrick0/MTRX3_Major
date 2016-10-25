@@ -85,7 +85,7 @@ endif
 
 MP_PROCESSOR_OPTION=18F4520
 MP_PROCESSOR_OPTION_LD=18f4520
-MP_LINKER_DEBUG_OPTION= -u_DEBUGCODESTART=0x7dc0 -u_DEBUGCODELEN=0x240 -u_DEBUGDATASTART=0x5f4 -u_DEBUGDATALEN=0xb
+MP_LINKER_DEBUG_OPTION=
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -93,7 +93,7 @@ ${OBJECTDIR}/openuart.o: openuart.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/openuart.o.d 
 	@${RM} ${OBJECTDIR}/openuart.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/openuart.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_ICD3=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/openuart.lst\" -e\"${OBJECTDIR}/openuart.err\" $(ASM_OPTIONS)  -o\"${OBJECTDIR}/openuart.o\" \"openuart.asm\"
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/openuart.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_SIMULATOR=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/openuart.lst\" -e\"${OBJECTDIR}/openuart.err\" $(ASM_OPTIONS)  -o\"${OBJECTDIR}/openuart.o\" \"openuart.asm\"
 	@${DEP_GEN} -d "${OBJECTDIR}/openuart.o"
 	@${FIXDEPS} "${OBJECTDIR}/openuart.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -101,7 +101,7 @@ ${OBJECTDIR}/readuart.o: readuart.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/readuart.o.d 
 	@${RM} ${OBJECTDIR}/readuart.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/readuart.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_ICD3=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/readuart.lst\" -e\"${OBJECTDIR}/readuart.err\" $(ASM_OPTIONS)  -o\"${OBJECTDIR}/readuart.o\" \"readuart.asm\"
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/readuart.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_SIMULATOR=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/readuart.lst\" -e\"${OBJECTDIR}/readuart.err\" $(ASM_OPTIONS)  -o\"${OBJECTDIR}/readuart.o\" \"readuart.asm\"
 	@${DEP_GEN} -d "${OBJECTDIR}/readuart.o"
 	@${FIXDEPS} "${OBJECTDIR}/readuart.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -109,7 +109,7 @@ ${OBJECTDIR}/writuart.o: writuart.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/writuart.o.d 
 	@${RM} ${OBJECTDIR}/writuart.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/writuart.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_ICD3=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/writuart.lst\" -e\"${OBJECTDIR}/writuart.err\" $(ASM_OPTIONS)  -o\"${OBJECTDIR}/writuart.o\" \"writuart.asm\"
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/writuart.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_SIMULATOR=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/writuart.lst\" -e\"${OBJECTDIR}/writuart.err\" $(ASM_OPTIONS)  -o\"${OBJECTDIR}/writuart.o\" \"writuart.asm\"
 	@${DEP_GEN} -d "${OBJECTDIR}/writuart.o"
 	@${FIXDEPS} "${OBJECTDIR}/writuart.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -147,7 +147,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o: UISourcefiles/XLCD/busyxlcd.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o   UISourcefiles/XLCD/busyxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o   UISourcefiles/XLCD/busyxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/busyxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -155,7 +155,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o: UISourcefiles/XLCD/openxlcd.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o   UISourcefiles/XLCD/openxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o   UISourcefiles/XLCD/openxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/openxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -163,7 +163,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o: UISourcefiles/XLCD/putrxlcd.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o   UISourcefiles/XLCD/putrxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o   UISourcefiles/XLCD/putrxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/putrxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -171,7 +171,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o: UISourcefiles/XLCD/putsxlcd.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o   UISourcefiles/XLCD/putsxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o   UISourcefiles/XLCD/putsxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/putsxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -179,7 +179,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o: UISourcefiles/XLCD/readaddr.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o   UISourcefiles/XLCD/readaddr.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o   UISourcefiles/XLCD/readaddr.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/readaddr.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -187,7 +187,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o: UISourcefiles/XLCD/readdata.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o   UISourcefiles/XLCD/readdata.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o   UISourcefiles/XLCD/readdata.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/readdata.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/readdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -195,7 +195,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o: UISourcefiles/XLCD/setcgram.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o   UISourcefiles/XLCD/setcgram.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o   UISourcefiles/XLCD/setcgram.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/setcgram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -203,7 +203,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o: UISourcefiles/XLCD/setddram.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o   UISourcefiles/XLCD/setddram.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o   UISourcefiles/XLCD/setddram.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/setddram.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/setddram.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -211,7 +211,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o: UISourcefiles/XLCD/Us
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o   UISourcefiles/XLCD/UserinterfaceInitialise.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o   UISourcefiles/XLCD/UserinterfaceInitialise.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/UserinterfaceInitialise.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -219,7 +219,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o: UISourcefiles/XLCD/wcmdxlcd.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o   UISourcefiles/XLCD/wcmdxlcd.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o   UISourcefiles/XLCD/wcmdxlcd.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/wcmdxlcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -227,7 +227,7 @@ ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o: UISourcefiles/XLCD/writdata.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles/XLCD" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o   UISourcefiles/XLCD/writdata.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o   UISourcefiles/XLCD/writdata.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/XLCD/writdata.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/XLCD/writdata.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -235,7 +235,7 @@ ${OBJECTDIR}/UISourcefiles/LCDWrite.o: UISourcefiles/LCDWrite.c  nbproject/Makef
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/LCDWrite.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/LCDWrite.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/LCDWrite.o   UISourcefiles/LCDWrite.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/LCDWrite.o   UISourcefiles/LCDWrite.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/LCDWrite.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/LCDWrite.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -243,7 +243,7 @@ ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o: UISourcefiles/PrimaryInterf
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o   UISourcefiles/PrimaryInterfaceOutput.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o   UISourcefiles/PrimaryInterfaceOutput.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/PrimaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -251,7 +251,7 @@ ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o: UISourcefiles/SecondaryIn
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o   UISourcefiles/SecondaryInterfaceOutput.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o   UISourcefiles/SecondaryInterfaceOutput.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/SecondaryInterfaceOutput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -259,7 +259,7 @@ ${OBJECTDIR}/UISourcefiles/StateTransition.o: UISourcefiles/StateTransition.c  n
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/StateTransition.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/StateTransition.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/StateTransition.o   UISourcefiles/StateTransition.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/StateTransition.o   UISourcefiles/StateTransition.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/StateTransition.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/StateTransition.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -267,7 +267,7 @@ ${OBJECTDIR}/UISourcefiles/UserInput.o: UISourcefiles/UserInput.c  nbproject/Mak
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/UserInput.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/UserInput.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/UserInput.o   UISourcefiles/UserInput.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/UserInput.o   UISourcefiles/UserInput.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/UserInput.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/UserInput.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -275,7 +275,7 @@ ${OBJECTDIR}/UISourcefiles/UserInterface.o: UISourcefiles/UserInterface.c  nbpro
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/UserInterface.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/UserInterface.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/UserInterface.o   UISourcefiles/UserInterface.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/UserInterface.o   UISourcefiles/UserInterface.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/UserInterface.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/UserInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -283,7 +283,7 @@ ${OBJECTDIR}/UISourcefiles/xlcddelays.o: UISourcefiles/xlcddelays.c  nbproject/M
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/xlcddelays.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/xlcddelays.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/xlcddelays.o   UISourcefiles/xlcddelays.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/xlcddelays.o   UISourcefiles/xlcddelays.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/xlcddelays.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/xlcddelays.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -291,7 +291,7 @@ ${OBJECTDIR}/UISourcefiles/servo.o: UISourcefiles/servo.c  nbproject/Makefile-${
 	@${MKDIR} "${OBJECTDIR}/UISourcefiles" 
 	@${RM} ${OBJECTDIR}/UISourcefiles/servo.o.d 
 	@${RM} ${OBJECTDIR}/UISourcefiles/servo.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/servo.o   UISourcefiles/servo.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/UISourcefiles/servo.o   UISourcefiles/servo.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/UISourcefiles/servo.o 
 	@${FIXDEPS} "${OBJECTDIR}/UISourcefiles/servo.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -299,7 +299,7 @@ ${OBJECTDIR}/putsuart.o: putsuart.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/putsuart.o.d 
 	@${RM} ${OBJECTDIR}/putsuart.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/putsuart.o   putsuart.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/putsuart.o   putsuart.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/putsuart.o 
 	@${FIXDEPS} "${OBJECTDIR}/putsuart.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -307,7 +307,7 @@ ${OBJECTDIR}/Communications.o: Communications.c  nbproject/Makefile-${CND_CONF}.
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Communications.o.d 
 	@${RM} ${OBJECTDIR}/Communications.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Communications.o   Communications.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Communications.o   Communications.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/Communications.o 
 	@${FIXDEPS} "${OBJECTDIR}/Communications.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -315,7 +315,7 @@ ${OBJECTDIR}/Navigation.o: Navigation.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Navigation.o.d 
 	@${RM} ${OBJECTDIR}/Navigation.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Navigation.o   Navigation.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Navigation.o   Navigation.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/Navigation.o 
 	@${FIXDEPS} "${OBJECTDIR}/Navigation.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -323,7 +323,7 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -519,7 +519,7 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/CommanderMain.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_LD} $(MP_EXTRA_LD_PRE)   -p$(MP_PROCESSOR_OPTION_LD)  -w -x -u_DEBUG -m"${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"  -z__MPLAB_BUILD=1  -u_CRUNTIME -z__MPLAB_DEBUG=1 -z__MPLAB_DEBUGGER_ICD3=1 $(MP_LINKER_DEBUG_OPTION) -l ${MP_CC_DIR}\\..\\lib  -o dist/${CND_CONF}/${IMAGE_TYPE}/CommanderMain.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}   
+	${MP_LD} $(MP_EXTRA_LD_PRE)   -p$(MP_PROCESSOR_OPTION_LD)  -w -x -u_DEBUG -m"${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"  -z__MPLAB_BUILD=1  -u_CRUNTIME -z__MPLAB_DEBUG=1 -z__MPLAB_DEBUGGER_SIMULATOR=1 $(MP_LINKER_DEBUG_OPTION) -l ${MP_CC_DIR}\\..\\lib  -o dist/${CND_CONF}/${IMAGE_TYPE}/CommanderMain.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}   
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/CommanderMain.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 

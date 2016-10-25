@@ -45,7 +45,7 @@ char processReceived(char* recBuffer,char* IRVals,char* instructionFlag);
 //Nav
 void navSetup(void);
 //void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
-void robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput* CommsOutput,struct UserInterfaceInput UIInput,struct communicationsInput CommsInput,char State);
+void robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput* CommsOutput,struct UserInterfaceInput* UIInput,struct communicationsInput* CommsInput,char State);
     
     
     //Holds values output to the user
@@ -161,6 +161,8 @@ void main(void) {
          //Parrot Distance
          char parrotDistance;
          
+         int test;
+         
 
          //Initiate flags at 0
          UIFlag = 0;
@@ -217,8 +219,27 @@ void main(void) {
     RCONbits.IPEN = 1;
     INTCONbits.GIE = 1;
     
+    
+    
+    
+    
+    
+    
+    
+        State = MANUAL_MODE;
+        UIInput.commandInput='U';
+        RobotReceiveComms.instructionFlag=0;
+        test = RobotTransmitComms.instDir;
+        test = RobotTransmitComms.instMag;
+    
+    
+    
+    
+    
+    
     /* Loop */
     while(1){
+        int test;
         
 
               
@@ -227,7 +248,7 @@ void main(void) {
             //UI Should receive(Change of system state, Direction Inputs and parameter changes(not yet implemented)
             
             //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
-        inputUI(UIbuffer,ptrUIInput);
+        //inputUI(UIbuffer,ptrUIInput);
             
             //UIFlag = 0;
         //}
@@ -258,10 +279,18 @@ void main(void) {
         }
         
         //State Control
-        State = stateControl(State,UIInput.stateRequest);
+        //State = stateControl(State,UIInput.stateRequest);
         
         
-        //robotMove(&UIOutput,&RobotTransmitComms,UIInput,RobotReceiveComms,State);
+
+        
+        
+        robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
+        
+        test = RobotTransmitComms.instDir;
+        test = RobotTransmitComms.instMag;
+        
+        RobotReceiveComms.instructionFlag = 0;
         //outputs - instMag,instDir
         //        - parrotPosition,IRVals,parrot_moving,parrot_found
         //inputs  - chirpStrength,IRVals,instructionFlag,State
