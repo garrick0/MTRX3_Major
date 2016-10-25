@@ -40,7 +40,6 @@
         <itemPath>UISourcefiles/UserInput.c</itemPath>
         <itemPath>UISourcefiles/UserInterface.c</itemPath>
         <itemPath>UISourcefiles/xlcddelays.c</itemPath>
-        <itemPath>../RobotMain.X/servo.c</itemPath>
         <itemPath>UISourcefiles/servo.c</itemPath>
       </logicalFolder>
       <itemPath>openuart.asm</itemPath>

@@ -323,12 +323,6 @@ void high_interrupt(void) {
     // Disable Interrupts
     INTCONbits.GIE = 0;
     
-    
-    
-    
-    
-    
-    
         /*Serial Receive Interrupt*/
     if (PIR1bits.RCIF == 1) {
 
