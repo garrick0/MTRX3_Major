@@ -160,28 +160,20 @@ char ATCommandEnd[] = "ATCN\r"; // end command
 
 void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag, char *saveF){
     int count = 5000000;
-//    while(RCREG != chirpSound && count > 0){
-//        count --;
-//    }
-    if (count == 0){
-        *signalStrength = 0x30;
-        signalStrength++;
-        *signalStrength = NULL; // null terminated
-        return;
-    }
-    *CRflag = 0;
+//    while(RCREG != chirpSound);
+//    *CRflag = 0;
     sendAT(ATCommandStart); // start command mode
-    while(*CRflag != 1); // wait for CR
-    *CRflag = 0; // reset
-
+    Delay10KTCYx(20);
+//    while(*CRflag != 1); // wait for CR
+//    *CRflag = 0; // reset
     sendAT(ATCommandRSSI); // request RSSI
-    while(*CRflag != 1); // wait for CR
-    
-    *CRflag = 0; // reset
-
+    Delay10KTCYx(20);
+//    while(*CRflag != 1); // wait for CR  
+//    *CRflag = 0; // reset
     sendAT(ATCommandEnd); // end AT mode
-    while(*CRflag != 1); // wait for CR
-    *CRflag = 0; // reset
+    Delay10KTCYx(20);
+//    while(*CRflag != 1); // wait for CR
+//    *CRflag = 0; // reset
     // reset the received flag 
 
     *saveF = 0; //since it ends with K disable flag

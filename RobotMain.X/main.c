@@ -52,7 +52,7 @@ void motorSetup(void);
 int targetEncoders[2] = {10,10};
 
 //signal strength is modified by the receive interrupt
-char signalStrength[] = {0x31,0x33,0x00};
+char signalStrength[] = {0x30,0x30,0x00};
 
 //The current encoder values, modified in the readEncoders function
 int currentEncoderVals[2];
@@ -152,7 +152,7 @@ void main(void) {
     instDir = 's';
     instructionFlag2 = 0; 
     
-    transmitData(detectVals,signalStrength,instructionFlag2);
+    //transmitData(detectVals,signalStrength,instructionFlag2);
     
     /* Loop */
     while(1){
@@ -164,7 +164,7 @@ void main(void) {
         if (receiveFlag == 1) {
 
             processReceived(receiveBuffer, &instMag,&instDir,&instructionFlag2);
-            transmitData(detectVals,signalStrength,instructionFlag2);
+            
             receiveFlag=0;
             
         }
@@ -175,11 +175,18 @@ void main(void) {
         //Perform PID or similar and drive motors
         instructionFlag2 = DriveMotors(instMag,instDir,instructionFlag2,Speed,&detailedFlagName);
 
-      // if(detailedFlagName == 1){
-//            getRSSI(receiveBuffer, signalStrength, &receiveFlag, &crflag, &saver);
+       if(detailedFlagName == 1){
+           if(instDir == 'r' || instDir == 'R') {
+            getRSSI(receiveBuffer, signalStrength, &receiveFlag, &crflag, &saver);
+           }
             transmitData(detectVals,signalStrength,instructionFlag2);
-    //        detailedFlagName = 0;
-     // }
+            detailedFlagName = 0;
+        }else {
+           transmitData(detectVals,signalStrength,instructionFlag2);
+        }
+        
+      //  transmitData(detectVals,signalStrength,instructionFlag2);
+        
         //Read IR sensor buffer and return result
         //IRDetect(2,detectVals);
         
@@ -192,7 +199,8 @@ void main(void) {
        // if (detectVals[2] > 0) {
       //      i++;
       //  }
-    Delay10KTCYx(250);   
+        Delay10KTCYx(50);
+       
     }
 }
 
