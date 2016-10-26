@@ -20,16 +20,16 @@ struct UserInterfaceInput {
     char stateRequest;
     char commandInput;
  
-	int max_robot_speed;	//request new values of all parameters
-	int max_yaw_rate;		//note values can only be adjusted by integer increments
-	int ir_samples;
-	int ir_rate;
-	int rf_samples;
-	int p_gain;
-	int i_gain;
-	int d_gain;				//also need: motors=On/Off and find_parrot=on/off requests
-	int motors;
-	int find_parrot;
+	char max_robot_speed;	//request new values of all parameters
+	char max_yaw_rate;		//note values can only be adjusted by integer increments
+	char ir_samples;
+	char ir_rate;
+	char rf_samples;
+	char p_gain;
+	char i_gain;
+	char d_gain;				//also need: motors=On/Off and find_parrot=on/off requests
+	char motors;
+	char find_parrot;
 };
 struct UserInterfaceOutput {
     
@@ -43,20 +43,20 @@ struct UserInterfaceOutput {
     char ir_right;
     char parrot_moving;
     char parrot_found;
-    int instMag;
+    char instMag;
     char instDir;
     char instructionFlag;
 
-	int half_scan;			//1 when scanning, 0 when not scanning
-	int full_scan;
-	int max_robot_speed;	//return values of all parameters
-	int max_yaw_rate;
-	int ir_samples;
-	int ir_rate;	
-    int rf_samples;
-	int p_gain;
-	int i_gain;
-	int d_gain;
+	char half_scan;			//1 when scanning, 0 when not scanning
+	char full_scan;
+	char max_robot_speed;	//return values of all parameters
+	char max_yaw_rate;
+	char ir_samples;
+	char ir_rate;	
+    char rf_samples;
+	char p_gain;
+	char i_gain;
+	char d_gain;
 	
 	
 

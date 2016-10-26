@@ -288,6 +288,11 @@ void main(void) {
         //State Control
         State = stateControl(State,UIInput.stateRequest);
         
+        if (State == MANUAL_MODE) {
+            test++;
+        }
+        
+        
         if (UIInput.commandInput == 'D') {
             test++;
         }
