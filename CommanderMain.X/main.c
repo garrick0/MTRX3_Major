@@ -1,4 +1,3 @@
-
 /**
  * @file main.c
  * @date 15 Oct 2016
@@ -168,14 +167,7 @@ void main(void) {
          
     //UI
     UISetup();
-
-
-    // Comms
-    commSetup();
-
-    /////////////////////////// TEST CODE BEGIN ////////////////////////////////
     
-
     (UIInput.stateRequest)=INITIALISE;
     (UIInput.max_robot_speed)=10;
     (UIInput.max_yaw_rate)=10;		
@@ -187,7 +179,7 @@ void main(void) {
     (UIInput.d_gain)=10;			
     (UIInput.motors)=0;
     (UIInput.find_parrot)=0;
-    (UIOutput.parrotDirection)=0;
+    (UIOutput.parrotDirection)=90;
     (UIOutput.parrotDistance)=10;
     (UIOutput.ir_left)=30;
     (UIOutput.ir_front)=20;
@@ -199,6 +191,24 @@ void main(void) {
     (UIOutput.instructionFlag)=1;
     (UIOutput.half_scan)=0;			//1 when scanning, 0 when not scanning
 	(UIOutput.full_scan)=0;
+    
+    INTCONbits.PEIE = 1;
+    RCONbits.IPEN = 1;
+    INTCONbits.GIE = 1;
+    while((UIInput.stateRequest)==INITIALISE){
+        inputUI(UIbuffer,&UIInput);
+        (UIOutput.State)=(UIInput.stateRequest);
+        outputUI(&UIOutput);
+    }
+    INTCONbits.PEIE = 0;
+    RCONbits.IPEN = 0;
+    // Comms
+    commSetup();
+
+    /////////////////////////// TEST CODE BEGIN ////////////////////////////////
+    
+
+
     
     
     
@@ -331,22 +341,23 @@ void main(void) {
 #pragma interrupt low_interrupt
 void low_interrupt(void){
     //INTCONbits.GIE = 0;
-    if(ORInput && deBounce>12){				//check if user input triggered interrupt
+    if(ORInput /*&& deBounce>12*/){				//check if user input triggered interrupt
         INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
         deBounce=0;
-		CheckUserInput(UIbuffer); 
-        
-        
-	}else if(INTCONbits.TMR0IF){          //delay interrupt  
+		CheckUserInput(UIbuffer);     
+	}
+    if(INTCONbits.TMR0IF){          //delay interrupt  
         INTCONbits.TMR0IF=0;
         INTCONbits.TMR0IE =0;       //disable interrupt
         T0CONbits.TMR0ON =0;        //turn timer off       
         UIdelay=1;
         
-    }else if(PIR1bits.RCIF){        //check PC input flag
+    }
+    if(PIR1bits.RCIF){        //check PC input flag
         CheckPCInput(UIbuffer);
         
-    }else if(PIR2bits.CCP2IF){      //check is servo delay triggered interrupt
+    }
+    if(PIR2bits.CCP2IF){      //check is servo delay triggered interrupt
         PIR2bits.CCP2IF = 0;
         servoToggle();
         if(deBounce<13){
@@ -358,19 +369,20 @@ void low_interrupt(void){
 }
 #pragma interrupt high_interrupt
 void high_interrupt(void) {
+/*Serial Receive Interrupt*/
+    if (INTCON3bits.INT2IF == 1) {
+        
+        receiveComms(recBuffer,&receiveFlag);
+        INTCON3bits.INT2IF = 0;
+
+    }
 
     
     // Disable Interrupts
     INTCONbits.GIE = 0;
     
-        /*Serial Receive Interrupt*/
-    if (INTCON3bits.INT2IF == 1) {
-        INTCON3bits.INT2IF = 0;
-        receiveComms(recBuffer,&receiveFlag);
         
-
-    }
-	else if(EmergencyStop){              //check if user input triggered interrupt
+	if(EmergencyStop){              //check if user input triggered interrupt
         INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
 		Emergency_Stop(UIbuffer);
         
@@ -388,4 +400,3 @@ void high_interrupt(void) {
 char stateControl(char State,char stateRequest) {
     return stateRequest;
 }
-

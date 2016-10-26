@@ -26,8 +26,8 @@ void UISetup(void) {
     UserInputSetup();
     initialiseComs();
     LEDSetup();
-    servoSetup();
-    initialiseCCP2();
+    //servoSetup();
+    //initialiseCCP2();
 }
 
 

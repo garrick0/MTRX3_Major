@@ -36,7 +36,7 @@ void commSetup(void){
     // TX - pin C4
     // RX - pin B1     
     INTCON2bits.RBPU = 1; //PORTB internal pull-ups disable
-    PORTBbits.RB2 = 0; //set PORTB pin 2
+    PORTBbits.RB2 = 1; //set PORTB pin 2
     TRISBbits.TRISB2 = 1; //set PORTB 2 to input
     ADCON1=0x0F; //set all PORTB as digital I/O 
     
@@ -118,11 +118,11 @@ void transmitComms(struct communicationsOutput CommsOutput) {
  */
 void handShake(void){
     WriteUART(startCh); // send the package initiator
-    Delay10TCYx(4);
+    Delay10TCYx(100);
     WriteUART(safety); // start message 
-    Delay10TCYx(4);
+    Delay10TCYx(100);
     WriteUART(shake); // hand shake indication 
-    Delay10TCYx(4);
+    Delay10TCYx(100);
     WriteUART(endChar); // send the package that indicates the end 
     return;
 }
