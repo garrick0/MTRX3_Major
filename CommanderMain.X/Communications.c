@@ -23,7 +23,7 @@ void DelayTXBitUART(void);
 void DelayRXHalfBitUART(void);
 void DelayRXBitUART(void);
 void sendMsg(char*dataPack);
-void handShake(void);
+
 
 
 /**

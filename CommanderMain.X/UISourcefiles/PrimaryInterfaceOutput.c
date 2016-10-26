@@ -72,7 +72,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
         }
     }
     if(interface_mode==SECONDARY_INTERFACE_MODE){
-
+        
         //////////////////////////////////////////////////////////////
 
         //////////////////////////////////////////////////////////////

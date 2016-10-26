@@ -39,7 +39,7 @@ void commSetup(void);
 void receiveComms(char* receiveBuffer,char *flag);
 void transmitComms(struct communicationsOutput CommsOutput);
 void processReceived(char* Buffer,char* IRVals, char* instructionFlag, char * chirpStr, char *connection);
-
+void handShake(void);
 //Nav
 void navSetup(void);
 //void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
@@ -130,6 +130,7 @@ int test;
 
 int UIdelay = 0;
 char deBounce=0;
+char deBounceThreshold=10;
 
 char newInstruction = 0;
 
@@ -331,6 +332,13 @@ void main(void) {
         
        //Transmit Instruction to robot if new one is generated (only transmit when in the correct menu   )
         if (newInstruction & (State != INITIALISE)) {
+            
+            while(connection == 0){
+                handShake();
+                if(receiveFlag == 1){
+                    processReceived(recBuffer,IRVals, &instructionFlag, &chirpStrength,&connection);
+                }
+            }
             test++;
             transmitComms(RobotTransmitComms);
             newInstruction = 0;
@@ -341,7 +349,7 @@ void main(void) {
 #pragma interrupt low_interrupt
 void low_interrupt(void){
     //INTCONbits.GIE = 0;
-    if(ORInput /*&& deBounce>12*/){				//check if user input triggered interrupt
+    if(ORInput /*&& deBounce>=deBounceThreshold*/){				//check if user input triggered interrupt
         INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
         deBounce=0;
 		CheckUserInput(UIbuffer);     
@@ -360,7 +368,7 @@ void low_interrupt(void){
     if(PIR2bits.CCP2IF){      //check is servo delay triggered interrupt
         PIR2bits.CCP2IF = 0;
         servoToggle();
-        if(deBounce<13){
+        if(deBounce<deBounceThreshold){
             deBounce++;
         }
     }
