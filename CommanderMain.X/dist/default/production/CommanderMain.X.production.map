@@ -1,5 +1,5 @@
 MPLINK 4.48, Linker
-Linker Map File - Created Wed Oct 26 13:38:21 2016
+Linker Map File - Created Wed Oct 26 16:42:28 2016
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -83,48 +83,48 @@ Linker Map File - Created Wed Oct 26 13:38:21 2016
       .romdata_writdata.o    romdata   0x00424b    program   0x000000
       .romdata_wcmdxlcd.o    romdata   0x00424b    program   0x000000
       .idata_writdata.o_i    romdata   0x00424b    program   0x000000
-       .code_Navigation.o       code   0x00424c    program   0x000654
-   .code_Communications.o       code   0x0048a0    program   0x000620
-             .code_main.o       code   0x004ec0    program   0x000376
-            .code_servo.o       code   0x005236    program   0x00035e
-        .code_UserInput.o       code   0x005594    program   0x000348
-         .code_LCDWrite.o       code   0x0058dc    program   0x00014a
-    .code_UserInterface.o       code   0x005a26    program   0x00010a
-         .code_openxlcd.o       code   0x005b30    program   0x0000de
-       .code_xlcddelays.o       code   0x005c0e    program   0x0000ac
-          .code_sprintf.o       code   0x005cba    program   0x0000ac
-               _cinit_scn       code   0x005d66    program   0x00009e
-                     PROG       code   0x005e04    program   0x00008e
-            .code_uopen.o       code   0x005e92    program   0x00008a
-                 UARTCODE       code   0x005f1c    program   0x000088
-             .code_putc.o       code   0x005fa4    program   0x000084
-          .code_fxm3232.o       code   0x006028    program   0x000070
-         .code_putrxlcd.o       code   0x006098    program   0x000068
-                   STRING       code   0x006100    program   0x000066
-         .code_setddram.o       code   0x006166    program   0x000050
-         .code_setcgram.o       code   0x0061b6    program   0x000050
-         .code_writdata.o       code   0x006206    program   0x00004e
-         .code_wcmdxlcd.o       code   0x006254    program   0x00004e
-         .code_putsxlcd.o       code   0x0062a2    program   0x00004e
-         .code_fxd3232u.o       code   0x0062f0    program   0x000048
-         .code_readdata.o       code   0x006338    program   0x000046
-         .code_readaddr.o       code   0x00637e    program   0x000046
-         .code_busyxlcd.o       code   0x0063c4    program   0x00003e
-         .code_putsuart.o       code   0x006402    program   0x00003c
-             D10KTCYXCODE       code   0x00643e    program   0x00002e
-           .code_uwrite.o       code   0x00646c    program   0x00002e
-                    CTYPE       code   0x00649a    program   0x000024
-                    .code       code   0x0064be    program   0x000020
-             _startup_scn       code   0x0064de    program   0x00001c
-                    STDIO       code   0x0064fa    program   0x00001c
-             D100TCYXCODE       code   0x006516    program   0x00001c
-         .code_fxd0808u.o       code   0x006532    program   0x00001c
-              D10TCYXCODE       code   0x00654e    program   0x000016
-      .romdata_vfprintf.o    romdata   0x006564    program   0x000011
-          .idata_main.o_i    romdata   0x006575    program   0x000009
- .idata_UserInterface.o_i    romdata   0x00657e    program   0x000008
-.idata_StateTransition.o_i    romdata   0x006586    program   0x000007
-    .idata_Navigation.o_i    romdata   0x00658d    program   0x000011
+       .code_Navigation.o       code   0x00424c    program   0x000672
+   .code_Communications.o       code   0x0048be    program   0x000620
+             .code_main.o       code   0x004ede    program   0x000394
+            .code_servo.o       code   0x005272    program   0x00035e
+        .code_UserInput.o       code   0x0055d0    program   0x000348
+         .code_LCDWrite.o       code   0x005918    program   0x00014a
+    .code_UserInterface.o       code   0x005a62    program   0x00010a
+         .code_openxlcd.o       code   0x005b6c    program   0x0000de
+       .code_xlcddelays.o       code   0x005c4a    program   0x0000ac
+          .code_sprintf.o       code   0x005cf6    program   0x0000ac
+               _cinit_scn       code   0x005da2    program   0x00009e
+                     PROG       code   0x005e40    program   0x00008e
+            .code_uopen.o       code   0x005ece    program   0x00008a
+                 UARTCODE       code   0x005f58    program   0x000088
+             .code_putc.o       code   0x005fe0    program   0x000084
+          .code_fxm3232.o       code   0x006064    program   0x000070
+         .code_putrxlcd.o       code   0x0060d4    program   0x000068
+                   STRING       code   0x00613c    program   0x000066
+         .code_setddram.o       code   0x0061a2    program   0x000050
+         .code_setcgram.o       code   0x0061f2    program   0x000050
+         .code_writdata.o       code   0x006242    program   0x00004e
+         .code_wcmdxlcd.o       code   0x006290    program   0x00004e
+         .code_putsxlcd.o       code   0x0062de    program   0x00004e
+         .code_fxd3232u.o       code   0x00632c    program   0x000048
+         .code_readdata.o       code   0x006374    program   0x000046
+         .code_readaddr.o       code   0x0063ba    program   0x000046
+         .code_busyxlcd.o       code   0x006400    program   0x00003e
+         .code_putsuart.o       code   0x00643e    program   0x00003c
+             D10KTCYXCODE       code   0x00647a    program   0x00002e
+           .code_uwrite.o       code   0x0064a8    program   0x00002e
+                    CTYPE       code   0x0064d6    program   0x000024
+                    .code       code   0x0064fa    program   0x000020
+             _startup_scn       code   0x00651a    program   0x00001c
+                    STDIO       code   0x006536    program   0x00001c
+             D100TCYXCODE       code   0x006552    program   0x00001c
+         .code_fxd0808u.o       code   0x00656e    program   0x00001c
+              D10TCYXCODE       code   0x00658a    program   0x000016
+      .romdata_vfprintf.o    romdata   0x0065a0    program   0x000011
+          .idata_main.o_i    romdata   0x0065b1    program   0x000009
+ .idata_UserInterface.o_i    romdata   0x0065ba    program   0x000008
+.idata_StateTransition.o_i    romdata   0x0065c2    program   0x000007
+    .idata_Navigation.o_i    romdata   0x0065c9    program   0x000011
     .config_300001_main.o    romdata   0x300001    program   0x000001
     .config_300002_main.o    romdata   0x300002    program   0x000001
     .config_300003_main.o    romdata   0x300003    program   0x000001
@@ -220,112 +220,112 @@ Linker Map File - Created Wed Oct 26 13:38:21 2016
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000011      
-                            0x000018    0x00659d      
+                            0x000018    0x0065d9      
                             0x300001    0x300003      
                             0x300005    0x300006      
                             0x300008    0x30000d      
-            26019 out of 33048 program addresses used, program memory utilization is 78%
+            26079 out of 33048 program addresses used, program memory utilization is 78%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                 BusyXLCD   0x0063c4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\busyxlcd.c
-             CheckPCInput   0x00571e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-           CheckUserInput   0x0055f0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-     ClearUserInputBuffer   0x005892    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-                   D0808S   0x005e1a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x005e28    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x005e24    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x005e2e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                   D100_1   0x006524    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                    D100x   0x006522    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                   D10K_1   0x00644a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kl   0x006456    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kx   0x006448    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10_1   0x00655e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                     D10x   0x006556    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                  DA0808S   0x005e10    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-             Delay100TCYx   0x006516    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-             Delay10KTCYx   0x00643e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-              Delay10TCYx   0x00654e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-            DelayFor18TCY   0x005c0e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
-             DelayPORXLCD   0x005c2c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
-           DelayRXBitUART   0x004e9c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-       DelayRXHalfBitUART   0x004e84    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-           DelayTXBitUART   0x004e5c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-                DelayXLCD   0x005c74    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
-           Emergency_Stop   0x0058ba    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-                 FXD0808S   0x005e04    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                 FXD0808U   0x006532    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
-                 FXD3232U   0x0062f0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd3232u.c
-                 FXM1616S   0x005e38    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
-                  FXM3232   0x006028    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm3232.c
-                  GetChar   0x005f44    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
+                 BusyXLCD   0x006400    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\busyxlcd.c
+             CheckPCInput   0x00575a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+           CheckUserInput   0x00562c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+     ClearUserInputBuffer   0x0058ce    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+                   D0808S   0x005e56    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                D0808SNEG   0x005e64    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 D0808SOK   0x005e60    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  D0808SX   0x005e6a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                   D100_1   0x006560    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                    D100x   0x00655e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                   D10K_1   0x006486    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kl   0x006492    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kx   0x006484    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10_1   0x00659a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                     D10x   0x006592    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                  DA0808S   0x005e4c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+             Delay100TCYx   0x006552    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+             Delay10KTCYx   0x00647a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+              Delay10TCYx   0x00658a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+            DelayFor18TCY   0x005c4a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
+             DelayPORXLCD   0x005c68    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
+           DelayRXBitUART   0x004eba    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+       DelayRXHalfBitUART   0x004ea2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+           DelayTXBitUART   0x004e7a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+                DelayXLCD   0x005cb0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
+           Emergency_Stop   0x0058f6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+                 FXD0808S   0x005e40    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 FXD0808U   0x00656e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
+                 FXD3232U   0x00632c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd3232u.c
+                 FXM1616S   0x005e74    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
+                  FXM3232   0x006064    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm3232.c
+                  GetChar   0x005f80    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
               GetPasscode   0x00005c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\StateTransition.c
-                 LCDClear   0x005a10    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-            LCDInitialise   0x0058dc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-         LCDLine1RAMWrite   0x00593a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-         LCDLine1ROMWrite   0x0058e8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-         LCDLine2RAMWrite   0x0059ce    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-         LCDLine2ROMWrite   0x00597c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+                 LCDClear   0x005a4c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+            LCDInitialise   0x005918    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+         LCDLine1RAMWrite   0x005976    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+         LCDLine1ROMWrite   0x005924    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+         LCDLine2RAMWrite   0x005a0a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+         LCDLine2ROMWrite   0x0059b8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
                 LEDOutput   0x0016aa    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\PrimaryInterfaceOutput.c
                  LEDSetup   0x00169c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\PrimaryInterfaceOutput.c
-                   ON_OFF   0x0058b0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-                 OpenUART   0x005f1c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\openuart.asm
-                OpenUSART   0x005e92    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
-                 OpenXLCD   0x005b30    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\openxlcd.c
+                   ON_OFF   0x0058ec    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+                 OpenUART   0x005f58    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\openuart.asm
+                OpenUSART   0x005ece    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
+                 OpenXLCD   0x005b6c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\openxlcd.c
               PCLineClear   0x00326c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\SecondaryInterfaceOutput.c
                PCRAMWrite   0x003226    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\SecondaryInterfaceOutput.c
                PCROMWrite   0x0031dc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\SecondaryInterfaceOutput.c
    PrimaryInterfaceOutput   0x0016f6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\PrimaryInterfaceOutput.c
-             ReadAddrXLCD   0x00637e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\readaddr.c
-             ReadDataXLCD   0x006338    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\readdata.c
-                 ReadUART   0x005f2a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
-      ReadUserInputBuffer   0x00585c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+             ReadAddrXLCD   0x0063ba    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\readaddr.c
+             ReadDataXLCD   0x006374    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\readdata.c
+                 ReadUART   0x005f66    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
+      ReadUserInputBuffer   0x005898    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
  SecondaryInterfaceOutput   0x00327c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\SecondaryInterfaceOutput.c
-                  SendBit   0x005f80    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
-                SendStart   0x005f84    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
-             SetCGRamAddr   0x0061b6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\setcgram.c
-             SetDDRamAddr   0x006166    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\setddram.c
+                  SendBit   0x005fbc    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
+                SendStart   0x005fc0    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
+             SetCGRamAddr   0x0061f2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\setcgram.c
+             SetDDRamAddr   0x0061a2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\setddram.c
           StateTransition   0x000126    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\StateTransition.c
-               TSIGN1616A   0x005e84    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
-                  UISetup   0x005a26    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
-           UserInputSetup   0x005594    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-                 WaitChar   0x005f32    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
-             WriteCmdXLCD   0x006254    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\wcmdxlcd.c
-            WriteDataXLCD   0x006206    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\writdata.c
-                WriteUART   0x005f6c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
-               WriteUSART   0x00646c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
-     WriteUserInputBuffer   0x0055bc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-                   _2jEnd   0x006150    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
-       _D100TCYXCODE_0008   0x00651e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0012   0x006528    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0018   0x00652e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D10KTCYXCODE_0010   0x00644e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_001C   0x00645a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-        _D10TCYXCODE_000A   0x006558    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000C   0x00655a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000E   0x00655c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-       ___return_lbl00000   0x00654c    program     static                          
-       ___return_lbl00000   0x006336    program     static                          
-       ___return_lbl00000   0x006096    program     static                          
+               TSIGN1616A   0x005ec0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
+                  UISetup   0x005a62    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
+           UserInputSetup   0x0055d0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+                 WaitChar   0x005f6e    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
+             WriteCmdXLCD   0x006290    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\wcmdxlcd.c
+            WriteDataXLCD   0x006242    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\writdata.c
+                WriteUART   0x005fa8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
+               WriteUSART   0x0064a8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
+     WriteUserInputBuffer   0x0055f8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+                   _2jEnd   0x00618c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
+       _D100TCYXCODE_0008   0x00655a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0012   0x006564    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0018   0x00656a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D10KTCYXCODE_0010   0x00648a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_001C   0x006496    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+        _D10TCYXCODE_000A   0x006594    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000C   0x006596    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000E   0x006598    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+       ___return_lbl00000   0x006588    program     static                          
+       ___return_lbl00000   0x006372    program     static                          
+       ___return_lbl00000   0x0060d2    program     static                          
        ___return_lbl00000   0x00000c    program     static                          
-       ___return_lbl00000   0x005c2a    program     static                          
+       ___return_lbl00000   0x005c66    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x005c60    program     static                          
-       ___return_lbl00001   0x0064f8    program     static                          
+       ___return_lbl00001   0x005c9c    program     static                          
+       ___return_lbl00001   0x006534    program     static                          
        ___return_lbl00001   0x00001c    program     static                          
-       ___return_lbl00002   0x005e02    program     static                          
-       ___return_lbl00004   0x005ca6    program     static                          
-       ___return_lbl00028   0x004e82    program     static                          
-       ___return_lbl00029   0x004e9a    program     static                          
-       ___return_lbl00030   0x004ebe    program     static                          
-        ___while_lbl00002   0x005c48    program     static                          
-        ___while_lbl00003   0x005c60    program     static                          
-        ___while_lbl00005   0x005c8e    program     static                          
-        ___while_lbl00006   0x005ca6    program     static                          
+       ___return_lbl00002   0x005e3e    program     static                          
+       ___return_lbl00004   0x005ce2    program     static                          
+       ___return_lbl00028   0x004ea0    program     static                          
+       ___return_lbl00029   0x004eb8    program     static                          
+       ___return_lbl00030   0x004edc    program     static                          
+        ___while_lbl00002   0x005c84    program     static                          
+        ___while_lbl00003   0x005c9c    program     static                          
+        ___while_lbl00005   0x005cca    program     static                          
+        ___while_lbl00006   0x005ce2    program     static                          
                __config_0   0x300001    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
                __config_1   0x300002    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
               __config_10   0x30000d    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
@@ -481,82 +481,82 @@ Linker Map File - Created Wed Oct 26 13:38:21 2016
               __tmplbl_53   0x001616    program     static                          
               __tmplbl_54   0x001616    program     static                          
               __tmplbl_85   0x0025ea    program     static                          
-            __zero_memory   0x0064be    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                _do_cinit   0x005d66    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+            __zero_memory   0x0064fa    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                _do_cinit   0x005da2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                   _false   0x006332    program     static                          
-                 _startup   0x0064de    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-              _usart_putc   0x0064fa    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\_usartpc.asm
+                   _false   0x00636e    program     static                          
+                 _startup   0x00651a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+              _usart_putc   0x006536    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\_usartpc.asm
                _user_putc   0x000006    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\_user_putc.c
-            autoAlgorithm   0x004734    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-                checkScan   0x004416    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-                commSetup   0x0048a0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-                compare_l   0x0064d4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                copy_loop   0x005dd8    program     static                          
-            copy_one_byte   0x005dde    program     static                          
-       degrees2pulse_HIGH   0x0053d0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-        degrees2pulse_LOW   0x0052ac    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-                     done   0x005e02    program     static                          
-             done_copying   0x005dec    program     static                          
-                  endloop   0x006548    program     static                          
+            autoAlgorithm   0x004746    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
+                checkScan   0x004424    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
+                commSetup   0x0048be    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+                compare_l   0x006510    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                copy_loop   0x005e14    program     static                          
+            copy_one_byte   0x005e1a    program     static                          
+       degrees2pulse_HIGH   0x00540c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+        degrees2pulse_LOW   0x0052e8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+                     done   0x005e3e    program     static                          
+             done_copying   0x005e28    program     static                          
+                  endloop   0x006584    program     static                          
             goto_high_ISR   0x000008    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
              goto_low_ISR   0x000018    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
-                handShake   0x004be8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-           high_interrupt   0x005138    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
+                handShake   0x004c06    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+           high_interrupt   0x005174    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
                initialise   0x000010    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\UserinterfaceInitialise.c
-           initialiseCCP2   0x00526c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+           initialiseCCP2   0x0052a8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
            initialiseComs   0x0031b6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\SecondaryInterfaceOutput.c
        initialising_state   0x0000bc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\StateTransition.c
-                  inputUI   0x005a4a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
-                  isdigit   0x00649a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
-                     jEnd   0x00611a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
-                     jEnd   0x006152    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
-                    jLoop   0x00613a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
-                    jLoop   0x006110    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
-                   jMatch   0x0064ba    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
-                 jNoMatch   0x0064bc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
-                     loop   0x0062fe    program     static                          
-                     loop   0x00653a    program     static                          
-                     loop   0x00650a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\_usartpc.asm
-                     loop   0x0064ee    program     static                          
-                   loop_h   0x0064cc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_l   0x0064d6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-            low_interrupt   0x005072    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
-                     main   0x004ec0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
-               move0_HIGH   0x0054f4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-                move0_LOW   0x005544    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-             move135_HIGH   0x005524    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              move135_LOW   0x005574    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-             move180_HIGH   0x005534    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              move180_LOW   0x005584    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              move45_HIGH   0x005504    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-               move45_LOW   0x005554    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              move90_HIGH   0x005514    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-               move90_LOW   0x005564    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+                  inputUI   0x005a86    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
+                  isdigit   0x0064d6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
+                     jEnd   0x006156    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
+                     jEnd   0x00618e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
+                    jLoop   0x006176    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
+                    jLoop   0x00614c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
+                   jMatch   0x0064f6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
+                 jNoMatch   0x0064f8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
+                     loop   0x00633a    program     static                          
+                     loop   0x006576    program     static                          
+                     loop   0x006546    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\_usartpc.asm
+                     loop   0x00652a    program     static                          
+                   loop_h   0x006508    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_l   0x006512    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+            low_interrupt   0x0050ae    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
+                     main   0x004ede    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
+               move0_HIGH   0x005530    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+                move0_LOW   0x005580    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+             move135_HIGH   0x005560    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              move135_LOW   0x0055b0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+             move180_HIGH   0x005570    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              move180_LOW   0x0055c0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              move45_HIGH   0x005540    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+               move45_LOW   0x005590    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              move90_HIGH   0x005550    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+               move90_LOW   0x0055a0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
                  navSetup   0x00424c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-                 outputUI   0x005ab2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
-         parseUIDirection   0x0044e2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-          processReceived   0x004c32    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-                     putc   0x005fa4    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\putc.c
-                putrsXLCD   0x006098    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\putrxlcd.c
-                 putsUART   0x006402    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\putsuart.c
-                 putsXLCD   0x0062a2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\putsxlcd.c
-             receiveComms   0x0048bc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+                 outputUI   0x005aee    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
+         parseUIDirection   0x0044f0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
+          processReceived   0x004c50    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+                     putc   0x005fe0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\putc.c
+                putrsXLCD   0x0060d4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\putrxlcd.c
+                 putsUART   0x00643e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\putsuart.c
+                 putsXLCD   0x0062de    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\putsxlcd.c
+             receiveComms   0x0048da    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
                 robotMove   0x00424e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-                 s_digits   0x006564    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\vfprintf.c
+                 s_digits   0x0065a0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\vfprintf.c
             s_put_n_chars   0x002594    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\vfprintf.c
-              servoOutput   0x005278    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-               servoSetup   0x005256    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              servoToggle   0x005236    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-                  sprintf   0x005cba    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\sprintf.c
-             stateControl   0x005220    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
-                  storeUI   0x005a36    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
-                   strlen   0x006100    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
-                strlenpgm   0x00611c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
-                     test   0x005d80    program     static                          
-            transmitComms   0x00492c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+              servoOutput   0x0052b4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+               servoSetup   0x005292    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              servoToggle   0x005272    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+                  sprintf   0x005cf6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\sprintf.c
+             stateControl   0x00525c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
+                  storeUI   0x005a72    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
+                   strlen   0x00613c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
+                strlenpgm   0x006158    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
+                     test   0x005dbc    program     static                          
+            transmitComms   0x00494a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
                  vfprintf   0x0025c0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\vfprintf.c
-               zero_block   0x0064cc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+               zero_block   0x006508    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADCON0   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                ADCON0bits   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
                    ADCON1   0x000fc1       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
@@ -1010,154 +1010,154 @@ Linker Map File - Created Wed Oct 26 13:38:21 2016
                __string_0   0x004249    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
                  navSetup   0x00424c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
                 robotMove   0x00424e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-                checkScan   0x004416    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-         parseUIDirection   0x0044e2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-            autoAlgorithm   0x004734    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
-                commSetup   0x0048a0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-             receiveComms   0x0048bc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-            transmitComms   0x00492c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-                handShake   0x004be8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-          processReceived   0x004c32    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-           DelayTXBitUART   0x004e5c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-       ___return_lbl00028   0x004e82    program     static                          
-       DelayRXHalfBitUART   0x004e84    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-       ___return_lbl00029   0x004e9a    program     static                          
-           DelayRXBitUART   0x004e9c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
-       ___return_lbl00030   0x004ebe    program     static                          
-                     main   0x004ec0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
-            low_interrupt   0x005072    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
-           high_interrupt   0x005138    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
-             stateControl   0x005220    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
-              servoToggle   0x005236    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-               servoSetup   0x005256    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-           initialiseCCP2   0x00526c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              servoOutput   0x005278    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-        degrees2pulse_LOW   0x0052ac    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-       degrees2pulse_HIGH   0x0053d0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-               move0_HIGH   0x0054f4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              move45_HIGH   0x005504    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              move90_HIGH   0x005514    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-             move135_HIGH   0x005524    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-             move180_HIGH   0x005534    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-                move0_LOW   0x005544    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-               move45_LOW   0x005554    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-               move90_LOW   0x005564    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              move135_LOW   0x005574    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-              move180_LOW   0x005584    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
-           UserInputSetup   0x005594    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-     WriteUserInputBuffer   0x0055bc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-           CheckUserInput   0x0055f0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-             CheckPCInput   0x00571e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-      ReadUserInputBuffer   0x00585c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-     ClearUserInputBuffer   0x005892    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-                   ON_OFF   0x0058b0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-           Emergency_Stop   0x0058ba    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
-            LCDInitialise   0x0058dc    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-         LCDLine1ROMWrite   0x0058e8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-         LCDLine1RAMWrite   0x00593a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-         LCDLine2ROMWrite   0x00597c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-         LCDLine2RAMWrite   0x0059ce    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-                 LCDClear   0x005a10    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
-                  UISetup   0x005a26    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
-                  storeUI   0x005a36    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
-                  inputUI   0x005a4a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
-                 outputUI   0x005ab2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
-                 OpenXLCD   0x005b30    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\openxlcd.c
-            DelayFor18TCY   0x005c0e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
-       ___return_lbl00000   0x005c2a    program     static                          
-             DelayPORXLCD   0x005c2c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
-        ___while_lbl00002   0x005c48    program     static                          
-        ___while_lbl00003   0x005c60    program     static                          
-       ___return_lbl00001   0x005c60    program     static                          
-                DelayXLCD   0x005c74    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
-        ___while_lbl00005   0x005c8e    program     static                          
-       ___return_lbl00004   0x005ca6    program     static                          
-        ___while_lbl00006   0x005ca6    program     static                          
-                  sprintf   0x005cba    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\sprintf.c
-                _do_cinit   0x005d66    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     test   0x005d80    program     static                          
-                copy_loop   0x005dd8    program     static                          
-            copy_one_byte   0x005dde    program     static                          
-             done_copying   0x005dec    program     static                          
-                     done   0x005e02    program     static                          
-       ___return_lbl00002   0x005e02    program     static                          
-                 FXD0808S   0x005e04    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                  DA0808S   0x005e10    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                   D0808S   0x005e1a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x005e24    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x005e28    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x005e2e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                 FXM1616S   0x005e38    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
-               TSIGN1616A   0x005e84    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
-                OpenUSART   0x005e92    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
-                 OpenUART   0x005f1c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\openuart.asm
-                 ReadUART   0x005f2a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
-                 WaitChar   0x005f32    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
-                  GetChar   0x005f44    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
-                WriteUART   0x005f6c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
-                  SendBit   0x005f80    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
-                SendStart   0x005f84    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
-                     putc   0x005fa4    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\putc.c
-                  FXM3232   0x006028    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm3232.c
-       ___return_lbl00000   0x006096    program     static                          
-                putrsXLCD   0x006098    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\putrxlcd.c
-                   strlen   0x006100    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
-                    jLoop   0x006110    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
-                     jEnd   0x00611a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
-                strlenpgm   0x00611c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
-                    jLoop   0x00613a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
-                   _2jEnd   0x006150    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
-                     jEnd   0x006152    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
-             SetDDRamAddr   0x006166    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\setddram.c
-             SetCGRamAddr   0x0061b6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\setcgram.c
-            WriteDataXLCD   0x006206    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\writdata.c
-             WriteCmdXLCD   0x006254    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\wcmdxlcd.c
-                 putsXLCD   0x0062a2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\putsxlcd.c
-                 FXD3232U   0x0062f0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd3232u.c
-                     loop   0x0062fe    program     static                          
-                   _false   0x006332    program     static                          
-       ___return_lbl00000   0x006336    program     static                          
-             ReadDataXLCD   0x006338    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\readdata.c
-             ReadAddrXLCD   0x00637e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\readaddr.c
-                 BusyXLCD   0x0063c4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\busyxlcd.c
-                 putsUART   0x006402    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\putsuart.c
-             Delay10KTCYx   0x00643e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kx   0x006448    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                   D10K_1   0x00644a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_0010   0x00644e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kl   0x006456    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_001C   0x00645a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-               WriteUSART   0x00646c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
-                  isdigit   0x00649a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
-                   jMatch   0x0064ba    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
-                 jNoMatch   0x0064bc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
-            __zero_memory   0x0064be    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-               zero_block   0x0064cc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_h   0x0064cc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                compare_l   0x0064d4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                   loop_l   0x0064d6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
-                 _startup   0x0064de    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x0064ee    program     static                          
-       ___return_lbl00001   0x0064f8    program     static                          
-              _usart_putc   0x0064fa    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\_usartpc.asm
-                     loop   0x00650a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\_usartpc.asm
-             Delay100TCYx   0x006516    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0008   0x00651e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                    D100x   0x006522    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                   D100_1   0x006524    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0012   0x006528    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0018   0x00652e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                 FXD0808U   0x006532    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
-                     loop   0x00653a    program     static                          
-                  endloop   0x006548    program     static                          
-       ___return_lbl00000   0x00654c    program     static                          
-              Delay10TCYx   0x00654e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                     D10x   0x006556    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000A   0x006558    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000C   0x00655a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000E   0x00655c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                    D10_1   0x00655e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                 s_digits   0x006564    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\vfprintf.c
+                checkScan   0x004424    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
+         parseUIDirection   0x0044f0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
+            autoAlgorithm   0x004746    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Navigation.c
+                commSetup   0x0048be    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+             receiveComms   0x0048da    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+            transmitComms   0x00494a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+                handShake   0x004c06    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+          processReceived   0x004c50    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+           DelayTXBitUART   0x004e7a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+       ___return_lbl00028   0x004ea0    program     static                          
+       DelayRXHalfBitUART   0x004ea2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+       ___return_lbl00029   0x004eb8    program     static                          
+           DelayRXBitUART   0x004eba    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\Communications.c
+       ___return_lbl00030   0x004edc    program     static                          
+                     main   0x004ede    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
+            low_interrupt   0x0050ae    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
+           high_interrupt   0x005174    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
+             stateControl   0x00525c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
+              servoToggle   0x005272    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+               servoSetup   0x005292    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+           initialiseCCP2   0x0052a8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              servoOutput   0x0052b4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+        degrees2pulse_LOW   0x0052e8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+       degrees2pulse_HIGH   0x00540c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+               move0_HIGH   0x005530    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              move45_HIGH   0x005540    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              move90_HIGH   0x005550    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+             move135_HIGH   0x005560    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+             move180_HIGH   0x005570    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+                move0_LOW   0x005580    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+               move45_LOW   0x005590    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+               move90_LOW   0x0055a0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              move135_LOW   0x0055b0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+              move180_LOW   0x0055c0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\servo.c
+           UserInputSetup   0x0055d0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+     WriteUserInputBuffer   0x0055f8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+           CheckUserInput   0x00562c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+             CheckPCInput   0x00575a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+      ReadUserInputBuffer   0x005898    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+     ClearUserInputBuffer   0x0058ce    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+                   ON_OFF   0x0058ec    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+           Emergency_Stop   0x0058f6    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInput.c
+            LCDInitialise   0x005918    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+         LCDLine1ROMWrite   0x005924    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+         LCDLine1RAMWrite   0x005976    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+         LCDLine2ROMWrite   0x0059b8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+         LCDLine2RAMWrite   0x005a0a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+                 LCDClear   0x005a4c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\LCDWrite.c
+                  UISetup   0x005a62    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
+                  storeUI   0x005a72    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
+                  inputUI   0x005a86    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
+                 outputUI   0x005aee    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\UserInterface.c
+                 OpenXLCD   0x005b6c    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\openxlcd.c
+            DelayFor18TCY   0x005c4a    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
+       ___return_lbl00000   0x005c66    program     static                          
+             DelayPORXLCD   0x005c68    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
+        ___while_lbl00002   0x005c84    program     static                          
+        ___while_lbl00003   0x005c9c    program     static                          
+       ___return_lbl00001   0x005c9c    program     static                          
+                DelayXLCD   0x005cb0    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\xlcddelays.c
+        ___while_lbl00005   0x005cca    program     static                          
+       ___return_lbl00004   0x005ce2    program     static                          
+        ___while_lbl00006   0x005ce2    program     static                          
+                  sprintf   0x005cf6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\sprintf.c
+                _do_cinit   0x005da2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     test   0x005dbc    program     static                          
+                copy_loop   0x005e14    program     static                          
+            copy_one_byte   0x005e1a    program     static                          
+             done_copying   0x005e28    program     static                          
+                     done   0x005e3e    program     static                          
+       ___return_lbl00002   0x005e3e    program     static                          
+                 FXD0808S   0x005e40    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  DA0808S   0x005e4c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                   D0808S   0x005e56    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 D0808SOK   0x005e60    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                D0808SNEG   0x005e64    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  D0808SX   0x005e6a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 FXM1616S   0x005e74    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
+               TSIGN1616A   0x005ec0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616s.asm
+                OpenUSART   0x005ece    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uopen.c
+                 OpenUART   0x005f58    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\openuart.asm
+                 ReadUART   0x005f66    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
+                 WaitChar   0x005f6e    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
+                  GetChar   0x005f80    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\readuart.asm
+                WriteUART   0x005fa8    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
+                  SendBit   0x005fbc    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
+                SendStart   0x005fc0    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\writuart.asm
+                     putc   0x005fe0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\putc.c
+                  FXM3232   0x006064    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm3232.c
+       ___return_lbl00000   0x0060d2    program     static                          
+                putrsXLCD   0x0060d4    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\putrxlcd.c
+                   strlen   0x00613c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
+                    jLoop   0x00614c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
+                     jEnd   0x006156    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\strlen.asm
+                strlenpgm   0x006158    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
+                    jLoop   0x006176    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
+                   _2jEnd   0x00618c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
+                     jEnd   0x00618e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\slenpgm.asm
+             SetDDRamAddr   0x0061a2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\setddram.c
+             SetCGRamAddr   0x0061f2    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\setcgram.c
+            WriteDataXLCD   0x006242    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\writdata.c
+             WriteCmdXLCD   0x006290    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\wcmdxlcd.c
+                 putsXLCD   0x0062de    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\putsxlcd.c
+                 FXD3232U   0x00632c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd3232u.c
+                     loop   0x00633a    program     static                          
+                   _false   0x00636e    program     static                          
+       ___return_lbl00000   0x006372    program     static                          
+             ReadDataXLCD   0x006374    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\readdata.c
+             ReadAddrXLCD   0x0063ba    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\readaddr.c
+                 BusyXLCD   0x006400    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\UISourcefiles\XLCD\busyxlcd.c
+                 putsUART   0x00643e    program     extern C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\putsuart.c
+             Delay10KTCYx   0x00647a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kx   0x006484    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                   D10K_1   0x006486    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_0010   0x00648a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kl   0x006492    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_001C   0x006496    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+               WriteUSART   0x0064a8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\uwrite.c
+                  isdigit   0x0064d6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
+                   jMatch   0x0064f6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
+                 jNoMatch   0x0064f8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\isdigit.asm
+            __zero_memory   0x0064fa    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+               zero_block   0x006508    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_h   0x006508    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                compare_l   0x006510    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                   loop_l   0x006512    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4520.asm
+                 _startup   0x00651a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x00652a    program     static                          
+       ___return_lbl00001   0x006534    program     static                          
+              _usart_putc   0x006536    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\_usartpc.asm
+                     loop   0x006546    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\pmc_common\USART\_usartpc.asm
+             Delay100TCYx   0x006552    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0008   0x00655a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                    D100x   0x00655e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                   D100_1   0x006560    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0012   0x006564    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0018   0x00656a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                 FXD0808U   0x00656e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
+                     loop   0x006576    program     static                          
+                  endloop   0x006584    program     static                          
+       ___return_lbl00000   0x006588    program     static                          
+              Delay10TCYx   0x00658a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                     D10x   0x006592    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000A   0x006594    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000C   0x006596    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000E   0x006598    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                    D10_1   0x00659a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                 s_digits   0x0065a0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\vfprintf.c
                __config_0   0x300001    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
                __config_1   0x300002    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c
                __config_2   0x300003    program     static C:\Users\sgle6040\Documents\MTRX3_Major\CommanderMain.X\main.c

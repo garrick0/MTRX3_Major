@@ -106,7 +106,7 @@ char UIbuffer[1];
 
         
     //System State
-char State = MANUAL_MODE;
+char State = INITIALISE;
         
     //IR Value Thresholds
 char IRVals[3];
@@ -195,7 +195,7 @@ void main(void) {
     (UIOutput.parrot_found)=1;
     (UIOutput.instMag)=0;
     (UIOutput.instDir)=0;
-    (UIOutput.instructionFlag)=0;
+    (UIOutput.instructionFlag)=1;
     (UIOutput.half_scan)=0;			//1 when scanning, 0 when not scanning
 	(UIOutput.full_scan)=0;
     
@@ -206,7 +206,7 @@ void main(void) {
     
         
         //State = AUTOMATIC_MODE;
-    State = MANUAL_MODE;
+    State = USER_MANUAL_MODE;
         UIInput.commandInput='U';
         RobotReceiveComms.instructionFlag=0;
         test = RobotTransmitComms.instDir;
@@ -288,7 +288,11 @@ void main(void) {
         //State Control
         State = stateControl(State,UIInput.stateRequest);
         
-        if (State == MANUAL_MODE) {
+        if (State == USER_MANUAL_MODE) {
+            test++;
+        }
+        
+        else if (State == USER_AUTO_MODE) {
             test++;
         }
         
@@ -300,10 +304,13 @@ void main(void) {
             test++;
         }
         
+        if (RobotReceiveComms.instructionFlag == 1) {
+            test = 0;
+        }
 
         //Generate system outputs from inputs
         newInstruction = robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
-        RobotReceiveComms.instructionFlag = 0;
+        //RobotReceiveComms.instructionFlag = 0;
          
         
         //Output UI values to user
@@ -311,8 +318,8 @@ void main(void) {
 
         
         
-       //Transmit Instruction to robot if new one is generated
-        if (newInstruction) {
+       //Transmit Instruction to robot if new one is generated (only transmit when in the correct menu   )
+        if (newInstruction & (State != INITIALISE)) {
             test++;
             transmitComms(RobotTransmitComms);
             newInstruction = 0;

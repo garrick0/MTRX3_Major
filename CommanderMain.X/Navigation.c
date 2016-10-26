@@ -18,11 +18,11 @@
 
 #define MAX_SCANS 12
 
-#define INCS30DEGREES 500
-#define FORWARDINCS 500
+#define INCS30DEGREES 744
+#define FORWARDINCS 744
 
 #define DETECTION_THRESHOLD 50
-void parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsOutput* CommsOutput,struct communicationsInput* CommsInput);
+char parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsOutput* CommsOutput,struct communicationsInput* CommsInput);
 char checkScan(char* chirpBuffer,struct UserInterfaceOutput* UIOutput);
 void autoAlgorithm(struct communicationsOutput* CommsOutput);
 
@@ -107,17 +107,20 @@ char robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput*
         //Check if movement has just finished
         else if (robotState == IDLE) {
             //Generate command
-            if (State == MANUAL_MODE) {
+            if (State == USER_MANUAL_MODE) {
                 //Set commands to user input
-                parseUIDirection(UIInput,CommsOutput,CommsInput);
+                if (parseUIDirection(UIInput,CommsOutput,CommsInput)) {
+                    return 1;
+                }
                 //Set Instruction flag high
                 return 0;
             }
             
-            else if (State == AUTOMATIC_MODE) {
+            else if (State == USER_AUTO_MODE) {
                 //Automatic Algorithm
                 //Inputs are - last command used, 
                 autoAlgorithm(CommsOutput);
+                return 1;
                 
                 //autoAlgorithm(UIOutput)
             }
@@ -164,7 +167,7 @@ char checkScan(char* chirpBuffer,struct UserInterfaceOutput* UIOutput)  {
     
 }
 
-void parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsOutput* CommsOutput,struct communicationsInput* CommsInput) {
+char parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsOutput* CommsOutput,struct communicationsInput* CommsInput) {
     
     //Move Forward
     if (UIInput->commandInput == 'U') {
@@ -177,7 +180,7 @@ void parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsO
     
     
         //Move Back
-    else if (UIInput->commandInput == 'B') {
+    else if (UIInput->commandInput == 'D') {
         CommsOutput->instMag = FORWARDINCS;
         CommsOutput->instDir = UIInput->commandInput;
         robotState = MOVING;
@@ -215,6 +218,7 @@ void parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsO
         CommsInput->instructionFlag = 1;
         return 1;
     }
+    return 0;
     
 }
     
@@ -223,7 +227,7 @@ void parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsO
 void autoAlgorithm(struct communicationsOutput* CommsOutput) {
     
     //Initiate with rotation to get robot position
-    if ((prevAutoInstr == IDLE) || (prevAutoInstr == MOVING)) {
+    if ((prevAutoInstr == IDLE)) {
         
         //This will set the robot to perform a full scan
         robotState = SCANNING;
@@ -255,6 +259,14 @@ void autoAlgorithm(struct communicationsOutput* CommsOutput) {
         robotState = MOVING;
         //Update auto mode
         prevAutoInstr = MOVING;
+    }
+    
+        //Go back to idle state to check if still in auto mode
+    else if (prevAutoInstr == MOVING) {
+          //Change to Idle state
+        robotState = IDLE;
+        //Update auto mode
+        prevAutoInstr = IDLE;
     }
     
     
