@@ -97,19 +97,19 @@ void transmitComms(struct communicationsOutput CommsOutput) {
     }
     magPack[i] = magPack[i]|store;
     WriteUART(startCh); // send the package initiator
-    Delay10TCYx(4);
+    Delay10TCYx(100);
     WriteUART(safety); // start the message 
-    Delay10TCYx(4);
+    Delay10TCYx(100);
     while(k<4){
         WriteUART(magPack[k]);
         k++;
-        Delay10TCYx(4);
+        Delay10TCYx(100);
     }
-    Delay10TCYx(4);
+    Delay10TCYx(100);
     WriteUART(instDir); // sends the instruction
-    Delay10TCYx(4);
+    Delay10TCYx(100);
     WriteUART(endChar); // send the package that indicates the end 
-    Delay10TCYx(4);
+    Delay10TCYx(100);
     
     return;
 }

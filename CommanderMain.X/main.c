@@ -44,7 +44,7 @@ void processReceived(char* Buffer,char* IRVals, char* instructionFlag, char * ch
 //Nav
 void navSetup(void);
 //void robotMove(char State,int* encoderVals,int* currentEncoder,int* chirpStrength,int* parrotLoc,char* distance);
-void robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput* CommsOutput,struct UserInterfaceInput* UIInput,struct communicationsInput* CommsInput,char State);
+char robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput* CommsOutput,struct UserInterfaceInput* UIInput,struct communicationsInput* CommsInput,char State);
     
     
     //Holds values output to the user
@@ -68,42 +68,9 @@ void goto_low_ISR( void ){
 #pragma code
 
 //Global Variables
-//flag set on serial receive
-char receiveFlag;
-//Receive Buffer used for storage         
-char recBuffer[30];
-
-char	UIbuffer[1];			//stores user inputs
-int UIdelay=0;
-
-/** 
- * @brief Main Function
- *  
- * Implements Robot Control
- * 
- *  
- * @return 
- */
 
 
 
-void main(void) {
-    
-        //Chirp Strength
-    char chirpStrength;
-    char connection;
-        // Is robot ready for new command
-    char instructionFlag;
-
-        //Robot Instruction Magnitude
-    int instMag;
-    
-        //Robot Instruction Type
-    char instDir;
-    
-    
-    
-    //USERINTERFACE
     
     //Input and output structs
     
@@ -118,55 +85,80 @@ void main(void) {
     //Holds values transmitted by robot comms
     struct communicationsInput RobotReceiveComms;
     
+    //Variables transmitted to robot
     struct communicationsOutput RobotTransmitComms;
-    
-    
-    //Triggered in interrupt
-    char UIFlag;
-    
-    
-    
-    char commandInput;
-    
-    char parrot_moving;
-    
-    char parrot_found;
-    
-    char stateRequest;
-    
+
+
+
+
+
+
+
+
+    //flag set on serial receive
+char receiveFlag;
+
+    //Receive Buffer used for storage         
+char recBuffer[30];
+
+    //Store user inputs
+char UIbuffer[1];			
+
+        
+    //System State
+char State = MANUAL_MODE;
+        
+    //IR Value Thresholds
+char IRVals[3];
    
+    //Is robot idle
+char instructionFlag = 0;
+
+    //Chirp Strength
+char chirpStrength;
+
+    //Comms status to robot
+char connection;
+
+    //Robot Instruction Magnitude
+int instMag;
     
+    //Robot Instruction Type
+char instDir;
 
-        //packet received from UI
-        int UIVals[1];
-        
-        //Hold the encoder (L/R) values
-        int targetEncoder[2];
-        
-        //System State
-        char State = MANUAL_MODE;
-        
-        //Relative x,y value of parrot to robot
-        char parrotPosition;
-        
-        //IR Value Thresholds
-        char IRVals[3];
-        
-          //hold current encoder values
-         int currentEncoder[2];
-         
-         //Parrot Location
-         int parrotLoc[2];
-         
-         //Parrot Distance
-         char parrotDistance;
-         
-         int test;
-         
+    //Test variable
+int test;
 
-         //Initiate flags at 0
-         UIFlag = 0;
-         instructionFlag = 0;
+int UIdelay = 0;
+
+char newInstruction = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** 
+ * @brief Main Function
+ *  
+ * Implements Robot Control
+ * 
+ *  
+ * @return 
+ */
+
+
+
+void main(void) {
+
+  
     
     //disable interrupts
     INTCONbits.GIE_GIEH = 0;    //global interrupt disable
@@ -180,37 +172,55 @@ void main(void) {
     // Comms
     commSetup();
 
-
-
- 
+    /////////////////////////// TEST CODE BEGIN ////////////////////////////////
     
-   
-     //code for testing
-    (ptrUIInput->stateRequest)=INITIALISE;
-    (ptrUIInput->max_robot_speed)=10;
-    (ptrUIInput->max_yaw_rate)=10;		
-    (ptrUIInput->ir_samples)=10;
-    (ptrUIInput->ir_rate)=10;
-    (ptrUIInput->rf_samples)=10;
-    (ptrUIInput->p_gain)=10;
-    (ptrUIInput->i_gain)=10;
-    (ptrUIInput->d_gain)=10;			
-    (ptrUIInput->motors)=0;
-    (ptrUIInput->find_parrot)=0;
-    (ptrUIOutput->parrotDirection)=0;
-    (ptrUIOutput->parrotDistance)=10;
-    (ptrUIOutput->ir_left)=30;
-    (ptrUIOutput->ir_front)=20;
-    (ptrUIOutput->ir_right)=10;
-    (ptrUIOutput->parrot_moving)=1;
-    (ptrUIOutput->parrot_found)=1;
-    (ptrUIOutput->instMag)=0;
-    (ptrUIOutput->instDir)=0;
-    (ptrUIOutput->instructionFlag)=0;
-    (ptrUIOutput->half_scan)=0;			//1 when scanning, 0 when not scanning
-	(ptrUIOutput->full_scan)=0;
+
+    (UIInput.stateRequest)=INITIALISE;
+    (UIInput.max_robot_speed)=10;
+    (UIInput.max_yaw_rate)=10;		
+    (UIInput.ir_samples)=10;
+    (UIInput.ir_rate)=10;
+    (UIInput.rf_samples)=10;
+    (UIInput.p_gain)=10;
+    (UIInput.i_gain)=10;
+    (UIInput.d_gain)=10;			
+    (UIInput.motors)=0;
+    (UIInput.find_parrot)=0;
+    (UIOutput.parrotDirection)=0;
+    (UIOutput.parrotDistance)=10;
+    (UIOutput.ir_left)=30;
+    (UIOutput.ir_front)=20;
+    (UIOutput.ir_right)=10;
+    (UIOutput.parrot_moving)=1;
+    (UIOutput.parrot_found)=1;
+    (UIOutput.instMag)=0;
+    (UIOutput.instDir)=0;
+    (UIOutput.instructionFlag)=0;
+    (UIOutput.half_scan)=0;			//1 when scanning, 0 when not scanning
+	(UIOutput.full_scan)=0;
+    
+    
+    
+
+    
+    
+        
+        //State = AUTOMATIC_MODE;
+    State = MANUAL_MODE;
+        UIInput.commandInput='U';
+        RobotReceiveComms.instructionFlag=0;
+        test = RobotTransmitComms.instDir;
+        test = RobotTransmitComms.instMag;
+        
+
+    RobotTransmitComms.instMag = 1000;
+    RobotTransmitComms.instDir = 'b';
+    
+    
+    
+    
 	
-    //end test code
+    /////////////////////////// TEST CODE END ////////////////////////////////
     
   
        //Enable Interrupts
@@ -224,75 +234,53 @@ void main(void) {
     
     
     
+
     
-        //State = AUTOMATIC_MODE;
-    State = MANUAL_MODE;
-        UIInput.commandInput='U';
-        RobotReceiveComms.instructionFlag=0;
-        test = RobotTransmitComms.instDir;
-        test = RobotTransmitComms.instMag;
-    
-    
-    
-    
-    
+    //transmitComms(RobotTransmitComms);   
     
     /* Loop */
     while(1){
-        int test;
-        int count;
+        
+ 
+            //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
+        inputUI(UIbuffer,&UIInput);
+            
+
         
 
-              
-            //Process user interface input if interrupt triggered
-        //if (UIFlag ==1) {
-            //UI Should receive(Change of system state, Direction Inputs and parameter changes(not yet implemented)
-            
-            //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
-        inputUI(UIbuffer,ptrUIInput);
-            
-            //UIFlag = 0;
-        //}
-        //test code
-        (ptrUIOutput->State)=(ptrUIInput->stateRequest);
-        (ptrUIOutput->max_robot_speed)=(ptrUIInput->max_robot_speed);	//return values of all parameters
-        (ptrUIOutput->max_yaw_rate)=(ptrUIInput->max_yaw_rate);
-        (ptrUIOutput->ir_samples)=(ptrUIInput->ir_samples);
-        (ptrUIOutput->ir_rate)=(ptrUIInput->ir_rate);
-        (ptrUIOutput->p_gain)=(ptrUIInput->p_gain);
-        (ptrUIOutput->i_gain)=(ptrUIInput->i_gain);
-        (ptrUIOutput->d_gain)=(ptrUIInput->d_gain);
-        (ptrUIOutput->rf_samples)=(ptrUIInput->rf_samples);
+        
+        
+                (UIOutput.State)=(UIInput.stateRequest);
+        (UIOutput.max_robot_speed)=(UIInput.max_robot_speed);	//return values of all parameters
+        (UIOutput.max_yaw_rate)=(UIInput.max_yaw_rate);
+        (UIOutput.ir_samples)=(UIInput.ir_samples);
+        (UIOutput.ir_rate)=(UIInput.ir_rate);
+        (UIOutput.p_gain)=(UIInput.p_gain);
+        (UIOutput.i_gain)=(UIInput.i_gain);
+        (UIOutput.d_gain)=(UIInput.d_gain);
+        (UIOutput.rf_samples)=(UIInput.rf_samples);
         //end test code
         
         
-            
-                
-                
-
-        
-        if (ptrUIInput->stateRequest != 0) {
-            int test = ptrUIInput->commandInput;
-            test++;
-        }
-         
         
         
+        
+        
+        
+  
         //Receive Comms from ground (array)
-            //array [IRVals,signalStrength,instructionFlag]
         if (receiveFlag == 1) {
             
-            //Get sensor data from robot
-
+            
+            //Return values from robot
             processReceived(recBuffer,IRVals, &instructionFlag, &chirpStrength,&connection);
+            
+            //Store in struct
             RobotReceiveComms.IR1 = IRVals[0];
             RobotReceiveComms.IR2 = IRVals[1];
             RobotReceiveComms.IR3 = IRVals[2];
             RobotReceiveComms.instructionFlag = instructionFlag;
-            
 
-            //UIOutput.
-            
             //Reset flag
             receiveFlag = 0;
         }
@@ -300,36 +288,30 @@ void main(void) {
         //State Control
         State = stateControl(State,UIInput.stateRequest);
         
+        if (UIInput.commandInput == 'D') {
+            test++;
+        }
+        else if (UIInput.commandInput=='U') {
+            test++;
+        }
         
 
-        
-        
-        robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
-        
-        test = RobotTransmitComms.instDir;
-        test = RobotTransmitComms.instMag;
-        
+        //Generate system outputs from inputs
+        newInstruction = robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
         RobotReceiveComms.instructionFlag = 0;
-        //outputs - instMag,instDir
-        //        - parrotPosition,IRVals,parrot_moving,parrot_found
-        //inputs  - chirpStrength,IRVals,instructionFlag,State
+         
         
-        
-        
-        
-        RobotTransmitComms.instMag = 0x100;
-        RobotTransmitComms.instDir = 'f';
-        //transmit to ground to move robot
-        //count++;
-        //if (count > 50) {
-//        transmitComms(RobotTransmitComms);
-        //}
-        
-        
-                //State,parrotDirection,parrotDistance,IRVals,parrot_moving,parrot_found
-        outputUI(ptrUIOutput);
-                
+        //Output UI values to user
+        outputUI(&UIOutput);
 
+        
+        
+       //Transmit Instruction to robot if new one is generated
+        if (newInstruction) {
+            test++;
+            transmitComms(RobotTransmitComms);
+            newInstruction = 0;
+        }
 
     }
 }
