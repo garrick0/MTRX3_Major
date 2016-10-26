@@ -105,7 +105,7 @@ void goto_high_ISR(void) {
 
 void main(void) {
     int i;
-    char detectVals[] = {0x01,0x02,0x03,0x00};
+    char detectVals[] = {0x04,0x05,0x06,0x00};
     char detailedFlagName = 0;
 
     instMag= 2000;
@@ -137,10 +137,15 @@ void main(void) {
     //Turn on timer 3
 
     
-    
+    TRISCbits.RC0 = 1;
+    PORTCbits.RC0 = 1;
+    INTCONbits.GIEH = 1; //enable interrupts
+    INTCONbits.GIEL = 1; 
     INTCONbits.PEIE = 1;
     RCONbits.IPEN = 0;
     INTCONbits.GIE = 1;
+    
+    
     instructionFlag2 = 0;
     Speed = 25; 
     instMag= 0;
@@ -159,6 +164,7 @@ void main(void) {
         if (receiveFlag == 1) {
 
             processReceived(receiveBuffer, &instMag,&instDir,&instructionFlag2);
+            transmitData(detectVals,signalStrength,instructionFlag2);
             receiveFlag=0;
             
         }
@@ -169,11 +175,11 @@ void main(void) {
         //Perform PID or similar and drive motors
         instructionFlag2 = DriveMotors(instMag,instDir,instructionFlag2,Speed,&detailedFlagName);
 
-        //if(detailedFlagName == 1){
-            getRSSI(receiveBuffer, signalStrength, &receiveFlag, &crflag, &saver);
+      // if(detailedFlagName == 1){
+//            getRSSI(receiveBuffer, signalStrength, &receiveFlag, &crflag, &saver);
             transmitData(detectVals,signalStrength,instructionFlag2);
-            detailedFlagName = 0;
-        //}
+    //        detailedFlagName = 0;
+     // }
         //Read IR sensor buffer and return result
         //IRDetect(2,detectVals);
         
@@ -253,7 +259,7 @@ void high_interrupt(void) {
         
         
 //    sampleEncoders(currentEncoderVals);
-        //sampleIR();
+       //sampleIR();
         //ADCON0bits.GO = 1;
    
     

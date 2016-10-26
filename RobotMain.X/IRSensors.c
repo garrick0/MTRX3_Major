@@ -214,7 +214,7 @@ int readIR() {
     int sensorVal;
     
     //wait until conversion complete
-    while (PIR1bits.ADIF == 0) {}
+//    while (PIR1bits.ADIF == 0) {}
 
     //return high byte
     return ADRESH;

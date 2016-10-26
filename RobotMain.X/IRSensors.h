@@ -20,8 +20,8 @@ extern "C" {
 
 
     void IRDetect( int numAverage,char* detectArray);
-    void sampleIR();
-    void IRSetup();
+    void sampleIR(void);
+    void IRSetup(void);
 
 
 #endif	/* IRSENSORS_H */

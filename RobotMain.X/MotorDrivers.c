@@ -58,7 +58,10 @@ void directionalMovement(char direction){
         PORTDbits.RD6 = 0;
         PORTDbits.RD0 = 0;
         PORTDbits.RD1 = 0;
+    } else {
+        currentFlag = 0;
     }
+    
 }
 
 void getEncoderValues(){
@@ -87,10 +90,9 @@ void motorSetup(void){
     
     TRISCbits.RC0 = 1;
     PORTCbits.RC0 = 1;
-    INTCONbits.GIEH = 1; //enable interrupts
-    INTCONbits.GIEL = 1; 
     RCONbits.IPEN = 1; // turn priority levels on
     IPR1bits.RCIP = 0;
+    
     
     //16-bit counter wheel 1
     T0CONbits.TMR0ON = 1;
@@ -112,6 +114,7 @@ void motorSetup(void){
     
     directionalMovement('s');
     resetEncoders();
+    getEncoderValues();
     set_speed(0);
     currentFlag = 0;
     currentMagnitude  = 0;
@@ -146,9 +149,9 @@ char DriveMotors(unsigned int magnitude,char direction,char mainFlag, unsigned i
         resetEncoders();
         getEncoderValues();
         currentMagnitude = 0; 
+                currentFlag = 1;
         directionalMovement(direction);
         set_speed(speed);
-        currentFlag = 1;
         currentMagnitude = magnitude; 
     }
     else if (currentFlag == 1 && mainFlag == 1) {
