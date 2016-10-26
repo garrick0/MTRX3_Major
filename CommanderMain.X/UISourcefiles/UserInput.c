@@ -88,22 +88,22 @@ void CheckPCInput(char *UserInputBuffer){
     else if(RCREG == '\r'){ // 
 		WriteUserInputBuffer("A",UserInputBuffer);
 	}
-    else if(RCREG == 'f'){
+    else if(RCREG == 'f' || RCREG == 'F'){
         WriteUserInputBuffer("F",UserInputBuffer);
     }
-    else if(RCREG == 'h'){
+    else if(RCREG == 'h' || RCREG == 'H'){
         WriteUserInputBuffer("H",UserInputBuffer);
     }
-    else if(RCREG == 'a'){
+    else if(RCREG == 'a' || RCREG == 'A'){
 		WriteUserInputBuffer("L",UserInputBuffer);
 	}
-    else if(RCREG == 'd'){
+    else if(RCREG == 'd' || RCREG == 'D'){
 		WriteUserInputBuffer("R",UserInputBuffer);
 	}
-	else if(RCREG  == 's'){
+	else if(RCREG  == 's' || RCREG == 'S'){
 		WriteUserInputBuffer("D",UserInputBuffer);
 	}
-    else if(RCREG == 'w'){
+    else if(RCREG == 'w' || RCREG == 'W'){
 		WriteUserInputBuffer("U",UserInputBuffer);
 	}
     
