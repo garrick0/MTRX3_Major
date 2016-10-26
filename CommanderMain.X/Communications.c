@@ -181,9 +181,6 @@ void processReceived(char* Buffer,char* IRVals, char* instructionFlag, char * ch
             *chirpStr = (*chirpStr) << 4;
             if (test == 0x30 ){
                 *chirpStr = (*chirpStr) | ((*Buffer)- 0x30); 
-                if(*chirpStr == 0x00){
-                    i++;
-                }
             }
             if (test == 0x40 ){
                 *chirpStr = (*chirpStr) | ((*Buffer)- 0x37); 

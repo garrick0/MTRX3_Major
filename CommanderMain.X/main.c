@@ -252,7 +252,7 @@ void main(void) {
     
     /* Loop */
     while(1){
-        
+        int test1;
  
             //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
         inputUI(UIbuffer,&UIInput);
@@ -292,8 +292,11 @@ void main(void) {
             RobotReceiveComms.IR2 = IRVals[1];
             RobotReceiveComms.IR3 = IRVals[2];
             RobotReceiveComms.instructionFlag = instructionFlag;
-
+            RobotReceiveComms.chirpStrength=chirpStrength;
             //Reset flag
+            if (chirpStrength > 0) {
+                test = 0;
+            }
             receiveFlag = 0;
         }
         
@@ -333,12 +336,12 @@ void main(void) {
        //Transmit Instruction to robot if new one is generated (only transmit when in the correct menu   )
         if (newInstruction & (State != INITIALISE)) {
             
-            while(connection == 0){
-                handShake();
-                if(receiveFlag == 1){
-                    processReceived(recBuffer,IRVals, &instructionFlag, &chirpStrength,&connection);
-                }
-            }
+            //while(connection == 0){
+                //handShake();
+                //if(receiveFlag == 1){
+                //    processReceived(recBuffer,IRVals, &instructionFlag, &chirpStrength,&connection);
+                //}
+            //}
             test++;
             transmitComms(RobotTransmitComms);
             newInstruction = 0;

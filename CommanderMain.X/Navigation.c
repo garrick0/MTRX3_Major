@@ -10,15 +10,14 @@
 
 
 
-
 #define IDLE 1
 #define MOVING 2
 #define SCANNING 3
 #define TURNING 4
 
-#define MAX_SCANS 12
+#define MAX_SCANS 6
 
-#define INCS30DEGREES 744
+#define INCS30DEGREES 600
 #define FORWARDINCS 744
 
 #define DETECTION_THRESHOLD 50
@@ -53,10 +52,11 @@ char robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput*
             //Wait until chirp is detected and stored
             
             //TESTING
-            CommsInput->chirpStrength = 1;
+            //CommsInput->chirpStrength = 1;
             
             while (CommsInput->chirpStrength == 0) {
                 //wait
+                
             }
             //Store chirp
             chirpBuffer[scanCounter] = CommsInput->chirpStrength;
@@ -152,7 +152,7 @@ char checkScan(char* chirpBuffer,struct UserInterfaceOutput* UIOutput)  {
     char maxDir = 0;
     char maxVal = 0;
     //Rotate through buffer and get highest value
-    for (i = 0; i < 12; i++) {
+    for (i = 0; i < MAX_SCANS; i++) {
         if (chirpBuffer[i] > maxVal) {
             maxDir = i;
             maxVal = chirpBuffer[i];
