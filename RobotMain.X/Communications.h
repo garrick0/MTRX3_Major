@@ -23,7 +23,7 @@ extern "C" {
 
 void commsSetup(void);
 void transmitData(char* IRVals,char* signalStrength,char processComplete);
-void receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF);
+char receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF);
 char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag);
 void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag, char *saveF);
 

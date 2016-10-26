@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c IRSensors.c Communications.c Encoders.c debug.c MotorDrivers.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c IRSensors.c Communications.c Encoders.c MotorDrivers.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/IRSensors.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/Encoders.o ${OBJECTDIR}/debug.o ${OBJECTDIR}/MotorDrivers.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/IRSensors.o.d ${OBJECTDIR}/Communications.o.d ${OBJECTDIR}/Encoders.o.d ${OBJECTDIR}/debug.o.d ${OBJECTDIR}/MotorDrivers.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/IRSensors.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/Encoders.o ${OBJECTDIR}/MotorDrivers.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/IRSensors.o.d ${OBJECTDIR}/Communications.o.d ${OBJECTDIR}/Encoders.o.d ${OBJECTDIR}/MotorDrivers.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/IRSensors.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/Encoders.o ${OBJECTDIR}/debug.o ${OBJECTDIR}/MotorDrivers.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/IRSensors.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/Encoders.o ${OBJECTDIR}/MotorDrivers.o
 
 # Source Files
-SOURCEFILES=main.c IRSensors.c Communications.c Encoders.c debug.c MotorDrivers.c
+SOURCEFILES=main.c IRSensors.c Communications.c Encoders.c MotorDrivers.c
 
 
 CFLAGS=
@@ -85,7 +85,7 @@ endif
 
 MP_PROCESSOR_OPTION=18F4520
 MP_PROCESSOR_OPTION_LD=18f4520
-MP_LINKER_DEBUG_OPTION= -u_DEBUGCODESTART=0x7d30 -u_DEBUGCODELEN=0x2d0 -u_DEBUGDATASTART=0x5ef -u_DEBUGDATALEN=0x10
+MP_LINKER_DEBUG_OPTION= -u_DEBUGCODESTART=0x7dc0 -u_DEBUGCODELEN=0x240 -u_DEBUGDATASTART=0x5f4 -u_DEBUGDATALEN=0xb
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -127,14 +127,6 @@ ${OBJECTDIR}/Encoders.o: Encoders.c  nbproject/Makefile-${CND_CONF}.mk
 	@${DEP_GEN} -d ${OBJECTDIR}/Encoders.o 
 	@${FIXDEPS} "${OBJECTDIR}/Encoders.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
-${OBJECTDIR}/debug.o: debug.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/debug.o.d 
-	@${RM} ${OBJECTDIR}/debug.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/debug.o   debug.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/debug.o 
-	@${FIXDEPS} "${OBJECTDIR}/debug.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
 ${OBJECTDIR}/MotorDrivers.o: MotorDrivers.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/MotorDrivers.o.d 
@@ -175,14 +167,6 @@ ${OBJECTDIR}/Encoders.o: Encoders.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/Encoders.o   Encoders.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/Encoders.o 
 	@${FIXDEPS} "${OBJECTDIR}/Encoders.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/debug.o: debug.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/debug.o.d 
-	@${RM} ${OBJECTDIR}/debug.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/debug.o   debug.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/debug.o 
-	@${FIXDEPS} "${OBJECTDIR}/debug.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 ${OBJECTDIR}/MotorDrivers.o: MotorDrivers.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 

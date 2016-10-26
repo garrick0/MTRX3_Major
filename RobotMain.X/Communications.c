@@ -1,5 +1,5 @@
 #include "usart.h"
-#include "p18f4520.h"
+//#include "p18f4520.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,7 +48,7 @@ void commsSetup(void) {
  * @param the indication if the process is complete
  * @return done 
  */
-char startString[] = {startCh,safety,NULL};
+char startString[] = {FULL,startCh,safety,NULL};
 char endString[] = {endChar,NULL}; // extra to ensure
 void transmitData(char* IRVals,char* signalStrength,char processComplete) {
     char i = 0;
@@ -79,9 +79,9 @@ void transmitData(char* IRVals,char* signalStrength,char processComplete) {
  */
 
 char* rcPtr;
-char read;
-void receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF){
-    PIR1bits.RCIF=0; // clear receive flag
+char read, count = 49;
+char receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF){
+    
     read = ReadUSART();
     *recFlag = 0;
     if(read == startCh){ // turn on save text flag
@@ -90,6 +90,7 @@ void receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF){
     }else if (read == endChar){ // turn on save text flag
         *saveF = 0; // turn off
         *recFlag = 1; // indicate that there is ins
+        return 1;
     }
     if(read == CR){ // turn on save CR flag
         *CRflag = 1; // turn on 
@@ -97,8 +98,10 @@ void receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF){
     if(*saveF && read != chirpSound){ // when flag is turned on discard all chirps
         *rcPtr = read; // save
         rcPtr++; // save RCREG in circular buffer
-        if(*rcPtr == endBuf){
+        count--;
+        if(count == 0){
             rcPtr = buffer;
+            count = 49;
         }
     }
     return;
@@ -116,9 +119,7 @@ char test;
 char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag) {
 
     int i = 0, j = 0;
-    while(*buffer != startCh){
-        buffer++;
-    }
+
     buffer++;
     if(*buffer != safety){ // failed read
         return;
@@ -141,7 +142,7 @@ char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag)
         return;
     }
 
-    *instDir = (*buffer)&0x0F;
+    *instDir = (*buffer);
     
     *commandFlag = 1; // got command time for action
     return 0; // reset the instruction received flag
@@ -159,25 +160,30 @@ char ATCommandEnd[] = "ATCN\r"; // end command
 
 void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag, char *saveF){
     int count = 5000000;
-    while(RCREG != chirpSound && count > 0){
-        count --;
-    }
+//    while(RCREG != chirpSound && count > 0){
+//        count --;
+//    }
     if (count == 0){
         *signalStrength = 0x30;
         signalStrength++;
         *signalStrength = NULL; // null terminated
         return;
     }
+    *CRflag = 0;
     sendAT(ATCommandStart); // start command mode
     while(*CRflag != 1); // wait for CR
     *CRflag = 0; // reset
+
     sendAT(ATCommandRSSI); // request RSSI
     while(*CRflag != 1); // wait for CR
+    
     *CRflag = 0; // reset
+
     sendAT(ATCommandEnd); // end AT mode
     while(*CRflag != 1); // wait for CR
     *CRflag = 0; // reset
     // reset the received flag 
+
     *saveF = 0; //since it ends with K disable flag
     *rFlag = 0;
     while(*buffer != CR){
@@ -202,6 +208,8 @@ void sendMsg(char *tx){
     
     while (*tx) // send string
     {
+        while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
+        putcUSART(FULL); // write FF to ensure that the falling edge is reset
         while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
         putcUSART(*tx); // write  
         while (TXSTAbits.TRMT != 1); // wait till transmit buffer is empty
