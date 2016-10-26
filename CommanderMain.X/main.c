@@ -330,8 +330,11 @@ void main(void) {
 #pragma interrupt low_interrupt
 void low_interrupt(void){
     //INTCONbits.GIE = 0;
-    
-    if(INTCONbits.TMR0IF){          //delay interrupt
+    if(ORInput){				//check if user input triggered interrupt
+        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
+		CheckUserInput(UIbuffer);       
+	}
+     else if(INTCONbits.TMR0IF){          //delay interrupt
         INTCONbits.TMR0IF=0;
         INTCONbits.TMR0IE =0;       //disable interrupt
         T0CONbits.TMR0ON =0;        //turn timer off       
@@ -345,6 +348,7 @@ void low_interrupt(void){
         servoToggle();
     }
     //INTCONbits.GIE = 1;
+
 }
 #pragma interrupt high_interrupt
 void high_interrupt(void) {
@@ -355,19 +359,16 @@ void high_interrupt(void) {
     
         /*Serial Receive Interrupt*/
     if (INTCON3bits.INT2IF == 1) {
-
-        receiveComms(recBuffer,&receiveFlag);
         INTCON3bits.INT2IF = 0;
+        receiveComms(recBuffer,&receiveFlag);
+        
 
     }	
 	else if(EmergencyStop){              //check if user input triggered interrupt
         INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
 		Emergency_Stop(UIbuffer);
 	}
-    else if(ORInput){				//check if user input triggered interrupt
-        INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
-		CheckUserInput(UIbuffer);       
-	}
+
     
 
     //Enable Interrupts

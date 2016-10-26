@@ -31,7 +31,7 @@ void UserInputSetup(void){
 
     //interrupt setup for OR input
     INTCON3bits.INT1IE = 1;	//enable PORTB1 interrupt
-    INTCON3bits.INT1IP = 1;	//set PORTB1 interrupt to high priority
+    INTCON3bits.INT1IP = 0;	//set PORTB1 interrupt to low priority
     INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
     INTCON2bits.INTEDG1 = 1;	//PORTB1 interrupt on rising edge
 
