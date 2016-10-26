@@ -130,6 +130,7 @@ char instDir;
 int test;
 
 int UIdelay = 0;
+char deBounce=0;
 
 char newInstruction = 0;
 
@@ -330,22 +331,27 @@ void main(void) {
 #pragma interrupt low_interrupt
 void low_interrupt(void){
     //INTCONbits.GIE = 0;
-    if(ORInput){				//check if user input triggered interrupt
+    if(ORInput && deBounce>12){				//check if user input triggered interrupt
         INTCON3bits.INT1IF = 0;	//clear PORTB1 interrupt flag
-		CheckUserInput(UIbuffer);       
-	}
-     else if(INTCONbits.TMR0IF){          //delay interrupt
+        deBounce=0;
+		CheckUserInput(UIbuffer); 
+        
+        
+	}else if(INTCONbits.TMR0IF){          //delay interrupt  
         INTCONbits.TMR0IF=0;
         INTCONbits.TMR0IE =0;       //disable interrupt
         T0CONbits.TMR0ON =0;        //turn timer off       
         UIdelay=1;
         
-    }else if(PIR1bits.RCIF){
+    }else if(PIR1bits.RCIF){        //check PC input flag
         CheckPCInput(UIbuffer);
         
     }else if(PIR2bits.CCP2IF){      //check is servo delay triggered interrupt
         PIR2bits.CCP2IF = 0;
         servoToggle();
+        if(deBounce<13){
+            deBounce++;
+        }
     }
     //INTCONbits.GIE = 1;
 
@@ -363,12 +369,12 @@ void high_interrupt(void) {
         receiveComms(recBuffer,&receiveFlag);
         
 
-    }	
+    }
 	else if(EmergencyStop){              //check if user input triggered interrupt
         INTCONbits.INT0IF = 0;      //clear PORTB0 interrupt flag
 		Emergency_Stop(UIbuffer);
+        
 	}
-
     
 
     //Enable Interrupts

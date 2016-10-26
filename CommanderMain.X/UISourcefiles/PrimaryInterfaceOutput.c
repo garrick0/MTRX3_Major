@@ -81,7 +81,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
             if(state_variable==ENTRY){
                 //LCDClear();
                 LCDLine1ROMWrite("USER_MANUAL_MODE");
-                LCDLine2ROMWrite("                ");
+                LCDLine2ROMWrite("Please wait     ");
             }
             //...............................
             if(state_variable==NORMAL){
@@ -150,7 +150,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
             if(state_variable==ENTRY){
                 //LCDClear();
                 LCDLine1ROMWrite("USER_AUTO_MODE  ");
-                LCDLine2ROMWrite("                ");
+                LCDLine2ROMWrite("Please wait     ");
             }
             //...............................
             if(state_variable==NORMAL){
@@ -176,7 +176,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
             if(state_variable==ENTRY){
                 //LCDClear();
                 LCDLine1ROMWrite("FACTORY_MODE    ");
-                LCDLine2ROMWrite("                ");
+                LCDLine2ROMWrite("Please wait     ");
             }
             //...............................
             if(state_variable==NORMAL){
@@ -293,7 +293,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                 case ENTRY:
                     //LCDClear();
                     LCDLine1ROMWrite("USER_MANUAL_MODE");
-                    LCDLine2ROMWrite("                ");
+                    LCDLine2ROMWrite("Please wait     ");
                     break;
                 case NORMAL:
                 	if((UIOutput->full_scan)){
@@ -320,7 +320,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                 case ENTRY:
                     //LCDClear();
                     LCDLine1ROMWrite("USER_AUTO_MODE  ");
-                    LCDLine2ROMWrite("                ");
+                    LCDLine2ROMWrite("Please wait     ");
                     break;
                 case NORMAL:
                 	if((UIOutput->full_scan)){
@@ -344,7 +344,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                 case ENTRY:
                     //LCDClear();
                     LCDLine1ROMWrite("FACTORY_MODE    ");
-                    LCDLine2ROMWrite("                ");
+                    LCDLine2ROMWrite("Please wait     ");
                     break;
                 case NORMAL:
                 	if((UIOutput->full_scan)){

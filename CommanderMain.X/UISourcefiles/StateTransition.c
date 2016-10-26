@@ -184,19 +184,19 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                             }
 
                         }
-                        if(*userinput==BButton){
+                        else if(*userinput==BButton){
                             *interface_mode=PRIMARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
                             *menu_position=0;
 
                         }
-                        if(*userinput==UP){
+                        else if(*userinput==UP){
                             if((*menu_position)>0){
                                 *menu_position=*menu_position-1;
 
                             }
                         }
-                        if(*userinput==DOWN){
+                        else if(*userinput==DOWN){
                             if((*menu_position)<4){
                             	 *menu_position=*menu_position+1;
 
@@ -284,19 +284,19 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                     break;
                             }
                         }
-                        if(*userinput==BButton){
+                        else if(*userinput==BButton){
                             *interface_mode=PRIMARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
                             *menu_position=0;
 
                         }
-                        if(*userinput==UP){
+                        else if(*userinput==UP){
                             if((*menu_position)>0){
                             	*menu_position=*menu_position-1;
 
                             }
                         }
-                        if(*userinput==DOWN){
+                        else if(*userinput==DOWN){
                             if((*menu_position)<1){
                             	*menu_position=*menu_position+1;
 
@@ -331,17 +331,17 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                 *menu_position=0;
                             }
                         }
-                        if(*userinput==BButton){
+                        else if(*userinput==BButton){
                             *interface_mode=PRIMARY_INTERFACE_MODE;
                             *state_variable=ENTRY;
                             *menu_position=0;
                         }
-                        if(*userinput==UP){
+                        else if(*userinput==UP){
                             if((*menu_position)>0){
                             	 *menu_position=*menu_position-1;
                             }
                         }
-                        if(*userinput==DOWN){
+                        else if(*userinput==DOWN){
                             if((*menu_position)<6){
                             	 *menu_position=*menu_position+1;
                             }
@@ -356,10 +356,10 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                 if(*userinput==LEFT){
                                     (UIInput->max_robot_speed)=(UIInput->max_robot_speed)-1;       //request
                                 }
-                                if(*userinput==RIGHT){
+                                else if(*userinput==RIGHT){
                                     (UIInput->max_robot_speed)=(UIInput->max_robot_speed)+1;
                                 }
-                                if(*userinput==BButton){
+                                else if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
@@ -367,10 +367,10 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                 if(*userinput==LEFT){
                                     (UIInput->max_yaw_rate)=(UIInput->max_yaw_rate)-1;       //request
                                 }
-                                if(*userinput==RIGHT){
+                                else if(*userinput==RIGHT){
                                     (UIInput->max_yaw_rate)=(UIInput->max_yaw_rate)+1;
                                 }
-                                if(*userinput==BButton){
+                                else if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
@@ -378,10 +378,10 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                 if(*userinput==LEFT){
                                     (UIInput->ir_samples)=(UIInput->ir_samples)-1;       //request
                                 }
-                                if(*userinput==RIGHT){
+                                else if(*userinput==RIGHT){
                                     (UIInput->ir_samples)=(UIInput->ir_samples)+1;
                                 }
-                                if(*userinput==BButton){
+                                else if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
@@ -389,10 +389,10 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                 if(*userinput==LEFT){
                                     (UIInput->ir_rate)=(UIInput->ir_rate)-1;       //request
                                 }
-                                if(*userinput==RIGHT){
+                                else if(*userinput==RIGHT){
                                     (UIInput->ir_rate)=(UIInput->ir_rate)+1;
                                 }
-                                if(*userinput==BButton){
+                                else if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
@@ -400,10 +400,10 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                 if(*userinput==LEFT){
                                     (UIInput->rf_samples)=(UIInput->rf_samples)-1;       //request
                                 }
-                                if(*userinput==RIGHT){
+                                else if(*userinput==RIGHT){
                                     (UIInput->rf_samples)=(UIInput->rf_samples)+1;
                                 }
-                                if(*userinput==BButton){
+                                else if(*userinput==BButton){
                                     *state_variable=NORMAL;
                                 }
                                 break;
@@ -416,19 +416,19 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
 								if(*userinput==LEFT){
 									(UIInput->p_gain)=(UIInput->p_gain)-1;       //request
 								}
-								if(*userinput==RIGHT){
+								else if(*userinput==RIGHT){
 									(UIInput->p_gain)=(UIInput->p_gain)+1;
 								}
-								if(*userinput==BButton){
+								else if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}
-								if(*userinput==UP){
+								else if(*userinput==UP){
 									if((*menu_position)>0){
 										 *menu_position=*menu_position-1;
 									}
 								}
-								if(*userinput==DOWN){
+								else if(*userinput==DOWN){
 									if((*menu_position)<2){
 										*menu_position=*menu_position+1;
 									}
@@ -438,19 +438,19 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                 if(*userinput==LEFT){
                                     (UIInput->i_gain)=(UIInput->i_gain)-1;       //request
                                 }
-                                if(*userinput==RIGHT){
+                                else if(*userinput==RIGHT){
                                     (UIInput->i_gain)=(UIInput->i_gain)+1;
                                 }
-								if(*userinput==BButton){
+								else if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}
-								if(*userinput==UP){
+								else if(*userinput==UP){
 									if((*menu_position)>0){
 										 *menu_position=*menu_position-1;
 									}
 								}
-								if(*userinput==DOWN){
+								else if(*userinput==DOWN){
 									if((*menu_position)<2){
 										*menu_position=*menu_position+1;
 									}
@@ -460,19 +460,19 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                 if(*userinput==LEFT){
                                     (UIInput->d_gain)=(UIInput->d_gain)-1;       //request
                                 }
-                                if(*userinput==RIGHT){
+                                else if(*userinput==RIGHT){
                                     (UIInput->d_gain)=(UIInput->d_gain)+1;
                                 }
-								if(*userinput==BButton){
+								else if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}
-								if(*userinput==UP){
+								else if(*userinput==UP){
 									if((*menu_position)>0){
 										 *menu_position=*menu_position-1;
 									}
 								}
-								if(*userinput==DOWN){
+								else if(*userinput==DOWN){
 									if((*menu_position)<2){
 										*menu_position=*menu_position+1;
 									}
