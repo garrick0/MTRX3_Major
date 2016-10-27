@@ -38,7 +38,7 @@ struct UserInterfaceOutput {
     
     char State;
     char parrotDirection;
-    char parrotDistance;
+    char parrotDistance;   
     char ir_left;
     char ir_front;
     char ir_right;

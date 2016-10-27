@@ -280,11 +280,15 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         switch(UIOutput->State){
             case USER_MANUAL_MODE:
                 if(state_variable==ENTRY){
-                    PCROMWrite("\fUSER_MANUAL_MODE");
-                    PCROMWrite("\n\rPlease wait\n\r");
+                    PCROMWrite("\fUSER_MANUAL_MODE\n\r");
+                    //PCROMWrite("\n\rPlease wait\n\r");
                 }else if(state_variable==NORMAL){
-                    PCROMWrite("\fUSER_MANUAL_MODE");
-                    PCROMWrite("\n\rPress A/ENTER to enter command\n\rUse Dpad to control mobile robot");
+                    //PCROMWrite("\fUSER_MANUAL_MODE");
+                    //PCROMWrite("\n\rPress A/ENTER to enter command\n\rUse Dpad to control mobile robot\n\r");
+                    //PCLineClear();
+                    sprintf(str,"RSSI= %d\r",(UIOutput->parrotDistance));
+                    PCRAMWrite(str);
+                    //*flag=1;
                 }
                 break;
             case USER_AUTO_MODE:

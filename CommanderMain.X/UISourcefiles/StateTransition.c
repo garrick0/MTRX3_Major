@@ -96,6 +96,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                         }
                         break;
                     case NORMAL:
+                        *flag=1;
                         if(*userinput==Abutton){
                             //(UIInput->stateRequest)=USER_MANUAL_MODE;
                             *interface_mode=SECONDARY_INTERFACE_MODE;

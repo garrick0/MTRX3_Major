@@ -175,10 +175,9 @@ void main(void) {
     (UIInput.ir_samples)=10;
     (UIInput.ir_rate)=10;
     (UIInput.rf_samples)=10;
-    (UIInput.p_gain)=0;
-    (UIInput.i_gain)=0;
-    (UIInput.d_gain)=0;	
-    (UIInput.movement_dist)=10;
+    (UIInput.p_gain)=10;
+    (UIInput.i_gain)=10;
+    (UIInput.d_gain)=10;			
     (UIInput.motors)=0;
     (UIInput.find_parrot)=0;
     (UIOutput.parrotDirection)=90;
@@ -271,7 +270,6 @@ void main(void) {
         (UIOutput.p_gain)=(UIInput.p_gain);
         (UIOutput.i_gain)=(UIInput.i_gain);
         (UIOutput.d_gain)=(UIInput.d_gain);
-        (UIOutput.movement_dist)=(UIInput.movement_dist);
         (UIOutput.rf_samples)=(UIInput.rf_samples);
         //end test code
         
@@ -295,16 +293,42 @@ void main(void) {
             RobotReceiveComms.IR3 = IRVals[2];
             RobotReceiveComms.instructionFlag = instructionFlag;
             RobotReceiveComms.chirpStrength=chirpStrength;
-            
+            UIOutput.parrotDistance = chirpStrength;
             //Reset flag
-
+            if (chirpStrength <=0x25){
+                UIOutput.parrot_found=1;
+            }else{
+                UIOutput.parrot_found=0;
+            }
+        
+            if (chirpStrength > 0) {
+                test = 0;
+            }
             receiveFlag = 0;
         }
         
         //State Control
         State = stateControl(State,UIInput.stateRequest);
         
-
+        if (State == USER_MANUAL_MODE) {
+            test++;
+        }
+        
+        else if (State == USER_AUTO_MODE) {
+            test++;
+        }
+        
+        
+        if (UIInput.commandInput == 'D') {
+            test++;
+        }
+        else if (UIInput.commandInput=='U') {
+            test++;
+        }
+        
+        if (RobotReceiveComms.instructionFlag == 1) {
+            test = 0;
+        }
 
         //Generate system outputs from inputs
         newInstruction = robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
@@ -313,6 +337,7 @@ void main(void) {
         
         //Output UI values to user
         outputUI(&UIOutput);
+        
 
         
         
@@ -327,10 +352,9 @@ void main(void) {
             //}
             test++;
             transmitComms(RobotTransmitComms);
-           
             newInstruction = 0;
         }
-     
+
     }
 }
 #pragma interrupt low_interrupt

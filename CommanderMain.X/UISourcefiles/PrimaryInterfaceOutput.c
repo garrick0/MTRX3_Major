@@ -308,7 +308,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                     //LCDClear();
                     sprintf(string,"L=%d cm R=%d cm ",(UIOutput->ir_left),(UIOutput->ir_right));
                     LCDLine1RAMWrite(string);
-                    sprintf(string,"F=%d cm SS=%d     ",(UIOutput->ir_front),5);
+                    sprintf(string,"F=%d cm SS=%d     ",(UIOutput->ir_front),(UIOutput->parrotDistance));
                     LCDLine2RAMWrite(string);
 					}
                     break;
