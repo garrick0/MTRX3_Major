@@ -75,13 +75,13 @@ void getEncoderValues(){
 
 void resetEncoders(void){
     TMR0L = 0;
-     Delay10KTCYx(3);
+
     TMR0H = 0;
-     Delay10KTCYx(3);
+
     TMR1L = 0;
-     Delay10KTCYx(3);
+
     TMR1H = 0;
-         Delay10KTCYx(3);
+
 }
 
 void motorSetup(void){
@@ -152,7 +152,7 @@ char DriveMotors(unsigned int magnitude,char direction,char mainFlag, unsigned i
         currentFlag = 1;
         directionalMovement(direction);
         currentMagnitude = magnitude; 
-        set_speed(speed);
+        set_speed(30);
     }
     else if (currentFlag == 1 && mainFlag == 1) {
         currentEncoderValue =0;

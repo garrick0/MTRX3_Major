@@ -195,7 +195,7 @@ void main(void) {
        // if (detectVals[2] > 0) {
       //      i++;
       //  }
-        Delay10KTCYx(40);
+        Delay10KTCYx(70);
        
     }
 }

@@ -6,7 +6,7 @@
 #include "delays.h"
 #define CR 0x0D
 #define FULL 0xFF
-#define chirpSound 'z'
+#define chirpSound 'e'
 #define BIT0 0x01
 #define startCh 'K' //4B
 #define safety '^' // 5E
