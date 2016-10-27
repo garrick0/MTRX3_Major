@@ -13,7 +13,8 @@ int timer;
 int j = 0;
 unsigned int currentEncoderValue;
 unsigned int nextEncoderValue;
-char currentFlag;
+char currentFlag = 0x10;
+char currentFlag2 = 0x10;
 char Flag;
 unsigned int currentMagnitude;
     unsigned int wheel1_counterl;
@@ -74,9 +75,13 @@ void getEncoderValues(){
 
 void resetEncoders(void){
     TMR0L = 0;
+     Delay10KTCYx(3);
     TMR0H = 0;
+     Delay10KTCYx(3);
     TMR1L = 0;
+     Delay10KTCYx(3);
     TMR1H = 0;
+         Delay10KTCYx(3);
 }
 
 void motorSetup(void){
@@ -133,38 +138,69 @@ void set_speed(unsigned int duty)
 
 /*Inputs an instruction maginitude and type (F,B,L,R), instruction flag(1 == instruction in process, 0 == hold or emergency stop)*/
 char DriveMotors(unsigned int magnitude,char direction,char mainFlag, unsigned int speed, char * detailedFlagName) {
-    if ((currentFlag == 0 && mainFlag == 0) ) {
-        set_speed(0);
-        directionalMovement('s');
-        currentEncoderValue = 0;
-        
-    } else if (currentFlag == 1 && mainFlag == 0) {
-        set_speed(0);
+    if (mainFlag == 0) {
+        //set_speed(0);
         currentFlag = 0;
         directionalMovement('s');
-        currentEncoderValue =0;
         
     } else if (currentFlag == 0 && mainFlag == 1) {
+        currentFlag = 1;
         currentEncoderValue =0;
         resetEncoders();
-        getEncoderValues();
-        currentMagnitude = 0; 
-                currentFlag = 1;
+        //getEncoderValues();
+        //currentMagnitude = 0; 
+        currentFlag = 1;
         directionalMovement(direction);
-        set_speed(speed);
         currentMagnitude = magnitude; 
+        set_speed(speed);
     }
     else if (currentFlag == 1 && mainFlag == 1) {
+        currentEncoderValue =0;
+        currentMagnitude = magnitude;
         getEncoderValues();
     
         if (currentEncoderValue >= currentMagnitude) {
-            set_speed(0);
-            currentFlag = 0;
+             currentFlag = 0;
+            //set_speed(0);
             *detailedFlagName = 1;
             directionalMovement('s');
             currentMagnitude = 0; 
+            resetEncoders();
+            currentEncoderValue =0;
         }
    
+    }/*
+     if (mainFlag == 0) {
+         currentFlag = 0;
+         
+     } else if (currentFlag == 0 && mainFlag == 1) {
+         currentFlag = 1;
+        directionalMovement('f');
+        set_speed(speed);
+        currentEncoderValue =0;
+        currentMagnitude = 3000;
+        getEncoderValues();
+       
+     }
+     
+     else if (currentFlag == 1){
+     directionalMovement('f');
+     set_speed(speed);
+     currentEncoderValue =0;
+     currentMagnitude = 3000;
+     getEncoderValues();
+    
+        if (currentEncoderValue >= currentMagnitude) {
+            currentFlag = 0;
+               //set_speed(0);
+           *detailedFlagName = 1;
+           directionalMovement('s');
+           currentMagnitude = 0; 
+        }
     }
-    return currentFlag;
+    else if (mainFlag == 1){
+        currentFlag = 1;
+    
+    }*/
+    return currentFlag; //changed from return currentFlag2;
 }

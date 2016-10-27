@@ -14,19 +14,12 @@
 
 /* -- Includes -- */
 #include <p18f4520.h>            
-//#include "ConfigRegs.h"
 #include "ConfigRegs_18F4520.h"
 #include "IRSensors.h"
 #include "Communications.h"
 
-
-
-
-
-
 /* -- Function Prototypes -- */
 void high_interrupt(void);
-
 
 // Encoders
 //void SetupEncoders(void);
@@ -36,15 +29,9 @@ void high_interrupt(void);
 char DriveMotors(unsigned int,char,char,unsigned int,char*);
 void setup(void);
 
-
 //Motors
 void motorSetup(void);
 //char DriveMotors(int magnitude,char direction,char mainFlag);
-
-
-
-
-
 
 /* -- Global Variables -- */
 
@@ -56,9 +43,6 @@ char signalStrength[] = {0x30,0x30,0x00};
 
 //The current encoder values, modified in the readEncoders function
 int currentEncoderVals[2];
-
-
-
 
 //Buffer to store receive data
 char receiveBuffer[50] = {0x00};
@@ -107,10 +91,12 @@ void main(void) {
     int i;
     char detectVals[] = {0x04,0x05,0x06,0x00};
     char detailedFlagName = 0;
+    char count=0;
+    
 
     instMag= 2000;
     instDir = 's';
-    instructionFlag2 = 1; 
+    //instructionFlag2 = 1; 
     //timerSetup();
     //SetupIR();
     
@@ -130,7 +116,7 @@ void main(void) {
     receiveBuffer[49] = 0xFF;
     //Timer 3 Setup
     IPR2bits.TMR3IP = 1;
-    PIE2bits.TMR3IE = 1;
+    PIE2bits.TMR3IE = 0;
     T3CON = 0b10110001;
     ADCON0bits.GO = 1;
     
@@ -146,39 +132,49 @@ void main(void) {
     INTCONbits.GIE = 1;
     
     
-    instructionFlag2 = 0;
+    //instructionFlag2 = 0;
     Speed = 25; 
     instMag= 0;
     instDir = 's';
-    instructionFlag2 = 0; 
+    instructionFlag2 = 0x10; 
     
-    //transmitData(detectVals,signalStrength,instructionFlag2);
+    transmitData(detectVals,signalStrength,instructionFlag2);
+    
+
     
     /* Loop */
     while(1){
         //
+        
         int test1;
+        
+        
+
         
         //Process Receive Function
             //add inputs global variables
         if (receiveFlag == 1) {
 
             processReceived(receiveBuffer, &instMag,&instDir,&instructionFlag2);
+
             
             receiveFlag=0;
             
         }
         test1 = instMag;
-        if (instMag != 13288) {
-            int test = 0;
-        }
+        //if (instMag != 13288) {
+           // int test = 0;
+        //}
         //Perform PID or similar and drive motors
         instructionFlag2 = DriveMotors(instMag,instDir,instructionFlag2,Speed,&detailedFlagName);
 
-       if(detailedFlagName == 1){
+       if(instructionFlag2 == 0){
            if(instDir == 'r' || instDir == 'R') {
             getRSSI(receiveBuffer, signalStrength, &receiveFlag, &crflag, &saver);
            }
+           //else if (instDir == 's' || instDir == 'S') {
+            //   instructionFlag2 = 0;
+           //}
             transmitData(detectVals,signalStrength,instructionFlag2);
             detailedFlagName = 0;
         }else {
@@ -199,7 +195,7 @@ void main(void) {
        // if (detectVals[2] > 0) {
       //      i++;
       //  }
-        Delay10KTCYx(50);
+        Delay10KTCYx(40);
        
     }
 }

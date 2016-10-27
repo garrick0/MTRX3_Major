@@ -160,7 +160,7 @@ char ATCommandEnd[] = "ATCN\r"; // end command
 
 void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag, char *saveF){
     int count = 5000000;
-//    while(RCREG != chirpSound);
+    while(RCREG != chirpSound);
 //    *CRflag = 0;
     sendAT(ATCommandStart); // start command mode
     Delay10KTCYx(20);
