@@ -20,7 +20,7 @@
 #define INCS30DEGREES 600
 #define FORWARDINCS 744
 
-#define DETECTION_THRESHOLD 50
+#define DETECTION_THRESHOLD 39
 char parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsOutput* CommsOutput,struct communicationsInput* CommsInput);
 char checkScan(char* chirpBuffer,struct UserInterfaceOutput* UIOutput);
 void autoAlgorithm(struct communicationsOutput* CommsOutput);
@@ -54,10 +54,10 @@ char robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput*
             //TESTING
             //CommsInput->chirpStrength = 1;
             
-            while (CommsInput->chirpStrength == 0) {
+            //while (CommsInput->chirpStrength == 0) {
                 //wait
                 
-            }
+            //}
             //Store chirp
             chirpBuffer[scanCounter] = CommsInput->chirpStrength;
             
@@ -84,7 +84,7 @@ char robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput*
             }
             
             //If full scan is complete
-            else {
+ /*           else {
                 //Calculate direction of highest chirp
                 char maxMagnitude = checkScan(chirpBuffer,UIOutput);
                 scanCounter = 0;
@@ -97,6 +97,29 @@ char robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput*
                 //Change robot state
                 robotState = IDLE;
                 return 0;
+            }*/
+            else {
+                //Move to highest chirp
+                char maxMagnitude = checkScan(chirpBuffer,UIOutput);
+                scanCounter = 0;
+                
+                //Check if value exceeds detection threshold
+                if (maxMagnitude < DETECTION_THRESHOLD) {
+                        UIOutput->parrot_found = 1;
+                }
+                else {
+                    UIOutput->parrot_found = 0;
+                }
+                
+                
+                //Move back to largest
+                CommsOutput->instMag = INCS30DEGREES*UIOutput->parrotDirection;
+                CommsOutput->instDir = 'R';
+                
+                robotState = MOVING;
+                CommsInput->instructionFlag = 1;
+                return 1;
+                
             }
             
             
@@ -206,11 +229,11 @@ char parseUIDirection(struct UserInterfaceInput* UIInput, struct communicationsO
         return 1;
     }
     
-                    //Move Left
+                    //Full scan
     else if (UIInput->commandInput == 'F') {
         robotState = SCANNING;
         CommsInput->instructionFlag = 1;
-        return 1;
+        return 0;
     }
     
     else if (UIInput->commandInput == 'H') {

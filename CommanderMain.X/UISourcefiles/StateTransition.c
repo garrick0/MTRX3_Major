@@ -247,7 +247,7 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
                                     if(success==0){
                                         *state_variable=NORMAL;
 
-                                        PCROMWrite("Wrong Passcode");
+                                        //PCROMWrite("Wrong Passcode");
                                     }else if(success==1){
                                         //no action
                                     }else if(success==2){
@@ -413,13 +413,13 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
 					case PID:
 						switch(*menu_position){
 							case 0:
-								if(*userinput==LEFT){
-									(UIInput->p_gain)=(UIInput->p_gain)-1;       //request
-								}
-								else if(*userinput==RIGHT){
-									(UIInput->p_gain)=(UIInput->p_gain)+1;
-								}
-								else if(*userinput==BButton){
+//								if(*userinput==LEFT){
+//									(UIInput->p_gain)=(UIInput->p_gain)-1;       //request
+//								}
+//								else if(*userinput==RIGHT){
+//									(UIInput->p_gain)=(UIInput->p_gain)+1;
+//								}
+								if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}
@@ -435,13 +435,13 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
 								}
 								break;
 							case 1:
-                                if(*userinput==LEFT){
-                                    (UIInput->i_gain)=(UIInput->i_gain)-1;       //request
-                                }
-                                else if(*userinput==RIGHT){
-                                    (UIInput->i_gain)=(UIInput->i_gain)+1;
-                                }
-								else if(*userinput==BButton){
+//                                if(*userinput==LEFT){
+//                                    (UIInput->i_gain)=(UIInput->i_gain)-1;       //request
+//                                }
+//                                else if(*userinput==RIGHT){
+//                                    (UIInput->i_gain)=(UIInput->i_gain)+1;
+//                                }
+								if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}
@@ -457,13 +457,13 @@ void StateTransition(struct UserInterfaceInput *UIInput,int *interface_mode,int 
 								}
                                 break;
 							case 2:
-                                if(*userinput==LEFT){
-                                    (UIInput->d_gain)=(UIInput->d_gain)-1;       //request
-                                }
-                                else if(*userinput==RIGHT){
-                                    (UIInput->d_gain)=(UIInput->d_gain)+1;
-                                }
-								else if(*userinput==BButton){
+//                                if(*userinput==LEFT){
+//                                    (UIInput->d_gain)=(UIInput->d_gain)-1;       //request
+//                                }
+//                                else if(*userinput==RIGHT){
+//                                    (UIInput->d_gain)=(UIInput->d_gain)+1;
+//                                }
+								if(*userinput==BButton){
 									*state_variable=NORMAL;
 									*menu_position=0;
 								}

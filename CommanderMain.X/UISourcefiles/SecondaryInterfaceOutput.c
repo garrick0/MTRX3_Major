@@ -79,7 +79,7 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         //............................
         switch(state_variable){
             case ENTRY:
-                PCROMWrite("\fWelcome to the Harambe Soul Seeker\n\rPress A to enter commands and UP/DOWN arrows to scroll\n\rInitialising...\n\r");
+                PCROMWrite("\fWelcome to the Harambe Soul Seeker\n\rPress A/ENTER to enter commands and UP/DOWN arrows to scroll\n\rInitialising...\n\r");
                 break;
             case NORMAL:
                 PCROMWrite("Initialising...\n\r");
@@ -94,7 +94,7 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
             //............................
             if(state_variable==ENTRY){
                 PCROMWrite("\fUSER_MANUAL_MODE\n\n\r0-SET_MOTORS_ON\n\r1-SET_MOTORS_OFF\n\r2-SET_SPEED_MAX\n\r3-SET_MODE_USER_AUTO\n\r4-SET_MODE_FACTORY\n\r");
-                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
+                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A/ENTER to select\n\rPress B/BACKSPACE to exit\n\n\rPlease Wait\n\r");
             }
             //...............................
             if(state_variable==NORMAL){
@@ -154,8 +154,8 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         if((UIOutput->State)==USER_AUTO_MODE){
             //............................
             if(state_variable==ENTRY){
-                PCROMWrite("\fUSER_AUTO_MODE\n\r0-SET_FIND_PARROT\n\r1-SET_MODE_USER_MANUAL\n\r");
-                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
+                PCROMWrite("\fUSER_AUTO_MODE\n\n\r0-SET_FIND_PARROT\n\r1-SET_MODE_USER_MANUAL\n\r");
+                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A/ENTER to select\n\rPress B/BACKSPACE to exit\n\n\rPlease Wait\n\r");
             }
             //...............................
             if(state_variable==NORMAL){
@@ -179,8 +179,8 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         if((UIOutput->State)==FACTORY_MODE){
             //............................
             if(state_variable==ENTRY){
-                PCROMWrite("\fFACTORY_MODE\n\r0-SET_PID_GAINS\n\r1-SET_SPEED_MAX\n\r2-SET_YAW_RATE_MAX\n\r3-SET_IR_SAMPLES_PER_ESTIMATE\n\r4-SET_IR_SAMPLE_RATE\n\r5-SET_RF_SAMPLES_PER_ESTIMATE\n\r6-SET_MODE_USER_MANUAL\n\r");
-                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A to select\n\rPress B to exit\n\n\r");
+                PCROMWrite("\fFACTORY_MODE\n\n\r0-SET_PID_GAINS\n\r1-SET_SPEED_MAX\n\r2-SET_YAW_RATE_MAX\n\r3-SET_IR_SAMPLES_PER_ESTIMATE\n\r4-SET_IR_SAMPLE_RATE\n\r5-SET_RF_SAMPLES_PER_ESTIMATE\n\r6-SET_MODE_USER_MANUAL\n\r");
+                PCROMWrite("Use UP/DOWN arrows to scroll\n\rPress A/ENTER to select\n\rPress B/BACKSPACE to exit\n\n\rPlease Wait\n\r");
             }
             //...............................
             if(state_variable==NORMAL){
@@ -279,16 +279,31 @@ void    SecondaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interf
         }
         switch(UIOutput->State){
             case USER_MANUAL_MODE:
-                PCROMWrite("\fUSER_MANUAL_MODE");
-                PCROMWrite("\n\rPress A to enter command\n\r");
+                if(state_variable==ENTRY){
+                    PCROMWrite("\fUSER_MANUAL_MODE");
+                    PCROMWrite("\n\rPlease wait\n\r");
+                }else if(state_variable==NORMAL){
+                    PCROMWrite("\fUSER_MANUAL_MODE");
+                    PCROMWrite("\n\rPress A/ENTER to enter command\n\rUse Dpad to control mobile robot");
+                }
                 break;
             case USER_AUTO_MODE:
-                PCROMWrite("\fUSER_AUTO_MODE");
-                PCROMWrite("\n\rPress A to enter command\n\r");
+                if(state_variable==ENTRY){
+                    PCROMWrite("\fUSER_AUTO_MODE");
+                    PCROMWrite("\n\rPlease wait\n\r");
+                }else if(state_variable==NORMAL){
+                    PCROMWrite("\fUSER_AUTO_MODE");
+                    PCROMWrite("\n\rPress A/ENTER to enter command\n\r");
+                }
                 break;
             case FACTORY_MODE:
-                PCROMWrite("\fFACTORY_MODE");
-                PCROMWrite("\n\rPress A to enter command\n\r");
+                if(state_variable==ENTRY){
+                    PCROMWrite("\fFACTORY_MODE");
+                    PCROMWrite("\n\rPlease wait\n\r");
+                }else if(state_variable==NORMAL){
+                    PCROMWrite("\fFACTORY_MODE");
+                    PCROMWrite("\n\rPress A/ENTER to enter command\n\rUse Dpad to control mobile robot");
+                }
                 break;
         }
         

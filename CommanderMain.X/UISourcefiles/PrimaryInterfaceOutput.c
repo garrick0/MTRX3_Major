@@ -54,7 +54,7 @@ char string[16];
 void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interface_mode,int state_variable,int menu_position){
 
     LEDOutput((UIOutput->parrot_found),(UIOutput->parrot_moving),(UIOutput->instructionFlag));
-    servoOutput(UIOutput->parrotDirection);
+    //servoOutput(UIOutput->parrotDirection);
 
     if((UIOutput->State)==INITIALISE){
             //............................
@@ -184,7 +184,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                     case 0:
                         //LCDClear();
                         LCDLine1ROMWrite("0-SET_PID_GAINS ");
-                        LCDLine2ROMWrite("                ");
+                        LCDLine2ROMWrite("Not implemented ");
                         break;
                     case 1:
                         //LCDClear();
@@ -264,21 +264,21 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
             	switch(menu_position){
             		case 0:
                         //LCDClear();
-                        sprintf(string,"%d               ",(UIOutput->p_gain));
-                        LCDLine1ROMWrite("P GAIN=         ");
-                        LCDLine2RAMWrite(string);
+                        sprintf(string,"P GAIN= %d       ",(UIOutput->p_gain));
+                        LCDLine1RAMWrite(string);
+                        LCDLine2ROMWrite("Not implemented ");
                         break;
             		case 1:
                         LCDClear();
-                        sprintf(string,"%d               ",(UIOutput->i_gain));
-                        LCDLine1ROMWrite("I GAIN=         ");
-                        LCDLine2RAMWrite(string);
+                        sprintf(string,"I GAIN= %d       ",(UIOutput->i_gain));
+                        LCDLine1RAMWrite(string);
+                        LCDLine2ROMWrite("Not implemented ");
                         break;
             		case 2:
                         LCDClear();
-                        sprintf(string,"%d               ",(UIOutput->d_gain));
-                        LCDLine1ROMWrite("D GAIN=         ");
-                        LCDLine2RAMWrite(string);
+                        sprintf(string,"D GAIN= %d       ",(UIOutput->d_gain));
+                        LCDLine1RAMWrite(string);
+                        LCDLine2ROMWrite("Not implemented ");
                         break;
 
             	}
@@ -308,7 +308,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                     //LCDClear();
                     sprintf(string,"L=%d cm R=%d cm ",(UIOutput->ir_left),(UIOutput->ir_right));
                     LCDLine1RAMWrite(string);
-                    sprintf(string,"FRONT:%d cm     ",(UIOutput->ir_front));
+                    sprintf(string,"F=%d cm SS=%d     ",(UIOutput->ir_front),5);
                     LCDLine2RAMWrite(string);
 					}
                     break;
@@ -359,7 +359,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                     //LCDClear();
                     sprintf(string,"L=%d cm R=%d cm ",(UIOutput->ir_left),(UIOutput->ir_right));
                     LCDLine1RAMWrite(string);
-                    sprintf(string,"FRONT:%d cm     ",(UIOutput->ir_front));
+                    sprintf(string,"F=%d cm SS=%d     ",(UIOutput->ir_front),5);
                     LCDLine2RAMWrite(string);
                 	}
                     break;

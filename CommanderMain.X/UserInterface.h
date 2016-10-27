@@ -28,6 +28,7 @@ struct UserInterfaceInput {
 	char p_gain;
 	char i_gain;
 	char d_gain;				//also need: motors=On/Off and find_parrot=on/off requests
+    char movement_dist;
 	char motors;
 	char find_parrot;
 };
@@ -41,6 +42,7 @@ struct UserInterfaceOutput {
     char ir_left;
     char ir_front;
     char ir_right;
+    char movement_dist;
     char parrot_moving;
     char parrot_found;
     char instMag;
