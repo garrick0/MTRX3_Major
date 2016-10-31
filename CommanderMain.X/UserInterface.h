@@ -1,6 +1,6 @@
 /* 
  * File:   UserInterface.h
- * Author: W
+ * Author: Wilhelm Marais
  *
  * Created on 21 October 2016, 13:52
  */
