@@ -1,10 +1,9 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <p18f4520.h>
 #include <string.h>
-//#include "ConfigRegs_18F4520.h"
-
 
 unsigned char timerH; 
 unsigned char timerL;
@@ -17,8 +16,8 @@ char currentFlag = 0x10;
 char currentFlag2 = 0x10;
 char Flag;
 unsigned int currentMagnitude;
-    unsigned int wheel1_counterl;
-    unsigned int wheel1_counterh ;
+unsigned int wheel1_counterl;
+unsigned int wheel1_counterh ;
 
 
 void setInitalSpeed(void);
@@ -139,7 +138,6 @@ void set_speed(unsigned int duty)
 /*Inputs an instruction maginitude and type (F,B,L,R), instruction flag(1 == instruction in process, 0 == hold or emergency stop)*/
 char DriveMotors(unsigned int magnitude,char direction,char mainFlag, unsigned int speed, char * detailedFlagName) {
     if (mainFlag == 0) {
-        //set_speed(0);
         currentFlag = 0;
         directionalMovement('s');
         
@@ -147,8 +145,6 @@ char DriveMotors(unsigned int magnitude,char direction,char mainFlag, unsigned i
         currentFlag = 1;
         currentEncoderValue =0;
         resetEncoders();
-        //getEncoderValues();
-        //currentMagnitude = 0; 
         currentFlag = 1;
         directionalMovement(direction);
         currentMagnitude = magnitude; 
@@ -161,46 +157,12 @@ char DriveMotors(unsigned int magnitude,char direction,char mainFlag, unsigned i
     
         if (currentEncoderValue >= currentMagnitude) {
              currentFlag = 0;
-            //set_speed(0);
             *detailedFlagName = 1;
             directionalMovement('s');
             currentMagnitude = 0; 
             resetEncoders();
             currentEncoderValue =0;
         }
-   
-    }/*
-     if (mainFlag == 0) {
-         currentFlag = 0;
-         
-     } else if (currentFlag == 0 && mainFlag == 1) {
-         currentFlag = 1;
-        directionalMovement('f');
-        set_speed(speed);
-        currentEncoderValue =0;
-        currentMagnitude = 3000;
-        getEncoderValues();
-       
-     }
-     
-     else if (currentFlag == 1){
-     directionalMovement('f');
-     set_speed(speed);
-     currentEncoderValue =0;
-     currentMagnitude = 3000;
-     getEncoderValues();
-    
-        if (currentEncoderValue >= currentMagnitude) {
-            currentFlag = 0;
-               //set_speed(0);
-           *detailedFlagName = 1;
-           directionalMovement('s');
-           currentMagnitude = 0; 
-        }
     }
-    else if (mainFlag == 1){
-        currentFlag = 1;
-    
-    }*/
     return currentFlag; //changed from return currentFlag2;
 }
