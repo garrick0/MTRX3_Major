@@ -10,7 +10,6 @@
  * @bugs Still Writing
  */
 
-
 /* -- Includes -- */
 #include <p18f4520.h>            
 
@@ -18,9 +17,6 @@
 #include "main.h"
 #include "UserInterface.h"
 #include "Communications.h"
-
-
-
 
 /* -- Function Prototypes -- */
 void high_interrupt(void);
@@ -46,12 +42,9 @@ void navSetup(void);
 char robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput* CommsOutput,struct UserInterfaceInput* UIInput,struct communicationsInput* CommsInput,char State);
     
     
-    //Holds values output to the user
-    
-
+//Holds values output to the user
 // misc
 char stateControl(char State,char stateRequest);
-
 
 /* Interrupt Declarations */
 #pragma code high_interrupt_vector = 0x0008
@@ -67,9 +60,6 @@ void goto_low_ISR( void ){
 #pragma code
 
 //Global Variables
-
-
-
     
     //Input and output structs
     
@@ -86,13 +76,6 @@ void goto_low_ISR( void ){
     
     //Variables transmitted to robot
     struct communicationsOutput RobotTransmitComms;
-
-
-
-
-
-
-
 
     //flag set on serial receive
 char receiveFlag;
@@ -134,18 +117,6 @@ char deBounceThreshold=10;
 
 char newInstruction = 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
 /** 
  * @brief Main Function
  *  
@@ -155,12 +126,7 @@ char newInstruction = 0;
  * @return 
  */
 
-
-
 void main(void) {
-
-  
-    
     //disable interrupts
     INTCONbits.GIE_GIEH = 0;    //global interrupt disable
 	INTCONbits.PEIE_GIEL = 0;   //peripheral interrupt disable    
@@ -207,15 +173,6 @@ void main(void) {
     commSetup();
 
     /////////////////////////// TEST CODE BEGIN ////////////////////////////////
-    
-
-
-    
-    
-    
-
-    
-    
         
         //State = AUTOMATIC_MODE;
     State = USER_MANUAL_MODE;
@@ -227,11 +184,7 @@ void main(void) {
 
     RobotTransmitComms.instMag = 1000;
     RobotTransmitComms.instDir = 'b';
-    
-    
-    
-    
-	
+
     /////////////////////////// TEST CODE END ////////////////////////////////
     
   
@@ -239,15 +192,7 @@ void main(void) {
     INTCONbits.PEIE = 1;
     RCONbits.IPEN = 1;
     INTCONbits.GIE = 1;
-    
-    
-    
-    
-    
-    
-    
 
-    
     //transmitComms(RobotTransmitComms);   
     
     /* Loop */
@@ -256,12 +201,7 @@ void main(void) {
  
             //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
         inputUI(UIbuffer,&UIInput);
-            
 
-        
-
-        
-        
                 (UIOutput.State)=(UIInput.stateRequest);
         (UIOutput.max_robot_speed)=(UIInput.max_robot_speed);	//return values of all parameters
         (UIOutput.max_yaw_rate)=(UIInput.max_yaw_rate);
@@ -273,13 +213,7 @@ void main(void) {
         (UIOutput.rf_samples)=(UIInput.rf_samples);
         //end test code
         
-        
-        
-        
-        
-        
-        
-  
+
         //Receive Comms from ground (array)
         if (receiveFlag == 1) {
             
@@ -337,10 +271,7 @@ void main(void) {
         
         //Output UI values to user
         outputUI(&UIOutput);
-        
 
-        
-        
        //Transmit Instruction to robot if new one is generated (only transmit when in the correct menu   )
         if (newInstruction & (State != INITIALISE)) {
             
@@ -384,7 +315,6 @@ void low_interrupt(void){
         }
     }
     //INTCONbits.GIE = 1;
-
 }
 #pragma interrupt high_interrupt
 void high_interrupt(void) {
@@ -396,7 +326,6 @@ void high_interrupt(void) {
 
     }
 
-    
     // Disable Interrupts
     INTCONbits.GIE = 0;
     
@@ -410,11 +339,8 @@ void high_interrupt(void) {
 
     //Enable Interrupts
     INTCONbits.GIE = 1;
-    
 
-    
 }
-
 
 char stateControl(char State,char stateRequest) {
     return stateRequest;
