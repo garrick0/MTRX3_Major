@@ -1,6 +1,4 @@
 #include "usart.h"
-//#include "p18f4520.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "delays.h"
@@ -71,7 +69,8 @@ void transmitData(char* IRVals,char* signalStrength,char processComplete) {
  * @brief interrupt routine for receive 
  * @param buffer to save the string 
  * @param the flag to indicate carriage return
- * @return instruction received
+ * @param flag to indicate instruction received
+ * @param flag that is set to start saving the characters
  * @usage when it detects the end bytes of the message ie the start and end
  * it toggles the flag which allows it to save
  * which means that it 1 instance of flag will cause it to save, the second will 
@@ -80,7 +79,7 @@ void transmitData(char* IRVals,char* signalStrength,char processComplete) {
 
 char* rcPtr;
 char read, count = 49;
-char receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF){
+void receiveData(char* buffer, char *CRflag, char *recFlag, char *saveF){
     
     read = ReadUSART();
     *recFlag = 0;
@@ -149,6 +148,11 @@ char processReceived(char* buffer, int* instMag,char* instDir,char* commandFlag)
 }
 /**
  * @brief requests the value of RSSI
+ * @param the buffer where characters are saved
+ * @param the buffer where signal strength is saved
+ * @param the flag that indicates a string is received 
+ * @param the carriage return flag 
+ * @param the flag that indicated the string is being saved 
  * @usage it waits for the most recent chirp, then sends command get into command mode
  * sends ATDB request
  * ends command mode, the RSSI is saved by the receive ISR
@@ -194,7 +198,7 @@ void getRSSI(char * buffer, char * signalStrength, char * rFlag, char *CRflag, c
 /**
  * @brief transmits string to other RF module on robot 
  * @param pointer to the string to be sent (NULL terminated)
- * @param pointer to the password representing type of instruction/response (NULL terminated)
+ * @usage the string is sent with a FF between every letter to pull high Port B so it detects the first low bit 
  */
 void sendMsg(char *tx){
     
@@ -210,7 +214,11 @@ void sendMsg(char *tx){
     } 
 
 }
-
+/**
+ * @brief transmits AT command
+ * @param pointer to the AT command (null terminated)
+ * @usage AT commands such as ATDB are sent using this function 
+ */
 void sendAT(char *tx){
     
     while (*tx) // send string
