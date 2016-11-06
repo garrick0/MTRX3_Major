@@ -327,9 +327,9 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
 						LCDLine2ROMWrite("Scanning...     ");
 					}else{
                     //LCDClear();
-                    sprintf(string,"L=%d cm R=%d cm ",(UIOutput->ir_left),(UIOutput->ir_right));
+                    sprintf(string,"L=%d cm R=%d cm   ",(UIOutput->ir_left),(UIOutput->ir_right));
                     LCDLine1RAMWrite(string);
-                    sprintf(string,"F=%d cm SS=%d     ",(UIOutput->ir_front),(UIOutput->parrotDistance));
+                    sprintf(string,"F=%d cm A 4 Menu ",(UIOutput->ir_front));
                     LCDLine2RAMWrite(string);
 					}
                     break;
@@ -380,7 +380,7 @@ void    PrimaryInterfaceOutput(struct UserInterfaceOutput *UIOutput,int interfac
                     //LCDClear();
                     sprintf(string,"L=%d cm R=%d cm ",(UIOutput->ir_left),(UIOutput->ir_right));
                     LCDLine1RAMWrite(string);
-                    sprintf(string,"F=%d cm SS=%d     ",(UIOutput->ir_front),5);
+                    sprintf(string,"F=%d cm A 4 Menu ",(UIOutput->ir_front));
                     LCDLine2RAMWrite(string);
                 	}
                     break;

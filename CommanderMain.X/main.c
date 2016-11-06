@@ -10,7 +10,6 @@
  * @bugs Still Writing
  */
 
-
 /* -- Includes -- */
 #include <p18f4520.h>            
 
@@ -18,9 +17,6 @@
 #include "main.h"
 #include "UserInterface.h"
 #include "Communications.h"
-
-
-
 
 /* -- Function Prototypes -- */
 void high_interrupt(void);
@@ -46,12 +42,9 @@ void navSetup(void);
 char robotMove(struct UserInterfaceOutput* UIOutput,struct communicationsOutput* CommsOutput,struct UserInterfaceInput* UIInput,struct communicationsInput* CommsInput,char State);
     
     
-    //Holds values output to the user
-    
-
+//Holds values output to the user
 // misc
 char stateControl(char State,char stateRequest);
-
 
 /* Interrupt Declarations */
 #pragma code high_interrupt_vector = 0x0008
@@ -67,9 +60,6 @@ void goto_low_ISR( void ){
 #pragma code
 
 //Global Variables
-
-
-
     
     //Input and output structs
     
@@ -86,13 +76,6 @@ void goto_low_ISR( void ){
     
     //Variables transmitted to robot
     struct communicationsOutput RobotTransmitComms;
-
-
-
-
-
-
-
 
     //flag set on serial receive
 char receiveFlag;
@@ -134,18 +117,6 @@ char deBounceThreshold=10;
 
 char newInstruction = 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
 /** 
  * @brief Main Function
  *  
@@ -155,12 +126,7 @@ char newInstruction = 0;
  * @return 
  */
 
-
-
 void main(void) {
-
-  
-    
     //disable interrupts
     INTCONbits.GIE_GIEH = 0;    //global interrupt disable
 	INTCONbits.PEIE_GIEL = 0;   //peripheral interrupt disable    
@@ -204,34 +170,21 @@ void main(void) {
     INTCONbits.PEIE = 0;
     RCONbits.IPEN = 0;
     // Comms
-    commSetup();
+    //commSetup();
 
     /////////////////////////// TEST CODE BEGIN ////////////////////////////////
-    
-
-
-    
-    
-    
-
-    
-    
         
         //State = AUTOMATIC_MODE;
-    State = USER_MANUAL_MODE;
-        UIInput.commandInput='U';
-        RobotReceiveComms.instructionFlag=0;
-        test = RobotTransmitComms.instDir;
-        test = RobotTransmitComms.instMag;
-        
+//    State = USER_MANUAL_MODE;
+//        UIInput.commandInput='U';
+//        RobotReceiveComms.instructionFlag=0;
+//        test = RobotTransmitComms.instDir;
+//        test = RobotTransmitComms.instMag;
+//        
+//
+//    RobotTransmitComms.instMag = 1000;
+//    RobotTransmitComms.instDir = 'b';
 
-    RobotTransmitComms.instMag = 1000;
-    RobotTransmitComms.instDir = 'b';
-    
-    
-    
-    
-	
     /////////////////////////// TEST CODE END ////////////////////////////////
     
   
@@ -239,30 +192,17 @@ void main(void) {
     INTCONbits.PEIE = 1;
     RCONbits.IPEN = 1;
     INTCONbits.GIE = 1;
-    
-    
-    
-    
-    
-    
-    
 
-    
     //transmitComms(RobotTransmitComms);   
     
     /* Loop */
     while(1){
-        int test1;
+        //int test1;
  
             //Parses the UI buffer (contains interrupt info) and modifies the UIInput struct
         inputUI(UIbuffer,&UIInput);
-            
 
-        
-
-        
-        
-                (UIOutput.State)=(UIInput.stateRequest);
+        (UIOutput.State)=(UIInput.stateRequest);
         (UIOutput.max_robot_speed)=(UIInput.max_robot_speed);	//return values of all parameters
         (UIOutput.max_yaw_rate)=(UIInput.max_yaw_rate);
         (UIOutput.ir_samples)=(UIInput.ir_samples);
@@ -273,15 +213,10 @@ void main(void) {
         (UIOutput.rf_samples)=(UIInput.rf_samples);
         //end test code
         
-        
-        
-        
-        
-        
-        
-  
+        //Output UI values to user
+        outputUI(&UIOutput);
         //Receive Comms from ground (array)
-        if (receiveFlag == 1) {
+    /*    if (receiveFlag == 1) {
             
             
             //Return values from robot
@@ -305,55 +240,51 @@ void main(void) {
                 test = 0;
             }
             receiveFlag = 0;
-        }
+        }*/
         
         //State Control
-        State = stateControl(State,UIInput.stateRequest);
-        
-        if (State == USER_MANUAL_MODE) {
-            test++;
-        }
-        
-        else if (State == USER_AUTO_MODE) {
-            test++;
-        }
-        
-        
-        if (UIInput.commandInput == 'D') {
-            test++;
-        }
-        else if (UIInput.commandInput=='U') {
-            test++;
-        }
-        
-        if (RobotReceiveComms.instructionFlag == 1) {
-            test = 0;
-        }
-
-        //Generate system outputs from inputs
-        newInstruction = robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
-        //RobotReceiveComms.instructionFlag = 0;
-         
-        
-        //Output UI values to user
-        outputUI(&UIOutput);
-        
-
-        
-        
-       //Transmit Instruction to robot if new one is generated (only transmit when in the correct menu   )
-        if (newInstruction & (State != INITIALISE)) {
-            
-            //while(connection == 0){
-                //handShake();
-                //if(receiveFlag == 1){
-                //    processReceived(recBuffer,IRVals, &instructionFlag, &chirpStrength,&connection);
-                //}
-            //}
-            test++;
-            transmitComms(RobotTransmitComms);
-            newInstruction = 0;
-        }
+//        State = stateControl(State,UIInput.stateRequest);
+//        
+//        if (State == USER_MANUAL_MODE) {
+//            test++;
+//        }
+//        
+//        else if (State == USER_AUTO_MODE) {
+//            test++;
+//        }
+//        
+//        
+//        if (UIInput.commandInput == 'D') {
+//            test++;
+//        }
+//        else if (UIInput.commandInput=='U') {
+//            test++;
+//        }
+//        
+//        if (RobotReceiveComms.instructionFlag == 1) {
+//            test = 0;
+//        }
+//
+//        //Generate system outputs from inputs
+//        newInstruction = robotMove(&UIOutput,&RobotTransmitComms,&UIInput,&RobotReceiveComms,State);
+//        //RobotReceiveComms.instructionFlag = 0;
+//         
+//        
+//
+//
+//       //Transmit Instruction to robot if new one is generated (only transmit when in the correct menu   )
+//        if (newInstruction & (State != INITIALISE)) {
+//            
+//            //while(connection == 0){
+//                //handShake();
+//                //if(receiveFlag == 1){
+//                //    processReceived(recBuffer,IRVals, &instructionFlag, &chirpStrength,&connection);
+//                //}
+//            //}
+//            test++;
+//            transmitComms(RobotTransmitComms);
+//            newInstruction = 0;
+//        }
 
     }
 }
@@ -384,19 +315,17 @@ void low_interrupt(void){
         }
     }
     //INTCONbits.GIE = 1;
-
 }
 #pragma interrupt high_interrupt
 void high_interrupt(void) {
 /*Serial Receive Interrupt*/
-    if (INTCON3bits.INT2IF == 1) {
-        
-        receiveComms(recBuffer,&receiveFlag);
-        INTCON3bits.INT2IF = 0;
+//    if (INTCON3bits.INT2IF == 1) {
+//        
+//        receiveComms(recBuffer,&receiveFlag);
+//        INTCON3bits.INT2IF = 0;
+//
+//    }
 
-    }
-
-    
     // Disable Interrupts
     INTCONbits.GIE = 0;
     
@@ -410,11 +339,8 @@ void high_interrupt(void) {
 
     //Enable Interrupts
     INTCONbits.GIE = 1;
-    
 
-    
 }
-
 
 char stateControl(char State,char stateRequest) {
     return stateRequest;

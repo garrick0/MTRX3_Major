@@ -24,8 +24,6 @@ void DelayRXHalfBitUART(void);
 void DelayRXBitUART(void);
 void sendMsg(char*dataPack);
 
-
-
 /**
  * @brief Initiate the UART communications on the Commander 
  * @usage allows the 2 RF modules to communicate to each other 
@@ -74,9 +72,7 @@ void receiveComms(char* receiveBuffer,char *flag) {
 }
 /**
  * @brief send the data package from commander to robot 
- * @param magnitude
- * @param direction 
- * @usage byte 1: high instMag, 2: low instMag 3: dir
+ * @param struct containing magnitude and direction
  */
 void transmitComms(struct communicationsOutput CommsOutput) {
     char instDir = CommsOutput.instDir;
@@ -97,7 +93,7 @@ void transmitComms(struct communicationsOutput CommsOutput) {
     }
     magPack[i] = magPack[i]|store;
     WriteUART(startCh); // send the package initiator
-    Delay10TCYx(100);
+    Delay10TCYx(100); // short delay to ensure the software can keep up
     WriteUART(safety); // start the message 
     Delay10TCYx(100);
     while(k<4){
@@ -126,30 +122,14 @@ void handShake(void){
     WriteUART(endChar); // send the package that indicates the end 
     return;
 }
+
 /**
- * @brief send the data package from commander to robot 
- * @param magnitude
- * @param direction 
- * @usage byte 1: high instMag, 2: low instMag 3: dir
- */
-//void transmitComms(struct communicationsOutput) {
-//    char magPack[2];
-//    char magH,magL;
-//    magH = (communicationsOutput.instMag >> 8)&0x00FF;
-//    magL = communicationsOutput.instMag&0x00FF;
-//    WriteUART(startCh); // send the package initiator
-//    WriteUART(magH); // high and low byte of mag
-//    WriteUART(magL);
-//    WriteUART(instDir); // sends the instruction
-//    WriteUART(endChar); // send the package that indicates the end 
-//    return;
-//}
-/**
- * @brief when data is received, takes and stores it
+ * @brief when data is received, takes and stores it in respective places
  * @param buffer of stored values
  * @param IR values
  * @param instruction done flag
  * @param chirp strength
+ * @param indication that connection is sound
  */
 void processReceived(char* Buffer,char* IRVals, char* instructionFlag, char * chirpStr, char *connection) {
     char i,j=0; // type of response
